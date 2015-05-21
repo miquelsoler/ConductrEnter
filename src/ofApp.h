@@ -1,0 +1,37 @@
+#pragma once
+
+#include "ofMain.h"
+#include "ofxAppUtils.h"
+
+#include "Scene1.h"
+#include "Scene2.h"
+#include "Scene3.h"
+#include "Scene4.h"
+
+#define NUM_SCENES 4
+
+class ofApp : public ofxApp {
+
+public:
+
+    void setup();
+    void update();
+    void draw();
+
+    void keyPressed(int key);
+    void keyReleased(int key);
+    void mouseMoved(int x, int y );
+    void mouseDragged(int x, int y, int button);
+    void mousePressed(int x, int y, int button);
+    void mouseReleased(int x, int y, int button);
+    void windowResized(int w, int h);
+    void dragEvent(ofDragInfo dragInfo);
+    void gotMessage(ofMessage msg);
+
+    ofxSceneManager sceneManager;
+    Scene1 *scene1;
+    Scene2 *scene2;
+    Scene3 *scene3;
+    Scene4 *scene4;
+    int currentScene = 0;
+};
