@@ -1,8 +1,12 @@
 #include "ofApp.h"
 
+#pragma mark - Defines
+
 #define NUM_SCENES 4
 #define END_SCENE (NUM_SCENES-1)
 #define SCENE4_MAXTIME_MILLISECONDS 2000
+
+#pragma mark - Main class methods
 
 //--------------------------------------------------------------
 void ofApp::setup()
@@ -76,9 +80,9 @@ void ofApp::keyReleased(int key)
             break;
     }
 
-    // Timer for scene 4
     if (currentScene == END_SCENE)
     {
+        // Setup timer for scene 4
         scene4Timer.setup(SCENE4_MAXTIME_MILLISECONDS);
         scene4Timer.start(true);
     }
