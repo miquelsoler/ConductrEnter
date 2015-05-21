@@ -1,5 +1,9 @@
 #include "ofApp.h"
 
+#define NUM_SCENES 4
+#define END_SCENE (NUM_SCENES-1)
+#define SCENE4_MAXTIME_MILLISECONDS 2000
+
 //--------------------------------------------------------------
 void ofApp::setup()
 {
@@ -28,45 +32,61 @@ void ofApp::setup()
     //
     setSceneManager(&sceneManager);
 
+    // Timer listener for scene 4
+    ofAddListener(scene4Timer.TIMER_COMPLETE, this,&ofApp::scene4TimerCompleteHandler);
 }
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
-
+    if (currentScene == END_SCENE) scene4Timer.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-    float x = (ofGetWidth() / 2.0f) - 80.0f;
-    float y = ofGetHeight() / 2.0f;
-    ofxBitmapString(x, y)
+    ofxBitmapString(5.0f, ofGetHeight()-20.0f)
     << "SCENE INDEX: " << sceneManager.getCurrentSceneIndex() << endl
     << "SCENE NAME: " << sceneManager.getCurrentSceneName() << endl;
 }
 
+#pragma mark - Events
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
+{
+}
+
+//--------------------------------------------------------------
+void ofApp::keyReleased(int key)
 {
     switch(key)
     {
         case OF_KEY_LEFT:
             sceneManager.prevScene();
+            currentScene = (currentScene == 0) ? NUM_SCENES-1 : currentScene-1;
+            ofLog(OF_LOG_NOTICE, "Current scene: %d", currentScene);
             break;
         case OF_KEY_RIGHT:
             sceneManager.nextScene();
+            currentScene = (currentScene + 1) % NUM_SCENES;
+            ofLog(OF_LOG_NOTICE, "Current scene: %d", currentScene);
             break;
         case 'f':
             ofToggleFullscreen();
             break;
     }
-//    ofLog(OF_LOG_NOTICE, "Key pressed: %d", key);
-}
 
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
+    // Timer for scene 4
+    if (currentScene == END_SCENE)
+    {
+        scene4Timer.setup(SCENE4_MAXTIME_MILLISECONDS);
+        scene4Timer.start(true);
+    }
+    else
+    {
+        // Current scene isn't scene 4: reset timer
+        scene4Timer.reset();
+    }
 }
 
 //--------------------------------------------------------------
@@ -103,3 +123,14 @@ void ofApp::gotMessage(ofMessage msg){
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
 }
+
+#pragma mark - Timers
+
+void ofApp::scene4TimerCompleteHandler(int &args)
+{
+    ofLog(OF_LOG_NOTICE, "Timer completed. Jump to scene 1.");
+    scene4Timer.stop();
+    currentScene = 0;
+    sceneManager.gotoScene(currentScene);
+}
+

@@ -11,4 +11,6 @@
 void Scene4::setup()
 {
     ofBackground(200, 127, 0);
+
+    ofLog(OF_LOG_NOTICE, "Entered scene 4 setup");
 }

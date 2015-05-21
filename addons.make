@@ -6,3 +6,4 @@ ofxAppUtils
 ofxGlobalConfig
 ofxTableGestures
 ofxXmlSettings
+ofxSimpleTimer

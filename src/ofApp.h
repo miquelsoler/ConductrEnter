@@ -2,13 +2,12 @@
 
 #include "ofMain.h"
 #include "ofxAppUtils.h"
+#include "ofxSimpleTimer.h"
 
 #include "Scene1.h"
 #include "Scene2.h"
 #include "Scene3.h"
 #include "Scene4.h"
-
-#define NUM_SCENES 4
 
 class ofApp : public ofxApp {
 
@@ -34,4 +33,7 @@ public:
     Scene3 *scene3;
     Scene4 *scene4;
     int currentScene = 0;
+
+    ofxSimpleTimer scene4Timer;
+    void scene4TimerCompleteHandler(int &args) ;
 };
