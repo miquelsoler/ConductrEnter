@@ -10,7 +10,8 @@
 
 BaseScene::BaseScene(const string& name) : ofxFadeScene(name)
 {
-    setSingleSetup(false); // call setup each time the scene is loaded
+    setSingleSetup(false);  // call setup each time the scene is loaded
+    setFade(500, 500);    // 1 second fade in/out
 }
 
 void BaseScene::setup()

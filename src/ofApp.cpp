@@ -3,7 +3,7 @@
 #pragma mark - Defines
 
 #define NUM_SCENES 4
-#define END_SCENE (NUM_SCENES-1)
+#define LAST_SCENE (NUM_SCENES-1)
 #define SCENE4_MAXTIME_MILLISECONDS 2000
 
 #pragma mark - Main class methods
@@ -43,7 +43,7 @@ void ofApp::setup()
 //--------------------------------------------------------------
 void ofApp::update()
 {
-    if (currentScene == END_SCENE) scene4Timer.update();
+    if (currentScene == LAST_SCENE) scene4Timer.update();
 }
 
 //--------------------------------------------------------------
@@ -80,7 +80,7 @@ void ofApp::keyReleased(int key)
             break;
     }
 
-    if (currentScene == END_SCENE)
+    if (currentScene == LAST_SCENE)
     {
         // Setup timer for scene 4
         scene4Timer.setup(SCENE4_MAXTIME_MILLISECONDS);
