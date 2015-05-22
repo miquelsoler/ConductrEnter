@@ -1,10 +1,14 @@
 #include "ofMain.h"
 #include "ofApp.h"
+#include "ofAppGLFWWindow.h"
+
 
 //========================================================================
 int main( ){
-    ofSetupOpenGL(1600,450,OF_WINDOW);			// <-------- setup the GL context
+    ofAppGLFWWindow window;
+    window.setMultiDisplayFullscreen(true);
+    ofSetupOpenGL(&window, WINDOW_WIDTH, WINDOW_HEIGHT, OF_FULLSCREEN);
+//    ofSetupOpenGL(1600,450,OF_WINDOW);			// <-------- setup the GL context
 
-//	ofRunApp(new ofApp());
     ofRunAppWithAppUtils(new ofApp());
 }

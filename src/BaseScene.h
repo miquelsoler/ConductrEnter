@@ -2,7 +2,7 @@
 //  BaseScene.h
 //  ConductrEnter
 //
-//  Created by Miquel √Ängel Soler on 21/5/15.
+//  Created by Miquel Àngel Soler on 21/5/15.
 //
 //
 
@@ -34,16 +34,13 @@ public:
 
     // draw
     void draw();
+//    virtual void drawScene() = 0; // Classe és pura, no es pot instanciar i totes les subclasses han de redefinir aquest mètode
+    virtual void drawScene() {} // Classe no pura, es pot instanciar, i no cal redefinir mètode
 
     // cleanup
     void exit();
 
     ofVideoPlayer videoPlayer;
-
-protected:
-
-    void enableAlphaBlendingForFade();
-    void disableAlphaBlendingForFade();
 };
 
 #endif /* defined(__ConductrEnter__BaseScene__) */

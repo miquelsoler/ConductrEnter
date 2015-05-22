@@ -1,10 +1,6 @@
 #include "ofApp.h"
 
-#pragma mark - Defines
-
-#define NUM_SCENES 4
-#define LAST_SCENE (NUM_SCENES-1)
-#define SCENE4_MAXTIME_MILLISECONDS 2000
+const unsigned int LAST_SCENE = NUM_SCENES - 1;
 
 #pragma mark - Main class methods
 
@@ -14,11 +10,11 @@ void ofApp::setup()
     ofSetVerticalSync(true);
     ofBackground(0, 0, 0);
 
-    scene1 = (Scene1 *)sceneManager.add(new Scene1("Scene1"));
-    scene2 = (Scene2 *)sceneManager.add(new Scene2("Scene2"));
-    scene3 = (Scene3 *)sceneManager.add(new Scene3("Scene3"));
-    scene4 = (Scene4 *)sceneManager.add(new Scene4("Scene4"));
-//    sceneManager.setup(true); // true = setup all the scenes now (not on the fly)
+    sceneManager.add(new Scene1("Scene1"));
+    sceneManager.add(new Scene2("Scene2"));
+    sceneManager.add(new Scene3("Scene3"));
+    sceneManager.add(new Scene4("Scene4"));
+
     sceneManager.gotoScene(currentScene);
 
     // overlap scenes when transitioning
@@ -56,7 +52,8 @@ void ofApp::draw()
     ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 15);
 }
 
-#pragma mark - Events
+#pragma mark - Interaction events
+
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
@@ -86,7 +83,7 @@ void ofApp::keyReleased(int key)
     if (currentScene == LAST_SCENE)
     {
         // Setup timer for scene 4
-        scene4Timer.setup(SCENE4_MAXTIME_MILLISECONDS);
+        scene4Timer.setup(SCENE4_TIMER_MILLISECONDS);
         scene4Timer.start(true);
     }
     else

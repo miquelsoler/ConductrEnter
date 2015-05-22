@@ -2,7 +2,7 @@
 //  BaseScene.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 21/5/15.
+//  Created by Miquel Ëngel Soler on 21/5/15.
 //
 //
 
@@ -42,20 +42,15 @@ void BaseScene::updateExit()
 // draw
 void BaseScene::draw()
 {
+    ofEnableAlphaBlending();
+    ofSetColor(255, 255, 255, 255 * alpha);	// alpha member variable for fade in/out
+
+    drawScene();
+
+    ofDisableAlphaBlending();
 }
 
 // cleanup
 void BaseScene::exit()
 {
-}
-
-void BaseScene::enableAlphaBlendingForFade()
-{
-    ofEnableAlphaBlending();
-    ofSetColor(255, 255, 255, 255*alpha);	// alpha member variable for fade in/out
-}
-
-void BaseScene::disableAlphaBlendingForFade()
-{
-    ofDisableAlphaBlending();
 }

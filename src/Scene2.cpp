@@ -2,7 +2,7 @@
 //  Scene2.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 21/5/15.
+//  Created by Miquel Ëngel Soler on 21/5/15.
 //
 //
 
@@ -17,10 +17,8 @@ void Scene2::update()
 {
 }
 
-void Scene2::draw()
+void Scene2::drawScene()
 {
-    enableAlphaBlendingForFade();
-    disableAlphaBlendingForFade();
 }
 
 void Scene2::exit()

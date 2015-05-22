@@ -1,0 +1,23 @@
+//
+//  Settings.pch
+//  ConductrEnter
+//
+//  Created by Miquel Àngel Soler on 22/5/15.
+//
+//
+
+#ifndef ConductrEnter_Settings_pch
+#define ConductrEnter_Settings_pch
+
+// Screen settings
+
+static const unsigned int WINDOW_WIDTH                  = 1920;
+static const unsigned int WINDOW_HEIGHT                 = 1080;
+
+// Scenes
+
+static const unsigned int NUM_SCENES                    = 4;
+static const unsigned long SCENE4_TIMER_MILLISECONDS    = 2000;
+
+
+#endif

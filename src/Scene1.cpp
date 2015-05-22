@@ -2,16 +2,12 @@
 //  Scene1.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 21/5/15.
+//  Created by Miquel Ëngel Soler on 21/5/15.
 //
 //
 
 #include "Scene1.h"
 #include "of3dGraphics.h"
-
-Scene1::Scene1(const string& name) : BaseScene(name)
-{
-}
 
 void Scene1::setup()
 {
@@ -28,11 +24,9 @@ void Scene1::update()
     videoPlayer.update();
 }
 
-void Scene1::draw()
+void Scene1::drawScene()
 {
-    enableAlphaBlendingForFade();
     videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
-    disableAlphaBlendingForFade();
 }
 
 void Scene1::exit()

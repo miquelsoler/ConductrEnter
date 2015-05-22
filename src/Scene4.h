@@ -2,7 +2,7 @@
 //  Scene4.h
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 21/5/15.
+//  Created by Miquel Ëngel Soler on 21/5/15.
 //
 //
 
@@ -21,7 +21,7 @@ public:
 
     void setup();
     void update();
-    void draw();
+    virtual void drawScene();
     void exit();
 };
 

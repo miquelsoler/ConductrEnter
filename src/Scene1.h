@@ -2,7 +2,7 @@
 //  Scene1.h
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 21/5/15.
+//  Created by Miquel Ëngel Soler on 21/5/15.
 //
 //
 
@@ -19,11 +19,11 @@ class Scene1 : public BaseScene
 {
 public:
 
-    Scene1(const string& name);
+    Scene1(const string& name) : BaseScene(name) {}
 
     void setup();
     void update();
-    void draw();
+    virtual void drawScene();
     void exit();
 };
 

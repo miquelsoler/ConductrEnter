@@ -28,10 +28,6 @@ public:
     void gotMessage(ofMessage msg);
 
     ofxSceneManager sceneManager;
-    Scene1 *scene1;
-    Scene2 *scene2;
-    Scene3 *scene3;
-    Scene4 *scene4;
     int currentScene = 0;
 
     ofxSimpleTimer scene4Timer;
