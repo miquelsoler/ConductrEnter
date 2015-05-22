@@ -20,7 +20,9 @@ public:
     Scene2(const string& name) : BaseScene(name) {}
 
     void setup();
+    void update();
     void draw();
+    void exit();
 };
 
 #endif /* defined(__ConductrEnter__Scene2__) */

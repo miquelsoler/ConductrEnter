@@ -18,7 +18,7 @@ void ofApp::setup()
     scene2 = (Scene2 *)sceneManager.add(new Scene2("Scene2"));
     scene3 = (Scene3 *)sceneManager.add(new Scene3("Scene3"));
     scene4 = (Scene4 *)sceneManager.add(new Scene4("Scene4"));
-//    sceneManager.setup(true); // true = setup all the scenes now (not on the fly)
+    sceneManager.setup(true); // true = setup all the scenes now (not on the fly)
     sceneManager.gotoScene(currentScene);
 
     // overlap scenes when transitioning
@@ -52,6 +52,8 @@ void ofApp::draw()
     ofxBitmapString(5.0f, ofGetHeight()-20.0f)
     << "SCENE INDEX: " << sceneManager.getCurrentSceneIndex() << endl
     << "SCENE NAME: " << sceneManager.getCurrentSceneName() << endl;
+
+    ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 15);
 }
 
 #pragma mark - Events
@@ -67,7 +69,8 @@ void ofApp::keyReleased(int key)
     {
         case OF_KEY_LEFT:
             sceneManager.prevScene();
-            currentScene = (currentScene == 0) ? NUM_SCENES-1 : currentScene-1;
+            currentScene--;
+            if (currentScene < 0) currentScene = NUM_SCENES-1;
             ofLog(OF_LOG_NOTICE, "Current scene: %d", currentScene);
             break;
         case OF_KEY_RIGHT:
@@ -89,6 +92,7 @@ void ofApp::keyReleased(int key)
     else
     {
         // Current scene isn't scene 4: reset timer
+        scene4Timer.stop();
         scene4Timer.reset();
     }
 }

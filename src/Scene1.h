@@ -18,13 +18,13 @@
 class Scene1 : public BaseScene
 {
 public:
-    
-    Scene1(const string& name) : BaseScene(name) {}
+
+    Scene1(const string& name);
 
     void setup();
+    void update();
     void draw();
-
-    ofSpherePrimitive sphere;
+    void exit();
 };
 
 #endif /* defined(__ConductrEnter__Scene1__) */

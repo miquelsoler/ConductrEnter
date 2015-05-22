@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <ofxAppUtils.h>
+#include "ofVideoPlayer.h"
 
 class BaseScene : public ofxFadeScene
 {
@@ -37,6 +38,12 @@ public:
     // cleanup
     void exit();
 
+    ofVideoPlayer videoPlayer;
+
+protected:
+
+    void enableAlphaBlendingForFade();
+    void disableAlphaBlendingForFade();
 };
 
 #endif /* defined(__ConductrEnter__BaseScene__) */

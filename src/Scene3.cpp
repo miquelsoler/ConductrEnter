@@ -10,5 +10,18 @@
 
 void Scene3::setup()
 {
-    ofBackground(0, 0, 127);
+}
+
+void Scene3::update()
+{
+}
+
+void Scene3::draw()
+{
+    enableAlphaBlendingForFade();
+    disableAlphaBlendingForFade();
+}
+
+void Scene3::exit()
+{
 }

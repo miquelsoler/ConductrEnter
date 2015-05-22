@@ -11,7 +11,7 @@
 BaseScene::BaseScene(const string& name) : ofxFadeScene(name)
 {
     setSingleSetup(false);  // call setup each time the scene is loaded
-    setFade(500, 500);    // 1 second fade in/out
+    setFade(1000, 1000);    // 1 second fade in/out
 }
 
 void BaseScene::setup()
@@ -47,4 +47,15 @@ void BaseScene::draw()
 // cleanup
 void BaseScene::exit()
 {
+}
+
+void BaseScene::enableAlphaBlendingForFade()
+{
+    ofEnableAlphaBlending();
+    ofSetColor(255, 255, 255, 255*alpha);	// alpha member variable for fade in/out
+}
+
+void BaseScene::disableAlphaBlendingForFade()
+{
+    ofDisableAlphaBlending();
 }

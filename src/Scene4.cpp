@@ -10,7 +10,18 @@
 
 void Scene4::setup()
 {
-    ofBackground(200, 127, 0);
+}
 
-    ofLog(OF_LOG_NOTICE, "Entered scene 4 setup");
+void Scene4::update()
+{
+}
+
+void Scene4::draw()
+{
+    enableAlphaBlendingForFade();
+    disableAlphaBlendingForFade();
+}
+
+void Scene4::exit()
+{
 }
