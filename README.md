@@ -1,4 +1,4 @@
-# ConductrEnter
+# Conductr @ Enter
 
 ## Build instructions for OSX
 
