@@ -18,7 +18,7 @@ void ofApp::setup()
     scene2 = (Scene2 *)sceneManager.add(new Scene2("Scene2"));
     scene3 = (Scene3 *)sceneManager.add(new Scene3("Scene3"));
     scene4 = (Scene4 *)sceneManager.add(new Scene4("Scene4"));
-    sceneManager.setup(true); // true = setup all the scenes now (not on the fly)
+//    sceneManager.setup(true); // true = setup all the scenes now (not on the fly)
     sceneManager.gotoScene(currentScene);
 
     // overlap scenes when transitioning
