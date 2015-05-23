@@ -11,11 +11,8 @@
 
 void Scene1::setup()
 {
-    if (!videoPlayer.isLoaded())
-    {
-        ofLog(OF_LOG_NOTICE, "Not loaded");
-        videoPlayer.loadMovie("video/scene1_bg.mov");
-    }
+    if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/scene1_bg.mov");
+
     videoPlayer.play();
 }
 

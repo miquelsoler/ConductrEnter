@@ -31,7 +31,12 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
+private:
+
     // Scenes
+
+    void goToNextScene();
+    void goToPreviousScene();
 
     ofxSceneManager sceneManager;
     int currentScene = 0;

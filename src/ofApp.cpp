@@ -71,15 +71,10 @@ void ofApp::keyReleased(int key)
     switch(key)
     {
         case OF_KEY_LEFT:
-            sceneManager.prevScene();
-            currentScene--;
-            if (currentScene < 0) currentScene = NUM_SCENES-1;
-            ofLog(OF_LOG_NOTICE, "Current scene: %d", currentScene);
+            goToPreviousScene();
             break;
         case OF_KEY_RIGHT:
-            sceneManager.nextScene();
-            currentScene = (currentScene + 1) % NUM_SCENES;
-            ofLog(OF_LOG_NOTICE, "Current scene: %d", currentScene);
+            goToNextScene();
             break;
         case 'f':
             ofToggleFullscreen();
@@ -111,13 +106,12 @@ void ofApp::mouseDragged(int x, int y, int button){
 }
 
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
+void ofApp::mousePressed(int x, int y, int button) {
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    goToNextScene();
 }
 
 //--------------------------------------------------------------
@@ -145,3 +139,19 @@ void ofApp::scene4TimerCompleteHandler(int &args)
     sceneManager.gotoScene(currentScene);
 }
 
+#pragma mark - Scene management
+
+void ofApp::goToNextScene()
+{
+    sceneManager.nextScene();
+    currentScene = (currentScene + 1) % NUM_SCENES;
+    ofLog(OF_LOG_NOTICE, "Current scene: %d", currentScene);
+}
+
+void ofApp::goToPreviousScene()
+{
+    sceneManager.prevScene();
+    currentScene--;
+    if (currentScene < 0) currentScene = NUM_SCENES-1;
+    ofLog(OF_LOG_NOTICE, "Current scene: %d", currentScene);
+}
