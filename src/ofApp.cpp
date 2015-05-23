@@ -49,11 +49,13 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
+#ifdef OF_DEBUG
     ofxBitmapString(5.0f, ofGetHeight()-20.0f)
     << "SCENE INDEX: " << sceneManager.getCurrentSceneIndex() << endl
     << "SCENE NAME: " << sceneManager.getCurrentSceneName() << endl;
 
     ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 15);
+#endif
 }
 
 #pragma mark - Interaction events
