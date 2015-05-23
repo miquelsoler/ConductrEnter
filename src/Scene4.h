@@ -6,6 +6,8 @@
 //
 //
 
+#pragma once
+
 #ifndef __ConductrEnter__Scene4__
 #define __ConductrEnter__Scene4__
 
@@ -23,6 +25,8 @@ public:
     void update();
     virtual void drawScene();
     void exit();
+
+    ofCylinderPrimitive cylinder;
 };
 
 #endif /* defined(__ConductrEnter__Scene4__) */

@@ -9,6 +9,8 @@
 #ifndef __ConductrEnter__BaseScene__
 #define __ConductrEnter__BaseScene__
 
+#pragma once
+
 #include <stdio.h>
 #include <ofxAppUtils.h>
 #include "ofVideoPlayer.h"

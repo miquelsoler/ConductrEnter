@@ -6,6 +6,8 @@
 //
 //
 
+#pragma once
+
 #ifndef __ConductrEnter__Scene3__
 #define __ConductrEnter__Scene3__
 
@@ -23,6 +25,8 @@ public:
     void update();
     virtual void drawScene();
     void exit();
+
+    ofBoxPrimitive box;
 };
 
 #endif /* defined(__ConductrEnter__Scene3__) */

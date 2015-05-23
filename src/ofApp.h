@@ -13,9 +13,13 @@ class ofApp : public ofxApp {
 
 public:
 
+    // Basic
+
     void setup();
     void update();
     void draw();
+
+    // Interaction events
 
     void keyPressed(int key);
     void keyReleased(int key);
@@ -27,9 +31,11 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
+    // Scenes
+
     ofxSceneManager sceneManager;
     int currentScene = 0;
 
     ofxSimpleTimer scene4Timer;
-    void scene4TimerCompleteHandler(int &args) ;
+    void scene4TimerCompleteHandler(int &args);
 };

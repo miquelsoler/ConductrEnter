@@ -6,6 +6,8 @@
 //
 //
 
+#pragma once
+
 #ifndef __ConductrEnter__Scene1__
 #define __ConductrEnter__Scene1__
 

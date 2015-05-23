@@ -1,13 +1,17 @@
 #include "ofApp.h"
 
-const unsigned int LAST_SCENE = NUM_SCENES - 1;
+const unsigned int NUM_SCENES                   = 4;
+const unsigned int LAST_SCENE                   = NUM_SCENES - 1;
+const unsigned long SCENE4_TIMER_MILLISECONDS   = 2000;
 
 #pragma mark - Main class methods
 
 //--------------------------------------------------------------
 void ofApp::setup()
 {
+    ofSetFrameRate(60);
     ofSetVerticalSync(true);
+    
     ofBackground(0, 0, 0);
 
     sceneManager.add(new Scene1("Scene1"));
