@@ -37,6 +37,7 @@ private:
 
     void goToNextScene();
     void goToPreviousScene();
+    void manageScene4Timer();
 
     ofxSceneManager sceneManager;
     int currentScene = 0;

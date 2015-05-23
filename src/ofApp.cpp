@@ -80,19 +80,6 @@ void ofApp::keyReleased(int key)
             ofToggleFullscreen();
             break;
     }
-
-    if (currentScene == LAST_SCENE)
-    {
-        // Setup timer for scene 4
-        scene4Timer.setup(SCENE4_TIMER_MILLISECONDS);
-        scene4Timer.start(true);
-    }
-    else
-    {
-        // Current scene isn't scene 4: reset timer
-        scene4Timer.stop();
-        scene4Timer.reset();
-    }
 }
 
 //--------------------------------------------------------------
@@ -145,7 +132,10 @@ void ofApp::goToNextScene()
 {
     sceneManager.nextScene();
     currentScene = (currentScene + 1) % NUM_SCENES;
+
     ofLog(OF_LOG_NOTICE, "Current scene: %d", currentScene);
+
+    manageScene4Timer();
 }
 
 void ofApp::goToPreviousScene()
@@ -153,5 +143,24 @@ void ofApp::goToPreviousScene()
     sceneManager.prevScene();
     currentScene--;
     if (currentScene < 0) currentScene = NUM_SCENES-1;
+
     ofLog(OF_LOG_NOTICE, "Current scene: %d", currentScene);
+
+    manageScene4Timer();
+}
+
+void ofApp::manageScene4Timer()
+{
+    if (currentScene == LAST_SCENE)
+    {
+        // Setup timer for scene 4
+        scene4Timer.setup(SCENE4_TIMER_MILLISECONDS);
+        scene4Timer.start(true);
+    }
+    else
+    {
+        // Current scene isn't scene 4: reset timer
+        scene4Timer.stop();
+        scene4Timer.reset();
+    }
 }
