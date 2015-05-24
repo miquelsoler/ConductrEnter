@@ -11,13 +11,14 @@
 
 // Screen
 
-static const unsigned int WINDOW_WIDTH                  = 3840;
-static const unsigned int WINDOW_HEIGHT                 = 1080;
+static const unsigned int   WINDOW_WIDTH                = 1920;
+static const unsigned int   WINDOW_HEIGHT               = 540;
 
 // Scene management
 
-static const unsigned int FADEIN_MILLISECONDS           = 500;
-static const unsigned int FADEOUT_MILLISECONDS          = 500;
+static const unsigned int   FADEIN_MILLISECONDS         = 500;
+static const unsigned int   FADEOUT_MILLISECONDS        = 500;
+static const unsigned long  SCENE4_TIMER_MILLISECONDS   = 60000;
 
 
 #endif

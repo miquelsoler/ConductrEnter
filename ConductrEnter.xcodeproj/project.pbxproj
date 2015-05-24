@@ -17,6 +17,15 @@
 		1CFE669F69FE0A1162755BF6 /* Graphic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A32328FA036BA733F924C0E1 /* Graphic.cpp */; };
 		235F650AC06759134BAA7849 /* ofxTransformPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC2843824B062FDEF5E0C62 /* ofxTransformPanel.cpp */; };
 		28090DEB5109115003E8F1C5 /* UdpSocketWin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5928AA323F5C2690B06C837D /* UdpSocketWin.cpp */; };
+		2A074ABC1B12395B00AF2D09 /* S4BaseObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A074ABA1B12395B00AF2D09 /* S4BaseObj.cpp */; };
+		2A074ABF1B123D5700AF2D09 /* S4Object1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A074ABD1B123D5700AF2D09 /* S4Object1.cpp */; };
+		2A074AC21B12438B00AF2D09 /* S4Object2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A074AC01B12438B00AF2D09 /* S4Object2.cpp */; };
+		2A074ACF1B1244B300AF2D09 /* S4Object3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A074AC31B1244B300AF2D09 /* S4Object3.cpp */; };
+		2A074AD01B1244B300AF2D09 /* S4Object4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A074AC51B1244B300AF2D09 /* S4Object4.cpp */; };
+		2A074AD11B1244B300AF2D09 /* S4Object5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A074AC71B1244B300AF2D09 /* S4Object5.cpp */; };
+		2A074AD21B1244B300AF2D09 /* S4Object6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A074AC91B1244B300AF2D09 /* S4Object6.cpp */; };
+		2A074AD31B1244B300AF2D09 /* S4Object7.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A074ACB1B1244B300AF2D09 /* S4Object7.cpp */; };
+		2A074AD41B1244B300AF2D09 /* S4Object8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A074ACD1B1244B300AF2D09 /* S4Object8.cpp */; };
 		2C94348B3606F2B01C9F2E69 /* Simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF750ABAF3178C5BC6A8C233 /* Simulator.cpp */; };
 		38BA747C7CB7F8F8913375B6 /* ofxSimpleTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F1B28BB2551E443EFD686DD /* ofxSimpleTimer.cpp */; };
 		3C9E8F6D5A107A2CE1F7F0C3 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4AA5936821E0FA89447F332 /* Renderer.cpp */; };
@@ -156,6 +165,24 @@
 		23D3490FFD4F52374BB762A7 /* InputGestureTuio1.13D.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = InputGestureTuio1.13D.cpp; path = ../../../addons/ofxTableGestures/src/Gestures/tuio1.1/InputGestureTuio1.13D.cpp; sourceTree = SOURCE_ROOT; };
 		2834D88A62CD23F3DE2C47D1 /* ofxButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxButton.h; path = ../../../addons/ofxGui/src/ofxButton.h; sourceTree = SOURCE_ROOT; };
 		29151A7C9D6B1BC4814DEA4D /* Triangulate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Triangulate.h; path = ../../../addons/ofx2DFigures/src/Triangulate.h; sourceTree = SOURCE_ROOT; };
+		2A074ABA1B12395B00AF2D09 /* S4BaseObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = S4BaseObj.cpp; sourceTree = "<group>"; };
+		2A074ABB1B12395B00AF2D09 /* S4BaseObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S4BaseObj.h; sourceTree = "<group>"; };
+		2A074ABD1B123D5700AF2D09 /* S4Object1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = S4Object1.cpp; sourceTree = "<group>"; };
+		2A074ABE1B123D5700AF2D09 /* S4Object1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S4Object1.h; sourceTree = "<group>"; };
+		2A074AC01B12438B00AF2D09 /* S4Object2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = S4Object2.cpp; sourceTree = "<group>"; };
+		2A074AC11B12438B00AF2D09 /* S4Object2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S4Object2.h; sourceTree = "<group>"; };
+		2A074AC31B1244B300AF2D09 /* S4Object3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = S4Object3.cpp; sourceTree = "<group>"; };
+		2A074AC41B1244B300AF2D09 /* S4Object3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S4Object3.h; sourceTree = "<group>"; };
+		2A074AC51B1244B300AF2D09 /* S4Object4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = S4Object4.cpp; sourceTree = "<group>"; };
+		2A074AC61B1244B300AF2D09 /* S4Object4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S4Object4.h; sourceTree = "<group>"; };
+		2A074AC71B1244B300AF2D09 /* S4Object5.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = S4Object5.cpp; sourceTree = "<group>"; };
+		2A074AC81B1244B300AF2D09 /* S4Object5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S4Object5.h; sourceTree = "<group>"; };
+		2A074AC91B1244B300AF2D09 /* S4Object6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = S4Object6.cpp; sourceTree = "<group>"; };
+		2A074ACA1B1244B300AF2D09 /* S4Object6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S4Object6.h; sourceTree = "<group>"; };
+		2A074ACB1B1244B300AF2D09 /* S4Object7.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = S4Object7.cpp; sourceTree = "<group>"; };
+		2A074ACC1B1244B300AF2D09 /* S4Object7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S4Object7.h; sourceTree = "<group>"; };
+		2A074ACD1B1244B300AF2D09 /* S4Object8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = S4Object8.cpp; sourceTree = "<group>"; };
+		2A074ACE1B1244B300AF2D09 /* S4Object8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S4Object8.h; sourceTree = "<group>"; };
 		2A19CB89F75D6694CAEF1A9F /* Figure.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Figure.h; path = ../../../addons/ofx2DFigures/src/Figure.h; sourceTree = SOURCE_ROOT; };
 		2A22B5E46E4AF471AB80A04B /* FigureGraphic.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FigureGraphic.hpp; path = ../../../addons/ofxTableGestures/src/Core/FigureGraphic.hpp; sourceTree = SOURCE_ROOT; };
 		2A5B1FAD3F30C8065C396ACB /* NetworkingUtilsWin.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = NetworkingUtilsWin.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/win32/NetworkingUtilsWin.cpp; sourceTree = SOURCE_ROOT; };
@@ -415,6 +442,31 @@
 				D49ABAC1DAB34DEB59977C9D /* ofxSimpleTimer.h */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		2A074AB91B12394400AF2D09 /* Scene 4 */ = {
+			isa = PBXGroup;
+			children = (
+				2A074ABA1B12395B00AF2D09 /* S4BaseObj.cpp */,
+				2A074ABB1B12395B00AF2D09 /* S4BaseObj.h */,
+				2A074ABD1B123D5700AF2D09 /* S4Object1.cpp */,
+				2A074ABE1B123D5700AF2D09 /* S4Object1.h */,
+				2A074AC01B12438B00AF2D09 /* S4Object2.cpp */,
+				2A074AC11B12438B00AF2D09 /* S4Object2.h */,
+				2A074AC31B1244B300AF2D09 /* S4Object3.cpp */,
+				2A074AC41B1244B300AF2D09 /* S4Object3.h */,
+				2A074AC51B1244B300AF2D09 /* S4Object4.cpp */,
+				2A074AC61B1244B300AF2D09 /* S4Object4.h */,
+				2A074AC71B1244B300AF2D09 /* S4Object5.cpp */,
+				2A074AC81B1244B300AF2D09 /* S4Object5.h */,
+				2A074AC91B1244B300AF2D09 /* S4Object6.cpp */,
+				2A074ACA1B1244B300AF2D09 /* S4Object6.h */,
+				2A074ACB1B1244B300AF2D09 /* S4Object7.cpp */,
+				2A074ACC1B1244B300AF2D09 /* S4Object7.h */,
+				2A074ACD1B1244B300AF2D09 /* S4Object8.cpp */,
+				2A074ACE1B1244B300AF2D09 /* S4Object8.h */,
+			);
+			path = "Scene 4";
 			sourceTree = "<group>";
 		};
 		2AEF45741B0FA4FD001BA9AB /* Settings */ = {
@@ -804,6 +856,7 @@
 				87481F5F15160962A4B1A08C /* Scene3.h */,
 				B69D12AE447E59B5028CA92C /* Scene4.cpp */,
 				C1BF705BE421DA43FF92DA11 /* Scene4.h */,
+				2A074AB91B12394400AF2D09 /* Scene 4 */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -987,6 +1040,7 @@
 				87EB70D1D65B5E4B1CAA7474 /* BaseScene.cpp in Sources */,
 				8B20F260496B9778A04E554C /* Scene1.cpp in Sources */,
 				7678521FC5030110E7FE9166 /* Scene2.cpp in Sources */,
+				2A074ABF1B123D5700AF2D09 /* S4Object1.cpp in Sources */,
 				196DEC90F7E0BBFC0278BBA5 /* Scene3.cpp in Sources */,
 				029EA0563968F099A7E3592F /* Scene4.cpp in Sources */,
 				4E322024174AFB49A3BEA152 /* model3DS.cpp in Sources */,
@@ -1007,8 +1061,10 @@
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
 				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
+				2A074AD41B1244B300AF2D09 /* S4Object8.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
 				A29D8C96AE042ECEAA1BD4F3 /* NetworkingUtilsWin.cpp in Sources */,
+				2A074ACF1B1244B300AF2D09 /* S4Object3.cpp in Sources */,
 				28090DEB5109115003E8F1C5 /* UdpSocketWin.cpp in Sources */,
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
 				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
@@ -1016,11 +1072,14 @@
 				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
 				159BD30F49FD4EE736C2CBA8 /* BoundingBox.cpp in Sources */,
 				7273D0E2B6812DF0D3615EB7 /* CollisionHelper.cpp in Sources */,
+				2A074AD01B1244B300AF2D09 /* S4Object4.cpp in Sources */,
 				60FFF1312C8E43A42AEC3B9F /* Figure.cpp in Sources */,
 				15D5705AAA6229C82A0A8907 /* Polygon.cpp in Sources */,
 				9A7CEE40B7B0F187058630D1 /* Triangulate.cpp in Sources */,
 				E82EBA1255FE3AC639FCA904 /* ofxApp.cpp in Sources */,
+				2A074AD11B1244B300AF2D09 /* S4Object5.cpp in Sources */,
 				57178B2F9865D0F7A2408D49 /* ofxParticle.cpp in Sources */,
+				2A074ABC1B12395B00AF2D09 /* S4BaseObj.cpp in Sources */,
 				D8C70DB2BC6120D71EBF23DC /* ofxQuadWarper.cpp in Sources */,
 				7F587E2192AA95C424BF91AB /* ofxScene.cpp in Sources */,
 				EAC9F547A30B052D9752D4CC /* ofxSceneManager.cpp in Sources */,
@@ -1042,10 +1101,13 @@
 				126CA6E983CCA43AB925B629 /* Grid.cpp in Sources */,
 				3C9E8F6D5A107A2CE1F7F0C3 /* Renderer.cpp in Sources */,
 				9D362AAB25E3E34F0E1F1ED8 /* Renderer_plane.cpp in Sources */,
+				2A074AC21B12438B00AF2D09 /* S4Object2.cpp in Sources */,
+				2A074AD21B1244B300AF2D09 /* S4Object6.cpp in Sources */,
 				D51FB91DD6E12AA6AA3D7CC8 /* Renderer_to_texture.cpp in Sources */,
 				A4C32C6B309DA9A9245C31F9 /* container.cpp in Sources */,
 				869FD5546F8C30C60A30AB43 /* Shapes.cpp in Sources */,
 				2C94348B3606F2B01C9F2E69 /* Simulator.cpp in Sources */,
+				2A074AD31B1244B300AF2D09 /* S4Object7.cpp in Sources */,
 				63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */,
 				933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */,
 				9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */,

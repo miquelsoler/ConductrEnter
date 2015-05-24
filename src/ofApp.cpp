@@ -2,7 +2,6 @@
 
 const unsigned int NUM_SCENES                   = 4;
 const unsigned int LAST_SCENE                   = NUM_SCENES - 1;
-const unsigned long SCENE4_TIMER_MILLISECONDS   = 2000;
 
 #pragma mark - Main class methods
 
@@ -11,7 +10,7 @@ void ofApp::setup()
 {
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
-    
+
     ofBackground(0, 0, 0);
 
     sceneManager.add(new Scene1("Scene1"));
@@ -153,13 +152,13 @@ void ofApp::manageScene4Timer()
 {
     if (currentScene == LAST_SCENE)
     {
-        // Setup timer for scene 4
+        // Scene is #4, init timer for it
         scene4Timer.setup(SCENE4_TIMER_MILLISECONDS);
         scene4Timer.start(true);
     }
     else
     {
-        // Current scene isn't scene 4: reset timer
+        // Scene isn't #4, reset its timer
         scene4Timer.stop();
         scene4Timer.reset();
     }
