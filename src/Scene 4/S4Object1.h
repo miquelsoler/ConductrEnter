@@ -13,6 +13,7 @@
 
 #include <stdio.h>
 #include "S4BaseObj.h"
+#include "of3dGraphics.h"
 
 class S4Object1 : public S4BaseObj
 {
@@ -21,6 +22,11 @@ public:
     virtual void setup();
     virtual void update();
     virtual void draw();
+
+private:
+
+    ofSpherePrimitive sphere;
+    float initialRotation;
 };
 
 #endif /* defined(__ConductrEnter__S4Object1__) */

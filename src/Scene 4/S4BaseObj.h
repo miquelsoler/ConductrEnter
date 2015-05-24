@@ -25,11 +25,12 @@ public:
 
     virtual void setup() = 0;
     virtual void update() = 0;
-    void draw(); // For testing purposes. This method must be pure virtual.
+    virtual void draw() = 0;
 
 protected:
 
     ofEasyCam camera;
+    ofRectangle viewRectangle;
     float viewOriginX, viewWidth;
 };
 
