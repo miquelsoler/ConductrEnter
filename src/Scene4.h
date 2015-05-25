@@ -33,14 +33,6 @@ private:
 
     vector<S4BaseObj*> objects;
     unsigned int num_objects;
-
-//    void updateFbo1();
-//    void updateFbo2();
-//
-//    ofFbo fbo1;
-//    ofCylinderPrimitive fbo1Cylinder;
-//    ofFbo fbo2;
-//    ofCylinderPrimitive fbo2Cylinder;
 };
 
 #endif /* defined(__ConductrEnter__Scene4__) */

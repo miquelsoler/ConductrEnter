@@ -38,19 +38,4 @@ private:
     ofxJSONElement json;
 };
 
-/*
- class Stopwords {
- public:
- static Stopwords &getInstance() {
- static Stopwords instance;
- return instance;
- }
-
- ~Stopwords();
- std::map<std::string,short> getMap();
-
- private:
- Stopwords();
- std::map<std::string,short> diccionario;
- }; */
 #endif /* defined(__ConductrEnter__SettingsManager__) */
