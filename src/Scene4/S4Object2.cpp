@@ -23,7 +23,7 @@ void S4Object2::setup()
     // Camera settings
 
     camera.setTarget(ofPoint(0,0,0));
-    camera.setDistance(6);
+    camera.setDistance(18);
 }
 
 void S4Object2::update()
@@ -55,18 +55,18 @@ void S4Object2::draw()
 
 void S4Object2::computeMesh()
 {
-    placementResolution.set("Resolution",  60,  3,  400);
-    placementSize.set("Placement Size",  2,  0.1,  10);
-    placementNoiseSpaceFrequency.set("Placement Space Freq",   1.0f,  0.0001f,  3.0f);
+    placementResolution.set("Resolution",  21,  3,  400);
+    placementSize.set("Placement Size",  3.466f,  0.1,  10);
+    placementNoiseSpaceFrequency.set("Placement Space Freq",   0.79f,  0.0001f,  3.0f);
     placementBottomThreshold.set("Placement Bottom Threshold",  0,  0,  1);
 
 
-    stalkRadius.set("Tendril Radius",  0.1f,  0.0001f,  1.0f);
-    stalkHeight.set("Tendril Height",  1.0f,  0.0001f,  10.0f);
-    swayingMaxAngle.set("Swaying Max Angle",  20.0,  0.0f,  180.0f);
-    swayingTimeScale.set("Swaying Time Scale",  1.0f,  0.0001f,  3.0f);
-    swayingNoiseSpaceFrequency.set("Swaying Noise Space Freq",  0.1f,  0.0001f,  5.0f);
-    swayingTimeMaxDifference.set("Swaying Time Max Diff",  1.0f,  0.0001f,  5.0f);
+    stalkRadius.set("Tendril Radius",  0.276f,  0.0001f,  1.0f);
+    stalkHeight.set("Tendril Height",  8.2f,  0.0001f,  10.0f);
+    swayingMaxAngle.set("Swaying Max Angle",  19.8f,  0.0f,  180.0f);
+    swayingTimeScale.set("Swaying Time Scale",  2.0f,  0.0001f,  3.0f);
+    swayingNoiseSpaceFrequency.set("Swaying Noise Space Freq",  0.33f,  0.0001f,  5.0f);
+    swayingTimeMaxDifference.set("Swaying Time Max Diff",  2.0f,  0.0001f,  5.0f);
 
     ofMesh srcMesh = ofMesh::sphere( placementSize, placementResolution, OF_PRIMITIVE_TRIANGLES );
     // Todo: swap in other meshes
