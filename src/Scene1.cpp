@@ -14,6 +14,7 @@ void Scene1::setup()
     if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/scene1_bg.mov");
 
     videoPlayer.play();
+    videoPlayer.setVolume(0);
 }
 
 void Scene1::update()

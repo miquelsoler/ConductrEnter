@@ -8,15 +8,16 @@
 
 #include "BaseScene.h"
 
+#include "SettingsManager.h"
+
 BaseScene::BaseScene(const string& name) : ofxFadeScene(name)
 {
     setSingleSetup(false);  // call setup each time the scene is loaded
-    setFade(FADEIN_MILLISECONDS, FADEOUT_MILLISECONDS);    // 1 second fade in/out
+    setFade(SettingsManager::getInstance().fade_in_milliseconds, SettingsManager::getInstance().fade_out_milliseconds);
 }
 
 void BaseScene::setup()
 {
-
 }
 
 // called when scene is entering, this is just a demo and this

@@ -7,3 +7,4 @@ ofxGlobalConfig
 ofxTableGestures
 ofxXmlSettings
 ofxSimpleTimer
+ofxJSON

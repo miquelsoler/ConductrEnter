@@ -1,17 +1,35 @@
 #include "ofApp.h"
 
-const unsigned int NUM_SCENES                   = 4;
-const unsigned int LAST_SCENE                   = NUM_SCENES - 1;
+#include "SettingsManager.h"
+
+const unsigned int NUM_SCENES = 4;
+const unsigned int LAST_SCENE = NUM_SCENES - 1;
 
 #pragma mark - Main class methods
 
 //--------------------------------------------------------------
 void ofApp::setup()
 {
+    // Load settings
+
+    bool parserResult = SettingsManager::getInstance().loadSettings();
+    if (!parserResult)
+    {
+        ofLog(OF_LOG_ERROR, "BAD FORMAT IN settings.json. Now quitting...");
+        std::exit(EXIT_FAILURE);
+    }
+
+    ofSetWindowShape(SettingsManager::getInstance().window_width, SettingsManager::getInstance().window_height);
+//    ofToggleFullscreen();
+
+    // App settings
+
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
 
     ofBackground(0, 0, 0);
+
+    // Scenes
 
     sceneManager.add(new Scene1("Scene1"));
     sceneManager.add(new Scene2("Scene2"));
@@ -153,7 +171,7 @@ void ofApp::manageScene4Timer()
     if (currentScene == LAST_SCENE)
     {
         // Scene is #4, init timer for it
-        scene4Timer.setup(SCENE4_TIMER_MILLISECONDS);
+        scene4Timer.setup(SettingsManager::getInstance().scene4_timer_milliseconds);
         scene4Timer.start(true);
     }
     else
