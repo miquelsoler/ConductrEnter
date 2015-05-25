@@ -14,6 +14,8 @@ const std::string filename = "settings.json";
 
 bool SettingsManager::loadSettings()
 {
+    // JSON parse
+
     cout << "PARSING JSON SETTINGS:" << endl;
     bool parsingSuccessful = json.open(filename);
     cout << "Result: " << parsingSuccessful << endl;

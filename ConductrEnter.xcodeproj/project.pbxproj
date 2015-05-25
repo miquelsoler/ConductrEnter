@@ -18,7 +18,6 @@
 		235F650AC06759134BAA7849 /* ofxTransformPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC2843824B062FDEF5E0C62 /* ofxTransformPanel.cpp */; };
 		28090DEB5109115003E8F1C5 /* UdpSocketWin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5928AA323F5C2690B06C837D /* UdpSocketWin.cpp */; };
 		2C94348B3606F2B01C9F2E69 /* Simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF750ABAF3178C5BC6A8C233 /* Simulator.cpp */; };
-		2D5025EE2A73CD114EA851B1 /* S4Object7.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64CAB9831EA199F3DFC72A85 /* S4Object7.cpp */; };
 		38BA747C7CB7F8F8913375B6 /* ofxSimpleTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F1B28BB2551E443EFD686DD /* ofxSimpleTimer.cpp */; };
 		3C9E8F6D5A107A2CE1F7F0C3 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4AA5936821E0FA89447F332 /* Renderer.cpp */; };
 		3D0DF2F309333ED4EDCFF162 /* InputGestureDirectObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0108916C6862A60132AD5AF5 /* InputGestureDirectObjects.cpp */; };
@@ -76,7 +75,6 @@
 		C50AD4E9686C55B9EED84B1B /* InputGestureBasicObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78DCE1762BCE6B4BC2EF37D2 /* InputGestureBasicObjects.cpp */; };
 		C63C099FF30954289EFF2BE6 /* TableApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A97DF505F2CB4A32E1635164 /* TableApp.cpp */; };
 		C67004F81675B7540E5B63CB /* S4Object6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E660E7BB4F550E877AF0121 /* S4Object6.cpp */; };
-		C7BF5B666BF35A791861697D /* S4Object8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4F8779248997DEDD651BF4B /* S4Object8.cpp */; };
 		C940DDF83B40734D3609B976 /* InputGestureTuio1.12D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FAFBA9AC6937404D6AB9725 /* InputGestureTuio1.12D.cpp */; };
 		D51FB91DD6E12AA6AA3D7CC8 /* Renderer_to_texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B800A9F1B143B5E460647E56 /* Renderer_to_texture.cpp */; };
 		D853639A69186CA4DCB7904C /* S4BaseObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CF11583415566E759CAF421 /* S4BaseObj.cpp */; };
@@ -179,7 +177,6 @@
 		2A5B1FAD3F30C8065C396ACB /* NetworkingUtilsWin.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = NetworkingUtilsWin.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/win32/NetworkingUtilsWin.cpp; sourceTree = SOURCE_ROOT; };
 		2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxml.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = SOURCE_ROOT; };
 		2C7CF000B7B4F782C187C353 /* json.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = json.h; path = ../../../addons/ofxJSON/libs/jsoncpp/include/json/json.h; sourceTree = SOURCE_ROOT; };
-		2CEB7F58E5AD2EE13FBAE124 /* S4Object7.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = S4Object7.h; path = src/Scene4/S4Object7.h; sourceTree = SOURCE_ROOT; };
 		2F1B28BB2551E443EFD686DD /* ofxSimpleTimer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleTimer.cpp; path = ../../../addons/ofxSimpleTimer/src/ofxSimpleTimer.cpp; sourceTree = SOURCE_ROOT; };
 		2FD4B0329909D3527F003494 /* UdpSocket.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UdpSocket.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/UdpSocket.h; sourceTree = SOURCE_ROOT; };
 		363791FEE17D93D172D536AB /* InputGestureBasicFingers.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = InputGestureBasicFingers.hpp; path = ../../../addons/ofxTableGestures/src/Gestures/Gestures/InputGestureBasicFingers.hpp; sourceTree = SOURCE_ROOT; };
@@ -214,7 +211,6 @@
 		63730F5F8A1ABA6F5DB78E7B /* ofxQuadWarper.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxQuadWarper.cpp; path = ../../../addons/ofxAppUtils/src/ofxQuadWarper.cpp; sourceTree = SOURCE_ROOT; };
 		63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscOutboundPacketStream.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp; sourceTree = SOURCE_ROOT; };
 		6424D7FE8D3E44C16198231B /* S4Object2.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = S4Object2.h; path = src/Scene4/S4Object2.h; sourceTree = SOURCE_ROOT; };
-		64CAB9831EA199F3DFC72A85 /* S4Object7.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S4Object7.cpp; path = src/Scene4/S4Object7.cpp; sourceTree = SOURCE_ROOT; };
 		654312303DCC69B59603CFA1 /* matrix_funcs.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = matrix_funcs.h; path = ../../../addons/ofxAppUtils/src/matrix_funcs.h; sourceTree = SOURCE_ROOT; };
 		65A6A1C8B54AA68A7BA2D362 /* Alarm.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Alarm.hpp; path = ../../../addons/ofxTableGestures/src/Utils/Alarm.hpp; sourceTree = SOURCE_ROOT; };
 		65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscBundle.cpp; path = ../../../addons/ofxOsc/src/ofxOscBundle.cpp; sourceTree = SOURCE_ROOT; };
@@ -254,7 +250,6 @@
 		9291D2064C1C605B3174B775 /* TapFeedback.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TapFeedback.hpp; path = ../../../addons/ofxTableGestures/src/Feedback/TapFeedback.hpp; sourceTree = SOURCE_ROOT; };
 		92F6D932823C90595EBD0DE2 /* S4Object3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S4Object3.cpp; path = src/Scene4/S4Object3.cpp; sourceTree = SOURCE_ROOT; };
 		9604B925D32EE39065747725 /* ofxBaseGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxBaseGui.cpp; path = ../../../addons/ofxGui/src/ofxBaseGui.cpp; sourceTree = SOURCE_ROOT; };
-		9913BE864A365D8F870665BA /* S4Object8.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = S4Object8.h; path = src/Scene4/S4Object8.h; sourceTree = SOURCE_ROOT; };
 		9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscReceivedElements.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.cpp; sourceTree = SOURCE_ROOT; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
 		9FD7EF13ABFC16A95A71E04D /* Graphic.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Graphic.hpp; path = ../../../addons/ofxTableGestures/src/Core/Graphic.hpp; sourceTree = SOURCE_ROOT; };
@@ -348,7 +343,6 @@
 		F2B099E6BD1199664C48B177 /* ofxJSONElement.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxJSONElement.cpp; path = ../../../addons/ofxJSON/src/ofxJSONElement.cpp; sourceTree = SOURCE_ROOT; };
 		F398369B4CDBCC42B3F6D6B9 /* Scene2.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Scene2.h; path = src/Scene2.h; sourceTree = SOURCE_ROOT; };
 		F4F5B6B8BA2BD52C646ED908 /* OscException.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscException.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscException.h; sourceTree = SOURCE_ROOT; };
-		F4F8779248997DEDD651BF4B /* S4Object8.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S4Object8.cpp; path = src/Scene4/S4Object8.cpp; sourceTree = SOURCE_ROOT; };
 		F6B285D45A468A8E0EF2E8C1 /* Renderer_plane.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Renderer_plane.cpp; path = ../../../addons/ofxTableGestures/src/Render/Renderer_plane.cpp; sourceTree = SOURCE_ROOT; };
 		F7FBC56859535E597B24BB91 /* NetworkingUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = NetworkingUtils.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/NetworkingUtils.h; sourceTree = SOURCE_ROOT; };
 		FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlparser.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = SOURCE_ROOT; };
@@ -536,10 +530,6 @@
 				A38888FCD87522E79E5C90B3 /* S4Object5.h */,
 				6E660E7BB4F550E877AF0121 /* S4Object6.cpp */,
 				D99ADEDA913FC5FCCB1DA1BD /* S4Object6.h */,
-				64CAB9831EA199F3DFC72A85 /* S4Object7.cpp */,
-				2CEB7F58E5AD2EE13FBAE124 /* S4Object7.h */,
-				F4F8779248997DEDD651BF4B /* S4Object8.cpp */,
-				9913BE864A365D8F870665BA /* S4Object8.h */,
 			);
 			name = Scene4;
 			sourceTree = "<group>";
@@ -1121,8 +1111,6 @@
 				A5AC806D0DB7BEADB6230B78 /* S4Object4.cpp in Sources */,
 				802268F3108BA6E4F39A2915 /* S4Object5.cpp in Sources */,
 				C67004F81675B7540E5B63CB /* S4Object6.cpp in Sources */,
-				2D5025EE2A73CD114EA851B1 /* S4Object7.cpp in Sources */,
-				C7BF5B666BF35A791861697D /* S4Object8.cpp in Sources */,
 				029EA0563968F099A7E3592F /* Scene4.cpp in Sources */,
 				52326D4E367670D8DC7ED47A /* SettingsManager.cpp in Sources */,
 				4E322024174AFB49A3BEA152 /* model3DS.cpp in Sources */,
@@ -1372,7 +1360,7 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
 				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = OF_DEBUG;
 				ICON = "$(ICON_NAME_DEBUG)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";

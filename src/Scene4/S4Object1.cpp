@@ -17,7 +17,7 @@ void S4Object1::setup()
 
     camera.setPosition(spherePosX, spherePosY, 0);
     camera.setTarget(sphere);
-    camera.setDistance(250);
+    camera.setDistance(220);
 
     initialRotation = ofRandom(60);
 }
@@ -40,4 +40,8 @@ void S4Object1::draw()
     ofSetColor(255);
 
     camera.end();
+
+#ifdef OF_DEBUG
+    displaySettings();
+#endif
 }

@@ -14,6 +14,7 @@
 #include <stdio.h>
 
 #include "ofEasyCam.h"
+#include "ofMain.h"
 
 class S4BaseObj
 {
@@ -26,6 +27,8 @@ public:
     virtual void setup() = 0;
     virtual void update() = 0;
     virtual void draw() = 0;
+
+    void displaySettings();
 
 protected:
 

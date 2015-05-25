@@ -2,6 +2,12 @@
 
 #include "SettingsManager.h"
 
+#include "Scene1.h"
+#include "Scene2.h"
+#include "Scene3.h"
+#include "Scene4.h"
+
+
 const unsigned int NUM_SCENES = 4;
 const unsigned int LAST_SCENE = NUM_SCENES - 1;
 
@@ -20,7 +26,6 @@ void ofApp::setup()
     }
 
     ofSetWindowShape(SettingsManager::getInstance().window_width, SettingsManager::getInstance().window_height);
-//    ofToggleFullscreen();
 
     // App settings
 
@@ -110,17 +115,31 @@ void ofApp::mouseDragged(int x, int y, int button){
 }
 
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button) {
+void ofApp::mousePressed(int x, int y, int button)
+{
+    switch (button) {
+        case OF_MOUSE_BUTTON_LEFT:
+            goToNextScene();
+            break;
+        default:
+            break;
+    }
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-    goToNextScene();
+void ofApp::mouseReleased(int x, int y, int button)
+{
 }
 
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
+void ofApp::windowResized(int w, int h)
+{
+    int numScenes = sceneManager.getNumScenes();
+    for (int i=0; i<numScenes; i++)
+    {
+        BaseScene *scene = (BaseScene *)(sceneManager.getSceneAt(i));
+        scene->setup();
+    }
 }
 
 //--------------------------------------------------------------
