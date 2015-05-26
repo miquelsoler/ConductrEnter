@@ -41,6 +41,8 @@ private:
     ofParameter<float>		swayingTimeScale;
     ofParameter<float>		swayingNoiseSpaceFrequency;
     ofParameter<float>		swayingTimeMaxDifference;
+
+    bool isGLSetup = false;
 };
 
 #endif /* defined(__ConductrEnter__S4Object2__) */

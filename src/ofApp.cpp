@@ -25,7 +25,8 @@ void ofApp::setup()
         std::exit(EXIT_FAILURE);
     }
 
-    ofSetWindowShape(SettingsManager::getInstance().window_width, SettingsManager::getInstance().window_height);
+//    ofSetWindowShape(SettingsManager::getInstance().window_width, SettingsManager::getInstance().window_height);
+//    ofToggleFullscreen();
 
     // App settings
 

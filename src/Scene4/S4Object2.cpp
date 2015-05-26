@@ -10,20 +10,26 @@
 
 void S4Object2::setup()
 {
-    // Shader and mesh setup
+    if (!isGLSetup)
+    {
+        // Shader and mesh setup
 
-    // We need to set a few extra params for the geometry shader, in this order.
-    grassShader.setGeometryInputType(GL_LINES);
-    grassShader.setGeometryOutputType( GL_TRIANGLES );
-    grassShader.setGeometryOutputCount( 3 * 6 * 6  ); // GTX 970 has a limit of 128 vertices output per shader limiting us to 3 * 6 * 6, investigate..
-    grassShader.load("Shaders/Tendrils/GL2/Tendrils.vert", "Shaders/Tendrils/GL2/Tendrils.frag", "Shaders/Tendrils/GL2/Tendrils.geom");
+        // We need to set a few extra params for the geometry shader, in this order.
+        grassShader.setGeometryInputType(GL_LINES);
+        grassShader.setGeometryOutputType( GL_TRIANGLES );
+        grassShader.setGeometryOutputCount( 3 * 6 * 6  ); // GTX 970 has a limit of 128 vertices output per shader limiting us to 3 * 6 * 6, investigate..
+        grassShader.load("Shaders/Tendrils/GL2/Tendrils.vert", "Shaders/Tendrils/GL2/Tendrils.frag", "Shaders/Tendrils/GL2/Tendrils.geom");
 
-    computeMesh();
+        computeMesh();
+        isGLSetup = true;
+    }
 
     // Camera settings
 
+    camera.setPosition( 0, 0.5, 10.0 );
     camera.setTarget(ofPoint(0,0,0));
-    camera.setDistance(18);
+    camera.setDistance(30);
+    camera.setNearClip(0.01f);
 }
 
 void S4Object2::update()
@@ -55,18 +61,29 @@ void S4Object2::draw()
 
 void S4Object2::computeMesh()
 {
-    placementResolution.set("Resolution",  21,  3,  400);
-    placementSize.set("Placement Size",  3.466f,  0.1,  10);
-    placementNoiseSpaceFrequency.set("Placement Space Freq",   0.79f,  0.0001f,  3.0f);
-    placementBottomThreshold.set("Placement Bottom Threshold",  0,  0,  1);
+    cout << "computeMesh" << endl;
+    placementResolution = 21;
+    placementSize = 3.466f;
+    placementNoiseSpaceFrequency = 0.510083f;
+    placementBottomThreshold = 0;
 
+    stalkRadius = 0.276739f;
+    stalkHeight = 8.20002f;
+    swayingMaxAngle = 19.8f;
+    swayingTimeScale = 2.06003f;
+    swayingNoiseSpaceFrequency = 0.333427f;
+    swayingTimeMaxDifference = 2.03339f;
+//    placementResolution.set("Resolution",  21,  3,  400);
+//    placementSize.set("Placement Size",  3.466f,  0.1,  10);
+//    placementNoiseSpaceFrequency.set("Placement Space Freq",   0.79f,  0.0001f,  3.0f);
+//    placementBottomThreshold.set("Placement Bottom Threshold",  0,  0,  1);
 
-    stalkRadius.set("Tendril Radius",  0.276f,  0.0001f,  1.0f);
-    stalkHeight.set("Tendril Height",  8.2f,  0.0001f,  10.0f);
-    swayingMaxAngle.set("Swaying Max Angle",  19.8f,  0.0f,  180.0f);
-    swayingTimeScale.set("Swaying Time Scale",  2.0f,  0.0001f,  3.0f);
-    swayingNoiseSpaceFrequency.set("Swaying Noise Space Freq",  0.33f,  0.0001f,  5.0f);
-    swayingTimeMaxDifference.set("Swaying Time Max Diff",  2.0f,  0.0001f,  5.0f);
+//    stalkRadius.set("Tendril Radius",  0.276f,  0.0001f,  1.0f);
+//    stalkHeight.set("Tendril Height",  8.2f,  0.0001f,  10.0f);
+//    swayingMaxAngle.set("Swaying Max Angle",  19.8f,  0.0f,  180.0f);
+//    swayingTimeScale.set("Swaying Time Scale",  2.0f,  0.0001f,  3.0f);
+//    swayingNoiseSpaceFrequency.set("Swaying Noise Space Freq",  0.33f,  0.0001f,  5.0f);
+//    swayingTimeMaxDifference.set("Swaying Time Max Diff",  2.0f,  0.0001f,  5.0f);
 
     ofMesh srcMesh = ofMesh::sphere( placementSize, placementResolution, OF_PRIMITIVE_TRIANGLES );
     // Todo: swap in other meshes

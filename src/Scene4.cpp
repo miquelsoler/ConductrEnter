@@ -19,18 +19,12 @@
 
 Scene4::Scene4(const string& name) : BaseScene(name)
 {
-    objects.push_back(new S4Object1());
     objects.push_back(new S4Object2());
-    objects.push_back(new S4Object1());
-    objects.push_back(new S4Object1());
-    objects.push_back(new S4Object1());
-    objects.push_back(new S4Object1());
-//    objects.push_back(new S4Object3());
-//    objects.push_back(new S4Object4());
-//    objects.push_back(new S4Object5());
-//    objects.push_back(new S4Object6());
-//    objects.push_back(new S4Object7());
-//    objects.push_back(new S4Object8());
+    objects.push_back(new S4Object2());
+    objects.push_back(new S4Object2());
+    objects.push_back(new S4Object2());
+    objects.push_back(new S4Object2());
+    objects.push_back(new S4Object2());
 
     num_objects = objects.size();
 
