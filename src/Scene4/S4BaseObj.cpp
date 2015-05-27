@@ -33,6 +33,11 @@ void S4BaseObj::initialize(float _viewOriginX, float _viewWidth, string _setting
 #endif
 }
 
+float S4BaseObj::getViewOriginX()
+{
+    return viewOriginX;
+}
+
 void S4BaseObj::drawLoop()
 {
     ofSetLineWidth(2);

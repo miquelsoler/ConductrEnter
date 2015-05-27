@@ -13,6 +13,7 @@
 
 #include <stdio.h>
 #include <ofxAppUtils.h>
+#include "ofxOsc.h"
 #include "BaseScene.h"
 #include "S4BaseObj.h"
 
@@ -32,13 +33,20 @@ public:
 private:
 
     // Touch (currently mouse) events
+    /**/ // OSC
     virtual void mouseMoved(int x, int y);
     virtual void mouseDragged(int x, int y, int button);
     virtual void mousePressed(int x, int y, int button);
     virtual void mouseReleased(int x, int y, int button);
 
+    /**/ // OSC
+    int getObjectIndexAtPosition(int x, int y);
+    ofxOscSender oscSender;
+    vector<bool> objectIsPlaying;
+
     vector<S4BaseObj*> objects;
     unsigned int num_objects;
+    float viewWidth;
 };
 
 #endif /* defined(__ConductrEnter__Scene4__) */
