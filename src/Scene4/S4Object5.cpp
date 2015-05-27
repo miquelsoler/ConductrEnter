@@ -2,7 +2,7 @@
 //  S4Object5.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 24/5/15.
+//  Created by Miquel Ëngel Soler on 24/5/15.
 //
 //
 
@@ -17,5 +17,9 @@ void S4Object5::update()
 }
 
 void S4Object5::draw()
+{
+}
+
+void S4Object5::loadSettings()
 {
 }

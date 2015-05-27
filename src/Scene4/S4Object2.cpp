@@ -2,7 +2,7 @@
 //  S4Object2.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 24/5/15.
+//  Created by Miquel Ëngel Soler on 24/5/15.
 //
 //
 
@@ -30,10 +30,17 @@ void S4Object2::setup()
     camera.setTarget(ofPoint(0,0,0));
     camera.setDistance(30);
     camera.setNearClip(0.01f);
+
+    // Loop arc settings
+    loopRadius = 30;
 }
 
 void S4Object2::update()
 {
+#ifdef OF_DEBUG
+    // Update object parameters from XML
+    camera.setDistance(camDistance);
+#endif
 }
 
 void S4Object2::draw()
@@ -44,6 +51,7 @@ void S4Object2::draw()
 
     camera.begin(viewRectangle);
 
+    drawLoop();
     drawTendrils( &camera );
 
     camera.end();
@@ -53,7 +61,7 @@ void S4Object2::draw()
     ofSetColor( ofColor::white );
 
 #ifdef OF_DEBUG
-    displaySettings();
+    gui.draw();
 #endif
 }
 
@@ -61,7 +69,6 @@ void S4Object2::draw()
 
 void S4Object2::computeMesh()
 {
-    cout << "computeMesh" << endl;
     placementResolution = 21;
     placementSize = 3.466f;
     placementNoiseSpaceFrequency = 0.510083f;
@@ -73,17 +80,6 @@ void S4Object2::computeMesh()
     swayingTimeScale = 2.06003f;
     swayingNoiseSpaceFrequency = 0.333427f;
     swayingTimeMaxDifference = 2.03339f;
-//    placementResolution.set("Resolution",  21,  3,  400);
-//    placementSize.set("Placement Size",  3.466f,  0.1,  10);
-//    placementNoiseSpaceFrequency.set("Placement Space Freq",   0.79f,  0.0001f,  3.0f);
-//    placementBottomThreshold.set("Placement Bottom Threshold",  0,  0,  1);
-
-//    stalkRadius.set("Tendril Radius",  0.276f,  0.0001f,  1.0f);
-//    stalkHeight.set("Tendril Height",  8.2f,  0.0001f,  10.0f);
-//    swayingMaxAngle.set("Swaying Max Angle",  19.8f,  0.0f,  180.0f);
-//    swayingTimeScale.set("Swaying Time Scale",  2.0f,  0.0001f,  3.0f);
-//    swayingNoiseSpaceFrequency.set("Swaying Noise Space Freq",  0.33f,  0.0001f,  5.0f);
-//    swayingTimeMaxDifference.set("Swaying Time Max Diff",  2.0f,  0.0001f,  5.0f);
 
     ofMesh srcMesh = ofMesh::sphere( placementSize, placementResolution, OF_PRIMITIVE_TRIANGLES );
     // Todo: swap in other meshes
@@ -144,4 +140,13 @@ void S4Object2::drawTendrils( ofCamera* _camera )
     grassMesh.draw();
     
     grassShader.end();
+}
+
+void S4Object2::loadSettings()
+{
+    gui.setup("Settings");
+    gui.add(camDistance.set("Camera_Distance", 0, 0, 200));
+    gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
+
+    gui.loadFromFile(settingsPath);
 }

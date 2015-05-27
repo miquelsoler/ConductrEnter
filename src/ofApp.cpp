@@ -60,6 +60,7 @@ void ofApp::setup()
     setSceneManager(&sceneManager);
 
     // Timer listener for scene 4
+    manageScene4Timer();
     ofAddListener(scene4Timer.TIMER_COMPLETE, this,&ofApp::scene4TimerCompleteHandler);
 }
 
@@ -119,8 +120,8 @@ void ofApp::mouseDragged(int x, int y, int button){
 void ofApp::mousePressed(int x, int y, int button)
 {
     switch (button) {
-        case OF_MOUSE_BUTTON_LEFT:
-            goToNextScene();
+//        case OF_MOUSE_BUTTON_LEFT:
+//            goToNextScene();
             break;
         default:
             break;
@@ -169,10 +170,6 @@ void ofApp::goToNextScene()
 {
     sceneManager.nextScene();
     currentScene = (currentScene + 1) % NUM_SCENES;
-
-    ofLog(OF_LOG_NOTICE, "Current scene: %d", currentScene);
-
-    manageScene4Timer();
 }
 
 void ofApp::goToPreviousScene()
@@ -180,8 +177,6 @@ void ofApp::goToPreviousScene()
     sceneManager.prevScene();
     currentScene--;
     if (currentScene < 0) currentScene = NUM_SCENES-1;
-
-    ofLog(OF_LOG_NOTICE, "Current scene: %d", currentScene);
 
     manageScene4Timer();
 }

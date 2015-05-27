@@ -2,7 +2,7 @@
 //  S4Object3.h
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 24/5/15.
+//  Created by Miquel Ëngel Soler on 24/5/15.
 //
 //
 
@@ -21,6 +21,16 @@ public:
     virtual void setup();
     virtual void update();
     virtual void draw();
+
+    virtual void loadSettings();
+
+private:
+
+    // Loop arc
+    ofPolyline loopArc;
+    float loopRadius;
+    float loopTimePerCycle;
+    unsigned int loopFrequency;
 };
 
 #endif /* defined(__ConductrEnter__S4Object3__) */

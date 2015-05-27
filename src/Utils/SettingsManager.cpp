@@ -10,15 +10,14 @@
 
 #include "ofLog.h"
 
-const std::string filename = "settings.json";
+const std::string FILENAME = "settings/settings.json";
 
 bool SettingsManager::loadSettings()
 {
     // JSON parse
 
-    cout << "PARSING JSON SETTINGS:" << endl;
-    bool parsingSuccessful = json.open(filename);
-    cout << "Result: " << parsingSuccessful << endl;
+    bool parsingSuccessful = json.open(FILENAME);
+    cout << "PARSING RESULT: " << parsingSuccessful << endl;
 
     // Screen
     window_width = json["Screen"]["Window Width"].asUInt();

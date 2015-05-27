@@ -19,15 +19,27 @@
 
 Scene4::Scene4(const string& name) : BaseScene(name)
 {
+    objects.push_back(new S4Object1());
     objects.push_back(new S4Object2());
-    objects.push_back(new S4Object2());
-    objects.push_back(new S4Object2());
-    objects.push_back(new S4Object2());
-    objects.push_back(new S4Object2());
-    objects.push_back(new S4Object2());
+    objects.push_back(new S4Object1());
+    objects.push_back(new S4Object1());
+    objects.push_back(new S4Object1());
+    objects.push_back(new S4Object1());
 
     num_objects = objects.size();
 
+    // Initialize viewport and parameters for every object
+
+    const float viewWidth = ofGetWidth() / num_objects;
+    float viewOrigin;
+
+    for (int i=0; i<num_objects; ++i)
+    {
+        ostringstream settingsPath;
+        settingsPath << "settings/scene4/obj" << i+1 << ".xml";
+        viewOrigin = i * viewWidth;
+        objects[i]->initialize(viewOrigin, viewWidth, settingsPath.str());
+    }
 }
 
 Scene4::~Scene4()
@@ -40,19 +52,6 @@ Scene4::~Scene4()
 
 void Scene4::setup()
 {
-    cout << "Called setup for scene 4" << endl;
-    // Init viewport settings for every object
-
-    const float viewWidth = ofGetWidth() / num_objects;
-    float viewOrigin;
-    for (int i=0; i<num_objects; ++i)
-    {
-        viewOrigin = i * viewWidth;
-        objects[i]->initialize(viewOrigin, viewWidth);
-    }
-
-    // Setup every object
-    
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->setup();
 }
