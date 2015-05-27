@@ -32,3 +32,21 @@ void Scene1::exit()
     videoPlayer.stop();
     videoPlayer.firstFrame();
 }
+
+#pragma mark - Touch events
+
+void Scene1::mouseMoved(int x, int y)
+{
+}
+
+void Scene1::mouseDragged(int x, int y, int button)
+{
+}
+
+void Scene1::mousePressed(int x, int y, int button)
+{
+}
+
+void Scene1::mouseReleased(int x, int y, int button)
+{
+}

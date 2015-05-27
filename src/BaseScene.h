@@ -27,20 +27,24 @@ public:
     // implementation is not required for this class
     void updateEnter();
 
-    // normal update
     void update();
 
     // called when scene is exiting, this is just a demo and this
     // implementation is not required for this class
     void updateExit();
 
-    // draw
     void draw();
 //    virtual void drawScene() = 0; // Classe és pura, no es pot instanciar i totes les subclasses han de redefinir aquest mètode
     virtual void drawScene() {} // Classe no pura, es pot instanciar, i no cal redefinir mètode
 
     // cleanup
     void exit();
+
+    // Touch (currently mouse) events
+    virtual void mouseMoved(int x, int y) = 0;
+    virtual void mouseDragged(int x, int y, int button) = 0;
+    virtual void mousePressed(int x, int y, int button) = 0;
+    virtual void mouseReleased(int x, int y, int button) = 0;
 
     ofVideoPlayer videoPlayer;
 };

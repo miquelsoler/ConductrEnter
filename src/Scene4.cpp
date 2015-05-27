@@ -71,3 +71,25 @@ void Scene4::drawScene()
 void Scene4::exit()
 {
 }
+
+#pragma mark - Touch events
+
+void Scene4::mouseMoved(int x, int y)
+{
+    cout << "Mouse moved for scene 4" << endl;
+}
+
+void Scene4::mouseDragged(int x, int y, int button)
+{
+    cout << "Mouse dragged for scene 4" << endl;
+}
+
+void Scene4::mousePressed(int x, int y, int button)
+{
+    cout << "Mouse pressed for scene 4" << endl;
+}
+
+void Scene4::mouseReleased(int x, int y, int button)
+{
+    cout << "Mouse released for scene 4" << endl;
+}

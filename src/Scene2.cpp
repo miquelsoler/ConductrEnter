@@ -43,3 +43,21 @@ void Scene2::drawScene()
 void Scene2::exit()
 {
 }
+
+#pragma mark - Touch events
+
+void Scene2::mouseMoved(int x, int y)
+{
+}
+
+void Scene2::mouseDragged(int x, int y, int button)
+{
+}
+
+void Scene2::mousePressed(int x, int y, int button)
+{
+}
+
+void Scene2::mouseReleased(int x, int y, int button)
+{
+}

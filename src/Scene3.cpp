@@ -42,3 +42,21 @@ void Scene3::drawScene()
 void Scene3::exit()
 {
 }
+
+#pragma mark - Touch events
+
+void Scene3::mouseMoved(int x, int y)
+{
+}
+
+void Scene3::mouseDragged(int x, int y, int button)
+{
+}
+
+void Scene3::mousePressed(int x, int y, int button)
+{
+}
+
+void Scene3::mouseReleased(int x, int y, int button)
+{
+}

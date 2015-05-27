@@ -10,37 +10,34 @@
 
 #include "SettingsManager.h"
 
+#pragma mark - Initialization
+
 BaseScene::BaseScene(const string& name) : ofxFadeScene(name)
 {
     setSingleSetup(false);  // call setup each time the scene is loaded
     setFade(SettingsManager::getInstance().fade_in_milliseconds, SettingsManager::getInstance().fade_out_milliseconds);
 }
 
+#pragma mark - OF basic calls
+
 void BaseScene::setup()
 {
 }
 
-// called when scene is entering, this is just a demo and this
-// implementation is not required for this class
 void BaseScene::updateEnter()
 {
     ofxFadeScene::updateEnter();
 }
 
-// normal update
 void BaseScene::update()
 {
-
 }
 
-// called when scene is exiting, this is just a demo and this
-// implementation is not required for this class
 void BaseScene::updateExit()
 {
     ofxFadeScene::updateExit();
 }
 
-// draw
 void BaseScene::draw()
 {
     ofEnableAlphaBlending();
@@ -51,7 +48,6 @@ void BaseScene::draw()
     ofDisableAlphaBlending();
 }
 
-// cleanup
 void BaseScene::exit()
 {
 }
