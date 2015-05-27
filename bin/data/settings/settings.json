@@ -6,6 +6,6 @@
     "Scenes": {
         "FadeIn Milliseconds": 500,
         "FadeOut Milliseconds": 500,
-        "Scene4 Timer Milliseconds": 60000
+        "Scene4 Timer Milliseconds": 6000000
     }
 }

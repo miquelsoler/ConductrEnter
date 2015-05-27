@@ -19,7 +19,8 @@ void S4Object1::setup()
     camera.setTarget(sphere);
     camera.setDistance(camDistance);
 
-    initialRotation = ofRandom(60);
+    initialRotation = ofRandom(360);
+    updateRotation();
 }
 
 void S4Object1::update()
@@ -29,11 +30,7 @@ void S4Object1::update()
     camera.setDistance(camDistance);
 #endif
 
-    float spinX = sin(initialRotation + ofGetElapsedTimef()*.35f);
-    float spinY = cos(initialRotation + ofGetElapsedTimef()*.075f);
-
-    sphere.rotate(spinX, 1.0, 0.0, 0.0);
-    sphere.rotate(spinY, 0.0, 1.0, 0.0);
+    if (isAnimated) updateRotation();
 }
 
 void S4Object1::draw()
@@ -62,4 +59,13 @@ void S4Object1::loadSettings()
     gui.add(loopAngle.set("Loop_Angle", 0, 0, 720));
 
     gui.loadFromFile(settingsPath);
+}
+
+void S4Object1::updateRotation()
+{
+    float spinX = sin(initialRotation + ofGetElapsedTimef()*.35f);
+    float spinY = cos(initialRotation + ofGetElapsedTimef()*.075f);
+
+    sphere.rotate(spinX, 1.0, 0.0, 0.0);
+    sphere.rotate(spinY, 0.0, 1.0, 0.0);
 }

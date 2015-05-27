@@ -38,6 +38,12 @@ float S4BaseObj::getViewOriginX()
     return viewOriginX;
 }
 
+void S4BaseObj::setAnimated(bool animate)
+{
+    isAnimated = animate;
+}
+
+
 void S4BaseObj::drawLoop()
 {
     ofSetLineWidth(2);

@@ -51,7 +51,7 @@ Scene4::Scene4(const string& name) : BaseScene(name)
     for (int i=0; i<num_objects; i++)
     {
         // Stop all playing clips, just in case (for demo purposes)
-        objectIsPlaying.push_back(false);
+        objectTrackIsPlaying.push_back(false);
         ofxOscMessage m;
         m.setAddress("/live/stop/clip");
         m.addIntArg(i);
@@ -104,24 +104,23 @@ void Scene4::mouseDragged(int x, int y, int button)
 
 void Scene4::mousePressed(int x, int y, int button)
 {
-    int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-    if (pressedObjectIndex != -1)
-    {
+    if (button == OF_MOUSE_BUTTON_RIGHT) {
+        int pressedObjectIndex = getObjectIndexAtPosition(x, y);
+
         int track = pressedObjectIndex;
 
         ofxOscMessage m;
-        string address = !(objectIsPlaying[pressedObjectIndex]) ? "/live/play/clip" : "/live/stop/clip";
+        string address = !(objectTrackIsPlaying[pressedObjectIndex]) ? "/live/play/clip" : "/live/stop/clip";
         m.setAddress(address);
         // Session view -> col number (track)
         m.addIntArg(track);
         // Session view -> row number (clip)
         m.addIntArg(ABLETON_CLIP);
         oscSender.sendMessage(m);
-        objectIsPlaying[pressedObjectIndex] = !objectIsPlaying[pressedObjectIndex];
+        objectTrackIsPlaying[pressedObjectIndex] = !objectTrackIsPlaying[pressedObjectIndex];
 
-        cout << "Play track " << pressedObjectIndex << " - clip " << ABLETON_CLIP << endl;
+        objects[pressedObjectIndex]->setAnimated(objectTrackIsPlaying[pressedObjectIndex]);
     }
-//    cout << "Mouse pressed for scene 4" << endl;
 }
 
 void Scene4::mouseReleased(int x, int y, int button)
@@ -133,18 +132,5 @@ void Scene4::mouseReleased(int x, int y, int button)
 
 int Scene4::getObjectIndexAtPosition(int x, int y)
 {
-    int result = -1;
-
-    bool found = false;
-    float objOriginX;
-    for (int i=0; i<num_objects; i++ && !found)
-    {
-        objOriginX = objects[i]->getViewOriginX();
-        if (x>=objOriginX && x<objOriginX+viewWidth) {
-            result = i;
-            found = true;
-        }
-    }
-
-    return result;
+    return floor(x/viewWidth);
 }

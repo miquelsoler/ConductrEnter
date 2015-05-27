@@ -31,6 +31,7 @@ public:
     virtual void draw() = 0;
 
     float getViewOriginX();
+    void setAnimated(bool animate);
 
 protected:
 
@@ -45,6 +46,7 @@ protected:
     // Object parameters
     ofPoint objPosition;
     ofParameter<int> camDistance;
+    bool isAnimated = 0;
 
     // Loop arc
     ofPolyline loopArc;
@@ -58,11 +60,6 @@ protected:
     string settingsPath;
     ofTrueTypeFont guiFont;
     bool drawGui = false;
-
-
-/*
-    ofParameter<float> loopRadius;
-*/
 };
 
 #endif /* defined(__ConductrEnter__S4BaseObj__) */

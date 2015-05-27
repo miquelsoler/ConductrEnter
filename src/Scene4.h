@@ -42,7 +42,7 @@ private:
     /**/ // OSC
     int getObjectIndexAtPosition(int x, int y);
     ofxOscSender oscSender;
-    vector<bool> objectIsPlaying;
+    vector<bool> objectTrackIsPlaying;
 
     vector<S4BaseObj*> objects;
     unsigned int num_objects;

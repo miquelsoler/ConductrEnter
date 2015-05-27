@@ -27,6 +27,8 @@ public:
 
 private:
 
+    void updateRotation();
+
     ofSpherePrimitive sphere;
     float initialRotation;
 };
