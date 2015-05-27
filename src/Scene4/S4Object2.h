@@ -26,25 +26,7 @@ public:
     virtual void loadSettings();
 
 private:
-    void computeMesh();
-    void drawTendrils(ofCamera* _camera);
 
-    ofVboMesh				grassMesh;
-    ofShader				grassShader;
-
-    ofParameter<int>		placementResolution;
-    ofParameter<float>		placementSize;
-    ofParameter<float>		placementNoiseSpaceFrequency;
-    ofParameter<float>		placementBottomThreshold;
-
-    ofParameter<float>		stalkRadius;
-    ofParameter<float>		stalkHeight;
-    ofParameter<float>		swayingMaxAngle;
-    ofParameter<float>		swayingTimeScale;
-    ofParameter<float>		swayingNoiseSpaceFrequency;
-    ofParameter<float>		swayingTimeMaxDifference;
-
-    bool isGLSetup = false;
 };
 
 #endif /* defined(__ConductrEnter__S4Object2__) */

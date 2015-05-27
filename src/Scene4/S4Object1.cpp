@@ -40,6 +40,7 @@ void S4Object1::draw()
 {
     camera.begin(viewRectangle);
 
+    ofSetLineWidth(1);
     ofSetColor(127,255,127);
     sphere.drawWireframe();
     ofSetColor(255);
@@ -58,6 +59,7 @@ void S4Object1::loadSettings()
     gui.setup("Settings");
     gui.add(camDistance.set("Camera_Distance", 0, 0, 300));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
+    gui.add(loopAngle.set("Loop_Angle", 0, 0, 720));
 
     gui.loadFromFile(settingsPath);
 }

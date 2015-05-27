@@ -23,6 +23,9 @@ public:
     virtual void draw();
 
     virtual void loadSettings();
+
+private:
+    
 };
 
 #endif /* defined(__ConductrEnter__S4Object4__) */

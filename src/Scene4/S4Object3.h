@@ -25,12 +25,7 @@ public:
     virtual void loadSettings();
 
 private:
-
-    // Loop arc
-    ofPolyline loopArc;
-    float loopRadius;
-    float loopTimePerCycle;
-    unsigned int loopFrequency;
+    
 };
 
 #endif /* defined(__ConductrEnter__S4Object3__) */

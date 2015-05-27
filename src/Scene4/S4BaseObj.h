@@ -42,11 +42,12 @@ protected:
 
     // Object parameters
     ofPoint objPosition;
-    ofParameter<float> camDistance;
+    ofParameter<int> camDistance;
 
     // Loop arc
     ofPolyline loopArc;
-    ofParameter<float> loopRadius;
+    ofParameter<int> loopRadius;
+    ofParameter<int> loopAngle;
     float loopTimePerCycle;
     unsigned int loopFrequency;
 
