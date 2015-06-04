@@ -8,18 +8,24 @@
 
 #include "S3Object5.h"
 
-void S4Object5::setup()
+S3Object5::S3Object5(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
+    S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
+{
+    loadSettings();
+}
+
+void S3Object5::setup()
 {
 }
 
-void S4Object5::update()
+void S3Object5::update()
 {
 }
 
-void S4Object5::draw()
+void S3Object5::draw()
 {
 }
 
-void S4Object5::loadSettings()
+void S3Object5::loadSettings()
 {
 }

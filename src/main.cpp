@@ -2,8 +2,8 @@
 #include "ofApp.h"
 #include "ofAppGLFWWindow.h"
 
-static const unsigned int   DEFAULT_WINDOW_WIDTH        = 1920;
-static const unsigned int   DEFAULT_WINDOW_HEIGHT       = 540;
+static const unsigned int   DEFAULT_WINDOW_WIDTH        = 1280;
+static const unsigned int   DEFAULT_WINDOW_HEIGHT       = 720;
 
 //========================================================================
 int main( )

@@ -22,9 +22,11 @@ void Scene1::update()
     videoPlayer.update();
 }
 
-void Scene1::drawScene()
+void Scene1::draw()
 {
+    BaseScene::drawPre();
     videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
+    BaseScene::drawPost();
 }
 
 void Scene1::exit()

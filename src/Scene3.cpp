@@ -17,33 +17,25 @@
 
 #include "SettingsManager.h"
 
-#define ABLETON_CLIP 4
+const unsigned int NUM_OBJECTS = 6;
+const unsigned int ABLETON_CLIP = 4;
 
 #pragma mark - Object creation
 
 Scene3::Scene3(const string& name) : BaseScene(name)
 {
-    cout << "SCENE 4 constructor" << endl;
-    objects.push_back(new S3Object1());
-    objects.push_back(new S3Object1());
-    objects.push_back(new S3Object1());
-    objects.push_back(new S3Object1());
-    objects.push_back(new S3Object1());
-    objects.push_back(new S3Object1());
-
-    num_objects = objects.size();
-
-    // Initialize viewport and parameters for every object
-
+    num_objects = NUM_OBJECTS;
     viewWidth = ofGetWidth() / num_objects;
+
     float viewOrigin;
 
-    for (int i=0; i<num_objects; ++i)
+    for (int i=0; i<NUM_OBJECTS; i++)
     {
         ostringstream settingsPath;
         settingsPath << "settings/scene4/obj" << i+1 << ".xml";
         viewOrigin = i * viewWidth;
-        objects[i]->initialize(viewOrigin, viewWidth, settingsPath.str());
+        S3Object1 *object = new S3Object1(num_objects, i, viewOrigin, viewWidth, settingsPath.str());
+        objects.push_back(object);
     }
 
     // Initialitze OSC
@@ -85,14 +77,23 @@ void Scene3::update()
         objects[i]->update();
 }
 
-void Scene3::drawScene()
+void Scene3::draw()
 {
+    BaseScene::drawPre();
+
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->draw();
+
+    BaseScene::drawPost();
 }
 
 void Scene3::exit()
 {
+}
+
+void Scene3::windowResized(ofResizeEventArgs &args)
+{
+    cout << "Scene 3 resized" << endl;
 }
 
 #pragma mark - Touch events

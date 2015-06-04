@@ -8,6 +8,12 @@
 
 #include "S3Object4.h"
 
+S3Object4::S3Object4(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
+    S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
+{
+    loadSettings();
+}
+
 void S3Object4::setup()
 {
 }

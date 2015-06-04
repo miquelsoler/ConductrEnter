@@ -17,14 +17,13 @@
 class S3Object2 : public S3BaseObj
 {
 public:
+    S3Object2(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
     virtual void update();
     virtual void draw();
 
     virtual void loadSettings();
-
-//    virtual void setY(float newY) {};
 
 private:
 

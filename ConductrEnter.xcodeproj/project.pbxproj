@@ -23,6 +23,7 @@
 		2A0A5F231B208C2700100045 /* S3Object5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A0A5F1A1B208B3100100045 /* S3Object5.cpp */; };
 		2A0A5F241B208C2700100045 /* S3Object6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A0A5F1C1B208B3100100045 /* S3Object6.cpp */; };
 		2A0A5F271B208EE200100045 /* Scene3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A0A5F251B208EE200100045 /* Scene3.cpp */; };
+		2A0A5F2A1B20ADCF00100045 /* BaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A0A5F281B20ADCF00100045 /* BaseObject.cpp */; };
 		2C94348B3606F2B01C9F2E69 /* Simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF750ABAF3178C5BC6A8C233 /* Simulator.cpp */; };
 		38BA747C7CB7F8F8913375B6 /* ofxSimpleTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F1B28BB2551E443EFD686DD /* ofxSimpleTimer.cpp */; };
 		3C9E8F6D5A107A2CE1F7F0C3 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4AA5936821E0FA89447F332 /* Renderer.cpp */; };
@@ -185,6 +186,8 @@
 		2A0A5F1D1B208B3100100045 /* S3Object6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S3Object6.h; sourceTree = "<group>"; };
 		2A0A5F251B208EE200100045 /* Scene3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene3.cpp; sourceTree = "<group>"; };
 		2A0A5F261B208EE200100045 /* Scene3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene3.h; sourceTree = "<group>"; };
+		2A0A5F281B20ADCF00100045 /* BaseObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseObject.cpp; sourceTree = "<group>"; };
+		2A0A5F291B20ADCF00100045 /* BaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObject.h; sourceTree = "<group>"; };
 		2A19CB89F75D6694CAEF1A9F /* Figure.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Figure.h; path = ../../../addons/ofx2DFigures/src/Figure.h; sourceTree = SOURCE_ROOT; };
 		2A22B5E46E4AF471AB80A04B /* FigureGraphic.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FigureGraphic.hpp; path = ../../../addons/ofxTableGestures/src/Core/FigureGraphic.hpp; sourceTree = SOURCE_ROOT; };
 		2A4B43FF1B12A634008C9D42 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = bin/data; sourceTree = "<group>"; };
@@ -905,6 +908,8 @@
 				F398369B4CDBCC42B3F6D6B9 /* Scene2.h */,
 				2A0A5F251B208EE200100045 /* Scene3.cpp */,
 				2A0A5F261B208EE200100045 /* Scene3.h */,
+				2A0A5F281B20ADCF00100045 /* BaseObject.cpp */,
+				2A0A5F291B20ADCF00100045 /* BaseObject.h */,
 				2A0A5F0F1B208B3100100045 /* Scene3 */,
 				85C7093CD15404193A7664FD /* Utils */,
 			);
@@ -1150,6 +1155,7 @@
 				747CDFD75B4FD9BC2E4CA5B7 /* CursorFeedback.cpp in Sources */,
 				BDFF77F87E6FA9941F7897BD /* FigureFeedback.cpp in Sources */,
 				DA2ABD165C5B66A7C2B600D0 /* InputGestureBasicFingers.cpp in Sources */,
+				2A0A5F2A1B20ADCF00100045 /* BaseObject.cpp in Sources */,
 				C50AD4E9686C55B9EED84B1B /* InputGestureBasicObjects.cpp in Sources */,
 				417FB61DAA2B1DD2218C556F /* InputGestureDirectFingers.cpp in Sources */,
 				3D0DF2F309333ED4EDCFF162 /* InputGestureDirectObjects.cpp in Sources */,

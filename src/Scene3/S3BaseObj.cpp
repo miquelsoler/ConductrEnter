@@ -15,29 +15,17 @@ const int AXIS_LENGTH = 6;
 
 #pragma mark - Initialization
 
-void S3BaseObj::initialize(float _viewOriginX, float _viewWidth, string _settingsPath)
+S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath)  : BaseObject(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
-    viewOriginX = _viewOriginX;
-    viewWidth = _viewWidth;
-    viewHalfWidth = viewWidth / 2.0f;
-    viewHalfHeight = ofGetHeight() / 2.0f;
-    viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, ofGetHeight());
-    objPosition = ofPoint(viewOriginX + viewHalfWidth, viewHalfHeight);
-
     camera.disableMouseInput();
 
     settingsPath = _settingsPath;
-    loadSettings();
+//    loadSettings(); // NURIA
 
 #ifdef OF_DEBUG
     drawGui = true;
     gui.setPosition(viewOriginX, 50);
 #endif
-}
-
-float S3BaseObj::getViewOriginX()
-{
-    return viewOriginX;
 }
 
 void S3BaseObj::setAnimated(bool animate)

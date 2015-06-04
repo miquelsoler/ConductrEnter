@@ -8,6 +8,12 @@
 
 #include "S3Object1.h"
 
+S3Object1::S3Object1(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
+    S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
+{
+    loadSettings();
+}
+
 void S3Object1::setup()
 {
     sphere.setRadius(viewWidth * .12);
@@ -61,6 +67,9 @@ void S3Object1::setY(float newY)
 
 void S3Object1::loadSettings()
 {
+    if (settingsPath.empty()) return;
+
+    gui.setPosition(ofPoint(viewOriginX, 0));
     gui.setup("Settings");
     gui.add(camDistance.set("Camera_Distance", 0, 0, 300));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));

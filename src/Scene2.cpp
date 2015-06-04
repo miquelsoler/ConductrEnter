@@ -26,8 +26,10 @@ void Scene2::update()
     
 }
 
-void Scene2::drawScene()
+void Scene2::draw()
 {
+    BaseScene::drawPre();
+
     // Draw sphere wireframe
 
     ofNoFill();
@@ -37,6 +39,8 @@ void Scene2::drawScene()
     // Back to default color
 
     ofSetColor(255);
+
+    BaseScene::drawPost();
 }
 
 void Scene2::exit()

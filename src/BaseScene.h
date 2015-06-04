@@ -34,8 +34,6 @@ public:
     void updateExit();
 
     void draw();
-//    virtual void drawScene() = 0; // Classe és pura, no es pot instanciar i totes les subclasses han de redefinir aquest mètode
-    virtual void drawScene() {} // Classe no pura, es pot instanciar, i no cal redefinir mètode
 
     // cleanup
     void exit();
@@ -46,10 +44,11 @@ public:
     virtual void mousePressed(int x, int y, int button) = 0;
     virtual void mouseReleased(int x, int y, int button) = 0;
 
-    // Listener method to detect window changes
-    virtual void windowResized(ofResizeEventArgs &args) {}
-
     ofVideoPlayer videoPlayer;
+
+protected:
+    void drawPre();
+    void drawPost();
 };
 
 #endif /* defined(__ConductrEnter__BaseScene__) */

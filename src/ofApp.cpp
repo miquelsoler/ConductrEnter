@@ -24,8 +24,6 @@ void ofApp::setup()
     sceneManager.add(new Scene1("Scene1"));
     sceneManager.add(new Scene2("Scene2"));
     sceneManager.add(new Scene3("Scene3"));
-//    sceneManager.add(new Scene4("Scene4"));
-
 
     sceneManager.gotoScene(currentScene);
 

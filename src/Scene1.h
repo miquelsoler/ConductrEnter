@@ -25,7 +25,7 @@ public:
 
     void setup();
     void update();
-    virtual void drawScene();
+    void draw();
     void exit();
 
 private:

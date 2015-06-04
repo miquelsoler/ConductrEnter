@@ -13,25 +13,23 @@
 
 #include <stdio.h>
 
+#include "BaseObject.h"
 #include "ofEasyCam.h"
 #include "ofMain.h"
 #include "ofxGui.h"
 #include "ofTrueTypeFont.h"
 
-class S3BaseObj
+class S3BaseObj : public BaseObject
 {
 public:
-
-    S3BaseObj() {}
-
-    void initialize(float _viewOriginX, float _viewWidth, string _settingsPath);
+    S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
+    virtual ~S3BaseObj() {}
 
     virtual void setup() = 0;
     virtual void update() = 0;
     virtual void draw() = 0;
 
-    virtual void setY(float newY) = 0; // Nœria
-    float getViewOriginX();
+    virtual void setY(float newY) = 0;
     void setAnimated(bool animate);
 
 protected:
@@ -41,12 +39,9 @@ protected:
     
     // Camera & viewport
     ofEasyCam camera;
-    ofRectangle viewRectangle;
-    float viewOriginX, viewWidth, viewHalfWidth, viewHalfHeight;
     ofParameter<int> camDistance;
 
     // Object parameters
-    ofPoint objPosition;
     bool isAnimated = 0;
 
     // Loop arc

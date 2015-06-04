@@ -27,8 +27,11 @@ public:
 
     void setup();
     void update();
-    virtual void drawScene();
+    void draw();
     void exit();
+
+    // Listener method to detect window changes
+    virtual void windowResized(ofResizeEventArgs &args);
 
 private:
 
