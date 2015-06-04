@@ -35,7 +35,7 @@ private:
     void manageScene4Timer();
 
     ofxSceneManager sceneManager;
-    int currentScene = 3;
+    int currentScene = 2;
 
     ofxSimpleTimer scene4Timer;
     void scene4TimerCompleteHandler(int &args);

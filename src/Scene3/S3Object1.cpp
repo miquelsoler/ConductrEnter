@@ -1,18 +1,18 @@
 //
-//  S4Object1.cpp
+//  S3Object1.cpp
 //  ConductrEnter
 //
 //  Created by Miquel Ëngel Soler on 24/5/15.
 //
 //
 
-#include "S4Object1.h"
+#include "S3Object1.h"
 
-void S4Object1::setup()
+void S3Object1::setup()
 {
-    float spherePosX = viewOriginX + viewHalfWidth;
-    float spherePosY = viewHalfHeight;
     sphere.setRadius(viewWidth * .12);
+    objPosition.x = viewOriginX + viewHalfWidth;
+    objPosition.y = viewHalfHeight;
     sphere.setPosition(objPosition);
 
     camera.setPosition(objPosition);
@@ -23,7 +23,7 @@ void S4Object1::setup()
     updateRotation();
 }
 
-void S4Object1::update()
+void S3Object1::update()
 {
 #ifdef OF_DEBUG
     // Update object parameters from XML
@@ -33,7 +33,7 @@ void S4Object1::update()
     if (isAnimated) updateRotation();
 }
 
-void S4Object1::draw()
+void S3Object1::draw()
 {
     camera.begin(viewRectangle);
 
@@ -52,14 +52,14 @@ void S4Object1::draw()
 }
 
 /**/ // OSC
-void S4Object1::setY(float newY)
+void S3Object1::setY(float newY)
 {
     float spherePosX = viewOriginX + viewHalfWidth;
     objPosition.set(spherePosX, newY);
     sphere.setPosition(objPosition);
 }
 
-void S4Object1::loadSettings()
+void S3Object1::loadSettings()
 {
     gui.setup("Settings");
     gui.add(camDistance.set("Camera_Distance", 0, 0, 300));
@@ -69,7 +69,7 @@ void S4Object1::loadSettings()
     gui.loadFromFile(settingsPath);
 }
 
-void S4Object1::updateRotation()
+void S3Object1::updateRotation()
 {
     float spinX = sin(initialRotation + ofGetElapsedTimef()*.35f);
     float spinY = cos(initialRotation + ofGetElapsedTimef()*.075f);

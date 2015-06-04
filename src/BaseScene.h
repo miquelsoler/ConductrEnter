@@ -46,6 +46,9 @@ public:
     virtual void mousePressed(int x, int y, int button) = 0;
     virtual void mouseReleased(int x, int y, int button) = 0;
 
+    // Listener method to detect window changes
+    virtual void windowResized(ofResizeEventArgs &args) {}
+
     ofVideoPlayer videoPlayer;
 };
 

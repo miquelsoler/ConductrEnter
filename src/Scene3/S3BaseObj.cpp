@@ -1,12 +1,12 @@
 //
-//  S4BaseObj.cpp
+//  S3BaseObj.cpp
 //  ConductrEnter
 //
 //  Created by Miquel Ëngel Soler on 24/5/15.
 //
 //
 
-#include "S4BaseObj.h"
+#include "S3BaseObj.h"
 #include "ofxAppUtils.h"
 
 const int LOOP_RESOLUTION = 50;
@@ -15,7 +15,7 @@ const int AXIS_LENGTH = 6;
 
 #pragma mark - Initialization
 
-void S4BaseObj::initialize(float _viewOriginX, float _viewWidth, string _settingsPath)
+void S3BaseObj::initialize(float _viewOriginX, float _viewWidth, string _settingsPath)
 {
     viewOriginX = _viewOriginX;
     viewWidth = _viewWidth;
@@ -35,17 +35,17 @@ void S4BaseObj::initialize(float _viewOriginX, float _viewWidth, string _setting
 #endif
 }
 
-float S4BaseObj::getViewOriginX()
+float S3BaseObj::getViewOriginX()
 {
     return viewOriginX;
 }
 
-void S4BaseObj::setAnimated(bool animate)
+void S3BaseObj::setAnimated(bool animate)
 {
     isAnimated = animate;
 }
 
-void S4BaseObj::drawLoop()
+void S3BaseObj::drawLoop()
 {
     ofSetLineWidth(2);
 

@@ -14,8 +14,11 @@
 
 BaseScene::BaseScene(const string& name) : ofxFadeScene(name)
 {
+    cout << "BASE SCENE constructor" << endl;
     setSingleSetup(false);  // call setup each time the scene is loaded
     setFade(SettingsManager::getInstance().fade_in_milliseconds, SettingsManager::getInstance().fade_out_milliseconds);
+
+    ofAddListener(ofEvents().windowResized, this, &BaseScene::windowResized);
 }
 
 #pragma mark - OF basic calls

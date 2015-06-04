@@ -1,5 +1,5 @@
 //
-//  S4BaseObj.h
+//  S3BaseObj.h
 //  ConductrEnter
 //
 //  Created by Miquel Ëngel Soler on 24/5/15.
@@ -8,8 +8,8 @@
 
 #pragma once
 
-#ifndef __ConductrEnter__S4BaseObj__
-#define __ConductrEnter__S4BaseObj__
+#ifndef __ConductrEnter__S3BaseObj__
+#define __ConductrEnter__S3BaseObj__
 
 #include <stdio.h>
 
@@ -18,11 +18,11 @@
 #include "ofxGui.h"
 #include "ofTrueTypeFont.h"
 
-class S4BaseObj
+class S3BaseObj
 {
 public:
 
-    virtual ~S4BaseObj() {}
+    S3BaseObj() {}
 
     void initialize(float _viewOriginX, float _viewWidth, string _settingsPath);
 

@@ -7,7 +7,6 @@
 //
 
 #include "Scene2.h"
-#include "of3dGraphics.h"
 
 void Scene2::setup()
 {

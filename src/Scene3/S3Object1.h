@@ -1,5 +1,5 @@
 //
-//  S4Object1.h
+//  S3Object1.h
 //  ConductrEnter
 //
 //  Created by Miquel Ëngel Soler on 24/5/15.
@@ -8,14 +8,14 @@
 
 #pragma once
 
-#ifndef __ConductrEnter__S4Object1__
-#define __ConductrEnter__S4Object1__
+#ifndef __ConductrEnter__S3Object1__
+#define __ConductrEnter__S3Object1__
 
 #include <stdio.h>
-#include "S4BaseObj.h"
+#include "S3BaseObj.h"
 #include "of3dGraphics.h"
 
-class S4Object1 : public S4BaseObj
+class S3Object1 : public S3BaseObj
 {
 public:
 

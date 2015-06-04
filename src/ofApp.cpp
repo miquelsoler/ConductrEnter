@@ -5,10 +5,9 @@
 #include "Scene1.h"
 #include "Scene2.h"
 #include "Scene3.h"
-#include "Scene4.h"
 
 
-const unsigned int NUM_SCENES = 4;
+const unsigned int NUM_SCENES = 3;
 const unsigned int LAST_SCENE = NUM_SCENES - 1;
 
 #pragma mark - Main class methods
@@ -28,7 +27,8 @@ void ofApp::setup()
     sceneManager.add(new Scene1("Scene1"));
     sceneManager.add(new Scene2("Scene2"));
     sceneManager.add(new Scene3("Scene3"));
-    sceneManager.add(new Scene4("Scene4"));
+//    sceneManager.add(new Scene4("Scene4"));
+
 
     sceneManager.gotoScene(currentScene);
 
@@ -94,6 +94,7 @@ void ofApp::keyReleased(int key)
             break;
         case 'f':
             ofToggleFullscreen();
+        cout << ofGetWidth() << "x" << ofGetHeight() << endl;
             break;
     }
 }

@@ -1,5 +1,5 @@
 //
-//  S4Object4.h
+//  S3Object2.h
 //  ConductrEnter
 //
 //  Created by Miquel Ëngel Soler on 24/5/15.
@@ -8,13 +8,13 @@
 
 #pragma once
 
-#ifndef __ConductrEnter__S4Object4__
-#define __ConductrEnter__S4Object4__
+#ifndef __ConductrEnter__S3Object2__
+#define __ConductrEnter__S3Object2__
 
 #include <stdio.h>
-#include "S4BaseObj.h"
+#include "S3BaseObj.h"
 
-class S4Object4 : public S4BaseObj
+class S3Object2 : public S3BaseObj
 {
 public:
 
@@ -24,8 +24,10 @@ public:
 
     virtual void loadSettings();
 
+//    virtual void setY(float newY) {};
+
 private:
-    
+
 };
 
-#endif /* defined(__ConductrEnter__S4Object4__) */
+#endif /* defined(__ConductrEnter__S4Object2__) */
