@@ -1,8 +1,4 @@
 {
-    "Screen": {
-        "Window Width": 1920,
-        "Window Height": 540
-    },
     "Scenes": {
         "FadeIn Milliseconds": 500,
         "FadeOut Milliseconds": 500,

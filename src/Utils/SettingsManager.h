@@ -23,10 +23,6 @@ public:
         return instance;
     }
 
-    // Screen
-    unsigned int window_width;
-    unsigned int window_height;
-
     // Scene management
     unsigned int fade_in_milliseconds;
     unsigned int fade_out_milliseconds;

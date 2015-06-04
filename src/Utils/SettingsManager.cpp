@@ -29,11 +29,6 @@ bool SettingsManager::loadSettings()
     bool parsingSuccessful = json.open(FILENAME);
     cout << "PARSING RESULT: " << parsingSuccessful << endl;
 
-    // Screen
-    window_width = json["Screen"]["Window Width"].asUInt();
-    window_height = json["Screen"]["Window Height"].asUInt();
-    cout << "[Screen] width=" << window_width << " height=" << window_height << endl;
-
     // Scene management
     fade_in_milliseconds = json["Scenes"]["FadeIn Milliseconds"].asUInt();
     fade_out_milliseconds = json["Scenes"]["FadeOut Milliseconds"].asUInt();

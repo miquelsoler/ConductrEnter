@@ -56,6 +56,10 @@ void ofApp::setup()
 void ofApp::update()
 {
     if (currentScene == LAST_SCENE) scene4Timer.update();
+
+#ifdef OF_DEBUG
+    ofShowCursor();
+#endif
 }
 
 //--------------------------------------------------------------
