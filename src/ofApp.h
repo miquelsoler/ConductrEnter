@@ -4,6 +4,9 @@
 #include "ofxAppUtils.h"
 #include "ofxSimpleTimer.h"
 
+const unsigned int NUM_SCENES = 3;
+const unsigned int LAST_SCENE = NUM_SCENES - 1;
+
 class ofApp : public ofxApp {
 
 public:
@@ -35,7 +38,7 @@ private:
     void manageScene4Timer();
 
     ofxSceneManager sceneManager;
-    int currentScene = 2;
+    int currentScene = LAST_SCENE;
 
     ofxSimpleTimer scene4Timer;
     void scene4TimerCompleteHandler(int &args);

@@ -7,9 +7,6 @@
 #include "Scene3.h"
 
 
-const unsigned int NUM_SCENES = 3;
-const unsigned int LAST_SCENE = NUM_SCENES - 1;
-
 #pragma mark - Main class methods
 
 //--------------------------------------------------------------
