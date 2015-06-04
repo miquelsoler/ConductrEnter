@@ -30,6 +30,7 @@ public:
     virtual void update() = 0;
     virtual void draw() = 0;
 
+    virtual void setY(float newY) = 0; // Nœria
     float getViewOriginX();
     void setAnimated(bool animate);
 
@@ -41,11 +42,11 @@ protected:
     // Camera & viewport
     ofEasyCam camera;
     ofRectangle viewRectangle;
-    float viewOriginX, viewWidth;
+    float viewOriginX, viewWidth, viewHalfWidth, viewHalfHeight;
+    ofParameter<int> camDistance;
 
     // Object parameters
     ofPoint objPosition;
-    ofParameter<int> camDistance;
     bool isAnimated = 0;
 
     // Loop arc

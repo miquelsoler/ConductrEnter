@@ -19,8 +19,10 @@ void S4BaseObj::initialize(float _viewOriginX, float _viewWidth, string _setting
 {
     viewOriginX = _viewOriginX;
     viewWidth = _viewWidth;
+    viewHalfWidth = viewWidth / 2.0f;
+    viewHalfHeight = ofGetHeight() / 2.0f;
     viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, ofGetHeight());
-    objPosition = ofPoint(viewOriginX + viewWidth/2.0f, ofGetHeight() / 2.0f);
+    objPosition = ofPoint(viewOriginX + viewHalfWidth, viewHalfHeight);
 
     camera.disableMouseInput();
 
@@ -42,7 +44,6 @@ void S4BaseObj::setAnimated(bool animate)
 {
     isAnimated = animate;
 }
-
 
 void S4BaseObj::drawLoop()
 {

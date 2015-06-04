@@ -2,7 +2,7 @@
 //  SettingsManager.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 25/5/15.
+//  Created by Miquel Ëngel Soler on 25/5/15.
 //
 //
 
@@ -11,6 +11,16 @@
 #include "ofLog.h"
 
 const std::string FILENAME = "settings/settings.json";
+
+SettingsManager::SettingsManager()
+{
+    bool parserResult = loadSettings();
+    if (!parserResult)
+    {
+        ofLog(OF_LOG_ERROR, "BAD FORMAT IN settings.json. Now quitting...");
+        std::exit(EXIT_FAILURE);
+    }
+}
 
 bool SettingsManager::loadSettings()
 {
@@ -29,6 +39,10 @@ bool SettingsManager::loadSettings()
     fade_out_milliseconds = json["Scenes"]["FadeOut Milliseconds"].asUInt();
     scene4_timer_milliseconds = json["Scenes"]["Scene4 Timer Milliseconds"].asUInt();
     cout << "[Scenes] fadeIn=" << fade_in_milliseconds << " fadeOut=" << fade_out_milliseconds << " scene4Timer=" << scene4_timer_milliseconds << endl;
+
+    // OSC
+    oscAbletonHost = json["OSC"]["Ableton Host"].asString();
+    oscAbletonPort = json["OSC"]["Ableton Port"].asUInt();
 
     return parsingSuccessful;
 }

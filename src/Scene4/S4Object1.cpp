@@ -10,8 +10,8 @@
 
 void S4Object1::setup()
 {
-    float spherePosX = viewOriginX + viewWidth/2.0f;
-    float spherePosY = ofGetHeight() / 2.0f;
+    float spherePosX = viewOriginX + viewHalfWidth;
+    float spherePosY = viewHalfHeight;
     sphere.setRadius(viewWidth * .12);
     sphere.setPosition(objPosition);
 
@@ -38,7 +38,7 @@ void S4Object1::draw()
     camera.begin(viewRectangle);
 
     ofSetLineWidth(1);
-    ofSetColor(127,255,127);
+    ofSetColor(255);
     sphere.drawWireframe();
     ofSetColor(255);
 
@@ -49,6 +49,14 @@ void S4Object1::draw()
 #ifdef OF_DEBUG
     gui.draw();
 #endif
+}
+
+/**/ // OSC
+void S4Object1::setY(float newY)
+{
+    float spherePosX = viewOriginX + viewHalfWidth;
+    objPosition.set(spherePosX, newY);
+    sphere.setPosition(objPosition);
 }
 
 void S4Object1::loadSettings()

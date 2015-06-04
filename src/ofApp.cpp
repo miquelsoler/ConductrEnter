@@ -16,18 +16,6 @@ const unsigned int LAST_SCENE = NUM_SCENES - 1;
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-    // Load settings
-
-    bool parserResult = SettingsManager::getInstance().loadSettings();
-    if (!parserResult)
-    {
-        ofLog(OF_LOG_ERROR, "BAD FORMAT IN settings.json. Now quitting...");
-        std::exit(EXIT_FAILURE);
-    }
-
-//    ofSetWindowShape(SettingsManager::getInstance().window_width, SettingsManager::getInstance().window_height);
-//    ofToggleFullscreen();
-
     // App settings
 
     ofSetFrameRate(60);

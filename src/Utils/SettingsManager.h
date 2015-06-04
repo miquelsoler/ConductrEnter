@@ -2,7 +2,7 @@
 //  SettingsManager.h
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 25/5/15.
+//  Created by Miquel Ëngel Soler on 25/5/15.
 //
 //
 
@@ -23,8 +23,6 @@ public:
         return instance;
     }
 
-    bool loadSettings();
-
     // Screen
     unsigned int window_width;
     unsigned int window_height;
@@ -34,7 +32,15 @@ public:
     unsigned int fade_out_milliseconds;
     unsigned long scene4_timer_milliseconds;
 
+    // OSC
+    string oscAbletonHost;
+    unsigned int oscAbletonPort;
+
 private:
+
+    SettingsManager();
+    bool loadSettings();
+
     ofxJSONElement json;
 };
 

@@ -25,6 +25,8 @@ public:
 
     virtual void loadSettings();
 
+    virtual void setY(float newY);
+
 private:
 
     void updateRotation();
