@@ -40,7 +40,7 @@ protected:
     ofRectangle viewRectangle;
 
     // Listener method to detect window changes
-    virtual void windowResized(ofResizeEventArgs &args);
+    virtual void windowResized(ofResizeEventArgs &args) {}
 };
 
 #endif /* defined(__ConductrEnter__BaseObject__) */

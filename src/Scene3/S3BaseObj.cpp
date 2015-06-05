@@ -24,7 +24,6 @@ S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 
 #ifdef OF_DEBUG
     drawGui = true;
-    gui.setPosition(viewOriginX, 50);
 #endif
 }
 

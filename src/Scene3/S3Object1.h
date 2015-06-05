@@ -32,6 +32,8 @@ private:
 
     void updateRotation();
 
+    virtual void windowResized(ofResizeEventArgs &args);
+
     ofSpherePrimitive sphere;
     float initialRotation;
 };

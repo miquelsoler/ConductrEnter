@@ -27,8 +27,3 @@ float BaseObject::getViewOriginX()
 {
     return viewOriginX;
 }
-
-void BaseObject::windowResized(ofResizeEventArgs &args)
-{
-
-}

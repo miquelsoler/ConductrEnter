@@ -27,7 +27,9 @@ void S3Object1::setup()
 
     initialRotation = ofRandom(360);
     updateRotation();
-}
+
+    gui.setPosition(viewOriginX, 50);
+¼}
 
 void S3Object1::update()
 {
@@ -53,6 +55,7 @@ void S3Object1::draw()
     camera.end();
 
 #ifdef OF_DEBUG
+    gui.setPosition(viewOriginX, 50);
     gui.draw();
 #endif
 }
@@ -85,4 +88,9 @@ void S3Object1::updateRotation()
 
     sphere.rotate(spinX, 1.0, 0.0, 0.0);
     sphere.rotate(spinY, 0.0, 1.0, 0.0);
+}
+
+void S3Object1::windowResized(ofResizeEventArgs &args)
+{
+    cout << "Resize S3Object1! ";
 }
