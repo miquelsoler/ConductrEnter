@@ -21,17 +21,13 @@ class Scene3 : public BaseScene
 {
 public:
 
-//    Scene3(const string& name) : BaseScene(name) {}
-    Scene3(const string& name);
+    Scene3(const string& name, bool singleSetup);
     virtual ~Scene3();
 
     void setup();
     void update();
     void draw();
     void exit();
-
-    // Listener method to detect window changes
-    virtual void windowResized(ofResizeEventArgs &args);
 
 private:
 
@@ -46,6 +42,9 @@ private:
     int getObjectIndexAtPosition(int x, int y);
     ofxOscSender oscSender;
     vector<bool> objectTrackIsPlaying;
+
+    // Listener method to detect window changes
+    virtual void windowResized(ofResizeEventArgs &args);
 
     vector<S3BaseObj*> objects;
     unsigned int num_objects;

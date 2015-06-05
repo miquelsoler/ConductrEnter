@@ -19,7 +19,7 @@ class BaseScene : public ofxFadeScene
 {
 public:
 
-    BaseScene(const string& name);
+    BaseScene(const string& name, bool singleSetup);
 
     void setup();
 
@@ -49,6 +49,9 @@ public:
 protected:
     void drawPre();
     void drawPost();
+
+    // Listener method to detect window changes
+    virtual void windowResized(ofResizeEventArgs &args) {}
 };
 
 #endif /* defined(__ConductrEnter__BaseScene__) */

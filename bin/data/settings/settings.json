@@ -1,7 +1,7 @@
 {
     "Scenes": {
-        "FadeIn Milliseconds": 500,
-        "FadeOut Milliseconds": 500,
+        "FadeIn Milliseconds": 0,
+        "FadeOut Milliseconds": 0,
         "Scene4 Timer Milliseconds": 60000
     },
     "OSC": {

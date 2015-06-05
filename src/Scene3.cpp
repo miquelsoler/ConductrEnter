@@ -22,7 +22,7 @@ const unsigned int ABLETON_CLIP = 4;
 
 #pragma mark - Object creation
 
-Scene3::Scene3(const string& name) : BaseScene(name)
+Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSetup)
 {
     num_objects = NUM_OBJECTS;
     viewWidth = ofGetWidth() / num_objects;
@@ -67,6 +67,7 @@ Scene3::~Scene3()
 
 void Scene3::setup()
 {
+//    cout << "VW=" << ofGetViewportWidth() << " VH=" << ofGetViewportHeight() << endl;
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->setup();
 }
@@ -89,11 +90,6 @@ void Scene3::draw()
 
 void Scene3::exit()
 {
-}
-
-void Scene3::windowResized(ofResizeEventArgs &args)
-{
-    cout << "Scene 3 resized" << endl;
 }
 
 #pragma mark - Touch events
@@ -186,4 +182,10 @@ void Scene3::mouseReleased(int x, int y, int button)
 int Scene3::getObjectIndexAtPosition(int x, int y)
 {
     return floor(x/viewWidth);
+}
+
+void Scene3::windowResized(ofResizeEventArgs &args)
+{
+    viewWidth = ofGetWidth() / num_objects;
+//    setup();
 }

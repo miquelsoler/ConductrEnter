@@ -21,14 +21,12 @@ void ofApp::setup()
 
     // Scenes
 
-    sceneManager.add(new Scene1("Scene1"));
-    sceneManager.add(new Scene2("Scene2"));
-    sceneManager.add(new Scene3("Scene3"));
+    sceneManager.add(new Scene1("Scene1", true));
+    sceneManager.add(new Scene2("Scene2", true));
+    sceneManager.add(new Scene3("Scene3", true));
 
-    sceneManager.gotoScene(currentScene);
-
-    // overlap scenes when transitioning
-    sceneManager.setOverlap(true);
+    sceneManager.setup(true); // call setup for all of them
+    sceneManager.setOverlap(false); // overlap scenes when transitioning
 
     // attach scene manager to this ofxApp so it's called automatically,
     // you can also call the callbacks (update, draw, keyPressed, etc) manually
@@ -45,12 +43,16 @@ void ofApp::setup()
     // Timer listener for scene 4
     manageScene4Timer();
     ofAddListener(scene4Timer.TIMER_COMPLETE, this,&ofApp::scene4TimerCompleteHandler);
+
+    sceneManager.gotoScene(currentScene);
 }
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
     if (currentScene == LAST_SCENE) scene4Timer.update();
+
+    if (sceneManager.getCurrentSceneIndex() == -1) sceneManager.gotoScene(currentScene);
 
 #ifdef OF_DEBUG
     ofShowCursor();
@@ -88,6 +90,7 @@ void ofApp::keyReleased(int key)
             goToNextScene();
             break;
         case 'f':
+        case 'F':
             int windowMode = ofGetWindowMode();
             bool fullscreen = (windowMode == OF_WINDOW);
             ofSetWindowShape(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
@@ -126,12 +129,12 @@ void ofApp::mouseReleased(int x, int y, int button)
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h)
 {
-    int numScenes = sceneManager.getNumScenes();
-    for (int i=0; i<numScenes; i++)
-    {
-        BaseScene *scene = (BaseScene *)(sceneManager.getSceneAt(i));
-        scene->setup();
-    }
+//    int numScenes = sceneManager.getNumScenes();
+//    for (int i=0; i<numScenes; i++)
+//    {
+//        BaseScene *scene = (BaseScene *)(sceneManager.getSceneAt(i));
+//        scene->setup();
+//    }
 }
 
 //--------------------------------------------------------------

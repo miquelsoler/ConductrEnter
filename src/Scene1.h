@@ -21,10 +21,11 @@ class Scene1 : public BaseScene
 {
 public:
 
-    Scene1(const string& name) : BaseScene(name) {}
+    Scene1(const string& name, bool singleSetup) : BaseScene(name, singleSetup) {}
 
     void setup();
     void update();
+    void updateEnter();
     void draw();
     void exit();
 

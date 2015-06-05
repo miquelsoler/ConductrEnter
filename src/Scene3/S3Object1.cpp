@@ -21,8 +21,8 @@ void S3Object1::setup()
     objPosition.y = viewHalfHeight;
     sphere.setPosition(objPosition);
 
-    camera.setPosition(objPosition);
     camera.setTarget(sphere);
+    camera.setPosition(objPosition);
     camera.setDistance(camDistance);
 
     initialRotation = ofRandom(360);
@@ -100,6 +100,7 @@ void S3Object1::windowResized(ofResizeEventArgs &args)
     viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, args.height);
 
     sphere.setPosition(objPosition);
+
     camera.setPosition(objPosition);
     camera.setTarget(sphere);
     camera.setDistance(camDistance);

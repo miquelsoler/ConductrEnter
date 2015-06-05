@@ -10,7 +10,26 @@
 
 void Scene2::setup()
 {
-    sphere.setRadius(ofGetWidth() * .12);
+    camera.scale = 500;
+//    camera.disableMouseInput();
+
+    sphere1.setRadius(ofGetWidth() * .12);
+    sphere1.setPosition(50+ofGetWidth()/4.0f, ofGetHeight()/2.0f, 0);
+    sphere2.setRadius(ofGetWidth() * .12);
+    sphere2.setPosition((ofGetWidth()*3.0f/4.0f)-50, ofGetHeight()/2.0f, 0);
+
+//    camera.setParent(sphere1);
+    camera.setPosition(ofPoint(ofGetWidth()/2, ofGetHeight()/2, 100));
+//    camera.setTarget(ofPoint(0,0,0));
+
+//    sphere.setRadius(viewWidth * .12);
+//    objPosition.x = viewOriginX + viewHalfWidth;
+//    objPosition.y = viewHalfHeight;
+//    sphere.setPosition(objPosition);
+//
+//    camera.setPosition(objPosition);
+//    camera.setTarget(sphere);
+//    camera.setDistance(camDistance);
 }
 
 void Scene2::update()
@@ -20,27 +39,39 @@ void Scene2::update()
     float spinX = sin(ofGetElapsedTimef()*.35f);
     float spinY = cos(ofGetElapsedTimef()*.075f);
 
-    sphere.setPosition(ofGetWidth()/2.0f, ofGetHeight()/2.0f, 0);
-    sphere.rotate(spinX, 1.0, 0.0, 0.0);
-    sphere.rotate(spinY, 0.0, 1.0, 0.0);
-    
+    sphere1.rotate(spinX, 1.0, 0.0, 0.0);
+    sphere1.rotate(spinY, 0.0, 1.0, 0.0);
+
+    sphere2.rotate(spinX, 1.0, 0.0, 0.0);
+    sphere2.rotate(spinY, 0.0, 1.0, 0.0);
 }
 
 void Scene2::draw()
 {
+    ofRectangle viewport;
+    viewport.x = 0;
+    viewport.y = 0;
+    viewport.width = ofGetWidth();
+    viewport.height = ofGetHeight();
+    camera.begin(viewport);
+//    camera.begin(viewRectangle);
+
     BaseScene::drawPre();
 
     // Draw sphere wireframe
 
     ofNoFill();
     ofSetColor(255, 127, 127);
-    sphere.drawWireframe();
+    sphere1.drawWireframe();
+    sphere2.drawWireframe();
 
     // Back to default color
 
     ofSetColor(255);
 
     BaseScene::drawPost();
+
+    camera.end();
 }
 
 void Scene2::exit()

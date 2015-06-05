@@ -20,7 +20,6 @@ S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     camera.disableMouseInput();
 
     settingsPath = _settingsPath;
-//    loadSettings(); // NURIA
 
 #ifdef OF_DEBUG
     drawGui = true;

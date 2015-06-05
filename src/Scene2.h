@@ -14,12 +14,13 @@
 #include <stdio.h>
 #include <ofxAppUtils.h>
 #include "BaseScene.h"
+#include "OrthoCamera.h"
 
 class Scene2 : public BaseScene
 {
 public:
 
-    Scene2(const string& name) : BaseScene(name) {}
+    Scene2(const string& name, bool singleSetup) : BaseScene(name, singleSetup) {}
 
     void setup();
     void update();
@@ -34,7 +35,9 @@ private:
     virtual void mousePressed(int x, int y, int button);
     virtual void mouseReleased(int x, int y, int button);
 
-    ofSpherePrimitive sphere;
+    ofSpherePrimitive sphere1, sphere2, sphere3;
+//    ofEasyCam camera;
+    orthoCamera camera;
 };
 
 #endif /* defined(__ConductrEnter__Scene2__) */

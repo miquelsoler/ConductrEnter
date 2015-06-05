@@ -11,15 +11,25 @@
 
 void Scene1::setup()
 {
+    cout << "SCENE1 SETUP" << endl;
     if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/scene1_bg.mov");
 
-    if (!videoPlayer.isPlaying()) videoPlayer.play();
     videoPlayer.setVolume(0);
 }
 
 void Scene1::update()
 {
     videoPlayer.update();
+}
+
+void Scene1::updateEnter()
+{
+    if (isEnteringFirst())
+    {
+        if (!videoPlayer.isPlaying()) videoPlayer.play();
+    }
+
+    BaseScene::updateEnter();
 }
 
 void Scene1::draw()
