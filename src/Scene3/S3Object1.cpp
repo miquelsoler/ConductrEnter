@@ -29,7 +29,7 @@ void S3Object1::setup()
     updateRotation();
 
     gui.setPosition(viewOriginX, 50);
-¼}
+}
 
 void S3Object1::update()
 {
