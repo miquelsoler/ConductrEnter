@@ -59,3 +59,16 @@ void S3BaseObj::drawLoop()
     ofLine(0, 0, 0, -AXIS_LENGTH);
     ofPopMatrix();
 }
+
+void S3BaseObj::windowResized(ofResizeEventArgs &args)
+{
+    viewWidth = args.width / sceneNumObjects;
+    viewHalfWidth = viewWidth / 2.0f;
+    viewHalfHeight = args.height / 2.0f;
+    viewOriginX = sceneObjectIndex * viewWidth;
+    objPosition.x = viewOriginX + viewHalfWidth;
+    objPosition.y = viewHalfHeight;
+    viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, args.height);
+
+    gui.setPosition(viewOriginX, 0);
+}

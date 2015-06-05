@@ -21,8 +21,9 @@ void S3Object1::setup()
     objPosition.y = viewHalfHeight;
     sphere.setPosition(objPosition);
 
-    camera.setTarget(sphere);
+    // Camera sempre en aquest ordre: setPosition i després setTarget
     camera.setPosition(objPosition);
+    camera.setTarget(sphere);
     camera.setDistance(camDistance);
 
     initialRotation = ofRandom(360);
@@ -90,20 +91,11 @@ void S3Object1::updateRotation()
 
 void S3Object1::windowResized(ofResizeEventArgs &args)
 {
-//    viewWidh, viewHalfWidth, viewHalfHeight, objPosition, camera position, camera distance, viewRectangle
-    viewWidth = args.width / sceneNumObjects;
-    viewHalfWidth = viewWidth / 2.0f;
-    viewHalfHeight = args.height / 2.0f;
-    viewOriginX = sceneObjectIndex * viewWidth;
-    objPosition.x = viewOriginX + viewHalfWidth;
-    objPosition.y = viewHalfHeight;
-    viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, args.height);
+    S3BaseObj::windowResized(args);
 
     sphere.setPosition(objPosition);
 
     camera.setPosition(objPosition);
     camera.setTarget(sphere);
     camera.setDistance(camDistance);
-
-    gui.setPosition(viewOriginX, 0);
 }

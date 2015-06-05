@@ -56,6 +56,9 @@ protected:
     string settingsPath;
     ofTrueTypeFont guiFont;
     bool drawGui = false;
+
+    // Resizes
+    virtual void windowResized(ofResizeEventArgs &args);
 };
 
 #endif /* defined(__ConductrEnter__S4BaseObj__) */
