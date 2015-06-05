@@ -2,7 +2,7 @@
 #include "ofApp.h"
 #include "ofAppGLFWWindow.h"
 
-#include "Config.h"
+#include "Defaults.h"
 
 //========================================================================
 int main( )

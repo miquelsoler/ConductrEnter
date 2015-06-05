@@ -1,7 +1,7 @@
 #include "ofApp.h"
 
 #include "SettingsManager.h"
-#include "Config.h"
+#include "Defaults.h"
 
 #include "Scene1.h"
 #include "Scene2.h"
