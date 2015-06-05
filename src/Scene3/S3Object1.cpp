@@ -28,7 +28,7 @@ void S3Object1::setup()
     initialRotation = ofRandom(360);
     updateRotation();
 
-    gui.setPosition(viewOriginX, 50);
+    gui.setPosition(viewOriginX, 0);
 }
 
 void S3Object1::update()
@@ -55,7 +55,6 @@ void S3Object1::draw()
     camera.end();
 
 #ifdef OF_DEBUG
-    gui.setPosition(viewOriginX, 50);
     gui.draw();
 #endif
 }
@@ -72,8 +71,7 @@ void S3Object1::loadSettings()
 {
     if (settingsPath.empty()) return;
 
-    gui.setPosition(ofPoint(viewOriginX, 0));
-    gui.setup("Settings");
+    gui.setup("Settings", settingsPath);
     gui.add(camDistance.set("Camera_Distance", 0, 0, 300));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
     gui.add(loopAngle.set("Loop_Angle", 0, 0, 720));
@@ -92,5 +90,19 @@ void S3Object1::updateRotation()
 
 void S3Object1::windowResized(ofResizeEventArgs &args)
 {
-    cout << "Resize S3Object1! ";
+//    viewWidh, viewHalfWidth, viewHalfHeight, objPosition, camera position, camera distance, viewRectangle
+    viewWidth = args.width / sceneNumObjects;
+    viewHalfWidth = viewWidth / 2.0f;
+    viewHalfHeight = args.height / 2.0f;
+    viewOriginX = sceneObjectIndex * viewWidth;
+    objPosition.x = viewOriginX + viewHalfWidth;
+    objPosition.y = viewHalfHeight;
+    viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, args.height);
+
+    sphere.setPosition(objPosition);
+    camera.setPosition(objPosition);
+    camera.setTarget(sphere);
+    camera.setDistance(camDistance);
+
+    gui.setPosition(viewOriginX, 0);
 }

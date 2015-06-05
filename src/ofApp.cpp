@@ -1,11 +1,11 @@
 #include "ofApp.h"
 
 #include "SettingsManager.h"
+#include "Config.h"
 
 #include "Scene1.h"
 #include "Scene2.h"
 #include "Scene3.h"
-
 
 #pragma mark - Main class methods
 
@@ -65,7 +65,7 @@ void ofApp::draw()
     << "SCENE INDEX: " << sceneManager.getCurrentSceneIndex() << endl
     << "SCENE NAME: " << sceneManager.getCurrentSceneName() << endl;
 
-    ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 15);
+    ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", ofGetWidth() - 100, ofGetHeight() - 15);
 #endif
 }
 
@@ -88,8 +88,10 @@ void ofApp::keyReleased(int key)
             goToNextScene();
             break;
         case 'f':
-            ofToggleFullscreen();
-        cout << ofGetWidth() << "x" << ofGetHeight() << endl;
+            int windowMode = ofGetWindowMode();
+            bool fullscreen = (windowMode == OF_WINDOW);
+            ofSetWindowShape(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
+            ofSetFullscreen(fullscreen);
             break;
     }
 }

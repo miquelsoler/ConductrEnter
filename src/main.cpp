@@ -2,8 +2,7 @@
 #include "ofApp.h"
 #include "ofAppGLFWWindow.h"
 
-static const unsigned int   DEFAULT_WINDOW_WIDTH        = 1280;
-static const unsigned int   DEFAULT_WINDOW_HEIGHT       = 720;
+#include "Config.h"
 
 //========================================================================
 int main( )
@@ -11,7 +10,7 @@ int main( )
     ofAppGLFWWindow window;
     window.setMultiDisplayFullscreen(true);
     
-    ofSetupOpenGL(&window, DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT, OF_WINDOW);
+    ofSetupOpenGL(&window, DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT, DEFAULT_WINDOW_MODE);
 
     ofRunAppWithAppUtils(new ofApp());
 }
