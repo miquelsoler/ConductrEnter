@@ -25,9 +25,9 @@ public:
     S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
     virtual ~S3BaseObj() {}
 
-    virtual void setup() = 0;
-    virtual void update() = 0;
-    virtual void draw() = 0;
+    virtual void setup();
+    virtual void update();
+    virtual void draw();
 
     virtual void setY(float newY) = 0;
     void setAnimated(bool animate);
@@ -36,12 +36,14 @@ protected:
 
     void drawLoop();
     virtual void loadSettings() = 0;
-    
+    void initSharedSettings();
+
     // Camera & viewport
     ofEasyCam camera;
     ofParameter<int> camDistance;
 
     // Object parameters
+    float radius;
     bool isAnimated = 0;
 
     // Loop arc

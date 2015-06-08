@@ -13,6 +13,7 @@
 
 #include <stdio.h>
 #include "S3BaseObj.h"
+#include "ofxSimpleTimer.h"
 
 class S3Object2 : public S3BaseObj
 {
@@ -25,8 +26,17 @@ public:
 
     virtual void loadSettings();
 
+    virtual void setY(float newY);
+
 private:
 
+    virtual void windowResized(ofResizeEventArgs &args);
+
+    ofIcoSpherePrimitive icoSphere1, icoSphere2;
+    vector<ofMeshFace> icoTriangles1, icoTriangles2;
+    ofxSimpleTimer beatTimer;
+
+    void timerCompleteHandler(int &args);
 };
 
 #endif /* defined(__ConductrEnter__S4Object2__) */

@@ -1,5 +1,5 @@
 <Settings>
-    <Camera_Distance>170</Camera_Distance>
+    <Camera_Distance>255</Camera_Distance>
     <Loop_Radius>32</Loop_Radius>
     <Loop_Angle>144</Loop_Angle>
 <Settings/>

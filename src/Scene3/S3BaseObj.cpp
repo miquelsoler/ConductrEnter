@@ -26,9 +26,41 @@ S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 #endif
 }
 
-void S3BaseObj::setAnimated(bool animate)
+void S3BaseObj::initSharedSettings()
 {
-    isAnimated = animate;
+    gui.setup("Settings", settingsPath);
+    gui.add(camDistance.set("Camera_Distance", 0, 0, 500));
+    gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
+    gui.add(loopAngle.set("Loop_Angle", 0, 0, 720));
+}
+
+#pragma mark - Basic object methods
+
+void S3BaseObj::setup()
+{
+    radius = viewHalfWidth/4;
+    objPosition.x = viewOriginX + viewHalfWidth;
+    objPosition.y = viewHalfHeight;
+
+    camera.setDistance(camDistance);
+    camera.setPosition(objPosition);
+
+    gui.setPosition(viewOriginX, 0);
+}
+
+void S3BaseObj::update()
+{
+#ifdef OF_DEBUG
+    // Update object parameters from XML
+    camera.setDistance(camDistance);
+#endif
+}
+
+void S3BaseObj::draw()
+{
+#ifdef OF_DEBUG
+    gui.draw();
+#endif
 }
 
 void S3BaseObj::drawLoop()
@@ -71,4 +103,11 @@ void S3BaseObj::windowResized(ofResizeEventArgs &args)
     viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, args.height);
 
     gui.setPosition(viewOriginX, 0);
+
+    camera.setDistance(camDistance);
+}
+
+void S3BaseObj::setAnimated(bool animate)
+{
+    isAnimated = animate;
 }

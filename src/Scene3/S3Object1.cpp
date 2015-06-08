@@ -8,42 +8,51 @@
 
 #include "S3Object1.h"
 
+#pragma mark - Initialization
+
 S3Object1::S3Object1(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
     S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     loadSettings();
 }
 
+void S3Object1::loadSettings()
+{
+    if (settingsPath.empty()) return;
+    S3BaseObj::initSharedSettings();
+
+    // Custom object settings go here
+
+    gui.loadFromFile(settingsPath);
+}
+
+
+#pragma mark - Basic object methods
+
 void S3Object1::setup()
 {
-    sphere.setRadius(viewWidth * .12);
-    objPosition.x = viewOriginX + viewHalfWidth;
-    objPosition.y = viewHalfHeight;
+    S3BaseObj::setup();
+
+    sphere.setRadius(radius);
     sphere.setPosition(objPosition);
 
-    // Camera sempre en aquest ordre: setPosition i després setTarget
-    camera.setPosition(objPosition);
     camera.setTarget(sphere);
-    camera.setDistance(camDistance);
 
     initialRotation = ofRandom(360);
     updateRotation();
-
-    gui.setPosition(viewOriginX, 0);
 }
 
 void S3Object1::update()
 {
-#ifdef OF_DEBUG
-    // Update object parameters from XML
-    camera.setDistance(camDistance);
-#endif
+    S3BaseObj::update();
 
     if (isAnimated) updateRotation();
 }
 
 void S3Object1::draw()
 {
+    S3BaseObj::draw();
+
     camera.begin(viewRectangle);
 
     ofSetLineWidth(1);
@@ -54,39 +63,6 @@ void S3Object1::draw()
     drawLoop();
 
     camera.end();
-
-#ifdef OF_DEBUG
-    gui.draw();
-#endif
-}
-
-/**/ // OSC
-void S3Object1::setY(float newY)
-{
-    float spherePosX = viewOriginX + viewHalfWidth;
-    objPosition.set(spherePosX, newY);
-    sphere.setPosition(objPosition);
-}
-
-void S3Object1::loadSettings()
-{
-    if (settingsPath.empty()) return;
-
-    gui.setup("Settings", settingsPath);
-    gui.add(camDistance.set("Camera_Distance", 0, 0, 300));
-    gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
-    gui.add(loopAngle.set("Loop_Angle", 0, 0, 720));
-
-    gui.loadFromFile(settingsPath);
-}
-
-void S3Object1::updateRotation()
-{
-    float spinX = sin(initialRotation + ofGetElapsedTimef()*.35f);
-    float spinY = cos(initialRotation + ofGetElapsedTimef()*.075f);
-
-    sphere.rotate(spinX, 1.0, 0.0, 0.0);
-    sphere.rotate(spinY, 0.0, 1.0, 0.0);
 }
 
 void S3Object1::windowResized(ofResizeEventArgs &args)
@@ -97,5 +73,24 @@ void S3Object1::windowResized(ofResizeEventArgs &args)
 
     camera.setPosition(objPosition);
     camera.setTarget(sphere);
-    camera.setDistance(camDistance);
 }
+
+/**/ // OSC
+void S3Object1::setY(float newY)
+{
+    float spherePosX = viewOriginX + viewHalfWidth;
+    objPosition.set(spherePosX, newY);
+    sphere.setPosition(objPosition);
+}
+
+#pragma mark -
+
+void S3Object1::updateRotation()
+{
+    float spinX = sin(initialRotation + ofGetElapsedTimef()*.35f);
+    float spinY = cos(initialRotation + ofGetElapsedTimef()*.075f);
+
+    sphere.rotate(spinX, 1.0, 0.0, 0.0);
+    sphere.rotate(spinY, 0.0, 1.0, 0.0);
+}
+

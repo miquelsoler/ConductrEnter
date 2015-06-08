@@ -34,7 +34,16 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
         ostringstream settingsPath;
         settingsPath << "settings/scene4/obj" << i+1 << ".xml";
         viewOrigin = i * viewWidth;
-        S3Object1 *object = new S3Object1(num_objects, i, viewOrigin, viewWidth, settingsPath.str());
+        S3BaseObj *object;
+        switch(i)
+        {
+            case 0: object = new S3Object1(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
+            case 1: object = new S3Object2(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
+            case 2: object = new S3Object1(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
+            case 3: object = new S3Object2(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
+            case 4: object = new S3Object1(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
+            case 5: object = new S3Object2(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
+        }
         objects.push_back(object);
     }
 
