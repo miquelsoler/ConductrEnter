@@ -50,10 +50,7 @@ void S3BaseObj::setup()
 
 void S3BaseObj::update()
 {
-#ifdef OF_DEBUG
-    // Update object parameters from XML
     camera.setDistance(camDistance);
-#endif
 }
 
 void S3BaseObj::draw()

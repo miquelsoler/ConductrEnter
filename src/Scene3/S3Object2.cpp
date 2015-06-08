@@ -72,18 +72,11 @@ void S3Object2::update()
     {
         triangleNormal = icoTriangles1[i].getFaceNormal();
         for (int j=0; j<3; j++)
-        {
             currentIcoTriangles1[i].setVertex(j, currentIcoTriangles1[i].getVertex(j) + 0.5 * triangleNormal);
-        }
-    }
 
-    for (int i=0; i<size; i++)
-    {
         triangleNormal = icoTriangles2[i].getFaceNormal();
         for (int j=0; j<3; j++)
-        {
             currentIcoTriangles2[i].setVertex(j, currentIcoTriangles1[i].getVertex(j) + 0.5 * triangleNormal);
-        }
     }
 
     icoSphere1.getMesh().setFromTriangles(currentIcoTriangles1);
@@ -134,18 +127,11 @@ void S3Object2::timerCompleteHandler(int &args)
     {
         triangleNormal = icoTriangles1[i].getFaceNormal();
         for (int j=0; j<3; j++)
-        {
             newIcoTriangles1[i].setVertex(j, icoTriangles1[i].getVertex(j) - triangleNormal*ofRandom(0,5));
-        }
-    }
 
-    for (int i=0; i<size; i++)
-    {
         triangleNormal = icoTriangles2[i].getFaceNormal();
         for (int j=0; j<3; j++)
-        {
             newIcoTriangles2[i].setVertex(j, icoTriangles2[i].getVertex(j) - triangleNormal*ofRandom(0,5));
-        }
     }
 
     icoSphere1.getMesh().setFromTriangles(newIcoTriangles1);

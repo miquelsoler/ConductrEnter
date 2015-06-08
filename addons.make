@@ -8,3 +8,5 @@ ofxTableGestures
 ofxXmlSettings
 ofxSimpleTimer
 ofxJSON
+ofxTuioWrapper
+ofxTweenzor
