@@ -27,6 +27,12 @@ public:
 
     void setDeviceParameter(int device, int parameter, int value);
 
+    void requestTempo();
+
+    void update();
+
+    ofEvent<float> tempoChanged;
+
 private:
     ofxOscSender oscSender;
     ofxOscReceiver oscReceiver;
@@ -34,6 +40,7 @@ private:
     string senderHost;
     unsigned int senderPort;
     unsigned int receiverPort;
+
 };
 
 

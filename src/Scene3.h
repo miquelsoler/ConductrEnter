@@ -49,6 +49,9 @@ private:
     // Listener method to detect window changes
     virtual void windowResized(ofResizeEventArgs &args);
 
+    // Listener method to detect tempo changes
+    virtual void tempoChanged(float &newTempo);
+
     vector<S3BaseObj*> objects;
     unsigned int num_objects;
     float viewWidth;

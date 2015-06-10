@@ -10,6 +10,8 @@
 
 const unsigned int MAX_TRACKS = 20;
 
+#pragma mark - Constructors
+
 AbletonManager::AbletonManager(string _senderHost, unsigned int _senderPort, unsigned int _receiverPort)
 {
     senderHost = _senderHost;
@@ -19,6 +21,8 @@ AbletonManager::AbletonManager(string _senderHost, unsigned int _senderPort, uns
     oscSender.setup(senderHost, senderPort);
     oscReceiver.setup(receiverPort);
 }
+
+#pragma mark - Send messages
 
 /*
  * /live/play/clip
@@ -77,5 +81,35 @@ void AbletonManager::setDeviceParameter(int device, int parameter, int value)
     m.addIntArg(parameter);
     m.addIntArg(value);
     oscSender.sendMessage(m);
-    cout << "Message: " << m.getAddress() << "-" << m.getArgAsInt32(0) << "-" << m.getArgAsInt32(1) << "-" << m.getArgAsInt32(2) << endl;
+#ifdef OF_DEBUG
+    cout << "Message: " << m.getAddress() << "-" << device << "-" << parameter << "-" << value << endl;
+#endif
+}
+
+/*
+ * /live/tempo
+ * Request current tempo, replies with /live/tempo (float tempo)
+ */
+void AbletonManager::requestTempo()
+{
+    ofxOscMessage m;
+    m.setAddress("/live/tempo");
+    oscSender.sendMessage(m);
+}
+
+#pragma mark - Receive messages
+
+void AbletonManager::update()
+{
+    while(oscReceiver.hasWaitingMessages())
+    {
+        ofxOscMessage m;
+        oscReceiver.getNextMessage(&m);
+
+        if (m.getAddress() == "/live/tempo")
+        {
+            float newTempo = m.getArgAsFloat(0);
+            ofNotifyEvent(tempoChanged, newTempo, this);
+        }
+    }
 }

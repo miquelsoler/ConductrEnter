@@ -27,8 +27,8 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
     num_objects = NUM_OBJECTS;
     viewWidth = ofGetWidth() / num_objects;
 
+    // Create scene objects
     float viewOrigin;
-
     for (int i=0; i<NUM_OBJECTS; i++)
     {
         ostringstream settingsPath;
@@ -48,11 +48,14 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
     }
 
     // Initialitze OSC
-
     string host = SettingsManager::getInstance().oscAbletonHost;
     unsigned int senderPort = SettingsManager::getInstance().oscAbletonSenderPort;
     unsigned int receiverPort = SettingsManager::getInstance().oscAbletonReceiverPort;
     abletonManager = new AbletonManager(host, senderPort, receiverPort);
+
+    // Request tempo in order to set it on objects
+    ofAddListener(abletonManager->tempoChanged, this, &Scene3::tempoChanged);
+    abletonManager->requestTempo();
 
     // Stop all playing clips, just in case (for demo purposes)
     abletonManager->stopAll();
@@ -78,6 +81,7 @@ void Scene3::setup()
 
 void Scene3::update()
 {
+    abletonManager->update();
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->update();
 }
@@ -172,3 +176,11 @@ void Scene3::windowResized(ofResizeEventArgs &args)
     viewWidth = ofGetWidth() / num_objects;
 //    setup();
 }
+
+void Scene3::tempoChanged(float &newTempo)
+{
+#ifdef OF_DEBUG
+    cout << "New tempo is " << newTempo << endl;
+#endif
+}
+
