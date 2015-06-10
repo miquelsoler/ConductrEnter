@@ -14,7 +14,6 @@
 #include <stdio.h>
 #include <ofxAppUtils.h>
 #include "BaseScene.h"
-#include "OrthoCamera.h"
 
 class Scene2 : public BaseScene
 {
