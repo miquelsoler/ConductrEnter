@@ -26,6 +26,7 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
 {
     num_objects = NUM_OBJECTS;
     viewWidth = ofGetWidth() / num_objects;
+    viewHeight = ofGetHeight();
 
     // Create scene objects
     float viewOrigin;
@@ -48,9 +49,9 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
     }
 
     // Initialitze OSC
-    string host = SettingsManager::getInstance().oscAbletonHost;
-    unsigned int senderPort = SettingsManager::getInstance().oscAbletonSenderPort;
-    unsigned int receiverPort = SettingsManager::getInstance().oscAbletonReceiverPort;
+    string host = SettingsManager::getInstance().abletonHost;
+    unsigned int senderPort = SettingsManager::getInstance().abletonSenderPort;
+    unsigned int receiverPort = SettingsManager::getInstance().abletonReceiverPort;
     abletonManager = new AbletonManager(host, senderPort, receiverPort);
 
     // Request tempo in order to set it on objects
@@ -108,35 +109,40 @@ void Scene3::mouseMoved(int x, int y)
 
 void Scene3::mouseDragged(int x, int y, int button)
 {
-    float windowHeight = ofGetHeight();
+    if ((x<0) || (x>=ofGetWidth())) return;
+    if ((y<0) || (y>=viewHeight)) return;
 
-    if ((y>=0) && (y<windowHeight)) {
+    int pressedObjectIndex = getObjectIndexAtPosition(x, y);
+    objects[pressedObjectIndex]->isBeingTouched(x, y);
 
-        // Send OSC message
-        
-        int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-
-        int device = 0;
-        int parameter = pressedObjectIndex + 1;
-        int value;
-        float halfHeight = windowHeight/2.0f;
-        if ((y>=0) && (y<halfHeight)) {
-            value = ofMap(y, halfHeight-1, 0, 0, 127);
-        } else {
-            value = ofMap(y, halfHeight, windowHeight, 0, 127);
-        }
-
-        abletonManager->setDeviceParameter(device, parameter, value);
-
-        // Move object vertically
-
-        float newY = ofMap(y, 0, windowHeight, windowHeight, 0);
-        objects[pressedObjectIndex]->setY(newY);
+    // Send OSC message
+    
+    int device = 0;
+    int parameter = pressedObjectIndex + 1;
+    int value;
+    float halfHeight = viewHeight/2.0f;
+    if ((y>=0) && (y<halfHeight)) {
+        value = ofMap(y, halfHeight-1, 0, 0, 127);
+    } else {
+        value = ofMap(y, halfHeight, viewHeight, 0, 127);
     }
+
+    abletonManager->setDeviceParameter(device, parameter, value);
+
+    // Move object vertically
+
+    float newY = ofMap(y, 0, viewHeight, viewHeight, 0);
+    objects[pressedObjectIndex]->setY(newY);
 }
 
 void Scene3::mousePressed(int x, int y, int button)
 {
+    if ((x<0) || (x>=ofGetWidth())) return;
+    if ((y<0) || (y>=viewHeight)) return;
+
+    int pressedObjectIndex = getObjectIndexAtPosition(x, y);
+    objects[pressedObjectIndex]->isBeingTouched(x, y);
+
     if (button == OF_MOUSE_BUTTON_RIGHT) {
 
         // Play/pause the clip ABLETON_CLIP at track determinated by the touched object

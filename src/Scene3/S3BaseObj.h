@@ -29,6 +29,7 @@ public:
     virtual void update();
     virtual void draw();
 
+    bool isBeingTouched(int screenX, int screenY);
     virtual void setY(float newY) = 0;
     void setAnimated(bool animate);
 

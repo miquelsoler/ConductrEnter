@@ -104,6 +104,14 @@ void S3BaseObj::windowResized(ofResizeEventArgs &args)
     camera.setDistance(camDistance);
 }
 
+bool S3BaseObj::isBeingTouched(int screenX, int screenY)
+{
+    if ((screenX < viewOriginX) || (screenX >= viewOriginX + viewWidth)) return false;
+
+    ofVec3f worldCoords = camera.screenToWorld(ofVec3f(screenX, screenX, 0), viewRectangle);
+    cout << sceneObjectIndex << ": W(" << screenX << ", " << screenY << ") - C(" << worldCoords.x << ", " << worldCoords.y << ", " << worldCoords.z << ") - O(" << objPosition.x << ", " << objPosition.y << ", " << objPosition.z << ")" << endl;
+}
+
 void S3BaseObj::setAnimated(bool animate)
 {
     isAnimated = animate;

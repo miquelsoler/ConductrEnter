@@ -54,7 +54,7 @@ private:
 
     vector<S3BaseObj*> objects;
     unsigned int num_objects;
-    float viewWidth;
+    float viewWidth, viewHeight;
 };
 
 #endif /* defined(__ConductrEnter__Scene4__) */
