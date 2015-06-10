@@ -33,7 +33,7 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
     for (int i=0; i<NUM_OBJECTS; i++)
     {
         ostringstream settingsPath;
-        settingsPath << "settings/scene4/obj" << i+1 << ".xml";
+        settingsPath << "settings/scene3/obj" << i+1 << ".xml";
         viewOrigin = i * viewWidth;
         S3BaseObj *object;
         switch(i)
