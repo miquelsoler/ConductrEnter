@@ -6,6 +6,11 @@
 //
 //
 
+// TO DO
+// * maybe might be usefull if we add "loopFrame" as a parameter on creation or setup
+// * and so have this parameter "loopFrame" in the XML ?À to be able to change loop video without recompiling ?À
+// * add the change to scene2 on completion.
+
 #pragma once
 
 #ifndef __ConductrEnter__Scene1__
@@ -15,6 +20,7 @@
 #include <ofxAppUtils.h>
 #include "BaseScene.h"
 #include "of3dPrimitives.h"
+#include "ofxTweenzor.h"
 
 
 class Scene1 : public BaseScene
@@ -31,6 +37,13 @@ public:
 
 private:
 
+    int             loopFrame;
+    int             videoState; // 0 : loop     1 : start explode   2 : exploding
+    void            goAhead();
+
+    float           videoHeaderFrame;
+    void            onComplete(float* arg);
+    
     // Touch (currently mouse) events
     virtual void mouseMoved(int x, int y);
     virtual void mouseDragged(int x, int y, int button);
