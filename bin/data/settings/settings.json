@@ -1,12 +1,15 @@
 {
     "Scenes": {
+    	"Intro Loop Frame": 1249,
         "FadeIn Milliseconds": 0,
         "FadeOut Milliseconds": 0,
         "Scene4 Timer Milliseconds": 600000
     },
-    "OSC": {
+    "Ableton": {
         "Ableton Host": "localhost",
         "Ableton Sender Port": 9030,
-        "Ableton Receiver Port": 9031
+        "Ableton Receiver Port": 9031,
+        "First Clip Index": 1,
+        "Artist Offset": 6
     }
 }

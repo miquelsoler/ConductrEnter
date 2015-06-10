@@ -9,22 +9,19 @@
 #include "Scene1.h"
 #include "of3dGraphics.h"
 
+#include "SettingsManager.h"
+
+
 //--------------------------------------------------------------
 void Scene1::setup()
 {
-<<<<<<< HEAD
-    if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/scene1_bg.mov");
-
-=======
-    cout << "SCENE1 SETUP" << endl;
-    
     /// VIDEO
     if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/introLoop.mov");
->>>>>>> scene1 video transition
+
     videoPlayer.setVolume(0);
     videoPlayer.setLoopState(OF_LOOP_NONE);
     videoState = 0;
-    loopFrame = 1249;
+    loopFrame = SettingsManager::getInstance().intro_loop_frame;
 
     /// TWEENZOR
     // must call this before adding any tweens
@@ -56,7 +53,9 @@ void Scene1::update()
         // when we reach the end of the video ... change to scene 2
         if(videoPlayer.getCurrentFrame()>=videoPlayer.getTotalNumFrames())
         {
+#ifdef OF_DEBUG
             cout << " scene1 : Finished ! Bring me to scene 2 pls ! " << endl;
+#endif
         }
     }
 

@@ -24,14 +24,17 @@ public:
     }
 
     // Scene management
+    unsigned int intro_loop_frame;
     unsigned int fade_in_milliseconds;
     unsigned int fade_out_milliseconds;
     unsigned long scene4_timer_milliseconds;
 
-    // OSC
-    string oscAbletonHost;
-    unsigned int oscAbletonSenderPort;
-    unsigned int oscAbletonReceiverPort;
+    // Ableton
+    string abletonHost;
+    unsigned int abletonSenderPort;
+    unsigned int abletonReceiverPort;
+    unsigned int abletonFirstClipIndex;
+    unsigned int abletonArtistOffset;
 
 private:
 

@@ -32,16 +32,20 @@ bool SettingsManager::loadSettings()
 #endif
 
     // Scene management
+    intro_loop_frame = json["Scenes"]["Intro Loop Frame"].asUInt();
     fade_in_milliseconds = json["Scenes"]["FadeIn Milliseconds"].asUInt();
     fade_out_milliseconds = json["Scenes"]["FadeOut Milliseconds"].asUInt();
     scene4_timer_milliseconds = json["Scenes"]["Scene4 Timer Milliseconds"].asUInt();
 #ifdef OF_DEBUG
     cout << "[Scenes] fadeIn=" << fade_in_milliseconds << " fadeOut=" << fade_out_milliseconds << " scene4Timer=" << scene4_timer_milliseconds << endl;
 #endif
-    // OSC
-    oscAbletonHost = json["OSC"]["Ableton Host"].asString();
-    oscAbletonSenderPort = json["OSC"]["Ableton Sender Port"].asUInt();
-    oscAbletonReceiverPort = json["OSC"]["Ableton Receiver Port"].asUInt();
+
+    // Ableton
+    abletonHost = json["Ableton"]["Ableton Host"].asString();
+    abletonSenderPort = json["Ableton"]["Ableton Sender Port"].asUInt();
+    abletonReceiverPort = json["Ableton"]["Ableton Receiver Port"].asUInt();
+    abletonFirstClipIndex = json["Ableton"]["First Clip Index"].asUInt();
+    abletonArtistOffset = json["Ableton"]["Artist Offset"].asUInt();
 
     return parsingSuccessful;
 }
