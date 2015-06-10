@@ -34,10 +34,6 @@ private:
     virtual void mouseDragged(int x, int y, int button);
     virtual void mousePressed(int x, int y, int button);
     virtual void mouseReleased(int x, int y, int button);
-
-    ofSpherePrimitive sphere1, sphere2, sphere3;
-//    ofEasyCam camera;
-    orthoCamera camera;
 };
 
 #endif /* defined(__ConductrEnter__Scene2__) */
