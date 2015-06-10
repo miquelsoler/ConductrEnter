@@ -51,7 +51,6 @@
 		7678521FC5030110E7FE9166 /* Scene2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C26E4A6E8DFA7B8F0E281D3 /* Scene2.cpp */; };
 		7F587E2192AA95C424BF91AB /* ofxScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC7E9B4A22D8921421C51E3C /* ofxScene.cpp */; };
 		837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F2C6477A769C03A56D1401 /* ofxSlider.cpp */; };
-		84061881C5C8B2B1AB4843F1 /* OrthoCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23E658C072EE0A336DE874DE /* OrthoCamera.cpp */; };
 		8450F917088E016221BFCA15 /* InputGestureTuio1.13D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23D3490FFD4F52374BB762A7 /* InputGestureTuio1.13D.cpp */; };
 		856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9604B925D32EE39065747725 /* ofxBaseGui.cpp */; };
 		869FD5546F8C30C60A30AB43 /* Shapes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4D0948CD2C2DF3600975297 /* Shapes.cpp */; };
@@ -175,12 +174,10 @@
 		22F13528FB7F2A76A5FA61F9 /* InputGestureTuio1.12.5D.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = InputGestureTuio1.12.5D.cpp; path = ../../../addons/ofxTableGestures/src/Gestures/tuio1.1/InputGestureTuio1.12.5D.cpp; sourceTree = SOURCE_ROOT; };
 		23640F57DF6C4BB6BFC5DA4C /* PacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PacketListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/PacketListener.h; sourceTree = SOURCE_ROOT; };
 		23D3490FFD4F52374BB762A7 /* InputGestureTuio1.13D.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = InputGestureTuio1.13D.cpp; path = ../../../addons/ofxTableGestures/src/Gestures/tuio1.1/InputGestureTuio1.13D.cpp; sourceTree = SOURCE_ROOT; };
-		23E658C072EE0A336DE874DE /* OrthoCamera.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OrthoCamera.cpp; path = src/Utils/OrthoCamera.cpp; sourceTree = SOURCE_ROOT; };
 		24E837B3A82AD01250ABEBBD /* S3Object4.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = S3Object4.h; path = src/Scene3/S3Object4.h; sourceTree = SOURCE_ROOT; };
 		2600FB058F34C2FD5037FCCF /* TweenEvent.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TweenEvent.h; path = ../../../addons/ofxTweenzor/src/TweenEvent.h; sourceTree = SOURCE_ROOT; };
 		26A541233BC6F736E758F718 /* ofxJSONElement.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxJSONElement.h; path = ../../../addons/ofxJSON/src/ofxJSONElement.h; sourceTree = SOURCE_ROOT; };
 		2834D88A62CD23F3DE2C47D1 /* ofxButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxButton.h; path = ../../../addons/ofxGui/src/ofxButton.h; sourceTree = SOURCE_ROOT; };
-		28573A818E00A434A0B19D5F /* OrthoCamera.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OrthoCamera.h; path = src/Utils/OrthoCamera.h; sourceTree = SOURCE_ROOT; };
 		29151A7C9D6B1BC4814DEA4D /* Triangulate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Triangulate.h; path = ../../../addons/ofx2DFigures/src/Triangulate.h; sourceTree = SOURCE_ROOT; };
 		2A19CB89F75D6694CAEF1A9F /* Figure.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Figure.h; path = ../../../addons/ofx2DFigures/src/Figure.h; sourceTree = SOURCE_ROOT; };
 		2A22B5E46E4AF471AB80A04B /* FigureGraphic.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FigureGraphic.hpp; path = ../../../addons/ofxTableGestures/src/Core/FigureGraphic.hpp; sourceTree = SOURCE_ROOT; };
@@ -735,8 +732,6 @@
 			isa = PBXGroup;
 			children = (
 				CC31A9AAB0406668A34F79F1 /* Defaults.h */,
-				23E658C072EE0A336DE874DE /* OrthoCamera.cpp */,
-				28573A818E00A434A0B19D5F /* OrthoCamera.h */,
 				192BFE71424F71507361EEB6 /* SettingsManager.cpp */,
 				8C35CEFEAB2815DCADBB156D /* SettingsManager.h */,
 				2A9DFB851B283A26005BFCB9 /* AbletonManager.cpp */,
@@ -1264,7 +1259,6 @@
 				13ABA38429B78DA703DD0BDC /* S3Object5.cpp in Sources */,
 				D13081C3F6753A9CEA0F88DD /* S3Object6.cpp in Sources */,
 				196DEC90F7E0BBFC0278BBA5 /* Scene3.cpp in Sources */,
-				84061881C5C8B2B1AB4843F1 /* OrthoCamera.cpp in Sources */,
 				52326D4E367670D8DC7ED47A /* SettingsManager.cpp in Sources */,
 				4E322024174AFB49A3BEA152 /* model3DS.cpp in Sources */,
 				C2B7714E50909A7BCAE5A51C /* texture3DS.cpp in Sources */,
