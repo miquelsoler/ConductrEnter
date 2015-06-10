@@ -2,10 +2,11 @@
     "Scenes": {
         "FadeIn Milliseconds": 0,
         "FadeOut Milliseconds": 0,
-        "Scene4 Timer Milliseconds": 60000
+        "Scene4 Timer Milliseconds": 600000
     },
     "OSC": {
         "Ableton Host": "localhost",
-        "Ableton Port": 9030
+        "Ableton Sender Port": 9030,
+        "Ableton Receiver Port": 9031
     }
 }

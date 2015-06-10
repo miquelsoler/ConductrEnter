@@ -11,7 +11,6 @@
 
 void Scene1::setup()
 {
-    cout << "SCENE1 SETUP" << endl;
     if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/scene1_bg.mov");
 
     videoPlayer.setVolume(0);

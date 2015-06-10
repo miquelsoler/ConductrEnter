@@ -49,34 +49,29 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
 
     // Initialitze OSC
 
-    string abletonHost = SettingsManager::getInstance().oscAbletonHost;
-    unsigned int abletonPort = SettingsManager::getInstance().oscAbletonPort;
-
-    oscSender.setup(abletonHost, abletonPort);
+    string host = SettingsManager::getInstance().oscAbletonHost;
+    unsigned int senderPort = SettingsManager::getInstance().oscAbletonSenderPort;
+    unsigned int receiverPort = SettingsManager::getInstance().oscAbletonReceiverPort;
+    abletonManager = new AbletonManager(host, senderPort, receiverPort);
 
     // Stop all playing clips, just in case (for demo purposes)
+    abletonManager->stopAll();
     for (int i=0; i<num_objects; i++)
-    {
-        objectTrackIsPlaying.push_back(false);
-        ofxOscMessage m;
-        m.setAddress("/live/stop/clip");
-        m.addIntArg(i);
-        m.addIntArg(ABLETON_CLIP);
-        oscSender.sendMessage(m);
-    }
+        objectIsPlaying.push_back(false);
 }
 
 Scene3::~Scene3()
 {
     for (int i=0; i<num_objects; ++i)
         delete objects[i];
+
+    delete abletonManager;
 }
 
 #pragma mark - OF main calls
 
 void Scene3::setup()
 {
-//    cout << "VW=" << ofGetViewportWidth() << " VH=" << ofGetViewportHeight() << endl;
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->setup();
 }
@@ -117,14 +112,8 @@ void Scene3::mouseDragged(int x, int y, int button)
         
         int pressedObjectIndex = getObjectIndexAtPosition(x, y);
 
-        ofxOscMessage m;
-
-        // /live/master/device (int track, int device, int parameter,int value) -> Sets parameter on device on track number track to value
-
-        string address = "/live/master/device";
-        m.setAddress(address);
-        m.addIntArg(0);
-        m.addIntArg(pressedObjectIndex+1);
+        int device = 0;
+        int parameter = pressedObjectIndex + 1;
         int value;
         float halfHeight = windowHeight/2.0f;
         if ((y>=0) && (y<halfHeight)) {
@@ -132,9 +121,8 @@ void Scene3::mouseDragged(int x, int y, int button)
         } else {
             value = ofMap(y, halfHeight, windowHeight, 0, 127);
         }
-        m.addIntArg(value);
-        oscSender.sendMessage(m);
-        cout << "Message: " << m.getAddress() << "-" << m.getArgAsInt32(0) << "-" << m.getArgAsInt32(1) << "-" << m.getArgAsInt32(2) << endl;
+
+        abletonManager->setDeviceParameter(device, parameter, value);
 
         // Move object vertically
 
@@ -150,40 +138,26 @@ void Scene3::mousePressed(int x, int y, int button)
         // Play/pause the clip ABLETON_CLIP at track determinated by the touched object
 
         int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-
         int track = pressedObjectIndex;
 
-        ofxOscMessage m;
-        string address = !(objectTrackIsPlaying[pressedObjectIndex]) ? "/live/play/clip" : "/live/stop/clip";
-        m.setAddress(address);
-        // Session view -> col number (track)
-        m.addIntArg(track);
-        // Session view -> row number (clip)
-        m.addIntArg(ABLETON_CLIP);
-        oscSender.sendMessage(m);
-        objectTrackIsPlaying[pressedObjectIndex] = !objectTrackIsPlaying[pressedObjectIndex];
+        if (!(objectIsPlaying[pressedObjectIndex])) {
+            abletonManager->playClip(ABLETON_CLIP, track);
+        } else {
+            abletonManager->stopClip(ABLETON_CLIP, track);
+        }
+
+        objectIsPlaying[pressedObjectIndex] = !objectIsPlaying[pressedObjectIndex];
 
         // Animate (or not) the touched object
-        objects[pressedObjectIndex]->setAnimated(objectTrackIsPlaying[pressedObjectIndex]);
+        objects[pressedObjectIndex]->setAnimated(objectIsPlaying[pressedObjectIndex]);
     }
 }
 
 void Scene3::mouseReleased(int x, int y, int button)
 {
-    // Resets the value to zero
-
-    // /live/master/device (int track, int device, int parameter,int value) -> Sets parameter on device on track number track to value
-
+    // Resets /master/device value to zero
     int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-
-    ofxOscMessage m;
-    string address = "/live/master/device";
-    m.setAddress(address);
-    m.addIntArg(0);
-    m.addIntArg(pressedObjectIndex+1);
-    int value = 0;
-    m.addIntArg(value);
-    oscSender.sendMessage(m);
+    abletonManager->setDeviceParameter(0, pressedObjectIndex+1, 0);
 }
 
 #pragma mark - Helper methods

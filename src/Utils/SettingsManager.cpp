@@ -37,7 +37,8 @@ bool SettingsManager::loadSettings()
 
     // OSC
     oscAbletonHost = json["OSC"]["Ableton Host"].asString();
-    oscAbletonPort = json["OSC"]["Ableton Port"].asUInt();
+    oscAbletonSenderPort = json["OSC"]["Ableton Sender Port"].asUInt();
+    oscAbletonReceiverPort = json["OSC"]["Ableton Receiver Port"].asUInt();
 
     return parsingSuccessful;
 }

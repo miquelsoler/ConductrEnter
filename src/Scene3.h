@@ -16,6 +16,7 @@
 #include "ofxOsc.h"
 #include "BaseScene.h"
 #include "S3BaseObj.h"
+#include "AbletonManager.h"
 
 class Scene3 : public BaseScene
 {
@@ -40,8 +41,10 @@ private:
 
     /**/ // OSC
     int getObjectIndexAtPosition(int x, int y);
+    AbletonManager *abletonManager;
+
     ofxOscSender oscSender;
-    vector<bool> objectTrackIsPlaying;
+    vector<bool> objectIsPlaying;
 
     // Listener method to detect window changes
     virtual void windowResized(ofResizeEventArgs &args);

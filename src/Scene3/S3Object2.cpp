@@ -136,6 +136,4 @@ void S3Object2::timerCompleteHandler(int &args)
 
     icoSphere1.getMesh().setFromTriangles(newIcoTriangles1);
     icoSphere2.getMesh().setFromTriangles(newIcoTriangles2);
-
-    cout << "BOOM! ";
 }

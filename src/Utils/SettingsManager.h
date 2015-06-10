@@ -30,7 +30,8 @@ public:
 
     // OSC
     string oscAbletonHost;
-    unsigned int oscAbletonPort;
+    unsigned int oscAbletonSenderPort;
+    unsigned int oscAbletonReceiverPort;
 
 private:
 
