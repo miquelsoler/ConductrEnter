@@ -9,7 +9,7 @@
 #include "Scene3.h"
 
 #include "S3Object1.h"
-#include "S3Object2.h"
+#include "S3Drums.h"
 #include "S3Object3.h"
 #include "S3Object4.h"
 #include "S3Object5.h"
@@ -30,20 +30,39 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
 
     // Create scene objects
     float viewOrigin;
+    string objectsPath = "settings/scene3/";
     for (int i=0; i<NUM_OBJECTS; i++)
     {
-        ostringstream settingsPath;
-        settingsPath << "settings/scene3/obj" << i+1 << ".xml";
+//        ostringstream settingsPath;
+//        settingsPath << "settings/scene3/obj" << i+1 << ".xml";
         viewOrigin = i * viewWidth;
         S3BaseObj *object;
         switch(i)
         {
-            case 0: object = new S3Object1(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
-            case 1: object = new S3Object2(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
-            case 2: object = new S3Object1(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
-            case 3: object = new S3Object2(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
-            case 4: object = new S3Object1(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
-            case 5: object = new S3Object2(num_objects, i, viewOrigin, viewWidth, settingsPath.str()); break;
+            case 0: {
+                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                break;
+            }
+            case 1: {
+                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                break;
+            }
+            case 2: {
+                object = new S3Drums(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums.xml");
+                break;
+            }
+            case 3: {
+                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                break;
+            }
+            case 4: {
+                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                break;
+            }
+            case 5: {
+                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                break;
+            }
         }
         objects.push_back(object);
     }

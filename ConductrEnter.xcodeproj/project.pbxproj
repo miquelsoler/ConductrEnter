@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03F6BC4239B5DAB80E45B7CB /* S3Object2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A411E9E398676A4E47BBD106 /* S3Object2.cpp */; };
 		0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */; };
 		0591A114740B659CDCAFFCAD /* TuioManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B70FB08728E37580990333D /* TuioManager.cpp */; };
 		07CE45C80C433D565B7670AA /* TuioPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5095C3FF3D21391073513057 /* TuioPoint.cpp */; };
@@ -24,6 +23,7 @@
 		272FB933B6673272E9518010 /* S3BaseObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D1CD9E4ABBADEA15B582F /* S3BaseObj.cpp */; };
 		28090DEB5109115003E8F1C5 /* UdpSocketWin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5928AA323F5C2690B06C837D /* UdpSocketWin.cpp */; };
 		29B40A4DB56C3F8ECA94E7E9 /* TuioDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0891620C23D47639D8AEE84 /* TuioDispatcher.cpp */; };
+		2A5C319D1B299BD400E713F3 /* S3Drums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C319B1B299BD400E713F3 /* S3Drums.cpp */; };
 		2C94348B3606F2B01C9F2E69 /* Simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF750ABAF3178C5BC6A8C233 /* Simulator.cpp */; };
 		38BA747C7CB7F8F8913375B6 /* ofxSimpleTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F1B28BB2551E443EFD686DD /* ofxSimpleTimer.cpp */; };
 		3C9E8F6D5A107A2CE1F7F0C3 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4AA5936821E0FA89447F332 /* Renderer.cpp */; };
@@ -207,6 +207,8 @@
 		2A19CB89F75D6694CAEF1A9F /* Figure.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Figure.h; path = ../../../addons/ofx2DFigures/src/Figure.h; sourceTree = SOURCE_ROOT; };
 		2A22B5E46E4AF471AB80A04B /* FigureGraphic.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FigureGraphic.hpp; path = ../../../addons/ofxTableGestures/src/Core/FigureGraphic.hpp; sourceTree = SOURCE_ROOT; };
 		2A5B1FAD3F30C8065C396ACB /* NetworkingUtilsWin.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = NetworkingUtilsWin.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/win32/NetworkingUtilsWin.cpp; sourceTree = SOURCE_ROOT; };
+		2A5C319B1B299BD400E713F3 /* S3Drums.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3Drums.cpp; path = Scene3/S3Drums.cpp; sourceTree = "<group>"; };
+		2A5C319C1B299BD400E713F3 /* S3Drums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Drums.h; path = Scene3/S3Drums.h; sourceTree = "<group>"; };
 		2A9DFB8F1B289B58005BFCB9 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = bin/data; sourceTree = "<group>"; };
 		2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxml.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = SOURCE_ROOT; };
 		2C7CF000B7B4F782C187C353 /* json.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = json.h; path = ../../../addons/ofxJSON/libs/jsoncpp/include/json/json.h; sourceTree = SOURCE_ROOT; };
@@ -223,7 +225,6 @@
 		3EDF02B1992A99DCDEF640B4 /* ofxTransformPanel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTransformPanel.h; path = ../../../addons/ofxAppUtils/src/ofxTransformPanel.h; sourceTree = SOURCE_ROOT; };
 		3FF4C30062C687195B53F1F9 /* ofx3DBaseLoader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofx3DBaseLoader.h; path = ../../../addons/ofx3DModelLoader/src/ofx3DBaseLoader.h; sourceTree = SOURCE_ROOT; };
 		40CC37C3160F07EE73390C1B /* TuioClient.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = TuioClient.cpp; path = src/TUIO/TuioClient.cpp; sourceTree = SOURCE_ROOT; };
-		426239778BD72D3DB18C77CE /* S3Object2.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = S3Object2.h; path = src/Scene3/S3Object2.h; sourceTree = SOURCE_ROOT; };
 		444657A12E59D0ED86981498 /* TimerListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TimerListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/TimerListener.h; sourceTree = SOURCE_ROOT; };
 		447C4A01F9E734204E10B9C8 /* GlobalConfigDetail.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = GlobalConfigDetail.hpp; path = ../../../addons/ofxGlobalConfig/src/GlobalConfigDetail.hpp; sourceTree = SOURCE_ROOT; };
 		44D7089802B01674AA4DEFA9 /* GraphicDispatcher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = GraphicDispatcher.cpp; path = ../../../addons/ofxTableGestures/src/Core/GraphicDispatcher.cpp; sourceTree = SOURCE_ROOT; };
@@ -312,7 +313,6 @@
 		A2AAA8CA403479E6FCDF920E /* OscHostEndianness.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscHostEndianness.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscHostEndianness.h; sourceTree = SOURCE_ROOT; };
 		A31DB2ED2400DB505400D880 /* GraphicDispatcher.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = GraphicDispatcher.hpp; path = ../../../addons/ofxTableGestures/src/Core/GraphicDispatcher.hpp; sourceTree = SOURCE_ROOT; };
 		A32328FA036BA733F924C0E1 /* Graphic.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Graphic.cpp; path = ../../../addons/ofxTableGestures/src/Core/Graphic.cpp; sourceTree = SOURCE_ROOT; };
-		A411E9E398676A4E47BBD106 /* S3Object2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S3Object2.cpp; path = src/Scene3/S3Object2.cpp; sourceTree = SOURCE_ROOT; };
 		A46DF89EE8EAC2FEFBFEA841 /* Events.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Events.hpp; path = ../../../addons/ofxTableGestures/src/Gestures/Events.hpp; sourceTree = SOURCE_ROOT; };
 		A82B9D3DECB4AB88449B9E37 /* Shapes.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Shapes.hpp; path = ../../../addons/ofxTableGestures/src/Simulator/Shapes.hpp; sourceTree = SOURCE_ROOT; };
 		A96A449BB6334A5F474A4EFB /* S3Object1.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S3Object1.cpp; path = src/Scene3/S3Object1.cpp; sourceTree = SOURCE_ROOT; };
@@ -837,10 +837,10 @@
 			children = (
 				5C8D1CD9E4ABBADEA15B582F /* S3BaseObj.cpp */,
 				EB85304720B1C552D67B1076 /* S3BaseObj.h */,
+				2A5C319B1B299BD400E713F3 /* S3Drums.cpp */,
+				2A5C319C1B299BD400E713F3 /* S3Drums.h */,
 				A96A449BB6334A5F474A4EFB /* S3Object1.cpp */,
 				BF28C3A85D0B542FF44F2F56 /* S3Object1.h */,
-				A411E9E398676A4E47BBD106 /* S3Object2.cpp */,
-				426239778BD72D3DB18C77CE /* S3Object2.h */,
 				7E8EF2366F441F518D7A055B /* S3Object3.cpp */,
 				FB85E31F89901FCC7D44F94E /* S3Object3.h */,
 				FB1F7C6505FC232176A74775 /* S3Object4.cpp */,
@@ -1047,8 +1047,6 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
-				987B75C789AD781A4DC85A32 /* BaseObject.cpp */,
-				34E2D892E7B0F8B558A008F4 /* BaseObject.h */,
 				C327CCC6DB1A6B198DF2BFC3 /* BaseScene.cpp */,
 				4A59748741A76A3CE1C310DD /* BaseScene.h */,
 				916661E9D1CB179DDE1B7231 /* Scene1.cpp */,
@@ -1057,6 +1055,8 @@
 				F398369B4CDBCC42B3F6D6B9 /* Scene2.h */,
 				E1C1EBCE99989A41462D6C86 /* Scene3.cpp */,
 				87481F5F15160962A4B1A08C /* Scene3.h */,
+				987B75C789AD781A4DC85A32 /* BaseObject.cpp */,
+				34E2D892E7B0F8B558A008F4 /* BaseObject.h */,
 				A3A066B30B8145EC42B7325B /* Scene3 */,
 				55991F111A077FECD6CDE310 /* TUIO */,
 				85C7093CD15404193A7664FD /* Utils */,
@@ -1273,7 +1273,6 @@
 				7678521FC5030110E7FE9166 /* Scene2.cpp in Sources */,
 				272FB933B6673272E9518010 /* S3BaseObj.cpp in Sources */,
 				FA08B57484342F10C5F7CBF2 /* S3Object1.cpp in Sources */,
-				03F6BC4239B5DAB80E45B7CB /* S3Object2.cpp in Sources */,
 				883E10C8422A234A3309708D /* S3Object3.cpp in Sources */,
 				AC3F106095E50D5D726700D2 /* S3Object4.cpp in Sources */,
 				13ABA38429B78DA703DD0BDC /* S3Object5.cpp in Sources */,
@@ -1323,6 +1322,7 @@
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
 				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
 				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
+				2A5C319D1B299BD400E713F3 /* S3Drums.cpp in Sources */,
 				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
 				159BD30F49FD4EE736C2CBA8 /* BoundingBox.cpp in Sources */,
 				7273D0E2B6812DF0D3615EB7 /* CollisionHelper.cpp in Sources */,
