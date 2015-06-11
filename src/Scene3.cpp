@@ -76,6 +76,7 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
     // Request tempo in order to set it on objects
     ofAddListener(abletonManager->tempoChanged, this, &Scene3::tempoChanged);
     abletonManager->requestTempo();
+    abletonManager->requestVolumeUpdates();
 
     // Stop all playing clips, just in case (for demo purposes)
     abletonManager->stopAll();

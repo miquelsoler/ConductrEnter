@@ -97,6 +97,23 @@ void AbletonManager::requestTempo()
     oscSender.sendMessage(m);
 }
 
+
+
+/*
+ * /live/volumeupdates (int window, int min_track, int max_track
+ * Request volume updates
+ */
+void AbletonManager::requestVolumeUpdates()
+{
+    ofxOscMessage m;
+    m.setAddress("/live/volumeupdates");
+    m.addIntArg(0); // window
+    m.addIntArg(0); // min_track
+    m.addIntArg(8); // max_track
+    
+    oscSender.sendMessage(m);
+}
+
 #pragma mark - Receive messages
 
 void AbletonManager::update()
@@ -107,9 +124,59 @@ void AbletonManager::update()
         oscReceiver.getNextMessage(&m);
 
         if (m.getAddress() == "/live/tempo")
-        {
-            float newTempo = m.getArgAsFloat(0);
-            ofNotifyEvent(tempoChanged, newTempo, this);
-        }
+            manageTempoChanged(m);
+        else if (m.getAddress() == "/live/track/meterblock")
+            manageTracksVolumeChanged(m);
+        else if (m.getAddress() == "/live/master/meterblock")
+            manageMasterVolumeChanged(m);
     }
+}
+
+void AbletonManager::manageTempoChanged(ofxOscMessage &m)
+{
+    /*
+     * Response for tempo changes:
+     * /live/tempo
+     * (float) tempo
+     */
+    float newTempo = m.getArgAsFloat(0);
+    ofNotifyEvent(tempoChanged, newTempo, this);
+}
+
+void AbletonManager::manageTracksVolumeChanged(ofxOscMessage &m)
+{
+    /*
+     * Response for track volume (amplitude) changes:
+     * /live/track/meterblock
+     * N triplets with:
+     *   (int) track number
+     *   (int) channel (0=left, 1=right)
+     *   (float) volume (0..1)
+     */
+
+    int track, channel;
+    float volume;
+
+    int numArgs = m.getNumArgs();
+    for (int i=0; i<numArgs; i+=3)
+    {
+        track = m.getArgAsInt32(i);
+        channel = m.getArgAsInt32(i+1);
+        volume = m.getArgAsFloat(i+2);
+
+        if (channel == 1) continue; // Skip right channel messages
+
+        cout << " " << track << " " << channel << " " << volume << " - ";
+    }
+    cout << endl;
+}
+
+void AbletonManager::manageMasterVolumeChanged(ofxOscMessage &m)
+{
+    /*
+     * Response for master volume (amplitude) changes:
+     * /live/master/meterblock
+     * (int) channel (0=left, 1=right)
+     * (float) volume (0..1)
+     */
 }
