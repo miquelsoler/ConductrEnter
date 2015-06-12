@@ -10,10 +10,6 @@
 
 #include "S3Object1.h"
 #include "S3Drums.h"
-#include "S3Object3.h"
-#include "S3Object4.h"
-#include "S3Object5.h"
-#include "S3Object6.h"
 
 #include "SettingsManager.h"
 
@@ -28,53 +24,57 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
     viewWidth = ofGetWidth() / num_objects;
     viewHeight = ofGetHeight();
 
+    // Initialitze OSC
+    string host = SettingsManager::getInstance().abletonHost;
+    unsigned int senderPort = SettingsManager::getInstance().abletonSenderPort;
+    unsigned int receiverPort = SettingsManager::getInstance().abletonReceiverPort;
+    abletonManager = new AbletonManager(host, senderPort, receiverPort, num_objects);
+
     // Create scene objects
     float viewOrigin;
     string objectsPath = "settings/scene3/";
     for (int i=0; i<NUM_OBJECTS; i++)
     {
-//        ostringstream settingsPath;
-//        settingsPath << "settings/scene3/obj" << i+1 << ".xml";
         viewOrigin = i * viewWidth;
         S3BaseObj *object;
         switch(i)
         {
             case 0: {
-                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                object = new S3Drums(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums.xml");
+                ofAddListener(abletonManager->eventVolumeChanged0, object, &S3BaseObj::volumeChanged);
                 break;
             }
             case 1: {
                 object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                ofAddListener(abletonManager->eventVolumeChanged1, object, &S3BaseObj::volumeChanged);
                 break;
             }
             case 2: {
-                object = new S3Drums(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums.xml");
+                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                ofAddListener(abletonManager->eventVolumeChanged2, object, &S3BaseObj::volumeChanged);
                 break;
             }
             case 3: {
                 object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                ofAddListener(abletonManager->eventVolumeChanged3, object, &S3BaseObj::volumeChanged);
                 break;
             }
             case 4: {
                 object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                ofAddListener(abletonManager->eventVolumeChanged4, object, &S3BaseObj::volumeChanged);
                 break;
             }
             case 5: {
                 object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                ofAddListener(abletonManager->eventVolumeChanged5, object, &S3BaseObj::volumeChanged);
                 break;
             }
         }
         objects.push_back(object);
     }
 
-    // Initialitze OSC
-    string host = SettingsManager::getInstance().abletonHost;
-    unsigned int senderPort = SettingsManager::getInstance().abletonSenderPort;
-    unsigned int receiverPort = SettingsManager::getInstance().abletonReceiverPort;
-    abletonManager = new AbletonManager(host, senderPort, receiverPort);
-
     // Request tempo in order to set it on objects
-    ofAddListener(abletonManager->tempoChanged, this, &Scene3::tempoChanged);
+    ofAddListener(abletonManager->eventTempoChanged, this, &Scene3::tempoChanged);
     abletonManager->requestTempo();
     abletonManager->requestVolumeUpdates();
 
@@ -194,7 +194,7 @@ void Scene3::mouseReleased(int x, int y, int button)
 
 int Scene3::getObjectIndexAtPosition(int x, int y)
 {
-    return floor(x/viewWidth);
+    return (int)floor(x/viewWidth);
 }
 
 void Scene3::windowResized(ofResizeEventArgs &args)

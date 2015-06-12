@@ -33,6 +33,9 @@ public:
     virtual void setY(float newY) = 0;
     void setAnimated(bool animate);
 
+    // Volume changes
+    virtual void volumeChanged(float &newVolume) = 0;
+
 protected:
 
     void drawLoop();

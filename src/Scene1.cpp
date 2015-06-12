@@ -7,7 +7,6 @@
 //
 
 #include "Scene1.h"
-#include "of3dGraphics.h"
 
 #include "SettingsManager.h"
 

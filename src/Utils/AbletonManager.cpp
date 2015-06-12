@@ -12,19 +12,26 @@ const unsigned int MAX_TRACKS = 20;
 
 #pragma mark - Constructors
 
-AbletonManager::AbletonManager(string _senderHost, unsigned int _senderPort, unsigned int _receiverPort)
+AbletonManager::AbletonManager(string _senderHost, unsigned int _senderPort, unsigned int _receiverPort, unsigned int numObjects)
 {
     senderHost = _senderHost;
     senderPort = _senderPort;
     receiverPort = _receiverPort;
 
+    sceneNumObjects = numObjects;
+
     oscSender.setup(senderHost, senderPort);
     oscReceiver.setup(receiverPort);
+
+//    for (int i=0; i<sceneNumObjects; i++) {
+//        ofEvent<float> event;
+//        eventsVolumeChanged.push_back(&event);
+//    }
 }
 
 #pragma mark - Send messages
 
-/*
+/**
  * /live/play/clip
  * (int track, int clip)
  * Launches clip number clip in track number track
@@ -38,7 +45,7 @@ void AbletonManager::playClip(int clipNumber, int trackNumber)
     oscSender.sendMessage(m);
 }
 
-/*
+/**
  * /live/stop/clip
  * (int track, int clip)
  * Stops clip number clip in track number track
@@ -52,7 +59,7 @@ void AbletonManager::stopClip(int clipNumber, int trackNumber)
     oscSender.sendMessage(m);
 }
 
-/*
+/**
  * /live/stop/track
  * (int track)
  * Stops track number track
@@ -68,7 +75,7 @@ void AbletonManager::stopAll()
 }
 
 
-/*
+/**
  * /live/master/device
  * (int device, int parameter, int value)
  * Sets parameter on device on track number track to value
@@ -86,7 +93,7 @@ void AbletonManager::setDeviceParameter(int device, int parameter, int value)
 #endif
 }
 
-/*
+/**
  * /live/tempo
  * Request current tempo, replies with /live/tempo (float tempo)
  */
@@ -99,7 +106,7 @@ void AbletonManager::requestTempo()
 
 
 
-/*
+/**
  * /live/volumeupdates (int window, int min_track, int max_track
  * Request volume updates
  */
@@ -134,18 +141,18 @@ void AbletonManager::update()
 
 void AbletonManager::manageTempoChanged(ofxOscMessage &m)
 {
-    /*
+    /**
      * Response for tempo changes:
      * /live/tempo
      * (float) tempo
      */
     float newTempo = m.getArgAsFloat(0);
-    ofNotifyEvent(tempoChanged, newTempo, this);
+    ofNotifyEvent(eventTempoChanged, newTempo, this);
 }
 
 void AbletonManager::manageTracksVolumeChanged(ofxOscMessage &m)
 {
-    /*
+    /**
      * Response for track volume (amplitude) changes:
      * /live/track/meterblock
      * N triplets with:
@@ -165,15 +172,29 @@ void AbletonManager::manageTracksVolumeChanged(ofxOscMessage &m)
         volume = m.getArgAsFloat(i+2);
 
         if (channel == 1) continue; // Skip right channel messages
+        if (track >= sceneNumObjects) continue; // Skip if this track index is larger than the number of objects in scene
 
-        cout << " " << track << " " << channel << " " << volume << " - ";
+//        cout << " " << track << " " << channel << " " << volume << " - ";
+
+        //        ofMap(volume, 0.4, 1, 0, 1);
+
+        switch(track)
+        {
+            case 0: ofNotifyEvent(eventVolumeChanged0, volume, this); break;
+            case 1: ofNotifyEvent(eventVolumeChanged1, volume, this); break;
+            case 2: ofNotifyEvent(eventVolumeChanged2, volume, this); break;
+            case 3: ofNotifyEvent(eventVolumeChanged3, volume, this); break;
+            case 4: ofNotifyEvent(eventVolumeChanged4, volume, this); break;
+            case 5: ofNotifyEvent(eventVolumeChanged5, volume, this); break;
+            default: break;
+        }
     }
-    cout << endl;
+//    cout << endl;
 }
 
 void AbletonManager::manageMasterVolumeChanged(ofxOscMessage &m)
 {
-    /*
+    /**
      * Response for master volume (amplitude) changes:
      * /live/master/meterblock
      * (int) channel (0=left, 1=right)

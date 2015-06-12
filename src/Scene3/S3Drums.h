@@ -2,7 +2,7 @@
 //  S3Drums.h
 //  ConductrEnter
 //
-//  Created by Miquel Ëngel Soler on 24/5/15.
+//  Created by Miquel ï¿½ngel Soler on 24/5/15.
 //
 //
 
@@ -37,14 +37,16 @@ private:
     vector<ofMeshFace> trianglesOriginal2, trianglesCurrent2;
     vector<float> noises1, noises2;
 
-    ofxSimpleTimer beatTimer;
+//    ofxSimpleTimer beatTimer;
     float vertexDistance;
 
-    void setupTween();
-    void timerCompleteHandler(int &args);
-    void tweenCompleteHandler(float* arg);
+//    void setupTween();
+//    void timerCompleteHandler(int &args);
+//    void tweenCompleteHandler(float* arg);
 
-    ofParameter<float> tweenBegin, tweenEnd, tweenDuration;
+//    ofParameter<float> tweenBegin, tweenEnd, tweenDuration;
+
+    virtual void volumeChanged(float &newVolume);
 
     virtual void windowResized(ofResizeEventArgs &args);
 };

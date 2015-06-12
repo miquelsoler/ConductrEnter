@@ -25,6 +25,8 @@ public:
 
     virtual void loadSettings();
 
+    virtual void volumeChanged(float &newVolume) {};
+
 private:
     
 };

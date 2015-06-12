@@ -20,7 +20,7 @@ class AbletonManager
 public:
 
     AbletonManager() {};
-    AbletonManager(string _senderHost, unsigned int _senderPort, unsigned int _receiverPort);
+    AbletonManager(string _senderHost, unsigned int _senderPort, unsigned int _receiverPort, unsigned int numObjects);
 
     void playClip(int clipNumber, int trackNumber);
     void stopClip(int clipNumber, int trackNumber);
@@ -33,18 +33,21 @@ public:
 
     void update();
 
-    ofEvent<float> tempoChanged;
-    ofEvent<float> volumeChanged0;
-    ofEvent<float> volumeChanged1;
-    ofEvent<float> volumeChanged2;
-    ofEvent<float> volumeChanged3;
-    ofEvent<float> volumeChanged4;
-    ofEvent<float> volumeChanged5;
+    ofEvent<float> eventTempoChanged;
+//    vector< ofEvent<float>* > eventsVolumeChanged;
+    ofEvent<float> eventVolumeChanged0;
+    ofEvent<float> eventVolumeChanged1;
+    ofEvent<float> eventVolumeChanged2;
+    ofEvent<float> eventVolumeChanged3;
+    ofEvent<float> eventVolumeChanged4;
+    ofEvent<float> eventVolumeChanged5;
 
 private:
 
     ofxOscSender oscSender;
     ofxOscReceiver oscReceiver;
+
+    unsigned int sceneNumObjects;
 
     string senderHost;
     unsigned int senderPort;
