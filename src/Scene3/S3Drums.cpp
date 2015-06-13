@@ -9,7 +9,6 @@
 #include "S3Drums.h"
 
 const unsigned int RESOLUTION = 2;
-//const float BEAT_FREQUENCY = 500; // milliseconds
 
 #pragma mark - Initialization
 
@@ -23,11 +22,6 @@ void S3Drums::loadSettings()
 {
     if (settingsPath.empty()) return;
     S3BaseObj::initSharedSettings();
-
-//    // Custom object settings go here
-//    gui.add(tweenBegin.set("Tween_Begin", 0, 0, 3));
-//    gui.add(tweenEnd.set("Tween_End", 10, 0, 50));
-//    gui.add(tweenDuration.set("Tween_Duration", 0.075, 0.02, 0.1));
 
     gui.loadFromFile(settingsPath);
 }
@@ -57,7 +51,7 @@ void S3Drums::setup()
     trianglesOriginal2 = sphere2.getMesh().getUniqueFaces();
     trianglesCurrent2 = sphere2.getMesh().getUniqueFaces();
 
-//    vertexDistance = 1;
+    vertexDistance = 1;
 
     int size = (int)trianglesOriginal1.size();
     noises1.clear();
@@ -66,14 +60,6 @@ void S3Drums::setup()
         noises1.push_back(ofRandom(1));
         noises2.push_back(ofRandom(1));
     }
-
-/*
-    setupTween();
-
-    beatTimer.setup(BEAT_FREQUENCY);
-    beatTimer.start(true);
-    ofAddListener(beatTimer.TIMER_COMPLETE, this, &S3Drums::timerCompleteHandler);
-*/
 }
 
 void S3Drums::update()
@@ -81,7 +67,6 @@ void S3Drums::update()
     S3BaseObj::update();
 
     Tweenzor::update((int)ofGetElapsedTimeMillis());
-//    beatTimer.update();
 
     ofVec3f triangleNormal;
     int size = (int)trianglesOriginal1.size();
@@ -90,12 +75,10 @@ void S3Drums::update()
         triangleNormal = trianglesOriginal1[i].getFaceNormal();
         for (int j=0; j<3; j++) {
             trianglesCurrent1[i].setVertex(j, trianglesOriginal1[i].getVertex(j) - (vertexDistance*noises1[i])*triangleNormal);
-//            trianglesCurrent1[i].setVertex(j, trianglesOriginal1[i].getVertex(j) - vertexDistance*triangleNormal);
         }
         triangleNormal = trianglesOriginal2[i].getFaceNormal();
         for (int j=0; j<3; j++) {
             trianglesCurrent2[i].setVertex(j, trianglesOriginal2[i].getVertex(j) - (vertexDistance*noises2[i])*triangleNormal);
-//            trianglesCurrent2[i].setVertex(j, trianglesOriginal2[i].getVertex(j) - vertexDistance*triangleNormal);
         }
     }
 
@@ -109,7 +92,6 @@ void S3Drums::update()
 void S3Drums::volumeChanged(float &newVolume)
 {
     vertexDistance = (newVolume*0.7) * exp(newVolume * 5);
-////    vertexDistance = (newVolume * 20.0f);
 }
 
 void S3Drums::draw()
@@ -134,48 +116,6 @@ void S3Drums::setY(float newY)
     sphere1.setPosition(objPosition);
     sphere2.setPosition(objPosition);
 }
-
-
-/*
-void S3Drums::setupTween()
-{
-    Tweenzor::resetAllTweens();
-//    float begin = 0;
-//    float end = 10;
-    float delay = 0;
-//    float duration = 0.075;
-    int easeType = EASE_IN_OUT_BOUNCE;
-
-    Tweenzor::add(&vertexDistance, tweenBegin, tweenEnd, delay, tweenDuration, easeType);
-    Tween *tween = Tweenzor::getTween(&vertexDistance);
-    tween->setRepeat(1, true);
-    Tweenzor::addCompleteListener(tween, this, &S3Drums::tweenCompleteHandler);
-
-    int size = (int)trianglesOriginal1.size();
-    noises1.clear();
-    noises2.clear();
-    for (int i=0; i<size; i++) {
-        noises1.push_back(ofRandom(1));
-        noises2.push_back(ofRandom(1));
-    }
-}
-*/
-
-
-/*
-void S3Drums::timerCompleteHandler(int &args)
-{
-    setupTween();
-
-}
-*/
-
-/*
-void S3Drums::tweenCompleteHandler(float* arg)
-{
-    Tweenzor::resetAllTweens();
-}
-*/
 
 void S3Drums::windowResized(ofResizeEventArgs &args)
 {

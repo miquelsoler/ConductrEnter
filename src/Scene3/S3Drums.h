@@ -37,17 +37,9 @@ private:
     vector<ofMeshFace> trianglesOriginal2, trianglesCurrent2;
     vector<float> noises1, noises2;
 
-//    ofxSimpleTimer beatTimer;
     float vertexDistance;
 
-//    void setupTween();
-//    void timerCompleteHandler(int &args);
-//    void tweenCompleteHandler(float* arg);
-
-//    ofParameter<float> tweenBegin, tweenEnd, tweenDuration;
-
     virtual void volumeChanged(float &newVolume);
-
     virtual void windowResized(ofResizeEventArgs &args);
 };
 
