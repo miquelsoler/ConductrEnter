@@ -38,7 +38,7 @@ void S3BaseObj::initSharedSettings()
 
 void S3BaseObj::setup()
 {
-    radius = viewHalfWidth/4;
+    radius = viewHalfWidth/5;
     objPosition.x = viewOriginX + viewHalfWidth;
     objPosition.y = viewHalfHeight;
 

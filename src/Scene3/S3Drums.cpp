@@ -8,7 +8,7 @@
 
 #include "S3Drums.h"
 
-const unsigned int RESOLUTION = 3;
+const unsigned int RESOLUTION = 2;
 //const float BEAT_FREQUENCY = 500; // milliseconds
 
 #pragma mark - Initialization
@@ -89,28 +89,27 @@ void S3Drums::update()
     for (int i=0; i<size; i++) {
         triangleNormal = trianglesOriginal1[i].getFaceNormal();
         for (int j=0; j<3; j++) {
-//            trianglesCurrent1[i].setVertex(j, trianglesOriginal1[i].getVertex(j) - (vertexDistance*noises1[i])*triangleNormal);
-            trianglesCurrent1[i].setVertex(j, trianglesOriginal1[i].getVertex(j) - vertexDistance*triangleNormal);
+            trianglesCurrent1[i].setVertex(j, trianglesOriginal1[i].getVertex(j) - (vertexDistance*noises1[i])*triangleNormal);
+//            trianglesCurrent1[i].setVertex(j, trianglesOriginal1[i].getVertex(j) - vertexDistance*triangleNormal);
         }
         triangleNormal = trianglesOriginal2[i].getFaceNormal();
         for (int j=0; j<3; j++) {
-//            trianglesCurrent2[i].setVertex(j, trianglesOriginal2[i].getVertex(j) - (vertexDistance*noises2[i])*triangleNormal);
-            trianglesCurrent2[i].setVertex(j, trianglesOriginal2[i].getVertex(j) - vertexDistance*triangleNormal);
+            trianglesCurrent2[i].setVertex(j, trianglesOriginal2[i].getVertex(j) - (vertexDistance*noises2[i])*triangleNormal);
+//            trianglesCurrent2[i].setVertex(j, trianglesOriginal2[i].getVertex(j) - vertexDistance*triangleNormal);
         }
     }
 
     sphere1.getMesh().setFromTriangles(trianglesCurrent1);
-    sphere1.getMesh().setFromTriangles(trianglesCurrent2);
+    sphere2.getMesh().setFromTriangles(trianglesCurrent2);
 
     sphere1.rotate(-0.2f, 1.0f, 1.0f, 0.0f);
-    sphere2.rotate(0.2f, 1.0f, 0.0f, 0.0f);
+    sphere2.rotate(0.5f, 1.0f, 0.0f, 0.0f);
 }
 
 void S3Drums::volumeChanged(float &newVolume)
 {
-//    cout << "Volume " << newVolume << endl;
-    vertexDistance = newVolume * 20.0f;
-//    setupTween();
+    vertexDistance = (newVolume*0.7) * exp(newVolume * 5);
+////    vertexDistance = (newVolume * 20.0f);
 }
 
 void S3Drums::draw()
@@ -133,6 +132,7 @@ void S3Drums::setY(float newY)
     float spherePosX = viewOriginX + viewHalfWidth;
     objPosition.set(spherePosX, newY);
     sphere1.setPosition(objPosition);
+    sphere2.setPosition(objPosition);
 }
 
 

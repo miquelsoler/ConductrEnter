@@ -23,11 +23,14 @@ AbletonManager::AbletonManager(string _senderHost, unsigned int _senderPort, uns
     oscSender.setup(senderHost, senderPort);
     oscReceiver.setup(receiverPort);
 
-//    for (int i=0; i<sceneNumObjects; i++) {
-//        ofEvent<float> event;
-//        eventsVolumeChanged.push_back(&event);
-//    }
+    for (int i=0; i<sceneNumObjects; i++)
+        eventsVolumeChanged.push_back(ofEvent<float>());
 }
+
+AbletonManager::~AbletonManager()
+{
+}
+
 
 #pragma mark - Send messages
 
@@ -176,16 +179,7 @@ void AbletonManager::manageTracksVolumeChanged(ofxOscMessage &m)
 
 //        cout << " " << track << " " << channel << " " << volume << " - ";
 
-        switch(track)
-        {
-            case 0: ofNotifyEvent(eventVolumeChanged0, volume, this); break;
-            case 1: ofNotifyEvent(eventVolumeChanged1, volume, this); break;
-            case 2: ofNotifyEvent(eventVolumeChanged2, volume, this); break;
-            case 3: ofNotifyEvent(eventVolumeChanged3, volume, this); break;
-            case 4: ofNotifyEvent(eventVolumeChanged4, volume, this); break;
-            case 5: ofNotifyEvent(eventVolumeChanged5, volume, this); break;
-            default: break;
-        }
+        ofNotifyEvent(eventsVolumeChanged[track], volume, this);
     }
 //    cout << endl;
 }

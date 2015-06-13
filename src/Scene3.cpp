@@ -40,39 +40,26 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
         S3BaseObj *object = NULL;
         switch(i)
         {
-            case 0: {
-                object = new S3Drums(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums.xml");
-                ofAddListener(abletonManager->eventVolumeChanged0, object, &S3BaseObj::volumeChanged);
+            case 0:
+                object = new S3Drums(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums.xml"); break;
+            case 1:
+                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml"); break;
+            case 2:
+                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml"); break;
+            case 3:
+                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml"); break;
+            case 4:
+                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml"); break;
+            case 5:
+                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml"); break;
+            default:
                 break;
-            }
-            case 1: {
-                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
-                ofAddListener(abletonManager->eventVolumeChanged1, object, &S3BaseObj::volumeChanged);
-                break;
-            }
-            case 2: {
-                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
-                ofAddListener(abletonManager->eventVolumeChanged2, object, &S3BaseObj::volumeChanged);
-                break;
-            }
-            case 3: {
-                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
-                ofAddListener(abletonManager->eventVolumeChanged3, object, &S3BaseObj::volumeChanged);
-                break;
-            }
-            case 4: {
-                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
-                ofAddListener(abletonManager->eventVolumeChanged4, object, &S3BaseObj::volumeChanged);
-                break;
-            }
-            case 5: {
-                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
-                ofAddListener(abletonManager->eventVolumeChanged5, object, &S3BaseObj::volumeChanged);
-                break;
-            }
-            default: break;
         }
-        if (object) objects.push_back(object);
+        if (object)
+        {
+            objects.push_back(object);
+            ofAddListener(abletonManager->eventsVolumeChanged[i], object, &S3BaseObj::volumeChanged);
+        }
     }
 
     // Request tempo in order to set it on objects

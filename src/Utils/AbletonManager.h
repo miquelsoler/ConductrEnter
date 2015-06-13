@@ -21,6 +21,7 @@ public:
 
     AbletonManager() {};
     AbletonManager(string _senderHost, unsigned int _senderPort, unsigned int _receiverPort, unsigned int numObjects);
+    virtual ~AbletonManager();
 
     void playClip(int clipNumber, int trackNumber);
     void stopClip(int clipNumber, int trackNumber);
@@ -34,13 +35,7 @@ public:
     void update();
 
     ofEvent<float> eventTempoChanged;
-//    vector< ofEvent<float> > eventsVolumeChanged;
-    ofEvent<float> eventVolumeChanged0;
-    ofEvent<float> eventVolumeChanged1;
-    ofEvent<float> eventVolumeChanged2;
-    ofEvent<float> eventVolumeChanged3;
-    ofEvent<float> eventVolumeChanged4;
-    ofEvent<float> eventVolumeChanged5;
+    vector< ofEvent<float> > eventsVolumeChanged;
 
 private:
 
