@@ -47,5 +47,8 @@ bool SettingsManager::loadSettings()
     abletonFirstClipIndex = json["Ableton"]["First Clip Index"].asUInt();
     abletonArtistOffset = json["Ableton"]["Artist Offset"].asUInt();
 
+    // TUIO
+    tuioClientPort = json["TUIO"]["Client Port"].asUInt();
+
     return parsingSuccessful;
 }

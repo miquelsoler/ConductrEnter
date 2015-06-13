@@ -36,6 +36,9 @@ public:
     unsigned int abletonFirstClipIndex;
     unsigned int abletonArtistOffset;
 
+    // TUIO
+    unsigned int tuioClientPort;
+
 private:
 
     SettingsManager();

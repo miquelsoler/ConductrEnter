@@ -27,10 +27,15 @@ public:
 
     void setup();
     void update();
+    void updateEnter();
+    void updateExit();
     void draw();
     void exit();
 
 private:
+
+    // TUIO touches
+    void tuioTouchedDown(ofVec2f &coords);
 
     // Touch (currently mouse) events
     /**/ // OSC

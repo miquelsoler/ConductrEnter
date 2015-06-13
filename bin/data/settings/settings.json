@@ -11,5 +11,8 @@
         "Ableton Receiver Port": 9031,
         "First Clip Index": 1,
         "Artist Offset": 6
+    },
+    "TUIO": {
+        "Client Port": 3333
     }
 }

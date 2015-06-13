@@ -12,6 +12,7 @@
 #include "S3Drums.h"
 
 #include "SettingsManager.h"
+#include "TUIOHandler.h"
 
 const unsigned int NUM_OBJECTS = 6;
 const unsigned int ABLETON_CLIP = 4;
@@ -36,7 +37,7 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
     for (int i=0; i<NUM_OBJECTS; i++)
     {
         viewOrigin = i * viewWidth;
-        S3BaseObj *object;
+        S3BaseObj *object = NULL;
         switch(i)
         {
             case 0: {
@@ -69,8 +70,9 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
                 ofAddListener(abletonManager->eventVolumeChanged5, object, &S3BaseObj::volumeChanged);
                 break;
             }
+            default: break;
         }
-        objects.push_back(object);
+        if (object) objects.push_back(object);
     }
 
     // Request tempo in order to set it on objects
@@ -107,6 +109,18 @@ void Scene3::update()
         objects[i]->update();
 }
 
+void Scene3::updateEnter()
+{
+    ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene3::tuioTouchedDown);
+    BaseScene::updateEnter();
+}
+
+void Scene3::updateExit()
+{
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene3::tuioTouchedDown);
+    BaseScene::updateExit();
+}
+
 void Scene3::draw()
 {
     BaseScene::drawPre();
@@ -122,6 +136,11 @@ void Scene3::exit()
 }
 
 #pragma mark - Touch events
+
+void Scene3::tuioTouchedDown(ofVec2f &coords)
+{
+    cout << coords.x << "," << coords.y << endl;
+}
 
 void Scene3::mouseMoved(int x, int y)
 {

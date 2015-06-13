@@ -1,6 +1,7 @@
 #include "ofApp.h"
 
 #include "SettingsManager.h"
+#include "TUIOHandler.h"
 #include "Defaults.h"
 
 #include "Scene1.h"
@@ -18,6 +19,9 @@ void ofApp::setup()
     ofSetVerticalSync(true);
 
     ofBackground(0, 0, 0);
+
+    // TUIO
+    TUIOHandler::getInstance().init();
 
     // Scenes
 

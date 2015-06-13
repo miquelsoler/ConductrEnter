@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <ofxAppUtils.h>
 #include "BaseScene.h"
+#include "ofMain.h"
 
 class Scene2 : public BaseScene
 {
@@ -23,11 +24,18 @@ public:
 
     void setup();
     void update();
+    void updateEnter();
+    void updateExit();
     void draw();
     void exit();
 
+    float circleX, circleY;
+
 private:
-    
+
+    // TUIO touches
+    void tuioTouchedDown(ofVec2f &coords);
+
     // Touch (currently mouse) events
     virtual void mouseMoved(int x, int y);
     virtual void mouseDragged(int x, int y, int button);
