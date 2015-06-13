@@ -34,7 +34,7 @@ public:
     void update();
 
     ofEvent<float> eventTempoChanged;
-//    vector< ofEvent<float>* > eventsVolumeChanged;
+//    vector< ofEvent<float> > eventsVolumeChanged;
     ofEvent<float> eventVolumeChanged0;
     ofEvent<float> eventVolumeChanged1;
     ofEvent<float> eventVolumeChanged2;

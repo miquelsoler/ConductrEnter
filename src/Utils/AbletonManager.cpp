@@ -176,8 +176,6 @@ void AbletonManager::manageTracksVolumeChanged(ofxOscMessage &m)
 
 //        cout << " " << track << " " << channel << " " << volume << " - ";
 
-        //        ofMap(volume, 0.4, 1, 0, 1);
-
         switch(track)
         {
             case 0: ofNotifyEvent(eventVolumeChanged0, volume, this); break;
