@@ -91,15 +91,12 @@ void S3Drums::update()
 
     sphere1.rotate(-0.2f, 1.0f, 1.0f, 0.0f);
     sphere2.rotate(0.5f, 1.0f, 0.0f, 0.0f);
-
-//    ofVec3f wts = camera.worldToScreen(objPosition);
-//    printf("worldToScreen: (%f,%f,%f)\n", wts.x, wts.y, wts.z);
 }
 
 ///--------------------------------------------------------------
 void S3Drums::volumeChanged(float &newVolume)
 {
-    vertexDistance = (newVolume*0.7) * exp(newVolume * 5);
+    vertexDistance = (newVolume*0.7f) * exp(newVolume * 5.0f);
 }
 
 ///--------------------------------------------------------------
@@ -125,15 +122,6 @@ void S3Drums::setPositionFromScreenCoords(int screenX, int screenY)
     sphere1.setPosition(objPosition);
     sphere2.setPosition(objPosition);
 }
-
-/////--------------------------------------------------------------
-//void S3Drums::setY(float newY)
-//{
-//    float spherePosX = viewOriginX + viewHalfWidth;
-//    objPosition.set(spherePosX, newY);
-//    sphere1.setPosition(objPosition);
-//    sphere2.setPosition(objPosition);
-//}
 
 ///--------------------------------------------------------------
 void S3Drums::windowResized(ofResizeEventArgs &args)

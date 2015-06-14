@@ -29,7 +29,10 @@ public:
     virtual void update();
     virtual void draw();
 
-    bool isBeingTouched(int screenX, int screenY);
+    bool pick(int screenX, int screenY);
+    void unpick();
+    bool getIsPicked();
+
     virtual void setPositionFromScreenCoords(int screenX, int screenY);
     void setAnimated(bool animate);
 
@@ -49,6 +52,7 @@ protected:
     // Object parameters
     float radius;
     bool isAnimated = 0;
+    bool isPicked = false;
 
     // Loop arc
     ofPolyline loopArc;

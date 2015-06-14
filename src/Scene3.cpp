@@ -183,7 +183,7 @@ void Scene3::handlePress(int x, int y)
     if ((y<0) || (y>=viewHeight)) return;
 
     int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-    objects[pressedObjectIndex]->isBeingTouched(x, y);
+    if (!objects[pressedObjectIndex]->pick(x, y)) return;
 
     int track = pressedObjectIndex;
     abletonManager->playClip(ABLETON_CLIP, track);
@@ -199,7 +199,9 @@ void Scene3::handleRelease(int x, int y)
     if ((y<0) || (y>=viewHeight)) return;
 
     int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-    objects[pressedObjectIndex]->isBeingTouched(x, y);
+    if (!objects[pressedObjectIndex]->pick(x, y)) return;
+
+    objects[pressedObjectIndex]->unpick();
 
     int track = pressedObjectIndex;
     abletonManager->stopClip(ABLETON_CLIP, track);
@@ -215,7 +217,7 @@ void Scene3::handleDrag(int x, int y)
     if ((y<0) || (y>=viewHeight)) return;
 
     int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-    objects[pressedObjectIndex]->isBeingTouched(x, y);
+    if (!objects[pressedObjectIndex]->getIsPicked()) return;
 
     // Send OSC message
 

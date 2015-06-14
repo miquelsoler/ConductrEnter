@@ -115,22 +115,38 @@ void S3BaseObj::windowResized(ofResizeEventArgs &args)
 }
 
 ///--------------------------------------------------------------
-bool S3BaseObj::isBeingTouched(int screenX, int screenY)
+bool S3BaseObj::pick(int screenX, int screenY)
 {
-    if ((screenX < viewOriginX) || (screenX >= viewOriginX + viewWidth)) return false;
+    ofVec3f centerScreenCoords = camera.worldToScreen(objPosition, viewRectangle);
+    ofVec3f topScreenCoords = camera.worldToScreen(ofVec3f(objPosition.x, objPosition.y - radius, objPosition.z), viewRectangle);
 
-    ofVec3f worldCoords = camera.screenToWorld(ofVec3f(screenX, screenY, 0), viewRectangle);
-#ifdef OF_DEBUG
-//    cout << sceneObjectIndex << ": W(" << screenX << ", " << screenY << ") - C(" << worldCoords.x << ", " << worldCoords.y << ", " << worldCoords.z << ") - O(" << objPosition.x << ", " << objPosition.y << ", " << objPosition.z << ")" << endl;
-#endif
+    float distToTop = ofDistSquared(centerScreenCoords.x, centerScreenCoords.y, topScreenCoords.x, topScreenCoords.y);
+    float distToScreen = ofDistSquared(centerScreenCoords.x, centerScreenCoords.y, screenX, screenY);
+
+    isPicked = distToScreen <= distToTop;
+
+    return isPicked;
 }
 
+///--------------------------------------------------------------
+void S3BaseObj::unpick()
+{
+    isPicked = false;
+}
+
+///--------------------------------------------------------------
+bool S3BaseObj::getIsPicked()
+{
+    return isPicked;
+}
+
+///--------------------------------------------------------------
 void S3BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 {
-    ofVec3f screenObj = camera.worldToScreen(objPosition, viewRectangle);
-    screenObj.y = screenY;
+    ofVec3f objScreenCoords = camera.worldToScreen(objPosition, viewRectangle);
+    objScreenCoords.y = screenY;
 
-    objPosition = camera.screenToWorld(screenObj, viewRectangle);
+    objPosition = camera.screenToWorld(objScreenCoords, viewRectangle);
 }
 
 ///--------------------------------------------------------------
