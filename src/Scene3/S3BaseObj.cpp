@@ -125,6 +125,14 @@ bool S3BaseObj::isBeingTouched(int screenX, int screenY)
 #endif
 }
 
+void S3BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
+{
+    ofVec3f screenObj = camera.worldToScreen(objPosition, viewRectangle);
+    screenObj.y = screenY;
+
+    objPosition = camera.screenToWorld(screenObj, viewRectangle);
+}
+
 ///--------------------------------------------------------------
 void S3BaseObj::setAnimated(bool animate)
 {

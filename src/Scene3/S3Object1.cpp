@@ -71,6 +71,14 @@ void S3Object1::draw()
 }
 
 ///--------------------------------------------------------------
+void S3Object1::setPositionFromScreenCoords(int screenX, int screenY)
+{
+    S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
+
+    sphere.setPosition(objPosition);
+}
+
+///--------------------------------------------------------------
 void S3Object1::windowResized(ofResizeEventArgs &args)
 {
     S3BaseObj::windowResized(args);

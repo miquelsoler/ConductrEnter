@@ -120,10 +120,7 @@ void S3Drums::draw()
 /////--------------------------------------------------------------
 void S3Drums::setPositionFromScreenCoords(int screenX, int screenY)
 {
-    ofVec3f screenObj = camera.worldToScreen(objPosition, viewRectangle);
-    screenObj.y = screenY;
-
-    objPosition = camera.screenToWorld(screenObj, viewRectangle);
+    S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
 
     sphere1.setPosition(objPosition);
     sphere2.setPosition(objPosition);
