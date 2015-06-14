@@ -30,7 +30,7 @@ public:
 
     ofEvent<ofVec2f> eventTouchUp;
     ofEvent<ofVec2f> eventTouchDown;
-    ofEvent<ofVec2f> eventTouchMoved;
+    ofEvent<ofVec2f> eventTouchDrag;
 
 private:
 

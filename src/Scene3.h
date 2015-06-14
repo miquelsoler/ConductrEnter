@@ -45,16 +45,15 @@ private:
     virtual void mouseReleased(int x, int y, int button);
 
     // Interaction handling
-    void handlePress(int x, int y, bool isMouse = false);
-    void handleRelease(int x, int y, bool isMouse = false);
-    void handleDrag(int x, int y, bool isMouse = false);
+    void handlePress(int x, int y);
+    void handleRelease(int x, int y);
+    void handleDrag(int x, int y);
 
     /**/ // OSC
     int getObjectIndexAtPosition(int x, int y);
     AbletonManager *abletonManager;
 
     ofxOscSender oscSender;
-    vector<bool> objectIsPlaying;
 
     // Listener method to detect window changes
     virtual void windowResized(ofResizeEventArgs &args);

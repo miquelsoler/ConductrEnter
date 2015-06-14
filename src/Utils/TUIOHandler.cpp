@@ -40,7 +40,7 @@ void TUIOHandler::tuioTouchUp(ofTouchEventArgs &touch)
 ///--------------------------------------------------------------
 void TUIOHandler::tuioTouchMoved(ofTouchEventArgs &touch)
 {
-    ofNotifyEvent(eventTouchMoved, touch, this);
+    ofNotifyEvent(eventTouchDrag, touch, this);
 }
 
 ///--------------------------------------------------------------
