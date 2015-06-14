@@ -33,7 +33,7 @@ void Scene1::setup()
 void Scene1::update()
 {
     videoPlayer.update();
-    Tweenzor::update( ofGetElapsedTimeMillis() );
+    Tweenzor::update((int)ofGetElapsedTimeMillis());
 
     if (videoState == Loop)
     {

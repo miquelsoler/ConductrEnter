@@ -8,8 +8,6 @@
 
 #include "SettingsManager.h"
 
-#include "ofLog.h"
-
 const std::string FILENAME = "settings/settings.json";
 
 ///--------------------------------------------------------------

@@ -35,7 +35,7 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
     // Create scene objects
     float viewOrigin;
     string objectsPath = "settings/scene3/";
-    for (int i=0; i<NUM_OBJECTS; i++)
+    for (unsigned int i=0; i<NUM_OBJECTS; i++)
     {
         viewOrigin = i * viewWidth;
         S3BaseObj *object = NULL;

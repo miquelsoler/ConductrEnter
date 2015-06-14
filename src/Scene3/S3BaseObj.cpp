@@ -7,7 +7,6 @@
 //
 
 #include "S3BaseObj.h"
-#include "ofxAppUtils.h"
 
 const int LOOP_RESOLUTION = 50;
 const int ANGLE_OFFSET = 90;
@@ -21,10 +20,6 @@ S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     camera.disableMouseInput();
 
     settingsPath = _settingsPath;
-
-#ifdef OF_DEBUG
-    drawGui = true;
-#endif
 }
 
 ///--------------------------------------------------------------

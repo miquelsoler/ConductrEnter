@@ -64,8 +64,6 @@ protected:
     // GUI
     ofxPanel gui;
     string settingsPath;
-    ofTrueTypeFont guiFont;
-    bool drawGui = false;
 
     // Resizes
     virtual void windowResized(ofResizeEventArgs &args);

@@ -1,6 +1,5 @@
 #include "ofApp.h"
 
-#include "SettingsManager.h"
 #include "TUIOHandler.h"
 #include "Defaults.h"
 
@@ -115,7 +114,7 @@ void ofApp::mousePressed(int x, int y, int button)
     {
 //        case OF_MOUSE_BUTTON_LEFT:
 //            goToNextScene();
-            break;
+//            break;
         default:
             break;
     }

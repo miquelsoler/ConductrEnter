@@ -49,7 +49,7 @@ void BaseScene::updateExit()
 void BaseScene::drawPre()
 {
     ofEnableAlphaBlending();
-    ofSetColor(255, 255, 255, 255 * alpha);	// alpha member variable for fade in/out
+    ofSetColor(255, 255, 255, (int)(255 * alpha));	// alpha member variable for fade in/out
 }
 
 ///--------------------------------------------------------------
