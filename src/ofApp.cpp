@@ -150,18 +150,18 @@ void ofApp::goToPreviousScene()
 ///--------------------------------------------------------------
 void ofApp::manageScene4Timer()
 {
-    if (currentScene == LAST_SCENE)
-    {
-        // Scene is #4, init timer for it
-        scene3Timer.setup(SettingsManager::getInstance().scene4_timer_milliseconds);
-        scene3Timer.start(true);
-    }
-    else
-    {
-        // Scene isn't #4, reset its timer
-        scene3Timer.stop();
-        scene3Timer.reset();
-    }
+//    if (currentScene == LAST_SCENE)
+//    {
+//        // Scene is #4, init timer for it
+//        scene3Timer.setup(SettingsManager::getInstance().scene4_timer_milliseconds);
+//        scene3Timer.start(true);
+//    }
+//    else
+//    {
+//        // Scene isn't #4, reset its timer
+//        scene3Timer.stop();
+//        scene3Timer.reset();
+//    }
 }
 
 ///--------------------------------------------------------------

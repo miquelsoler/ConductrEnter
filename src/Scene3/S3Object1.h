@@ -26,7 +26,7 @@ public:
 
     virtual void loadSettings();
 
-    virtual void setY(float newY);
+    virtual void setPositionFromScreenCoords(int screenX, int screenY) {};
 
 private:
 

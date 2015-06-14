@@ -81,14 +81,6 @@ void S3Object1::windowResized(ofResizeEventArgs &args)
     camera.setTarget(sphere);
 }
 
-///--------------------------------------------------------------
-void S3Object1::setY(float newY)
-{
-    float spherePosX = viewOriginX + viewHalfWidth;
-    objPosition.set(spherePosX, newY);
-    sphere.setPosition(objPosition);
-}
-
 #pragma mark -
 
 ///--------------------------------------------------------------

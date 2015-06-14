@@ -25,10 +25,11 @@ public:
 
     virtual void loadSettings();
 
-    virtual void volumeChanged(float &newVolume) {};
-
 private:
-    
+
+    virtual void volumeChanged(float &newVolume) {};
+    virtual void windowResized(ofResizeEventArgs &args) {};
+
 };
 
 #endif /* defined(__ConductrEnter__S4Object4__) */

@@ -24,7 +24,7 @@ public:
     BaseObject(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath = "");
     virtual ~BaseObject() {}
 
-    virtual void setY(float newY) = 0;
+    virtual void setPositionFromScreenCoords(int screenX, int screenY) = 0;
     float getViewOriginX();
 
 protected:

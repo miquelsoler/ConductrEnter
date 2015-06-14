@@ -32,6 +32,6 @@ private:
     void scene3TimerCompleteHandler(int &args);
 
     ofxSceneManager     sceneManager;
-    unsigned int        currentScene = 0;
+    unsigned int        currentScene = LAST_SCENE;
     ofxSimpleTimer      scene3Timer;
 };

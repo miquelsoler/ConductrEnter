@@ -42,11 +42,14 @@ void S3BaseObj::initSharedSettings()
 void S3BaseObj::setup()
 {
     radius = viewHalfWidth/5;
-    objPosition.x = viewOriginX + viewHalfWidth;
-    objPosition.y = viewHalfHeight;
+    objPosition.x = 0;
+    objPosition.y = 0;
 
+    camera.setNearClip(0.1f);
+    camera.setFarClip(500.0f);
     camera.setDistance(camDistance);
-    camera.setPosition(objPosition);
+
+//    printf("Obj: (%f,%f,%f) - Cam: (%f,%f,%f)\n", objPosition.x, objPosition.y, objPosition.z, camera.getPosition().x, camera.getPosition().y, camera.getPosition().z);
 
     gui.setPosition(viewOriginX, 0);
 }
@@ -116,7 +119,7 @@ bool S3BaseObj::isBeingTouched(int screenX, int screenY)
 {
     if ((screenX < viewOriginX) || (screenX >= viewOriginX + viewWidth)) return false;
 
-    ofVec3f worldCoords = camera.screenToWorld(ofVec3f(screenX, screenX, 0), viewRectangle);
+    ofVec3f worldCoords = camera.screenToWorld(ofVec3f(screenX, screenY, 0), viewRectangle);
 #ifdef OF_DEBUG
 //    cout << sceneObjectIndex << ": W(" << screenX << ", " << screenY << ") - C(" << worldCoords.x << ", " << worldCoords.y << ", " << worldCoords.z << ") - O(" << objPosition.x << ", " << objPosition.y << ", " << objPosition.z << ")" << endl;
 #endif

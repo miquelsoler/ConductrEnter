@@ -44,7 +44,7 @@ void S3Drums::setup()
 
     sphere2.setRadius(radius);
     sphere2.setResolution(RESOLUTION);
-    sphere1.setPosition(objPosition);
+    sphere2.setPosition(objPosition);
     sphere2.rotate(-45, 0.0, 1.0, 0.0);
 
     camera.setTarget(sphere1);
@@ -91,6 +91,9 @@ void S3Drums::update()
 
     sphere1.rotate(-0.2f, 1.0f, 1.0f, 0.0f);
     sphere2.rotate(0.5f, 1.0f, 0.0f, 0.0f);
+
+//    ofVec3f wts = camera.worldToScreen(objPosition);
+//    printf("worldToScreen: (%f,%f,%f)\n", wts.x, wts.y, wts.z);
 }
 
 ///--------------------------------------------------------------
@@ -114,14 +117,26 @@ void S3Drums::draw()
     camera.end();
 }
 
-///--------------------------------------------------------------
-void S3Drums::setY(float newY)
+/////--------------------------------------------------------------
+void S3Drums::setPositionFromScreenCoords(int screenX, int screenY)
 {
-    float spherePosX = viewOriginX + viewHalfWidth;
-    objPosition.set(spherePosX, newY);
+    ofVec3f screenObj = camera.worldToScreen(objPosition, viewRectangle);
+    screenObj.y = screenY;
+
+    objPosition = camera.screenToWorld(screenObj, viewRectangle);
+
     sphere1.setPosition(objPosition);
     sphere2.setPosition(objPosition);
 }
+
+/////--------------------------------------------------------------
+//void S3Drums::setY(float newY)
+//{
+//    float spherePosX = viewOriginX + viewHalfWidth;
+//    objPosition.set(spherePosX, newY);
+//    sphere1.setPosition(objPosition);
+//    sphere2.setPosition(objPosition);
+//}
 
 ///--------------------------------------------------------------
 void S3Drums::windowResized(ofResizeEventArgs &args)

@@ -231,10 +231,7 @@ void Scene3::handleDrag(int x, int y)
 
     abletonManager->setDeviceParameter(device, parameter, value);
 
-    // Move object vertically
-
-    float newY = ofMap(y, 0, viewHeight, viewHeight, 0);
-    objects[pressedObjectIndex]->setY(newY);
+    objects[pressedObjectIndex]->setPositionFromScreenCoords(x, y);
 }
 
 #pragma mark - Helper methods
@@ -257,4 +254,5 @@ int Scene3::getObjectIndexAtPosition(int x, int y)
 void Scene3::windowResized(ofResizeEventArgs &args)
 {
     viewWidth = ofGetWidth() / num_objects;
+    viewHeight = ofGetHeight();
 }

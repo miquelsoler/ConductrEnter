@@ -30,7 +30,7 @@ public:
     virtual void draw();
 
     bool isBeingTouched(int screenX, int screenY);
-    virtual void setY(float newY) = 0;
+    virtual void setPositionFromScreenCoords(int screenX, int screenY) = 0;
     void setAnimated(bool animate);
 
     // Volume changes
