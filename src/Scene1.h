@@ -22,6 +22,11 @@
 #include "of3dPrimitives.h"
 #include "ofxTweenzor.h"
 
+typedef enum {
+    Loop = 0,
+    StartExplode = 1,
+    Exploding = 2
+} VideoState;
 
 class Scene1 : public BaseScene
 {
@@ -32,20 +37,24 @@ public:
     void setup();
     void update();
     void updateEnter();
+    void updateExit();
     void draw();
     void exit();
 
 private:
 
     int             loopFrame;
-    int             videoState; // 0 : loop     1 : start explode   2 : exploding
-    void            goAhead();
-
+    VideoState      videoState; // 0 : loop     1 : start explode   2 : exploding
     float           videoHeaderFrame;
-    void            onComplete(float* arg);
-    
-    // Touch (currently mouse) events
-    virtual void mouseMoved(int x, int y);
+    void            goAhead();
+    void            onVideoComplete(float* arg);
+
+    // TUIO touch events
+    virtual void tuioPressed(ofVec2f &coords);
+    virtual void tuioReleased(ofVec2f &coords) {};
+    virtual void tuioDragged(ofVec2f &coords) {};
+
+    // Mouse events
     virtual void mouseDragged(int x, int y, int button);
     virtual void mousePressed(int x, int y, int button);
     virtual void mouseReleased(int x, int y, int button);

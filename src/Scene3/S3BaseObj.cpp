@@ -15,6 +15,7 @@ const int AXIS_LENGTH = 6;
 
 #pragma mark - Initialization
 
+///--------------------------------------------------------------
 S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath)  : BaseObject(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     camera.disableMouseInput();
@@ -26,6 +27,7 @@ S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 #endif
 }
 
+///--------------------------------------------------------------
 void S3BaseObj::initSharedSettings()
 {
     gui.setup("Settings", settingsPath);
@@ -36,6 +38,7 @@ void S3BaseObj::initSharedSettings()
 
 #pragma mark - Basic object methods
 
+///--------------------------------------------------------------
 void S3BaseObj::setup()
 {
     radius = viewHalfWidth/5;
@@ -48,11 +51,13 @@ void S3BaseObj::setup()
     gui.setPosition(viewOriginX, 0);
 }
 
+///--------------------------------------------------------------
 void S3BaseObj::update()
 {
     camera.setDistance(camDistance);
 }
 
+///--------------------------------------------------------------
 void S3BaseObj::draw()
 {
 #ifdef OF_DEBUG
@@ -60,6 +65,7 @@ void S3BaseObj::draw()
 #endif
 }
 
+///--------------------------------------------------------------
 void S3BaseObj::drawLoop()
 {
     ofSetLineWidth(2);
@@ -89,6 +95,7 @@ void S3BaseObj::drawLoop()
     ofPopMatrix();
 }
 
+///--------------------------------------------------------------
 void S3BaseObj::windowResized(ofResizeEventArgs &args)
 {
     viewWidth = args.width / sceneNumObjects;
@@ -104,6 +111,7 @@ void S3BaseObj::windowResized(ofResizeEventArgs &args)
     camera.setDistance(camDistance);
 }
 
+///--------------------------------------------------------------
 bool S3BaseObj::isBeingTouched(int screenX, int screenY)
 {
     if ((screenX < viewOriginX) || (screenX >= viewOriginX + viewWidth)) return false;
@@ -112,6 +120,7 @@ bool S3BaseObj::isBeingTouched(int screenX, int screenY)
     cout << sceneObjectIndex << ": W(" << screenX << ", " << screenY << ") - C(" << worldCoords.x << ", " << worldCoords.y << ", " << worldCoords.z << ") - O(" << objPosition.x << ", " << objPosition.y << ", " << objPosition.z << ")" << endl;
 }
 
+///--------------------------------------------------------------
 void S3BaseObj::setAnimated(bool animate)
 {
     isAnimated = animate;

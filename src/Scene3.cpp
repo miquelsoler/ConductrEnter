@@ -19,6 +19,7 @@ const unsigned int ABLETON_CLIP = 4;
 
 #pragma mark - Object creation
 
+///--------------------------------------------------------------
 Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSetup)
 {
     num_objects = NUM_OBJECTS;
@@ -73,6 +74,7 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
         objectIsPlaying.push_back(false);
 }
 
+///--------------------------------------------------------------
 Scene3::~Scene3()
 {
     for (int i=0; i<num_objects; ++i)
@@ -83,12 +85,14 @@ Scene3::~Scene3()
 
 #pragma mark - OF main calls
 
+///--------------------------------------------------------------
 void Scene3::setup()
 {
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->setup();
 }
 
+///--------------------------------------------------------------
 void Scene3::update()
 {
     abletonManager->update();
@@ -96,18 +100,25 @@ void Scene3::update()
         objects[i]->update();
 }
 
+///--------------------------------------------------------------
 void Scene3::updateEnter()
 {
-    ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene3::tuioTouchedDown);
+    ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene3::tuioPressed);
+    ofAddListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene3::tuioReleased);
+    ofAddListener(TUIOHandler::getInstance().eventTouchMoved, this, &Scene3::tuioDragged);
     BaseScene::updateEnter();
 }
 
+///--------------------------------------------------------------
 void Scene3::updateExit()
 {
-    ofRemoveListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene3::tuioTouchedDown);
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene3::tuioPressed);
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene3::tuioReleased);
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchMoved, this, &Scene3::tuioDragged);
     BaseScene::updateExit();
 }
 
+///--------------------------------------------------------------
 void Scene3::draw()
 {
     BaseScene::drawPre();
@@ -118,22 +129,94 @@ void Scene3::draw()
     BaseScene::drawPost();
 }
 
+///--------------------------------------------------------------
 void Scene3::exit()
 {
 }
 
 #pragma mark - Touch events
 
-void Scene3::tuioTouchedDown(ofVec2f &coords)
+///--------------------------------------------------------------
+void Scene3::tuioPressed(ofVec2f &coords)
 {
-    cout << coords.x << "," << coords.y << endl;
+    ofVec2f screenCoords = tuioToScreenCoords(coords);
+    handlePress(screenCoords.x, screenCoords.y);
 }
 
-void Scene3::mouseMoved(int x, int y)
+///--------------------------------------------------------------
+void Scene3::tuioReleased(ofVec2f &coords)
 {
+    ofVec2f screenCoords = tuioToScreenCoords(coords);
+    handleRelease(screenCoords.x, screenCoords.y);
+}
+///--------------------------------------------------------------
+void Scene3::tuioDragged(ofVec2f &coords)
+{
+    ofVec2f screenCoords = tuioToScreenCoords(coords);
+    handleDrag(screenCoords.x, screenCoords.y);
 }
 
+#pragma mark - Mouse events
+
+///--------------------------------------------------------------
 void Scene3::mouseDragged(int x, int y, int button)
+{
+    handleDrag(x, y, true);
+}
+
+///--------------------------------------------------------------
+void Scene3::mousePressed(int x, int y, int button)
+{
+    handlePress(x, y, true);
+}
+
+///--------------------------------------------------------------
+void Scene3::mouseReleased(int x, int y, int button)
+{
+    handleRelease(x, y, true);
+}
+
+#pragma mark - Interaction handling
+
+///--------------------------------------------------------------
+void Scene3::handlePress(int x, int y, bool isMouse)
+{
+    if ((x<0) || (x>=ofGetWidth())) return;
+    if ((y<0) || (y>=viewHeight)) return;
+
+    int pressedObjectIndex = getObjectIndexAtPosition(x, y);
+    objects[pressedObjectIndex]->isBeingTouched(x, y);
+
+//    if (button == OF_MOUSE_BUTTON_RIGHT) {
+
+        // Play/pause the clip ABLETON_CLIP at track determinated by the touched object
+
+//        int pressedObjectIndex = getObjectIndexAtPosition(x, y);
+        int track = pressedObjectIndex;
+
+        if (!(objectIsPlaying[pressedObjectIndex])) {
+            abletonManager->playClip(ABLETON_CLIP, track);
+        } else {
+            abletonManager->stopClip(ABLETON_CLIP, track);
+        }
+
+        objectIsPlaying[pressedObjectIndex] = !objectIsPlaying[pressedObjectIndex];
+
+        // Animate (or not) the touched object
+        objects[pressedObjectIndex]->setAnimated(objectIsPlaying[pressedObjectIndex]);
+//    }
+}
+
+///--------------------------------------------------------------
+void Scene3::handleRelease(int x, int y, bool isMouse)
+{
+    // Resets /master/device value to zero
+    int pressedObjectIndex = getObjectIndexAtPosition(x, y);
+    abletonManager->setDeviceParameter(0, pressedObjectIndex+1, 0);
+}
+
+///--------------------------------------------------------------
+void Scene3::handleDrag(int x, int y, bool isMouse)
 {
     if ((x<0) || (x>=ofGetWidth())) return;
     if ((y<0) || (y>=viewHeight)) return;
@@ -142,7 +225,7 @@ void Scene3::mouseDragged(int x, int y, int button)
     objects[pressedObjectIndex]->isBeingTouched(x, y);
 
     // Send OSC message
-    
+
     int device = 0;
     int parameter = pressedObjectIndex + 1;
     int value;
@@ -161,54 +244,9 @@ void Scene3::mouseDragged(int x, int y, int button)
     objects[pressedObjectIndex]->setY(newY);
 }
 
-void Scene3::mousePressed(int x, int y, int button)
-{
-    if ((x<0) || (x>=ofGetWidth())) return;
-    if ((y<0) || (y>=viewHeight)) return;
-
-    int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-    objects[pressedObjectIndex]->isBeingTouched(x, y);
-
-    if (button == OF_MOUSE_BUTTON_RIGHT) {
-
-        // Play/pause the clip ABLETON_CLIP at track determinated by the touched object
-
-        int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-        int track = pressedObjectIndex;
-
-        if (!(objectIsPlaying[pressedObjectIndex])) {
-            abletonManager->playClip(ABLETON_CLIP, track);
-        } else {
-            abletonManager->stopClip(ABLETON_CLIP, track);
-        }
-
-        objectIsPlaying[pressedObjectIndex] = !objectIsPlaying[pressedObjectIndex];
-
-        // Animate (or not) the touched object
-        objects[pressedObjectIndex]->setAnimated(objectIsPlaying[pressedObjectIndex]);
-    }
-}
-
-void Scene3::mouseReleased(int x, int y, int button)
-{
-    // Resets /master/device value to zero
-    int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-    abletonManager->setDeviceParameter(0, pressedObjectIndex+1, 0);
-}
-
 #pragma mark - Helper methods
 
-int Scene3::getObjectIndexAtPosition(int x, int y)
-{
-    return (int)floor(x/viewWidth);
-}
-
-void Scene3::windowResized(ofResizeEventArgs &args)
-{
-    viewWidth = ofGetWidth() / num_objects;
-//    setup();
-}
-
+///--------------------------------------------------------------
 void Scene3::tempoChanged(float &newTempo)
 {
 #ifdef OF_DEBUG
@@ -216,3 +254,14 @@ void Scene3::tempoChanged(float &newTempo)
 #endif
 }
 
+///--------------------------------------------------------------
+int Scene3::getObjectIndexAtPosition(int x, int y)
+{
+    return (int)floor(x/viewWidth);
+}
+
+///--------------------------------------------------------------
+void Scene3::windowResized(ofResizeEventArgs &args)
+{
+    viewWidth = ofGetWidth() / num_objects;
+}

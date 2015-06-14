@@ -9,28 +9,33 @@
 #include "Scene2.h"
 #include "TUIOHandler.h"
 
+///--------------------------------------------------------------
 void Scene2::setup()
 {
     circleX = ofGetWidth()/2;
     circleY = ofGetHeight()/2;
 }
 
+///--------------------------------------------------------------
 void Scene2::update()
 {
 }
 
+///--------------------------------------------------------------
 void Scene2::updateEnter()
 {
-    ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene2::tuioTouchedDown);
+    ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene2::tuioPressed);
     BaseScene::updateEnter();
 }
 
+///--------------------------------------------------------------
 void Scene2::updateExit()
 {
-    ofRemoveListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene2::tuioTouchedDown);
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene2::tuioPressed);
     BaseScene::updateExit();
 }
 
+///--------------------------------------------------------------
 void Scene2::draw()
 {
     BaseScene::drawPre();
@@ -41,31 +46,34 @@ void Scene2::draw()
     BaseScene::drawPost();
 }
 
+///--------------------------------------------------------------
 void Scene2::exit()
 {
 }
 
-#pragma mark - Touch events
+#pragma mark - TUIO Touch events
 
-void Scene2::tuioTouchedDown(ofVec2f &coords)
+///--------------------------------------------------------------
+void Scene2::tuioPressed(ofVec2f &coords)
 {
-    circleX = ofMap(coords.x, 0, 1, 0, ofGetWidth());
-    circleY = ofMap(coords.y, 0, 1, 0, ofGetHeight());
-    cout << coords.x << "," << coords.y << endl;
+    ofVec2f screenCoords = tuioToScreenCoords(coords);
+    circleX = screenCoords.x;
+    circleY = screenCoords.y;
 }
 
-void Scene2::mouseMoved(int x, int y)
-{
-}
+#pragma mark - Mouse events
 
+///--------------------------------------------------------------
 void Scene2::mouseDragged(int x, int y, int button)
 {
 }
 
+///--------------------------------------------------------------
 void Scene2::mousePressed(int x, int y, int button)
 {
 }
 
+///--------------------------------------------------------------
 void Scene2::mouseReleased(int x, int y, int button)
 {
 }

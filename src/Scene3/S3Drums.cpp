@@ -12,12 +12,14 @@ const unsigned int RESOLUTION = 2;
 
 #pragma mark - Initialization
 
+///--------------------------------------------------------------
 S3Drums::S3Drums(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
     S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     loadSettings();
 }
 
+///--------------------------------------------------------------
 void S3Drums::loadSettings()
 {
     if (settingsPath.empty()) return;
@@ -28,6 +30,7 @@ void S3Drums::loadSettings()
 
 #pragma mark - Basic object methods
 
+///--------------------------------------------------------------
 void S3Drums::setup()
 {
     S3BaseObj::setup();
@@ -62,6 +65,7 @@ void S3Drums::setup()
     }
 }
 
+///--------------------------------------------------------------
 void S3Drums::update()
 {
     S3BaseObj::update();
@@ -89,11 +93,13 @@ void S3Drums::update()
     sphere2.rotate(0.5f, 1.0f, 0.0f, 0.0f);
 }
 
+///--------------------------------------------------------------
 void S3Drums::volumeChanged(float &newVolume)
 {
     vertexDistance = (newVolume*0.7) * exp(newVolume * 5);
 }
 
+///--------------------------------------------------------------
 void S3Drums::draw()
 {
     S3BaseObj::draw();
@@ -108,7 +114,7 @@ void S3Drums::draw()
     camera.end();
 }
 
-/**/ // OSC
+///--------------------------------------------------------------
 void S3Drums::setY(float newY)
 {
     float spherePosX = viewOriginX + viewHalfWidth;
@@ -117,6 +123,7 @@ void S3Drums::setY(float newY)
     sphere2.setPosition(objPosition);
 }
 
+///--------------------------------------------------------------
 void S3Drums::windowResized(ofResizeEventArgs &args)
 {
     S3BaseObj::windowResized(args);

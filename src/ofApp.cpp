@@ -10,7 +10,7 @@
 
 #pragma mark - Main class methods
 
-//--------------------------------------------------------------
+///--------------------------------------------------------------
 void ofApp::setup()
 {
     // App settings
@@ -46,15 +46,15 @@ void ofApp::setup()
 
     // Timer listener for scene 4
     manageScene4Timer();
-    ofAddListener(scene4Timer.TIMER_COMPLETE, this,&ofApp::scene4TimerCompleteHandler);
+    ofAddListener(scene3Timer.TIMER_COMPLETE, this, &ofApp::scene3TimerCompleteHandler);
 
     sceneManager.gotoScene(currentScene);
 }
 
-//--------------------------------------------------------------
+///--------------------------------------------------------------
 void ofApp::update()
 {
-    if (currentScene == LAST_SCENE) scene4Timer.update();
+    if (currentScene == LAST_SCENE) scene3Timer.update();
 
     if (sceneManager.getCurrentSceneIndex() == -1) sceneManager.gotoScene(currentScene);
 
@@ -63,7 +63,7 @@ void ofApp::update()
 #endif
 }
 
-//--------------------------------------------------------------
+///--------------------------------------------------------------
 void ofApp::draw()
 {
 #ifdef OF_DEBUG
@@ -77,46 +77,42 @@ void ofApp::draw()
 
 #pragma mark - Interaction events
 
-//--------------------------------------------------------------
+///--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
 }
 
-//--------------------------------------------------------------
+///--------------------------------------------------------------
 void ofApp::keyReleased(int key)
 {
     switch(key)
     {
-        case OF_KEY_LEFT:
+        case OF_KEY_LEFT: {
             goToPreviousScene();
             break;
-        case OF_KEY_RIGHT:
+        }
+        case OF_KEY_RIGHT: {
             goToNextScene();
             break;
+        }
         case 'f':
-        case 'F':
+        case 'F': {
             int windowMode = ofGetWindowMode();
             bool fullscreen = (windowMode == OF_WINDOW);
             ofSetWindowShape(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
             ofSetFullscreen(fullscreen);
             break;
+        }
+        default:
+            break;
     }
 }
 
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
+///--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button)
 {
-    switch (button) {
+    switch (button)
+    {
 //        case OF_MOUSE_BUTTON_LEFT:
 //            goToNextScene();
             break;
@@ -125,72 +121,54 @@ void ofApp::mousePressed(int x, int y, int button)
     }
 }
 
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button)
-{
-}
-
-//--------------------------------------------------------------
+///--------------------------------------------------------------
 void ofApp::windowResized(int w, int h)
 {
-//    int numScenes = sceneManager.getNumScenes();
-//    for (int i=0; i<numScenes; i++)
-//    {
-//        BaseScene *scene = (BaseScene *)(sceneManager.getSceneAt(i));
-//        scene->setup();
-//    }
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg)
-{
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
-
-#pragma mark - Timers
-
-void ofApp::scene4TimerCompleteHandler(int &args)
-{
-    ofLog(OF_LOG_NOTICE, "Timer completed. Jump to scene 1.");
-    scene4Timer.stop();
-    currentScene = 0;
-    sceneManager.gotoScene(currentScene);
 }
 
 #pragma mark - Scene management
 
+///--------------------------------------------------------------
 void ofApp::goToNextScene()
 {
     sceneManager.nextScene();
     currentScene = (currentScene + 1) % NUM_SCENES;
 }
 
+///--------------------------------------------------------------
 void ofApp::goToPreviousScene()
 {
     sceneManager.prevScene();
-    currentScene--;
-    if (currentScene < 0) currentScene = NUM_SCENES-1;
+    if (currentScene == 0)
+        currentScene = LAST_SCENE;
+    else
+        currentScene--;
 
     manageScene4Timer();
 }
 
+///--------------------------------------------------------------
 void ofApp::manageScene4Timer()
 {
     if (currentScene == LAST_SCENE)
     {
         // Scene is #4, init timer for it
-        scene4Timer.setup(SettingsManager::getInstance().scene4_timer_milliseconds);
-        scene4Timer.start(true);
+        scene3Timer.setup(SettingsManager::getInstance().scene4_timer_milliseconds);
+        scene3Timer.start(true);
     }
     else
     {
         // Scene isn't #4, reset its timer
-        scene4Timer.stop();
-        scene4Timer.reset();
+        scene3Timer.stop();
+        scene3Timer.reset();
     }
+}
+
+///--------------------------------------------------------------
+void ofApp::scene3TimerCompleteHandler(int &args)
+{
+    ofLog(OF_LOG_NOTICE, "Timer completed. Jump to scene 1.");
+    scene3Timer.stop();
+    currentScene = 0;
+    sceneManager.gotoScene(currentScene);
 }

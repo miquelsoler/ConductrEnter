@@ -2,12 +2,13 @@
 //  BaseObject.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 4/6/15.
+//  Created by Miquel Ëngel Soler on 4/6/15.
 //
 //
 
 #include "BaseObject.h"
 
+///--------------------------------------------------------------
 BaseObject::BaseObject(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath)
 :   sceneNumObjects(numObjects),
     sceneObjectIndex(objectIndex),
@@ -23,6 +24,7 @@ BaseObject::BaseObject(unsigned int numObjects, unsigned int objectIndex, float 
     ofAddListener(ofEvents().windowResized, this, &BaseObject::windowResized);
 }
 
+///--------------------------------------------------------------
 float BaseObject::getViewOriginX()
 {
     return viewOriginX;

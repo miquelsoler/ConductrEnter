@@ -10,12 +10,14 @@
 
 #pragma mark - Initialization
 
+///--------------------------------------------------------------
 S3Object1::S3Object1(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
     S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     loadSettings();
 }
 
+///--------------------------------------------------------------
 void S3Object1::loadSettings()
 {
     if (settingsPath.empty()) return;
@@ -29,6 +31,7 @@ void S3Object1::loadSettings()
 
 #pragma mark - Basic object methods
 
+///--------------------------------------------------------------
 void S3Object1::setup()
 {
     S3BaseObj::setup();
@@ -42,6 +45,7 @@ void S3Object1::setup()
     updateRotation();
 }
 
+///--------------------------------------------------------------
 void S3Object1::update()
 {
     S3BaseObj::update();
@@ -49,6 +53,7 @@ void S3Object1::update()
     if (isAnimated) updateRotation();
 }
 
+///--------------------------------------------------------------
 void S3Object1::draw()
 {
     S3BaseObj::draw();
@@ -65,6 +70,7 @@ void S3Object1::draw()
     camera.end();
 }
 
+///--------------------------------------------------------------
 void S3Object1::windowResized(ofResizeEventArgs &args)
 {
     S3BaseObj::windowResized(args);
@@ -75,7 +81,7 @@ void S3Object1::windowResized(ofResizeEventArgs &args)
     camera.setTarget(sphere);
 }
 
-/**/ // OSC
+///--------------------------------------------------------------
 void S3Object1::setY(float newY)
 {
     float spherePosX = viewOriginX + viewHalfWidth;
@@ -85,6 +91,7 @@ void S3Object1::setY(float newY)
 
 #pragma mark -
 
+///--------------------------------------------------------------
 void S3Object1::updateRotation()
 {
     float spinX = sin(initialRotation + ofGetElapsedTimef()*.35f);

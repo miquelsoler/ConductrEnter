@@ -753,9 +753,9 @@
 		85C7093CD15404193A7664FD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CC31A9AAB0406668A34F79F1 /* Defaults.h */,
 				CC1C4AA6B48FB644725A78BF /* AbletonManager.cpp */,
 				B344E436FF955E8FCAD5AD55 /* AbletonManager.h */,
-				CC31A9AAB0406668A34F79F1 /* Defaults.h */,
 				192BFE71424F71507361EEB6 /* SettingsManager.cpp */,
 				8C35CEFEAB2815DCADBB156D /* SettingsManager.h */,
 				2A0B4E9E1B2C7C600033F462 /* TUIOHandler.cpp */,

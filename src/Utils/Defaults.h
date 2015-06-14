@@ -2,7 +2,7 @@
 //  Config.h
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 5/6/15.
+//  Created by Miquel Ëngel Soler on 5/6/15.
 //
 //
 

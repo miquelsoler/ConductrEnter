@@ -21,25 +21,17 @@ public:
 
     void keyPressed(int key);
     void keyReleased(int key);
-    void mouseMoved(int x, int y );
-    void mouseDragged(int x, int y, int button);
     void mousePressed(int x, int y, int button);
-    void mouseReleased(int x, int y, int button);
     void windowResized(int w, int h);
-    void dragEvent(ofDragInfo dragInfo);
-    void gotMessage(ofMessage msg);
 
 private:
-
-    // Scenes
 
     void goToNextScene();
     void goToPreviousScene();
     void manageScene4Timer();
+    void scene3TimerCompleteHandler(int &args);
 
-    ofxSceneManager sceneManager;
-    int currentScene = 0;
-
-    ofxSimpleTimer scene4Timer;
-    void scene4TimerCompleteHandler(int &args);
+    ofxSceneManager     sceneManager;
+    unsigned int        currentScene = 0;
+    ofxSimpleTimer      scene3Timer;
 };

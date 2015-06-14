@@ -2,7 +2,7 @@
 //  AbletonManager.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ã€ngel Soler on 10/6/15.
+//  Created by Miquel Ëngel Soler on 10/6/15.
 //
 //
 
@@ -12,6 +12,7 @@ const unsigned int MAX_TRACKS = 20;
 
 #pragma mark - Constructors
 
+///--------------------------------------------------------------
 AbletonManager::AbletonManager(string _senderHost, unsigned int _senderPort, unsigned int _receiverPort, unsigned int numObjects)
 {
     senderHost = _senderHost;
@@ -27,13 +28,14 @@ AbletonManager::AbletonManager(string _senderHost, unsigned int _senderPort, uns
         eventsVolumeChanged.push_back(ofEvent<float>());
 }
 
+///--------------------------------------------------------------
 AbletonManager::~AbletonManager()
 {
 }
 
-
 #pragma mark - Send messages
 
+///--------------------------------------------------------------
 /**
  * /live/play/clip
  * (int track, int clip)
@@ -48,6 +50,7 @@ void AbletonManager::playClip(int clipNumber, int trackNumber)
     oscSender.sendMessage(m);
 }
 
+///--------------------------------------------------------------
 /**
  * /live/stop/clip
  * (int track, int clip)
@@ -62,6 +65,7 @@ void AbletonManager::stopClip(int clipNumber, int trackNumber)
     oscSender.sendMessage(m);
 }
 
+///--------------------------------------------------------------
 /**
  * /live/stop/track
  * (int track)
@@ -77,7 +81,7 @@ void AbletonManager::stopAll()
     }
 }
 
-
+///--------------------------------------------------------------
 /**
  * /live/master/device
  * (int device, int parameter, int value)
@@ -96,6 +100,7 @@ void AbletonManager::setDeviceParameter(int device, int parameter, int value)
 #endif
 }
 
+///--------------------------------------------------------------
 /**
  * /live/tempo
  * Request current tempo, replies with /live/tempo (float tempo)
@@ -107,8 +112,7 @@ void AbletonManager::requestTempo()
     oscSender.sendMessage(m);
 }
 
-
-
+///--------------------------------------------------------------
 /**
  * /live/volumeupdates (int window, int min_track, int max_track
  * Request volume updates
@@ -126,6 +130,7 @@ void AbletonManager::requestVolumeUpdates()
 
 #pragma mark - Receive messages
 
+///--------------------------------------------------------------
 void AbletonManager::update()
 {
     while(oscReceiver.hasWaitingMessages())
@@ -142,6 +147,7 @@ void AbletonManager::update()
     }
 }
 
+///--------------------------------------------------------------
 void AbletonManager::manageTempoChanged(ofxOscMessage &m)
 {
     /**
@@ -153,6 +159,7 @@ void AbletonManager::manageTempoChanged(ofxOscMessage &m)
     ofNotifyEvent(eventTempoChanged, newTempo, this);
 }
 
+///--------------------------------------------------------------
 void AbletonManager::manageTracksVolumeChanged(ofxOscMessage &m)
 {
     /**
@@ -184,6 +191,7 @@ void AbletonManager::manageTracksVolumeChanged(ofxOscMessage &m)
 //    cout << endl;
 }
 
+///--------------------------------------------------------------
 void AbletonManager::manageMasterVolumeChanged(ofxOscMessage &m)
 {
     /**

@@ -34,15 +34,20 @@ public:
 
 private:
 
-    // TUIO touches
-    void tuioTouchedDown(ofVec2f &coords);
+    // TUIO touch events
+    virtual void tuioPressed(ofVec2f &coords);
+    virtual void tuioReleased(ofVec2f &coords);
+    virtual void tuioDragged(ofVec2f &coords);
 
-    // Touch (currently mouse) events
-    /**/ // OSC
-    virtual void mouseMoved(int x, int y);
+    // Mouse events
     virtual void mouseDragged(int x, int y, int button);
     virtual void mousePressed(int x, int y, int button);
     virtual void mouseReleased(int x, int y, int button);
+
+    // Interaction handling
+    void handlePress(int x, int y, bool isMouse = false);
+    void handleRelease(int x, int y, bool isMouse = false);
+    void handleDrag(int x, int y, bool isMouse = false);
 
     /**/ // OSC
     int getObjectIndexAtPosition(int x, int y);

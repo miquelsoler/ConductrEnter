@@ -38,20 +38,27 @@ public:
     // cleanup
     void exit();
 
-    // Touch (currently mouse) events
-    virtual void mouseMoved(int x, int y) = 0;
-    virtual void mouseDragged(int x, int y, int button) = 0;
-    virtual void mousePressed(int x, int y, int button) = 0;
-    virtual void mouseReleased(int x, int y, int button) = 0;
-
-    ofVideoPlayer videoPlayer;
+    ofVideoPlayer       videoPlayer;
 
 protected:
     void drawPre();
     void drawPost();
 
+    // TUIO touch events
+    virtual void tuioPressed(ofVec2f &coords) = 0;
+    virtual void tuioReleased(ofVec2f &coords) = 0;
+    virtual void tuioDragged(ofVec2f &coords) = 0;
+
+    // Touch (currently mouse) events
+    virtual void mouseDragged(int x, int y, int button) = 0;
+    virtual void mousePressed(int x, int y, int button) = 0;
+    virtual void mouseReleased(int x, int y, int button) = 0;
+
     // Listener method to detect window changes
     virtual void windowResized(ofResizeEventArgs &args) {}
+
+    // Helper methods
+    ofVec2f tuioToScreenCoords(const ofVec2f &tuioCoords);
 };
 
 #endif /* defined(__ConductrEnter__BaseScene__) */

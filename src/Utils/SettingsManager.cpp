@@ -12,6 +12,7 @@
 
 const std::string FILENAME = "settings/settings.json";
 
+///--------------------------------------------------------------
 SettingsManager::SettingsManager()
 {
     bool parserResult = loadSettings();
@@ -22,6 +23,7 @@ SettingsManager::SettingsManager()
     }
 }
 
+///--------------------------------------------------------------
 bool SettingsManager::loadSettings()
 {
     // JSON parse
@@ -37,7 +39,7 @@ bool SettingsManager::loadSettings()
     fade_out_milliseconds = json["Scenes"]["FadeOut Milliseconds"].asUInt();
     scene4_timer_milliseconds = json["Scenes"]["Scene4 Timer Milliseconds"].asUInt();
 #ifdef OF_DEBUG
-    cout << "[Scenes] fadeIn=" << fade_in_milliseconds << " fadeOut=" << fade_out_milliseconds << " scene4Timer=" << scene4_timer_milliseconds << endl;
+    cout << "[Scenes] fadeIn=" << fade_in_milliseconds << " fadeOut=" << fade_out_milliseconds << " scene3Timer=" << scene4_timer_milliseconds << endl;
 #endif
 
     // Ableton
