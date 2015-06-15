@@ -15,6 +15,10 @@ BaseObject::BaseObject(unsigned int numObjects, unsigned int objectIndex, float 
     viewOriginX(_viewOriginX),
     viewWidth(_viewWidth)
 {
+    // Give width/4 left & right margin
+    viewWidthMargin = viewWidth/4;
+    viewWidth += (2 * viewWidthMargin);
+    viewOriginX -= viewWidthMargin;
     viewHalfWidth = viewWidth / 2.0f;
     viewHalfHeight = ofGetHeight() / 2.0f;
     viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, ofGetHeight());

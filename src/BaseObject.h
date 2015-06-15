@@ -39,7 +39,7 @@ protected:
     ofPoint         objPosition;
 
     // Viewport
-    float           viewOriginX, viewWidth, viewHalfWidth, viewHalfHeight;
+    float           viewOriginX, viewWidth, viewHalfWidth, viewHalfHeight, viewWidthMargin;
     ofRectangle     viewRectangle;
 
 };

@@ -30,46 +30,19 @@ void TUIOHandler::init()
 ///--------------------------------------------------------------
 void TUIOHandler::tuioTouchDown(ofTouchEventArgs &touch)
 {
-//    // Add new TUIO cursor id
-//
-//    cursorIds.push_back(touch.id);
-//
-//    // Detect pinches
-//
-//    unsigned int numTouches = cursorIds.size();
-//    if (numTouches <= 1)
-//    {
-        // Only 1 touch, notify listeners
-        ofNotifyEvent(eventTouchDown, touch, this);
-//    }
-//    else
-//    {
-//        float distance;
-//        if (numTouches == 2)
-//        {
-//            // Give me the position of the first touch
-//            list<long>::iterator cursorIt = cursorIds.begin();
-//            TuioCursor *firstCursor = tuioClient->client->getTuioCursor(*cursorIt);
-//            TuioPoint firstCursorPos = firstCursor->getPosition();
-//
-//            // Calculate distance to current touch
-//            float distance = ofDist(firstCursorPos.getX(), firstCursorPos.getY(), touch.x, touch.y);
-//            cout << "Distance: " << distance << endl;
-//        }
-//        else
-//        {
-//            // Give me the position of the first touch
-//            // Calculate midpoint of the rest of touches
-//            // Calculate distance between first point and midpoint of the rest
-//        }
-//    }
+    ofNotifyEvent(eventTouchDown, touch, this);
 }
 
 ///--------------------------------------------------------------
 void TUIOHandler::tuioTouchUp(ofTouchEventArgs &touch)
 {
-    // Notify to listeners
     ofNotifyEvent(eventTouchUp, touch, this);
+}
+
+///--------------------------------------------------------------
+void TUIOHandler::tuioTouchMoved(ofTouchEventArgs &touch)
+{
+    ofNotifyEvent(eventTouchDrag, touch, this);
 }
 
 ///--------------------------------------------------------------
@@ -87,11 +60,6 @@ float TUIOHandler::getDistBetweenCursors(int cursorId1, int cursorId2)
 }
 
 ///--------------------------------------------------------------
-void TUIOHandler::tuioTouchMoved(ofTouchEventArgs &touch)
-{
-    ofNotifyEvent(eventTouchDrag, touch, this);
-}
-
 ofVec2f TUIOHandler::tuioToScreenCoords(float tuioX, float tuioY)
 {
     ofVec2f screenCoords(ofMap(tuioX, 0, 1, 0, ofGetWidth()),

@@ -46,7 +46,7 @@ void S3BaseObj::setup()
     camera.setFarClip(500.0f);
     camera.setDistance(camDistance);
 
-    gui.setPosition(viewOriginX, 0);
+    gui.setPosition(viewOriginX+viewHalfWidth*0.4, 0);
 }
 
 ///--------------------------------------------------------------
@@ -107,7 +107,7 @@ void S3BaseObj::windowResized(ofResizeEventArgs &args)
     objPosition.y = viewHalfHeight;
     viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, args.height);
 
-    gui.setPosition(viewOriginX, 0);
+    gui.setPosition(viewOriginX+viewHalfWidth*0.4, 0);
 
     camera.setDistance(camDistance);
 }
@@ -143,11 +143,9 @@ bool S3BaseObj::getIsPicked()
 ///--------------------------------------------------------------
 void S3BaseObj::enablePinch(bool enable)
 {
-    if (!enable)
-    {
-        pinchEnabled = false;
-        return;
-    }
+    pinchEnabled = enable;
+
+    if (!pinchEnabled) return;
 
     if (cursorIds.size() <= 1)
     {
@@ -155,7 +153,6 @@ void S3BaseObj::enablePinch(bool enable)
         return;
     }
 
-    pinchEnabled = enable;
     int cursorId1 = cursorIds.front();
     int cursorId2 = cursorIds.back();
 

@@ -331,6 +331,7 @@ int Scene3::getObjectIndexAtPosition(int x, int y)
 ///--------------------------------------------------------------
 void Scene3::windowResized(ofResizeEventArgs &args)
 {
+    float viewWidthMargin = viewWidth/4;
     viewWidth = ofGetWidth() / num_objects;
     viewHeight = ofGetHeight();
 }
