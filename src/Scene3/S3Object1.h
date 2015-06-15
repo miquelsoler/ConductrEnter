@@ -35,8 +35,8 @@ private:
     virtual void volumeChanged(float &newVolume) {};
     virtual void windowResized(ofResizeEventArgs &args);
 
-    ofSpherePrimitive sphere;
-    float initialRotation;
+    ofSpherePrimitive   sphere;
+    float               initialRotation;
 };
 
 #endif /* defined(__ConductrEnter__S4Object1__) */

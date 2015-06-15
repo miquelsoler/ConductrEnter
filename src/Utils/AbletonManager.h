@@ -34,23 +34,23 @@ public:
 
     void update();
 
-    ofEvent<float> eventTempoChanged;
-    vector< ofEvent<float> > eventsVolumeChanged;
+    ofEvent<float>              eventTempoChanged;
+    vector< ofEvent<float> >    eventsVolumeChanged;
 
 private:
-
-    ofxOscSender oscSender;
-    ofxOscReceiver oscReceiver;
-
-    unsigned int sceneNumObjects;
-
-    string senderHost;
-    unsigned int senderPort;
-    unsigned int receiverPort;
 
     void manageTempoChanged(ofxOscMessage &m);
     void manageTracksVolumeChanged(ofxOscMessage &m);
     void manageMasterVolumeChanged(ofxOscMessage &m);
+
+    ofxOscSender                oscSender;
+    ofxOscReceiver              oscReceiver;
+
+    unsigned int                sceneNumObjects;
+
+    string                      senderHost;
+    unsigned int                senderPort;
+    unsigned int                receiverPort;
 };
 
 

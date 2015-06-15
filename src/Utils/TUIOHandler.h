@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include "ofMain.h"
 #include "ofxTuioClient.h"
+#include "TuioCursor.h"
 
 class TUIOHandler
 {
@@ -25,12 +26,15 @@ public:
     }
 
     void init();
+    
+    float getDistBetweenCursors(int cursorId1, int cursorId2);
+    static ofVec2f tuioToScreenCoords(float tuioX, float tuioY);
 
-    ofxTuioClient tuioClient;
+    ofxTuioClient               *tuioClient;
 
-    ofEvent<ofVec2f> eventTouchUp;
-    ofEvent<ofVec2f> eventTouchDown;
-    ofEvent<ofVec2f> eventTouchDrag;
+    ofEvent<ofTouchEventArgs>    eventTouchDown;
+    ofEvent<ofTouchEventArgs>    eventTouchUp;
+    ofEvent<ofTouchEventArgs>    eventTouchDrag;
 
 private:
 
@@ -39,7 +43,6 @@ private:
     void tuioTouchDown(ofTouchEventArgs &touch);
     void tuioTouchUp(ofTouchEventArgs &touch);
     void tuioTouchMoved(ofTouchEventArgs &touch);
-    void tuioPinched(ofTouchEventArgs &touch);
 };
 
 #endif /* defined(__ConductrEnter__TUIOHandler__) */

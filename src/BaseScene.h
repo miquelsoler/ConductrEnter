@@ -41,13 +41,14 @@ public:
     ofVideoPlayer       videoPlayer;
 
 protected:
+
     void drawPre();
     void drawPost();
 
     // TUIO touch events
-    virtual void tuioPressed(ofVec2f &coords) = 0;
-    virtual void tuioReleased(ofVec2f &coords) = 0;
-    virtual void tuioDragged(ofVec2f &coords) = 0;
+    virtual void tuioPressed(ofTouchEventArgs &touch) = 0;
+    virtual void tuioReleased(ofTouchEventArgs &touch) = 0;
+    virtual void tuioDragged(ofTouchEventArgs &touch) = 0;
 
     // Touch (currently mouse) events
     virtual void mouseDragged(int x, int y, int button) = 0;
@@ -58,7 +59,7 @@ protected:
     virtual void windowResized(ofResizeEventArgs &args) {}
 
     // Helper methods
-    ofVec2f tuioToScreenCoords(const ofVec2f &tuioCoords);
+    ofVec2f tuioToScreenCoords(float tuioX, float tuioY);
 };
 
 #endif /* defined(__ConductrEnter__BaseScene__) */

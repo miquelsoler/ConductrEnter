@@ -66,6 +66,7 @@ void ofApp::update()
 void ofApp::draw()
 {
 #ifdef OF_DEBUG
+    ofSetColor(ofColor::gray);
     ofxBitmapString(5.0f, ofGetHeight()-20.0f)
     << "SCENE INDEX: " << sceneManager.getCurrentSceneIndex() << endl
     << "SCENE NAME: " << sceneManager.getCurrentSceneName() << endl;

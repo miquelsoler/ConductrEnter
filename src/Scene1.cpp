@@ -125,7 +125,7 @@ void Scene1::onVideoComplete(float* arg)
 #pragma mark - TUIO Touch events
 
 ///--------------------------------------------------------------
-void Scene1::tuioPressed(ofVec2f &coords)
+void Scene1::tuioPressed(ofTouchEventArgs &touch)
 {
     goAhead();
 }

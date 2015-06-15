@@ -7,6 +7,8 @@
 //
 
 #include "S3BaseObj.h"
+#include "TUIOHandler.h"
+
 
 const int LOOP_RESOLUTION = 50;
 const int ANGLE_OFFSET = 90;
@@ -44,8 +46,6 @@ void S3BaseObj::setup()
     camera.setFarClip(500.0f);
     camera.setDistance(camDistance);
 
-//    printf("Obj: (%f,%f,%f) - Cam: (%f,%f,%f)\n", objPosition.x, objPosition.y, objPosition.z, camera.getPosition().x, camera.getPosition().y, camera.getPosition().z);
-
     gui.setPosition(viewOriginX, 0);
 }
 
@@ -60,6 +60,9 @@ void S3BaseObj::draw()
 {
 #ifdef OF_DEBUG
     gui.draw();
+
+    ofSetColor(ofColor::gray);
+    ofxBitmapString(viewOriginX, viewHalfHeight) << cursorIds.size();
 #endif
 }
 
@@ -118,7 +121,9 @@ bool S3BaseObj::pick(int screenX, int screenY)
     float distToTop = ofDistSquared(centerScreenCoords.x, centerScreenCoords.y, topScreenCoords.x, topScreenCoords.y);
     float distToScreen = ofDistSquared(centerScreenCoords.x, centerScreenCoords.y, screenX, screenY);
 
+#ifdef OF_DEBUG
     isPicked = distToScreen <= distToTop;
+#endif
 
     return isPicked;
 }
@@ -136,16 +141,81 @@ bool S3BaseObj::getIsPicked()
 }
 
 ///--------------------------------------------------------------
+void S3BaseObj::enablePinch(bool enable)
+{
+    if (!enable)
+    {
+        pinchEnabled = false;
+        return;
+    }
+
+    if (cursorIds.size() <= 1)
+    {
+        pinchEnabled = false;
+        return;
+    }
+
+    pinchEnabled = enable;
+    int cursorId1 = cursorIds.front();
+    int cursorId2 = cursorIds.back();
+
+    pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursorId1, cursorId2);
+}
+
+///--------------------------------------------------------------
+bool S3BaseObj::isPinchEnabled()
+{
+    return pinchEnabled;
+}
+
+///--------------------------------------------------------------
+void S3BaseObj::updatePinch()
+{
+    if (!pinchEnabled) return;
+
+    int cursorId1 = cursorIds.front();
+    int cursorId2 = cursorIds.back();
+    float pinchCurrentDist = TUIOHandler::getInstance().getDistBetweenCursors(cursorId1, cursorId2);
+
+    float diff = pinchCurrentDist - pinchInitialDist;
+    if (diff > 0)
+    {
+        camDistance = 350 - diff/2;
+    }
+}
+
+///--------------------------------------------------------------
+bool S3BaseObj::isScreenCoordInsideViewport(int screenX, int screenY)
+{
+    return (screenX >= viewOriginX) && (screenX < viewOriginX + viewWidth);
+}
+
+///--------------------------------------------------------------
 void S3BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 {
     ofVec3f objScreenCoords = camera.worldToScreen(objPosition, viewRectangle);
     objScreenCoords.y = screenY;
 
+    float oldX = objPosition.x;
+
     objPosition = camera.screenToWorld(objScreenCoords, viewRectangle);
+    objPosition.x = oldX;
 }
 
 ///--------------------------------------------------------------
 void S3BaseObj::setAnimated(bool animate)
 {
     isAnimated = animate;
+}
+
+#pragma mark - TUIO
+
+void S3BaseObj::addCursor(int cursorId)
+{
+    cursorIds.push_back(cursorId);
+}
+
+void S3BaseObj::removeAllCursors()
+{
+    cursorIds.clear();
 }

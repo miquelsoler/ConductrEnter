@@ -24,27 +24,27 @@ public:
     }
 
     // Scene management
-    unsigned int intro_loop_frame;
-    unsigned int fade_in_milliseconds;
-    unsigned int fade_out_milliseconds;
-    unsigned long scene4_timer_milliseconds;
+    unsigned int    intro_loop_frame;
+    unsigned int    fade_in_milliseconds;
+    unsigned int    fade_out_milliseconds;
+    unsigned long   scene4_timer_milliseconds;
 
     // Ableton
-    string abletonHost;
-    unsigned int abletonSenderPort;
-    unsigned int abletonReceiverPort;
-    unsigned int abletonFirstClipIndex;
-    unsigned int abletonArtistOffset;
+    string          abletonHost;
+    unsigned int    abletonSenderPort;
+    unsigned int    abletonReceiverPort;
+    unsigned int    abletonFirstClipIndex;
+    unsigned int    abletonArtistOffset;
 
     // TUIO
-    unsigned int tuioClientPort;
+    unsigned int    tuioClientPort;
 
 private:
 
     SettingsManager();
     bool loadSettings();
 
-    ofxJSONElement json;
+    ofxJSONElement  json;
 };
 
 #endif /* defined(__ConductrEnter__SettingsManager__) */

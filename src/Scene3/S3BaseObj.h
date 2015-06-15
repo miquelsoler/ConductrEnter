@@ -32,11 +32,17 @@ public:
     bool pick(int screenX, int screenY);
     void unpick();
     bool getIsPicked();
+    void enablePinch(bool enable);
+    bool isPinchEnabled();
+    virtual void updatePinch();
+
+    void addCursor(int cursorId);
+    void removeAllCursors();
 
     virtual void setPositionFromScreenCoords(int screenX, int screenY);
+    bool isScreenCoordInsideViewport(int screenX, int screenY);
     void setAnimated(bool animate);
 
-    // Volume changes
     virtual void volumeChanged(float &newVolume) = 0;
 
 protected:
@@ -44,29 +50,32 @@ protected:
     void drawLoop();
     virtual void loadSettings() = 0;
     void initSharedSettings();
+    virtual void windowResized(ofResizeEventArgs &args);
 
     // Camera & viewport
-    ofEasyCam camera;
-    ofParameter<int> camDistance;
+    ofEasyCam           camera;
+    ofParameter<int>    camDistance;
 
     // Object parameters
-    float radius;
-    bool isAnimated = 0;
-    bool isPicked = false;
+    float               radius;
+    bool                isAnimated = 0;
+    bool                isPicked = false;
+
+    // TUIO
+    list<int>           cursorIds;
+    bool                pinchEnabled = false;
+    float               pinchInitialDist;
 
     // Loop arc
-    ofPolyline loopArc;
-    ofParameter<int> loopRadius;
-    ofParameter<int> loopAngle;
-    float loopTimePerCycle;
-    unsigned int loopFrequency;
+    ofPolyline          loopArc;
+    ofParameter<int>    loopRadius;
+    ofParameter<int>    loopAngle;
+    float               loopTimePerCycle;
+    unsigned int        loopFrequency;
 
     // GUI
-    ofxPanel gui;
-    string settingsPath;
-
-    // Resizes
-    virtual void windowResized(ofResizeEventArgs &args);
+    ofxPanel            gui;
+    string              settingsPath;
 };
 
 #endif /* defined(__ConductrEnter__S4BaseObj__) */

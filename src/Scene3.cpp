@@ -13,6 +13,7 @@
 
 #include "SettingsManager.h"
 #include "TUIOHandler.h"
+#include "TuioClient.h"
 
 const unsigned int NUM_OBJECTS = 6;
 const unsigned int ABLETON_CLIP = 4;
@@ -124,6 +125,11 @@ void Scene3::draw()
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->draw();
 
+#ifdef OF_DEBUG
+    ofxTuioClient *tuioClient = TUIOHandler::getInstance().tuioClient;
+    tuioClient->drawCursors(0.5,1,0);
+#endif
+
     BaseScene::drawPost();
 }
 
@@ -135,23 +141,23 @@ void Scene3::exit()
 #pragma mark - Touch events
 
 ///--------------------------------------------------------------
-void Scene3::tuioPressed(ofVec2f &coords)
+void Scene3::tuioPressed(ofTouchEventArgs &touch)
 {
-    ofVec2f screenCoords = tuioToScreenCoords(coords);
-    handlePress((int)screenCoords.x, (int)screenCoords.y);
+    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
+    handlePress((int)screenCoords.x, (int)screenCoords.y, touch.id);
 }
 
 ///--------------------------------------------------------------
-void Scene3::tuioReleased(ofVec2f &coords)
+void Scene3::tuioReleased(ofTouchEventArgs &touch)
 {
-    ofVec2f screenCoords = tuioToScreenCoords(coords);
-    handleRelease((int)screenCoords.x, (int)screenCoords.y);
+    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
+    handleRelease((int)screenCoords.x, (int)screenCoords.y, touch.id);
 }
 ///--------------------------------------------------------------
-void Scene3::tuioDragged(ofVec2f &coords)
+void Scene3::tuioDragged(ofTouchEventArgs &touch)
 {
-    ofVec2f screenCoords = tuioToScreenCoords(coords);
-    handleDrag((int)screenCoords.x, (int)screenCoords.y);
+    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
+    handleDrag((int)screenCoords.x, (int)screenCoords.y, touch.id);
 }
 
 #pragma mark - Mouse events
@@ -177,63 +183,133 @@ void Scene3::mouseReleased(int x, int y, int button)
 #pragma mark - Interaction handling
 
 ///--------------------------------------------------------------
-void Scene3::handlePress(int x, int y)
+/**
+ *  If coming from mouse (cursorId == -1)
+ *      If object not yet picked
+ *          Try to pick it (coords inside object)
+ *          If picked
+ *              Play Ableton clip
+ *              Animate object
+ *          Else
+ *              Do nothing
+ *  If coming from TUIO (cursorId >= 0):
+ *      If object not yet picked
+ *          Try to pick it (coords inside object)
+ *          If picked
+ *              Play Ableton clip
+ *              Animate object
+ *              Add TUIO cursor id to object
+ *          Else
+ *              Do nothing
+ *      Else
+ *          Don't pick it again
+ *          Add TUIO cursor id to object
+ *          Enable pinch
+ */
+void Scene3::handlePress(int x, int y, int cursorId)
 {
     if ((x<0) || (x>=ofGetWidth())) return;
     if ((y<0) || (y>=viewHeight)) return;
 
     int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-    if (!objects[pressedObjectIndex]->pick(x, y)) return;
+    S3BaseObj *object = objects[pressedObjectIndex];
 
-    int track = pressedObjectIndex;
-    abletonManager->playClip(ABLETON_CLIP, track);
+    bool isPicked = object->getIsPicked();
 
-    // Animate (or not) the touched object
-    objects[pressedObjectIndex]->setAnimated(true);
+    if (cursorId == -1) // Coming from mouse
+    {
+        if (isPicked) return;
+        if (!object->pick(x, y)) return;
+
+        // Play Ableton clip
+        int track = pressedObjectIndex;
+        abletonManager->playClip(ABLETON_CLIP, track);
+
+        // Animate the touched object
+        object->setAnimated(true);
+    }
+    else // Coming from TUIO
+    {
+        if (!isPicked)
+        {
+            if (!object->pick(x, y)) return;
+
+            // Play Ableton clip
+            int track = pressedObjectIndex;
+            abletonManager->playClip(ABLETON_CLIP, track);
+
+            // Animate the touched object
+            object->setAnimated(true);
+
+            // Add TUIO cursor
+            object->addCursor(cursorId);
+        }
+        else
+        {   // Already picked: add cursor and enable pinch
+            object->addCursor(cursorId);
+            object->enablePinch(true);
+        }
+    }
 }
 
 ///--------------------------------------------------------------
-void Scene3::handleRelease(int x, int y)
+void Scene3::handleRelease(int x, int y, int cursorId)
 {
     if ((x<0) || (x>=ofGetWidth())) return;
     if ((y<0) || (y>=viewHeight)) return;
 
     int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-    if (!objects[pressedObjectIndex]->pick(x, y)) return;
+    S3BaseObj *object = objects[pressedObjectIndex];
 
-    objects[pressedObjectIndex]->unpick();
+    // Remove TUIO cursors and disable pinch
+    object->removeAllCursors();
+    object->enablePinch(false);
+    if (!object->getIsPicked()) return;
+    object->unpick();
 
+    // Stop Ableton clip
     int track = pressedObjectIndex;
     abletonManager->stopClip(ABLETON_CLIP, track);
 
-    // Animate (or not) the touched object
-    objects[pressedObjectIndex]->setAnimated(false);
+    // Stop animating the touched object
+    object->setAnimated(false);
 }
 
 ///--------------------------------------------------------------
-void Scene3::handleDrag(int x, int y)
+void Scene3::handleDrag(int x, int y, int cursorId)
 {
     if ((x<0) || (x>=ofGetWidth())) return;
     if ((y<0) || (y>=viewHeight)) return;
 
     int pressedObjectIndex = getObjectIndexAtPosition(x, y);
-    if (!objects[pressedObjectIndex]->getIsPicked()) return;
+    S3BaseObj *object = objects[pressedObjectIndex];
 
-    // Send OSC message
+    if (!object->getIsPicked()) return;
 
-    int device = 0;
-    int parameter = pressedObjectIndex + 1;
-    int value;
-    float halfHeight = viewHeight/2.0f;
-    if ((y>=0) && (y<halfHeight)) {
-        value = (int)ofMap(y, halfHeight-1, 0, 0, 127);
-    } else {
-        value = (int)ofMap(y, halfHeight, viewHeight, 0, 127);
+    if (!object->isPinchEnabled())
+    {
+        // Send message to Ableton
+
+        /**/
+        int device = 0;
+        int parameter = pressedObjectIndex + 1;
+        int value;
+        float halfHeight = viewHeight/2.0f;
+        if ((y>=0) && (y<halfHeight)) {
+            value = (int)ofMap(y, halfHeight-1, 0, 0, 127);
+        } else {
+            value = (int)ofMap(y, halfHeight, viewHeight, 0, 127);
+        }
+
+        abletonManager->setDeviceParameter(device, parameter, value);
+
+        // Position object
+        object->setPositionFromScreenCoords(x, y);
     }
-
-    abletonManager->setDeviceParameter(device, parameter, value);
-
-    objects[pressedObjectIndex]->setPositionFromScreenCoords(x, y);
+    else
+    {
+        object->updatePinch();
+    }
 }
 
 #pragma mark - Helper methods

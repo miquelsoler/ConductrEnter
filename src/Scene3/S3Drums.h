@@ -32,15 +32,14 @@ public:
 
 private:
 
-    ofIcoSpherePrimitive sphere1, sphere2;
-    vector<ofMeshFace> trianglesOriginal1, trianglesCurrent1;
-    vector<ofMeshFace> trianglesOriginal2, trianglesCurrent2;
-    vector<float> noises1, noises2;
-
-    float vertexDistance;
-
     virtual void volumeChanged(float &newVolume);
     virtual void windowResized(ofResizeEventArgs &args);
+
+    ofIcoSpherePrimitive    sphere1, sphere2;
+    vector<ofMeshFace>      trianglesOriginal1, trianglesCurrent1;
+    vector<ofMeshFace>      trianglesOriginal2, trianglesCurrent2;
+    vector<float>           noises1, noises2;
+    float                   vertexDistance;
 };
 
 #endif /* defined(__ConductrEnter__S4Object2__) */

@@ -28,19 +28,20 @@ public:
     float getViewOriginX();
 
 protected:
-    // Parent related attributes
-    unsigned int sceneNumObjects;
-    unsigned int sceneObjectIndex;
-
-    // Position
-    ofPoint objPosition;
-
-    // Viewport
-    float viewOriginX, viewWidth, viewHalfWidth, viewHalfHeight;
-    ofRectangle viewRectangle;
-
     // Listener method to detect window changes
     virtual void windowResized(ofResizeEventArgs &args) {}
+
+    // Parent related attributes
+    unsigned int    sceneNumObjects;
+    unsigned int    sceneObjectIndex;
+
+    // Position
+    ofPoint         objPosition;
+
+    // Viewport
+    float           viewOriginX, viewWidth, viewHalfWidth, viewHalfHeight;
+    ofRectangle     viewRectangle;
+
 };
 
 #endif /* defined(__ConductrEnter__BaseObject__) */

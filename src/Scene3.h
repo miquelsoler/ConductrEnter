@@ -35,9 +35,9 @@ public:
 private:
 
     // TUIO touch events
-    virtual void tuioPressed(ofVec2f &coords);
-    virtual void tuioReleased(ofVec2f &coords);
-    virtual void tuioDragged(ofVec2f &coords);
+    virtual void tuioPressed(ofTouchEventArgs &touch);
+    virtual void tuioReleased(ofTouchEventArgs &touch);
+    virtual void tuioDragged(ofTouchEventArgs &touch);
 
     // Mouse events
     virtual void mouseDragged(int x, int y, int button);
@@ -45,25 +45,24 @@ private:
     virtual void mouseReleased(int x, int y, int button);
 
     // Interaction handling
-    void handlePress(int x, int y);
-    void handleRelease(int x, int y);
-    void handleDrag(int x, int y);
+    void handlePress(int x, int y, int cursorId = -1);
+    void handleRelease(int x, int y, int cursorId = -1);
+    void handleDrag(int x, int y, int cursorId = -1);
 
-    /**/ // OSC
-    int getObjectIndexAtPosition(int x, int y);
-    AbletonManager *abletonManager;
-
-    ofxOscSender oscSender;
-
-    // Listener method to detect window changes
+    // Listeners
     virtual void windowResized(ofResizeEventArgs &args);
-
-    // Listener method to detect tempo changes
     virtual void tempoChanged(float &newTempo);
 
-    vector<S3BaseObj*> objects;
-    unsigned int num_objects;
-    float viewWidth, viewHeight;
+    // Convenience methods
+    int getObjectIndexAtPosition(int x, int y);
+
+    AbletonManager*         abletonManager;
+
+    ofxOscSender            oscSender;
+
+    vector<S3BaseObj*>      objects;
+    unsigned int            num_objects;
+    float                   viewWidth, viewHeight;
 };
 
 #endif /* defined(__ConductrEnter__Scene4__) */

@@ -59,24 +59,24 @@ void Scene2::exit()
 #pragma mark - TUIO Touch events
 
 ///--------------------------------------------------------------
-void Scene2::tuioPressed(ofVec2f &coords)
+void Scene2::tuioPressed(ofTouchEventArgs &touch)
 {
-    ofVec2f screenCoords = tuioToScreenCoords(coords);
+    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
     circleX = screenCoords.x;
     circleY = screenCoords.y;
     circleRadius = 50;
 }
 
 ///--------------------------------------------------------------
-void Scene2::tuioReleased(ofVec2f &coords)
+void Scene2::tuioReleased(ofTouchEventArgs &touch)
 {
     circleRadius = 20;
 }
 
 ///--------------------------------------------------------------
-void Scene2::tuioDragged(ofVec2f &coords)
+void Scene2::tuioDragged(ofTouchEventArgs &touch)
 {
-    ofVec2f screenCoords = tuioToScreenCoords(coords);
+    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
     circleX = screenCoords.x;
     circleY = screenCoords.y;
     circleRadius = 50;

@@ -71,9 +71,9 @@ void BaseScene::exit()
 #pragma mark - Shared helper methods
 
 ///--------------------------------------------------------------
-ofVec2f BaseScene::tuioToScreenCoords(const ofVec2f &tuioCoords)
+ofVec2f BaseScene::tuioToScreenCoords(float tuioX, float tuioY)
 {
-    ofVec2f screenCoords(ofMap(tuioCoords.x, 0, 1, 0, ofGetWidth()),
-                         ofMap(tuioCoords.y, 0, 1, 0, ofGetHeight()));
+    ofVec2f screenCoords(ofMap(tuioX, 0, 1, 0, ofGetWidth()),
+                         ofMap(tuioY, 0, 1, 0, ofGetHeight()));
     return screenCoords;
 }

@@ -8,13 +8,15 @@
 
 #include "TUIOHandler.h"
 
+#include "TuioCursor.h"
 #include "SettingsManager.h"
 
 ///--------------------------------------------------------------
 TUIOHandler::TUIOHandler()
 {
     unsigned int clientPort = SettingsManager::getInstance().tuioClientPort;
-    tuioClient.connect(clientPort);
+    tuioClient = new ofxTuioClient();
+    tuioClient->connect(clientPort);
 }
 
 ///--------------------------------------------------------------
@@ -28,13 +30,60 @@ void TUIOHandler::init()
 ///--------------------------------------------------------------
 void TUIOHandler::tuioTouchDown(ofTouchEventArgs &touch)
 {
-    ofNotifyEvent(eventTouchDown, touch, this);
+//    // Add new TUIO cursor id
+//
+//    cursorIds.push_back(touch.id);
+//
+//    // Detect pinches
+//
+//    unsigned int numTouches = cursorIds.size();
+//    if (numTouches <= 1)
+//    {
+        // Only 1 touch, notify listeners
+        ofNotifyEvent(eventTouchDown, touch, this);
+//    }
+//    else
+//    {
+//        float distance;
+//        if (numTouches == 2)
+//        {
+//            // Give me the position of the first touch
+//            list<long>::iterator cursorIt = cursorIds.begin();
+//            TuioCursor *firstCursor = tuioClient->client->getTuioCursor(*cursorIt);
+//            TuioPoint firstCursorPos = firstCursor->getPosition();
+//
+//            // Calculate distance to current touch
+//            float distance = ofDist(firstCursorPos.getX(), firstCursorPos.getY(), touch.x, touch.y);
+//            cout << "Distance: " << distance << endl;
+//        }
+//        else
+//        {
+//            // Give me the position of the first touch
+//            // Calculate midpoint of the rest of touches
+//            // Calculate distance between first point and midpoint of the rest
+//        }
+//    }
 }
 
 ///--------------------------------------------------------------
 void TUIOHandler::tuioTouchUp(ofTouchEventArgs &touch)
 {
+    // Notify to listeners
     ofNotifyEvent(eventTouchUp, touch, this);
+}
+
+///--------------------------------------------------------------
+float TUIOHandler::getDistBetweenCursors(int cursorId1, int cursorId2)
+{
+    TuioCursor *c1 = tuioClient->client->getTuioCursor(cursorId1);
+    TuioCursor *c2 = tuioClient->client->getTuioCursor(cursorId2);
+
+    if ((c1 == NULL) || (c2 == NULL)) return 0;
+
+    ofVec2f screenC1 = TUIOHandler::tuioToScreenCoords(c1->getPosition().getX(), c1->getPosition().getY());
+    ofVec2f screenC2 = TUIOHandler::tuioToScreenCoords(c2->getPosition().getX(), c2->getPosition().getY());
+
+    return ofDist(screenC1.x, screenC1.y, screenC2.x, screenC2.y);
 }
 
 ///--------------------------------------------------------------
@@ -43,8 +92,11 @@ void TUIOHandler::tuioTouchMoved(ofTouchEventArgs &touch)
     ofNotifyEvent(eventTouchDrag, touch, this);
 }
 
-///--------------------------------------------------------------
-void TUIOHandler::tuioPinched(ofTouchEventArgs &touch)
+ofVec2f TUIOHandler::tuioToScreenCoords(float tuioX, float tuioY)
 {
-
+    ofVec2f screenCoords(ofMap(tuioX, 0, 1, 0, ofGetWidth()),
+                         ofMap(tuioY, 0, 1, 0, ofGetHeight()));
+    return screenCoords;
 }
+
+

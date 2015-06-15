@@ -43,21 +43,20 @@ public:
 
 private:
 
+    // TUIO touch events
+    virtual void tuioPressed(ofTouchEventArgs &touch);
+    virtual void tuioReleased(ofTouchEventArgs &touch) {}
+    virtual void tuioDragged(ofTouchEventArgs &touch) {}
+    // Mouse events
+    virtual void mouseDragged(int x, int y, int button);
+    virtual void mousePressed(int x, int y, int button);
+    virtual void mouseReleased(int x, int y, int button);
+
     int             loopFrame;
     VideoState      videoState; // 0 : loop     1 : start explode   2 : exploding
     float           videoHeaderFrame;
     void            goAhead();
     void            onVideoComplete(float* arg);
-
-    // TUIO touch events
-    virtual void tuioPressed(ofVec2f &coords);
-    virtual void tuioReleased(ofVec2f &coords) {};
-    virtual void tuioDragged(ofVec2f &coords) {};
-
-    // Mouse events
-    virtual void mouseDragged(int x, int y, int button);
-    virtual void mousePressed(int x, int y, int button);
-    virtual void mouseReleased(int x, int y, int button);
 };
 
 #endif /* defined(__ConductrEnter__Scene1__) */

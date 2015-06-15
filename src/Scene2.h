@@ -29,16 +29,16 @@ public:
     void draw();
     void exit();
 
-    float circleX, circleY;
-    float circleRadius;
+    float   circleX, circleY;
+    float   circleRadius;
 
 private:
 
     // TUIO touch events
-    virtual void tuioPressed(ofVec2f &coords);
-    virtual void tuioReleased(ofVec2f &coords);
-    virtual void tuioDragged(ofVec2f &coords);
-
+    virtual void tuioPressed(ofTouchEventArgs &touch);
+    virtual void tuioReleased(ofTouchEventArgs &touch);
+    virtual void tuioDragged(ofTouchEventArgs &touch);
+    
     // Mouse events
     virtual void mouseDragged(int x, int y, int button);
     virtual void mousePressed(int x, int y, int button);
