@@ -17,9 +17,7 @@
 #define __ConductrEnter__Scene1__
 
 #include <stdio.h>
-#include <ofxAppUtils.h>
 #include "BaseScene.h"
-#include "of3dPrimitives.h"
 #include "ofxTweenzor.h"
 
 typedef enum {
@@ -50,6 +48,8 @@ private:
 
     // Mouse events
     virtual void mousePressed(int x, int y, int button);
+
+    ofVideoPlayer   videoPlayer;
 
     int             loopFrame;
     VideoState      videoState; // 0 : loop     1 : start explode   2 : exploding

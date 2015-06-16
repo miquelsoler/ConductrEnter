@@ -18,6 +18,9 @@
 #include "S3BaseObj.h"
 #include "AbletonManager.h"
 
+const unsigned int NUM_CLIPS = 5;
+const unsigned int DEFAULT_CLIP = 2;
+
 class Scene3 : public BaseScene
 {
 public:
@@ -54,15 +57,16 @@ private:
     virtual void tempoChanged(float &newTempo);
 
     // Convenience methods
-    int getObjectIndexAtPosition(int x, int y);
+    int getObjectIndexAtX(int x);
+    int getClipIndexAtY(int y);
 
     AbletonManager*         abletonManager;
-
-    ofxOscSender            oscSender;
+    unsigned int            currentClipIndex;
 
     vector<S3BaseObj*>      objects;
     unsigned int            num_objects;
     float                   viewWidth, viewHeight;
+    float                   clipHeight;
 };
 
 #endif /* defined(__ConductrEnter__Scene4__) */

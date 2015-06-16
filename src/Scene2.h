@@ -12,7 +12,6 @@
 #define __ConductrEnter__Scene2__
 
 #include <stdio.h>
-#include <ofxAppUtils.h>
 #include "BaseScene.h"
 #include "ofMain.h"
 
@@ -41,6 +40,8 @@ private:
     
     // Mouse events
     virtual void mousePressed(int x, int y, int button);
+
+    ofVideoPlayer   videoPlayer;
 };
 
 #endif /* defined(__ConductrEnter__Scene2__) */

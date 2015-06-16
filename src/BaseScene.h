@@ -39,8 +39,6 @@ public:
     // cleanup
     void exit() {};
 
-    ofVideoPlayer       videoPlayer;
-
     ofEvent<int>         eventGoToNextScene;
 
 protected:

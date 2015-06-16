@@ -35,6 +35,7 @@ public:
     void enablePinch(bool enable);
     bool isPinchEnabled();
     virtual void updatePinch();
+    int getFirstCursorId();
 
     void addCursor(int cursorId);
     void removeAllCursors();

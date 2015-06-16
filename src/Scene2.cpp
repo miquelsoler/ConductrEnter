@@ -12,19 +12,23 @@
 ///--------------------------------------------------------------
 void Scene2::setup()
 {
-    circleX = ofGetWidth()/2;
-    circleY = ofGetHeight()/2;
-    circleRadius = 20;
+    if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/Artistas_0.mp4");
+    videoPlayer.setLoopState(OF_LOOP_NONE);
 }
 
 ///--------------------------------------------------------------
 void Scene2::update()
 {
+    videoPlayer.update();
 }
 
 ///--------------------------------------------------------------
 void Scene2::updateEnter()
 {
+    videoPlayer.stop();
+    videoPlayer.setFrame(0);
+    videoPlayer.play();
+
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene2::tuioPressed);
     ofAddListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene2::tuioReleased);
     ofAddListener(TUIOHandler::getInstance().eventTouchDrag, this, &Scene2::tuioDragged);
@@ -34,6 +38,8 @@ void Scene2::updateEnter()
 ///--------------------------------------------------------------
 void Scene2::updateExit()
 {
+    videoPlayer.stop();
+
     ofRemoveListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene2::tuioPressed);
     ofRemoveListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene2::tuioReleased);
     ofRemoveListener(TUIOHandler::getInstance().eventTouchDrag, this, &Scene2::tuioDragged);
@@ -45,8 +51,7 @@ void Scene2::draw()
 {
     BaseScene::drawPre();
 
-    ofCircle(circleX, circleY, circleRadius);
-    ofxBitmapString(ofGetWidth()/2 - 80, ofGetHeight()/2) << "ARTISTS GO HERE" << endl;
+    videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight() );
 
     BaseScene::drawPost();
 }
@@ -61,6 +66,8 @@ void Scene2::exit()
 ///--------------------------------------------------------------
 void Scene2::tuioPressed(ofTouchEventArgs &touch)
 {
+    if (!videoPlayer.getIsMovieDone()) return;
+
     int sceneIndex = 1;
     ofNotifyEvent(eventGoToNextScene, sceneIndex, this);
 }
@@ -70,6 +77,8 @@ void Scene2::tuioPressed(ofTouchEventArgs &touch)
 ///--------------------------------------------------------------
 void Scene2::mousePressed(int x, int y, int button)
 {
+    if (!videoPlayer.getIsMovieDone()) return;
+
     int sceneIndex = 1;
     ofNotifyEvent(eventGoToNextScene, sceneIndex, this);
 }

@@ -16,7 +16,6 @@
 #include "TuioClient.h"
 
 const unsigned int NUM_OBJECTS = 6;
-const unsigned int ABLETON_CLIP = 4;
 
 #pragma mark - Object creation
 
@@ -26,6 +25,8 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
     num_objects = NUM_OBJECTS;
     viewWidth = ofGetWidth() / num_objects;
     viewHeight = ofGetHeight();
+
+    clipHeight = viewHeight / NUM_CLIPS;
 
     // Initialitze OSC
     string host = SettingsManager::getInstance().abletonHost;
@@ -63,14 +64,6 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
             ofAddListener(abletonManager->eventsVolumeChanged[i], object, &S3BaseObj::volumeChanged);
         }
     }
-
-    // Request tempo in order to set it on objects
-    ofAddListener(abletonManager->eventTempoChanged, this, &Scene3::tempoChanged);
-    abletonManager->requestTempo();
-    abletonManager->requestVolumeUpdates();
-
-    // Stop all playing clips, just in case (for demo purposes)
-    abletonManager->stopAll();
 }
 
 ///--------------------------------------------------------------
@@ -102,9 +95,20 @@ void Scene3::update()
 ///--------------------------------------------------------------
 void Scene3::updateEnter()
 {
+    currentClipIndex = DEFAULT_CLIP;
+
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene3::tuioPressed);
     ofAddListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene3::tuioReleased);
     ofAddListener(TUIOHandler::getInstance().eventTouchDrag, this, &Scene3::tuioDragged);
+
+    // Request tempo in order to set it on objects
+    ofAddListener(abletonManager->eventTempoChanged, this, &Scene3::tempoChanged);
+    abletonManager->requestTempo();
+    abletonManager->requestVolumeUpdates();
+
+    // Stop all playing clips, just in case (for demo purposes)
+    abletonManager->stopAll();
+
     BaseScene::updateEnter();
 }
 
@@ -114,6 +118,9 @@ void Scene3::updateExit()
     ofRemoveListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene3::tuioPressed);
     ofRemoveListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene3::tuioReleased);
     ofRemoveListener(TUIOHandler::getInstance().eventTouchDrag, this, &Scene3::tuioDragged);
+
+    ofRemoveListener(abletonManager->eventTempoChanged, this, &Scene3::tempoChanged);
+
     BaseScene::updateExit();
 }
 
@@ -211,7 +218,7 @@ void Scene3::handlePress(int x, int y, int cursorId)
     if ((x<0) || (x>=ofGetWidth())) return;
     if ((y<0) || (y>=viewHeight)) return;
 
-    int pressedObjectIndex = getObjectIndexAtPosition(x, y);
+    int pressedObjectIndex = getObjectIndexAtX(x);
     S3BaseObj *object = objects[pressedObjectIndex];
 
     bool isPicked = object->getIsPicked();
@@ -223,8 +230,7 @@ void Scene3::handlePress(int x, int y, int cursorId)
 
         // Play Ableton clip
         int track = pressedObjectIndex;
-        abletonManager->playClip(ABLETON_CLIP, track);
-
+        abletonManager->playClip(currentClipIndex, track);
         // Animate the touched object
         object->setAnimated(true);
     }
@@ -236,13 +242,14 @@ void Scene3::handlePress(int x, int y, int cursorId)
 
             // Play Ableton clip
             int track = pressedObjectIndex;
-            abletonManager->playClip(ABLETON_CLIP, track);
+            abletonManager->playClip(currentClipIndex, track);
 
             // Animate the touched object
             object->setAnimated(true);
 
             // Add TUIO cursor
             object->addCursor(cursorId);
+            object->enablePinch(false);
         }
         else
         {   // Already picked: add cursor and enable pinch
@@ -258,7 +265,7 @@ void Scene3::handleRelease(int x, int y, int cursorId)
     if ((x<0) || (x>=ofGetWidth())) return;
     if ((y<0) || (y>=viewHeight)) return;
 
-    int pressedObjectIndex = getObjectIndexAtPosition(x, y);
+    int pressedObjectIndex = getObjectIndexAtX(x);
     S3BaseObj *object = objects[pressedObjectIndex];
 
     // Remove TUIO cursors and disable pinch
@@ -269,7 +276,7 @@ void Scene3::handleRelease(int x, int y, int cursorId)
 
     // Stop Ableton clip
     int track = pressedObjectIndex;
-    abletonManager->stopClip(ABLETON_CLIP, track);
+    abletonManager->stopClip(currentClipIndex, track);
 
     // Stop animating the touched object
     object->setAnimated(false);
@@ -281,7 +288,7 @@ void Scene3::handleDrag(int x, int y, int cursorId)
     if ((x<0) || (x>=ofGetWidth())) return;
     if ((y<0) || (y>=viewHeight)) return;
 
-    int pressedObjectIndex = getObjectIndexAtPosition(x, y);
+    int pressedObjectIndex = getObjectIndexAtX(x);
     S3BaseObj *object = objects[pressedObjectIndex];
 
     if (!object->getIsPicked()) return;
@@ -290,21 +297,33 @@ void Scene3::handleDrag(int x, int y, int cursorId)
     {
         // Send message to Ableton
 
-        /**/
-        int device = 0;
-        int parameter = pressedObjectIndex + 1;
-        int value;
-        float halfHeight = viewHeight/2.0f;
-        if ((y>=0) && (y<halfHeight)) {
-            value = (int)ofMap(y, halfHeight-1, 0, 0, 127);
-        } else {
-            value = (int)ofMap(y, halfHeight, viewHeight, 0, 127);
+        int pressedClipIndex = getClipIndexAtY(y);
+        if (pressedClipIndex != currentClipIndex)
+        {
+            currentClipIndex = pressedClipIndex;
+
+            // Play Ableton clip
+            int track = pressedObjectIndex;
+            abletonManager->playClip(currentClipIndex, track);
         }
 
-        abletonManager->setDeviceParameter(device, parameter, value);
+//        /**/
+//        int device = 0;
+//        int parameter = pressedObjectIndex + 1;
+//        int value;
+//        float halfHeight = viewHeight/2.0f;
+//        if ((y>=0) && (y<halfHeight)) {
+//            value = (int)ofMap(y, halfHeight-1, 0, 0, 127);
+//        } else {
+//            value = (int)ofMap(y, halfHeight, viewHeight, 0, 127);
+//        }
+//
+//        abletonManager->setDeviceParameter(device, parameter, value);
 
         // Position object
-        object->setPositionFromScreenCoords(x, y);
+        int firstCursorId = object->getFirstCursorId();
+        if ((firstCursorId == -1) || (firstCursorId == cursorId))
+            object->setPositionFromScreenCoords(x, y);
     }
     else
     {
@@ -323,9 +342,15 @@ void Scene3::tempoChanged(float &newTempo)
 }
 
 ///--------------------------------------------------------------
-int Scene3::getObjectIndexAtPosition(int x, int y)
+int Scene3::getObjectIndexAtX(int x)
 {
-    return (int)floor(x/viewWidth);
+    return int(floor(x/viewWidth));
+}
+
+///--------------------------------------------------------------
+int Scene3::getClipIndexAtY(int y)
+{
+    return int(floor(y/clipHeight));
 }
 
 ///--------------------------------------------------------------

@@ -116,14 +116,12 @@ void S3BaseObj::windowResized(ofResizeEventArgs &args)
 bool S3BaseObj::pick(int screenX, int screenY)
 {
     ofVec3f centerScreenCoords = camera.worldToScreen(objPosition, viewRectangle);
-    ofVec3f topScreenCoords = camera.worldToScreen(ofVec3f(objPosition.x, objPosition.y - radius, objPosition.z), viewRectangle);
+    ofVec3f perimeterScreenCoords = camera.worldToScreen(ofVec3f(objPosition.x, objPosition.y - radius, objPosition.z), viewRectangle);
 
-    float distToTop = ofDistSquared(centerScreenCoords.x, centerScreenCoords.y, topScreenCoords.x, topScreenCoords.y);
+    float distToPerimeter = ofDistSquared(centerScreenCoords.x, centerScreenCoords.y, perimeterScreenCoords.x, perimeterScreenCoords.y);
     float distToScreen = ofDistSquared(centerScreenCoords.x, centerScreenCoords.y, screenX, screenY);
 
-#ifdef OF_DEBUG
-    isPicked = distToScreen <= distToTop;
-#endif
+    isPicked = distToScreen <= distToPerimeter;
 
     return isPicked;
 }
@@ -179,6 +177,13 @@ void S3BaseObj::updatePinch()
     {
         camDistance = 350 - diff/2;
     }
+}
+
+///--------------------------------------------------------------
+int S3BaseObj::getFirstCursorId()
+{
+    if (cursorIds.empty()) return -1;
+    return cursorIds.front();
 }
 
 ///--------------------------------------------------------------

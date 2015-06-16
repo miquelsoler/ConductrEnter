@@ -63,11 +63,8 @@ void Scene1::updateEnter()
 {
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene1::tuioPressed);
 
-    if (isEnteringFirst())
-    {
-        videoState = Loop;
-        videoPlayer.play();
-    }
+    videoState = Loop;
+    videoPlayer.play();
 
     BaseScene::updateEnter();
 }
