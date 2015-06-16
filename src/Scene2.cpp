@@ -61,45 +61,15 @@ void Scene2::exit()
 ///--------------------------------------------------------------
 void Scene2::tuioPressed(ofTouchEventArgs &touch)
 {
-    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
-    circleX = screenCoords.x;
-    circleY = screenCoords.y;
-    circleRadius = 50;
+    int sceneIndex = 1;
+    ofNotifyEvent(eventGoToNextScene, sceneIndex, this);
 }
-
-///--------------------------------------------------------------
-void Scene2::tuioReleased(ofTouchEventArgs &touch)
-{
-    circleRadius = 20;
-}
-
-///--------------------------------------------------------------
-void Scene2::tuioDragged(ofTouchEventArgs &touch)
-{
-    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
-    circleX = screenCoords.x;
-    circleY = screenCoords.y;
-    circleRadius = 50;
-}
-
 
 #pragma mark - Mouse events
 
 ///--------------------------------------------------------------
-void Scene2::mouseDragged(int x, int y, int button)
-{
-    circleX = x;
-    circleY = y;
-}
-
-///--------------------------------------------------------------
 void Scene2::mousePressed(int x, int y, int button)
 {
-    circleX = x;
-    circleY = y;
-}
-
-///--------------------------------------------------------------
-void Scene2::mouseReleased(int x, int y, int button)
-{
+    int sceneIndex = 1;
+    ofNotifyEvent(eventGoToNextScene, sceneIndex, this);
 }

@@ -47,10 +47,9 @@ private:
     virtual void tuioPressed(ofTouchEventArgs &touch);
     virtual void tuioReleased(ofTouchEventArgs &touch) {}
     virtual void tuioDragged(ofTouchEventArgs &touch) {}
+
     // Mouse events
-    virtual void mouseDragged(int x, int y, int button);
     virtual void mousePressed(int x, int y, int button);
-    virtual void mouseReleased(int x, int y, int button);
 
     int             loopFrame;
     VideoState      videoState; // 0 : loop     1 : start explode   2 : exploding

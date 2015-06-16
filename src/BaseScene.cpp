@@ -24,19 +24,9 @@ BaseScene::BaseScene(const string& name, bool singleSetup) : ofxFadeScene(name)
 #pragma mark - OF basic calls
 
 ///--------------------------------------------------------------
-void BaseScene::setup()
-{
-}
-
-///--------------------------------------------------------------
 void BaseScene::updateEnter()
 {
     ofxFadeScene::updateEnter();
-}
-
-///--------------------------------------------------------------
-void BaseScene::update()
-{
 }
 
 ///--------------------------------------------------------------
@@ -56,24 +46,4 @@ void BaseScene::drawPre()
 void BaseScene::drawPost()
 {
     ofDisableAlphaBlending();
-}
-
-///--------------------------------------------------------------
-void BaseScene::draw()
-{
-}
-
-///--------------------------------------------------------------
-void BaseScene::exit()
-{
-}
-
-#pragma mark - Shared helper methods
-
-///--------------------------------------------------------------
-ofVec2f BaseScene::tuioToScreenCoords(float tuioX, float tuioY)
-{
-    ofVec2f screenCoords(ofMap(tuioX, 0, 1, 0, ofGetWidth()),
-                         ofMap(tuioY, 0, 1, 0, ofGetHeight()));
-    return screenCoords;
 }

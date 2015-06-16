@@ -18,7 +18,6 @@ void Scene1::setup()
     /// VIDEO
     if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/introLoop.mov");
 
-    videoPlayer.setVolume(0);
     videoPlayer.setLoopState(OF_LOOP_NONE);
     videoState = Loop;
     loopFrame = SettingsManager::getInstance().intro_loop_frame;
@@ -33,32 +32,30 @@ void Scene1::setup()
 void Scene1::update()
 {
     videoPlayer.update();
-    Tweenzor::update((int)ofGetElapsedTimeMillis());
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
 
-    if (videoState == Loop)
+    switch(videoState)
     {
-        // loop back to first frame when finised the loop segment
-        if(videoPlayer.getCurrentFrame()>=loopFrame)
-        {
-            videoPlayer.firstFrame();
+        case Loop: {
+            // Loop back to first frame when finished the loop segment
+            if (videoPlayer.getCurrentFrame() >= loopFrame) videoPlayer.firstFrame();
+            break;
+        }
+        case StartExplode: {
+            // Manually set video header's frame based on Tweenzor driven parameter videoHeaderFrame
+            videoPlayer.setFrame(int(videoHeaderFrame));
+            break;
+        }
+        case Exploding: {
+            // When we reach the end of the video ... change to Scene 2
+            if (videoPlayer.getCurrentFrame() >= videoPlayer.getTotalNumFrames())
+            {
+                int sceneIndex = 0;
+                ofNotifyEvent(eventGoToNextScene, sceneIndex, this);
+            }
+            break;
         }
     }
-    else if (videoState == StartExplode)
-    {
-        // manually set video header's frame based on tweenzor driven parameter videoHeaderFrame
-        videoPlayer.setFrame(int(videoHeaderFrame));
-    }
-    else if (videoState == Exploding)
-    {
-        // when we reach the end of the video ... change to scene 2
-        if(videoPlayer.getCurrentFrame()>=videoPlayer.getTotalNumFrames())
-        {
-#ifdef OF_DEBUG
-            cout << " scene1 : Finished ! Bring me to scene 2 pls ! " << endl;
-#endif
-        }
-    }
-
 }
 
 ///--------------------------------------------------------------
@@ -133,19 +130,7 @@ void Scene1::tuioPressed(ofTouchEventArgs &touch)
 #pragma mark - Mouse events
 
 ///--------------------------------------------------------------
-void Scene1::mouseDragged(int x, int y, int button)
-{
-}
-
-///--------------------------------------------------------------
 void Scene1::mousePressed(int x, int y, int button)
 {
-    // this should be updated not by a mouse press but from a TUIO event ...
     goAhead();
 }
-
-///--------------------------------------------------------------
-void Scene1::mouseReleased(int x, int y, int button)
-{
-}
-

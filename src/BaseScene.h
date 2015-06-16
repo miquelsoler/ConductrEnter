@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <ofxAppUtils.h>
 #include "ofVideoPlayer.h"
+#include "ofMain.h"
 
 class BaseScene : public ofxFadeScene
 {
@@ -21,24 +22,26 @@ public:
 
     BaseScene(const string& name, bool singleSetup);
 
-    void setup();
+    void setup() {};
 
     // called when scene is entering, this is just a demo and this
     // implementation is not required for this class
     void updateEnter();
 
-    void update();
+    void update() {};
 
     // called when scene is exiting, this is just a demo and this
     // implementation is not required for this class
     void updateExit();
 
-    void draw();
+    void draw() {};
 
     // cleanup
-    void exit();
+    void exit() {};
 
     ofVideoPlayer       videoPlayer;
+
+    ofEvent<int>         eventGoToNextScene;
 
 protected:
 
@@ -51,15 +54,12 @@ protected:
     virtual void tuioDragged(ofTouchEventArgs &touch) = 0;
 
     // Touch (currently mouse) events
-    virtual void mouseDragged(int x, int y, int button) = 0;
-    virtual void mousePressed(int x, int y, int button) = 0;
-    virtual void mouseReleased(int x, int y, int button) = 0;
+    virtual void mouseDragged(int x, int y, int button) {};
+    virtual void mousePressed(int x, int y, int button) {};
+    virtual void mouseReleased(int x, int y, int button) {};
 
     // Listener method to detect window changes
     virtual void windowResized(ofResizeEventArgs &args) {}
-
-    // Helper methods
-    ofVec2f tuioToScreenCoords(float tuioX, float tuioY);
 };
 
 #endif /* defined(__ConductrEnter__BaseScene__) */

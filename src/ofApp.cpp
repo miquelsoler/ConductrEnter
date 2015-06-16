@@ -3,6 +3,7 @@
 #include "TUIOHandler.h"
 #include "Defaults.h"
 
+#include "BaseScene.h"
 #include "Scene1.h"
 #include "Scene2.h"
 #include "Scene3.h"
@@ -24,8 +25,14 @@ void ofApp::setup()
 
     // Scenes
 
-    sceneManager.add(new Scene1("Scene1", true));
-    sceneManager.add(new Scene2("Scene2", true));
+    Scene1 *scene1 = new Scene1("Scene1", true);
+    ofAddListener(scene1->eventGoToNextScene, this, &ofApp::goToNextScene);
+    sceneManager.add(scene1);
+
+    Scene2 *scene2 = new Scene2("Scene2", true);
+    ofAddListener(scene2->eventGoToNextScene, this, &ofApp::goToNextScene);
+    sceneManager.add(scene2);
+
     sceneManager.add(new Scene3("Scene3", true));
 
     sceneManager.setup(true); // call setup for all of them
@@ -43,8 +50,8 @@ void ofApp::setup()
     //
     setSceneManager(&sceneManager);
 
-    // Timer listener for scene 4
-    manageScene4Timer();
+    // Timer listener for scene 3
+    manageScene3Timer();
     ofAddListener(scene3Timer.TIMER_COMPLETE, this, &ofApp::scene3TimerCompleteHandler);
 
     sceneManager.gotoScene(currentScene);
@@ -108,24 +115,6 @@ void ofApp::keyReleased(int key)
     }
 }
 
-///--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button)
-{
-    switch (button)
-    {
-//        case OF_MOUSE_BUTTON_LEFT:
-//            goToNextScene();
-//            break;
-        default:
-            break;
-    }
-}
-
-///--------------------------------------------------------------
-void ofApp::windowResized(int w, int h)
-{
-}
-
 #pragma mark - Scene management
 
 ///--------------------------------------------------------------
@@ -133,6 +122,12 @@ void ofApp::goToNextScene()
 {
     sceneManager.nextScene();
     currentScene = (currentScene + 1) % NUM_SCENES;
+}
+
+///--------------------------------------------------------------
+void ofApp::goToNextScene(int &senderSceneIndex)
+{
+    goToNextScene();
 }
 
 ///--------------------------------------------------------------
@@ -144,11 +139,11 @@ void ofApp::goToPreviousScene()
     else
         currentScene--;
 
-    manageScene4Timer();
+    manageScene3Timer();
 }
 
 ///--------------------------------------------------------------
-void ofApp::manageScene4Timer()
+void ofApp::manageScene3Timer()
 {
 //    if (currentScene == LAST_SCENE)
 //    {

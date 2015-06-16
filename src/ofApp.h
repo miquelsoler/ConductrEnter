@@ -21,14 +21,13 @@ public:
 
     void keyPressed(int key);
     void keyReleased(int key);
-    void mousePressed(int x, int y, int button);
-    void windowResized(int w, int h);
 
 private:
 
     void goToNextScene();
+    void goToNextScene(int &senderSceneIndex);
     void goToPreviousScene();
-    void manageScene4Timer();
+    void manageScene3Timer();
     void scene3TimerCompleteHandler(int &args);
 
     ofxSceneManager     sceneManager;
