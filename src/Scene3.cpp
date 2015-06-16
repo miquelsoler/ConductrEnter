@@ -320,7 +320,7 @@ void Scene3::handleDrag(int x, int y, int cursorId)
 //
 //        abletonManager->setDeviceParameter(device, parameter, value);
 
-        // Position object
+        // Position object (only if mouse, or if TUIO and cursor is the first one -to avoid crazy repositioning-
         int firstCursorId = object->getFirstCursorId();
         if ((firstCursorId == -1) || (firstCursorId == cursorId))
             object->setPositionFromScreenCoords(x, y);
