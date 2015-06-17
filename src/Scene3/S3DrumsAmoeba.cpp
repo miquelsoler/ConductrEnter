@@ -22,16 +22,13 @@ void S3DrumsAmoeba::loadSettings()
     S3BaseObj::initSharedSettings();
 
     // Custom object settings go here
-    gui.add(divider.set("divider", 1, 1,10000));
-    gui.add(tempo.set("tempo", 1, 0,8));
     gui.setPosition(10, 60);
-
+    gui.add(tempo.set("tempo", 1, 0,8));
     // perlin noise
     gui.add(noiseFrequency.set( "Noise Frequency", 80.0f, 0.00001f, 200.0 ) );
     gui.add(doThreshold.set( "Threshold", false ) );
     gui.add(thresholdLow.set( "Treshold Low", 0, 0, 255 ) );
     gui.add(thresholdHigh.set( "Treshold High", 128, 0, 255 ) );
-    gui.add(invert.set( "Invert Threshold", false ) );
     gui.add(showNormals.set( "show normals", false ) );
     gui.add(offset.set("offset",100.0,-200.0,200.0));
 
@@ -48,16 +45,12 @@ void S3DrumsAmoeba::setup()
     ofSetCircleResolution(64);
     glPointSize(2.0);
 
-    radiusMax = 230.0f;
-    radiusMin = 150.0;
-    radiusTween = radiusMin;
-
     sphere.setRadius(radius);
     sphere.setResolution(4);
     sphere.setPosition(objPosition);
     camera.setTarget(sphere);
 
-/*
+
     // lights
     pointLight1.setDiffuseColor( ofFloatColor(0, 1.0, 160.0/255.0) );
     pointLight1.setSpecularColor( ofFloatColor(1.f, 1.f, 1.f));
@@ -68,11 +61,7 @@ void S3DrumsAmoeba::setup()
     pointLight3.setDiffuseColor( ofFloatColor(68.0/255.f,187.0/255.f,209.0/255.f) );
     pointLight3.setSpecularColor( ofFloatColor(1.0,1.0,1.0) );
 
-    // lights positions
-    pointLight1.setPosition(ofGetWidth()/4 ,ofGetHeight()/4,200);
-    pointLight2.setPosition((ofGetWidth()/4)*3 ,ofGetHeight()/2,200);
-    pointLight3.setPosition(ofGetWidth()/4,(ofGetHeight()/4)*3,200);
-*/
+
 
     // shader
     shader.load("objects/drums_amoeba/shaders/shader");
@@ -100,6 +89,11 @@ void S3DrumsAmoeba::update()
 {
     S3BaseObj::update();
 
+    // lights positions
+    pointLight1.setPosition(radius*2,-radius*1.5,400);
+    pointLight2.setPosition(radius*2 ,radius*1.5,400);
+    pointLight3.setPosition(-radius*2,0,400);
+
 //    sphere.rotate(0.3, 0.0, 1.0, 0.0);
 
     // perlin noise time
@@ -117,8 +111,8 @@ void S3DrumsAmoeba::update()
             {
                 if((noisePixels[((i*100)+j)*1]>=thresholdLow)&&(noisePixels[((i*100)+j)*1]<=thresholdHigh))
                 {
-                    //                    noisePixels[((i*100)+j)*1] = 255;
-                    //                    noisePixels[((i*100)+99-j)*1] = 255;
+                    noisePixels[((i*100)+j)*1] = 255;
+                    noisePixels[((i*100)+99-j)*1] = 255;
                 }
                 else
                 {
@@ -156,11 +150,9 @@ void S3DrumsAmoeba::draw()
     {
         ofEnableLighting();
 
-/*
         pointLight1.enable();
         pointLight2.enable();
         pointLight3.enable();
-*/
 
         ofSetColor(ofColor::white);
         shader.begin();

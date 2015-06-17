@@ -33,15 +33,10 @@ private:
 
     ofIcoSpherePrimitive    sphere;
 
-    float                   radiusTween;
-    float                   radiusMax;
-    float                   radiusMin;
-
-    ofImage noiseImage;
+    ofImage                 noiseImage;
     ofPixels                noisePixels;
     ofShader                shader;
 
-    ofParameter<float>      divider;
     ofParameter<float>      tempo;
     // NOISE GUI
     ofParameter<float>      noiseFrequency;
@@ -51,7 +46,7 @@ private:
     ofParameter<int>        thresholdHigh;
     ofParameter<bool>       invert;
     ofParameter<bool>       showNormals;
-    ofParameter<float>  offset;
+    ofParameter<float>      offset;
 
     // Candidats a moure a l'objecte base
     ofImage imgColorsCircle;
