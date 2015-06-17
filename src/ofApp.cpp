@@ -2,6 +2,7 @@
 
 #include "TUIOHandler.h"
 #include "Defaults.h"
+#include "SettingsManager.h"
 
 #include "BaseScene.h"
 #include "Scene1.h"
@@ -54,7 +55,7 @@ void ofApp::setup()
     manageScene3Timer();
     ofAddListener(scene3Timer.TIMER_COMPLETE, this, &ofApp::scene3TimerCompleteHandler);
 
-    sceneManager.gotoScene(currentScene);
+    sceneManager.gotoScene(SettingsManager::getInstance().sceneFirstScene);
 }
 
 ///--------------------------------------------------------------
@@ -148,7 +149,7 @@ void ofApp::manageScene3Timer()
 //    if (currentScene == LAST_SCENE)
 //    {
 //        // Scene is #4, init timer for it
-//        scene3Timer.setup(SettingsManager::getInstance().scene4_timer_milliseconds);
+//        scene3Timer.setup(SettingsManager::getInstance().scene3TimerMilliseconds);
 //        scene3Timer.start(true);
 //    }
 //    else

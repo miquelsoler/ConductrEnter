@@ -8,6 +8,7 @@
 
 #include "S3BaseObj.h"
 #include "TUIOHandler.h"
+#include "SettingsManager.h"
 
 
 const int LOOP_RESOLUTION = 50;
@@ -59,7 +60,10 @@ void S3BaseObj::update()
 void S3BaseObj::draw()
 {
 #ifdef OF_DEBUG
-    gui.draw();
+    if (SettingsManager::getInstance().debugShowGUI)
+    {
+        gui.draw();
+    }
 
     ofSetColor(ofColor::gray);
     ofxBitmapString(viewOriginX, viewHalfHeight) << cursorIds.size();
@@ -103,8 +107,6 @@ void S3BaseObj::windowResized(ofResizeEventArgs &args)
     viewHalfWidth = viewWidth / 2.0f;
     viewHalfHeight = args.height / 2.0f;
     viewOriginX = sceneObjectIndex * viewWidth;
-    objPosition.x = viewOriginX + viewHalfWidth;
-    objPosition.y = viewHalfHeight;
     viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, args.height);
 
     gui.setPosition(viewOriginX+viewHalfWidth*0.4, 0);

@@ -23,7 +23,7 @@ BaseObject::BaseObject(unsigned int numObjects, unsigned int objectIndex, float 
     viewHalfHeight = ofGetHeight() / 2.0f;
     viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, ofGetHeight());
 
-    objPosition = ofPoint(viewOriginX + viewHalfWidth, viewHalfHeight);
+    objPosition = ofPoint(0, 0, 0);
 
     ofAddListener(ofEvents().windowResized, this, &BaseObject::windowResized);
 }

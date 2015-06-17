@@ -133,8 +133,11 @@ void Scene3::draw()
         objects[i]->draw();
 
 #ifdef OF_DEBUG
-    ofxTuioClient *tuioClient = TUIOHandler::getInstance().tuioClient;
-    tuioClient->drawCursors(0.5,1,0);
+    if (SettingsManager::getInstance().debugShowTUIOCursors)
+    {
+        ofxTuioClient *tuioClient = TUIOHandler::getInstance().tuioClient;
+        tuioClient->drawCursors(0.5, 1, 0);
+    }
 #endif
 
     BaseScene::drawPost();

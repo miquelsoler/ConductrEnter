@@ -24,10 +24,11 @@ public:
     }
 
     // Scene management
-    unsigned int    intro_loop_frame;
-    unsigned int    fade_in_milliseconds;
-    unsigned int    fade_out_milliseconds;
-    unsigned long   scene4_timer_milliseconds;
+    unsigned int    sceneFirstScene;
+    unsigned int    scene1IntroLoopFrame;
+    unsigned int    sceneFadeInMilliseconds;
+    unsigned int    sceneFadeOutMilliseconds;
+    unsigned long   scene3TimerMilliseconds;
 
     // Ableton
     string          abletonHost;
@@ -38,6 +39,10 @@ public:
 
     // TUIO
     unsigned int    tuioClientPort;
+
+    // Debug Mode
+    bool            debugShowGUI;
+    bool            debugShowTUIOCursors;
 
 private:
 

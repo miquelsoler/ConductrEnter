@@ -16,7 +16,7 @@
 BaseScene::BaseScene(const string& name, bool singleSetup) : ofxFadeScene(name)
 {
     setSingleSetup(singleSetup);  // call setup each time the scene is loaded
-    setFade(SettingsManager::getInstance().fade_in_milliseconds, SettingsManager::getInstance().fade_out_milliseconds);
+    setFade(SettingsManager::getInstance().sceneFadeInMilliseconds, SettingsManager::getInstance().sceneFadeOutMilliseconds);
 
     ofAddListener(ofEvents().windowResized, this, &BaseScene::windowResized);
 }

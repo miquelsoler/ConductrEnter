@@ -32,12 +32,13 @@ bool SettingsManager::loadSettings()
 #endif
 
     // Scene management
-    intro_loop_frame = json["Scenes"]["Intro Loop Frame"].asUInt();
-    fade_in_milliseconds = json["Scenes"]["FadeIn Milliseconds"].asUInt();
-    fade_out_milliseconds = json["Scenes"]["FadeOut Milliseconds"].asUInt();
-    scene4_timer_milliseconds = json["Scenes"]["Scene4 Timer Milliseconds"].asUInt();
+    sceneFirstScene = json["Scenes"]["First Scene"].asUInt();
+    scene1IntroLoopFrame = json["Scenes"]["Intro Loop Frame"].asUInt();
+    sceneFadeInMilliseconds = json["Scenes"]["FadeIn Milliseconds"].asUInt();
+    sceneFadeOutMilliseconds = json["Scenes"]["FadeOut Milliseconds"].asUInt();
+    scene3TimerMilliseconds = json["Scenes"]["Scene3 Timer Milliseconds"].asUInt();
 #ifdef OF_DEBUG
-    cout << "[Scenes] fadeIn=" << fade_in_milliseconds << " fadeOut=" << fade_out_milliseconds << " scene3Timer=" << scene4_timer_milliseconds << endl;
+    cout << "[Scenes] fadeIn=" << sceneFadeInMilliseconds << " fadeOut=" << sceneFadeOutMilliseconds << " scene3Timer=" << scene3TimerMilliseconds << endl;
 #endif
 
     // Ableton
@@ -49,6 +50,10 @@ bool SettingsManager::loadSettings()
 
     // TUIO
     tuioClientPort = json["TUIO"]["Client Port"].asUInt();
+
+    // Debug Mode
+    debugShowGUI = json["Debug Mode"]["Show GUI"].asBool();
+    debugShowTUIOCursors = json["Debug Mode"]["Show TUIO Cursors"].asBool();
 
     return parsingSuccessful;
 }

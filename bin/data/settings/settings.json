@@ -1,9 +1,10 @@
 {
     "Scenes": {
-    	"Intro Loop Frame": 1249,
+        "First Scene": 2, // 0=Intro, 1=Artists, 2=Playground
+    	"Scene1 Intro Loop Frame": 1249,
         "FadeIn Milliseconds": 0,
         "FadeOut Milliseconds": 0,
-        "Scene4 Timer Milliseconds": 600000
+        "Scene3 Timer Milliseconds": 600000
     },
     "Ableton": {
         "Ableton Host": "localhost",
@@ -14,5 +15,9 @@
     },
     "TUIO": {
         "Client Port": 3333
+    },
+    "Debug Mode": {
+        "Show GUI": true,
+        "Show TUIO Cursors": true
     }
 }
