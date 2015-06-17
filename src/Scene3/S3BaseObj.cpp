@@ -217,7 +217,8 @@ void S3BaseObj::addCursor(int cursorId)
     cursorIds.push_back(cursorId);
 }
 
-void S3BaseObj::removeAllCursors()
+void S3BaseObj::removeLastCursor()
 {
-    cursorIds.clear();
+    if (cursorIds.empty()) return;
+    cursorIds.pop_back();
 }

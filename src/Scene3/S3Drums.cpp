@@ -2,13 +2,13 @@
 //  S3Drums.cpp
 //  ConductrEnter
 //
-//  Created by Miquel �ngel Soler on 24/5/15.
+//  Created by Miquel Àngel Soler on 24/5/15.
 //
 //
 
 #include "S3Drums.h"
 
-const unsigned int RESOLUTION = 2;
+const unsigned int RESOLUTION = 3;
 
 #pragma mark - Initialization
 
@@ -35,8 +35,6 @@ void S3Drums::setup()
 {
     S3BaseObj::setup();
 
-    Tweenzor::init();
-    
     sphere1.setRadius(radius);
     sphere1.setResolution(RESOLUTION);
     sphere1.setPosition(objPosition);
@@ -69,8 +67,6 @@ void S3Drums::setup()
 void S3Drums::update()
 {
     S3BaseObj::update();
-
-    Tweenzor::update((int)ofGetElapsedTimeMillis());
 
     ofVec3f triangleNormal;
     int size = (int)trianglesOriginal1.size();
@@ -106,6 +102,7 @@ void S3Drums::draw()
 
     camera.begin(viewRectangle);
 
+    ofSetColor(ofColor::white);
     sphere1.drawVertices();
     sphere2.drawVertices();
 

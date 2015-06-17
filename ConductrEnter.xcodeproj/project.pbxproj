@@ -63,7 +63,7 @@
 		87978A351C12B1676C9FDE60 /* GraphicDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44D7089802B01674AA4DEFA9 /* GraphicDispatcher.cpp */; };
 		879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */; };
 		87EB70D1D65B5E4B1CAA7474 /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C327CCC6DB1A6B198DF2BFC3 /* BaseScene.cpp */; };
-		883E10C8422A234A3309708D /* S3Object3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EF2366F441F518D7A055B /* S3Object3.cpp */; };
+		883E10C8422A234A3309708D /* S3DrumsAmoeba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EF2366F441F518D7A055B /* S3DrumsAmoeba.cpp */; };
 		8B20F260496B9778A04E554C /* Scene1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 916661E9D1CB179DDE1B7231 /* Scene1.cpp */; };
 		8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81967292BFC87A0144BD32C6 /* ofxOscSender.cpp */; };
 		92A9E32D494D4A6DDF6E4FFC /* OscReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A20E8DE4DD3DFB57DEF659B /* OscReceiver.cpp */; };
@@ -278,7 +278,7 @@
 		78D67A00EB899FAC09430597 /* ofxLabel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxLabel.cpp; path = ../../../addons/ofxGui/src/ofxLabel.cpp; sourceTree = SOURCE_ROOT; };
 		78DCE1762BCE6B4BC2EF37D2 /* InputGestureBasicObjects.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = InputGestureBasicObjects.cpp; path = ../../../addons/ofxTableGestures/src/Gestures/Gestures/InputGestureBasicObjects.cpp; sourceTree = SOURCE_ROOT; };
 		7DAFCC611297C1293BA80381 /* S3Object6.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S3Object6.cpp; path = src/Scene3/S3Object6.cpp; sourceTree = SOURCE_ROOT; };
-		7E8EF2366F441F518D7A055B /* S3Object3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S3Object3.cpp; path = src/Scene3/S3Object3.cpp; sourceTree = SOURCE_ROOT; };
+		7E8EF2366F441F518D7A055B /* S3DrumsAmoeba.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S3DrumsAmoeba.cpp; path = src/Scene3/S3DrumsAmoeba.cpp; sourceTree = SOURCE_ROOT; };
 		7FA2F8908748DFC002FE046D /* InputGestureTap.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = InputGestureTap.hpp; path = "../../../addons/ofxTableGestures/src/Gestures/Gestures-Extras/InputGestureTap.hpp"; sourceTree = SOURCE_ROOT; };
 		802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSliderGroup.cpp; path = ../../../addons/ofxGui/src/ofxSliderGroup.cpp; sourceTree = SOURCE_ROOT; };
 		80D2005611C119A1E329E898 /* TuioBlob.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TuioBlob.h; path = src/TUIO/TuioBlob.h; sourceTree = SOURCE_ROOT; };
@@ -423,7 +423,7 @@
 		F7FBC56859535E597B24BB91 /* NetworkingUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = NetworkingUtils.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/NetworkingUtils.h; sourceTree = SOURCE_ROOT; };
 		F9A8D552638B0B32F8BAC208 /* TuioContainer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TuioContainer.h; path = src/TUIO/TuioContainer.h; sourceTree = SOURCE_ROOT; };
 		FB1F7C6505FC232176A74775 /* S3Object4.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S3Object4.cpp; path = src/Scene3/S3Object4.cpp; sourceTree = SOURCE_ROOT; };
-		FB85E31F89901FCC7D44F94E /* S3Object3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = S3Object3.h; path = src/Scene3/S3Object3.h; sourceTree = SOURCE_ROOT; };
+		FB85E31F89901FCC7D44F94E /* S3DrumsAmoeba.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = S3DrumsAmoeba.h; path = src/Scene3/S3DrumsAmoeba.h; sourceTree = SOURCE_ROOT; };
 		FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlparser.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = SOURCE_ROOT; };
 		FC7E9B4A22D8921421C51E3C /* ofxScene.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxScene.cpp; path = ../../../addons/ofxAppUtils/src/ofxScene.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -846,8 +846,8 @@
 				2A5C319C1B299BD400E713F3 /* S3Drums.h */,
 				A96A449BB6334A5F474A4EFB /* S3Object1.cpp */,
 				BF28C3A85D0B542FF44F2F56 /* S3Object1.h */,
-				7E8EF2366F441F518D7A055B /* S3Object3.cpp */,
-				FB85E31F89901FCC7D44F94E /* S3Object3.h */,
+				7E8EF2366F441F518D7A055B /* S3DrumsAmoeba.cpp */,
+				FB85E31F89901FCC7D44F94E /* S3DrumsAmoeba.h */,
 				FB1F7C6505FC232176A74775 /* S3Object4.cpp */,
 				24E837B3A82AD01250ABEBBD /* S3Object4.h */,
 				52CC06A50610562738B8273A /* S3Object5.cpp */,
@@ -1278,7 +1278,7 @@
 				7678521FC5030110E7FE9166 /* Scene2.cpp in Sources */,
 				272FB933B6673272E9518010 /* S3BaseObj.cpp in Sources */,
 				FA08B57484342F10C5F7CBF2 /* S3Object1.cpp in Sources */,
-				883E10C8422A234A3309708D /* S3Object3.cpp in Sources */,
+				883E10C8422A234A3309708D /* S3DrumsAmoeba.cpp in Sources */,
 				AC3F106095E50D5D726700D2 /* S3Object4.cpp in Sources */,
 				13ABA38429B78DA703DD0BDC /* S3Object5.cpp in Sources */,
 				D13081C3F6753A9CEA0F88DD /* S3Object6.cpp in Sources */,

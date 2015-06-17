@@ -38,7 +38,7 @@ public:
     int getFirstCursorId();
 
     void addCursor(int cursorId);
-    void removeAllCursors();
+    void removeLastCursor();
 
     virtual void setPositionFromScreenCoords(int screenX, int screenY);
     bool isScreenCoordInsideViewport(int screenX, int screenY);

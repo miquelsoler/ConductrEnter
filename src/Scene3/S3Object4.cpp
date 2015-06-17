@@ -16,6 +16,11 @@ S3Object4::S3Object4(unsigned int numObjects, unsigned int objectIndex, float _v
 }
 
 ///--------------------------------------------------------------
+void S3Object4::loadSettings()
+{
+}
+
+///--------------------------------------------------------------
 void S3Object4::setup()
 {
 }
@@ -27,10 +32,5 @@ void S3Object4::update()
 
 ///--------------------------------------------------------------
 void S3Object4::draw()
-{
-}
-
-///--------------------------------------------------------------
-void S3Object4::loadSettings()
 {
 }

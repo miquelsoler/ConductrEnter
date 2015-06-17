@@ -16,6 +16,11 @@ S3Object6::S3Object6(unsigned int numObjects, unsigned int objectIndex, float _v
 }
 
 ///--------------------------------------------------------------
+void S3Object6::loadSettings()
+{
+}
+
+///--------------------------------------------------------------
 void S3Object6::setup()
 {
 }
@@ -27,10 +32,5 @@ void S3Object6::update()
 
 ///--------------------------------------------------------------
 void S3Object6::draw()
-{
-}
-
-///--------------------------------------------------------------
-void S3Object6::loadSettings()
 {
 }
