@@ -217,4 +217,6 @@ void S3DrumsAmoeba::draw()
 void S3DrumsAmoeba::setPositionFromScreenCoords(int screenX, int screenY)
 {
     S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
+
+    sphere.setPosition(objPosition);
 }
