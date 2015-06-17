@@ -59,14 +59,14 @@ void S3Object1::draw()
     S3BaseObj::draw();
 
     camera.begin(viewRectangle);
+    {
+        ofSetLineWidth(1);
+        ofSetColor(255);
+        sphere.drawWireframe();
+        ofSetColor(255);
 
-    ofSetLineWidth(1);
-    ofSetColor(255);
-    sphere.drawWireframe();
-    ofSetColor(255);
-
-    drawLoop();
-
+        drawLoop();
+    }
     camera.end();
 }
 

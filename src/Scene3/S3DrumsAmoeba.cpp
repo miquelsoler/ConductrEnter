@@ -22,9 +22,9 @@ void S3DrumsAmoeba::loadSettings()
     S3BaseObj::initSharedSettings();
 
     // Custom object settings go here
+
     gui.add(divider.set("divider", 1, 1,10000));
     gui.add(tempo.set("tempo", 1, 0,8));
-    gui.setPosition(10, 60);
 
     // perlin noise
     gui.add(noiseFrequency.set( "Noise Frequency", 80.0f, 0.00001f, 200.0 ) );
@@ -150,7 +150,7 @@ void S3DrumsAmoeba::draw()
 {
     S3BaseObj::draw();
 
-    ofEnableDepthTest();
+//    ofEnableDepthTest();
 
     camera.begin(viewRectangle);
     {

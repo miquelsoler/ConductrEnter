@@ -30,6 +30,31 @@ public:
 private:
 
     virtual void volumeChanged(float &newVolume) {};
+
+    ofImage             imgColorsCircle;
+    ofSpherePrimitive   sphere;
+//    ofIcoSpherePrimitive sphere;
+    vector<ofMeshFace>      sphereFacesOriginal;
+    vector<ofMeshFace>      sphereFacesCurrent;
+    vector<ofVec3f>         vertexNormals;
+    vector<ofVec3f>         vertexOriginals; // Sponsored by Werther's Originals (https://en.wikipedia.org/wiki/Werther%27s_Original)
+    float                   vertexOffset;
+
+    ofParameter<float>      divider;
+    ofParameter<float>      tempo;
+    // NOISE GUI
+    ofParameter<float>      noiseFrequency;
+    ofParameter<bool>       animate;
+
+    ofParameter<bool>       doThreshold;
+    ofParameter<int>        thresholdLow;
+    ofParameter<int>        thresholdHigh;
+    ofParameter<bool>       invert;
+
+    int                     noiseStartX, noiseStartY;
+
+    ofImage noiseImage;
+
 };
 
 #endif /* defined(__ConductrEnter__S3NoiseSphere__) */
