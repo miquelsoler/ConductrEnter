@@ -41,7 +41,6 @@ public:
     void removeLastCursor();
 
     virtual void setPositionFromScreenCoords(int screenX, int screenY);
-    bool isScreenCoordInsideViewport(int screenX, int screenY);
     void setAnimated(bool animate);
 
     virtual void volumeChanged(float &newVolume) = 0;

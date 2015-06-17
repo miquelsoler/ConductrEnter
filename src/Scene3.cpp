@@ -10,6 +10,7 @@
 
 #include "S3DrumsAmoeba.h"
 #include "S3Drums.h"
+#include "S3NoiseSphere.h"
 #include "S3Object1.h"
 
 #include "SettingsManager.h"
@@ -46,7 +47,7 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
             case 0:
                 object = new S3Drums(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums.xml"); break;
             case 1:
-                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml"); break;
+                object = new S3NoiseSphere(num_objects, i, viewOrigin, viewWidth, objectsPath + "noise_sphere.xml"); break;
             case 2:
                 object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml"); break;
             case 3:
@@ -362,4 +363,5 @@ void Scene3::windowResized(ofResizeEventArgs &args)
     float viewWidthMargin = viewWidth/4;
     viewWidth = ofGetWidth() / num_objects;
     viewHeight = ofGetHeight();
+    clipHeight = viewHeight / NUM_CLIPS;
 }

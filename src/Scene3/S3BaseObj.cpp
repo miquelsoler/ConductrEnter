@@ -189,12 +189,6 @@ int S3BaseObj::getFirstCursorId()
 }
 
 ///--------------------------------------------------------------
-bool S3BaseObj::isScreenCoordInsideViewport(int screenX, int screenY)
-{
-    return (screenX >= viewOriginX) && (screenX < viewOriginX + viewWidth);
-}
-
-///--------------------------------------------------------------
 void S3BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 {
     ofVec3f objScreenCoords = camera.worldToScreen(objPosition, viewRectangle);

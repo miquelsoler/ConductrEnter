@@ -1,0 +1,14 @@
+<Settings>
+    <Camera_Distance>500</Camera_Distance>
+    <Loop_Radius>95</Loop_Radius>
+    <Loop_Angle>392</Loop_Angle>
+    <divider>740.925</divider>
+    <tempo>3.392</tempo>
+    <Noise_Frequency>1163.26</Noise_Frequency>
+    <Animate>0</Animate>
+    <Threshold>0</Threshold>
+    <Treshold_Low>16</Treshold_Low>
+    <Treshold_High>26</Treshold_High>
+    <Invert_Threshold>0</Invert_Threshold>
+<Settings/>
+</Settings>
