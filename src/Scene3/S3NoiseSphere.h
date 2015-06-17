@@ -40,20 +40,18 @@ private:
     vector<ofVec3f>         vertexOriginals; // Sponsored by Werther's Originals (https://en.wikipedia.org/wiki/Werther%27s_Original)
     float                   vertexOffset;
 
-    ofParameter<float>      divider;
-    ofParameter<float>      tempo;
     // NOISE GUI
+    ofParameter<float>      tempo;
     ofParameter<float>      noiseFrequency;
     ofParameter<bool>       animate;
-
     ofParameter<bool>       doThreshold;
     ofParameter<int>        thresholdLow;
     ofParameter<int>        thresholdHigh;
-    ofParameter<bool>       invert;
+    ofParameter<float>      offset;
+    ofParameter<int>        mode;
 
     int                     noiseStartX, noiseStartY;
 
-    ofImage noiseImage;
 
 };
 

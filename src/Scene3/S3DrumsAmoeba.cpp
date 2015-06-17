@@ -184,19 +184,20 @@ void S3DrumsAmoeba::draw()
 /*
         ofSetColor(ofFloatColor(1.0,1.0,1.0,ofMap(mouseInteractionX,0.0,1.0,0.0,0.55)));
 */
-        ofSetColor(ofColor::gray);
-        imgColorsCircle.setAnchorPercent(0.5,0.5);
 
 /*
         float circleSize = ofMap(mouseInteractionX,0.0,1.0,60.0,200);
 */
+
+        ofSetColor(ofColor::gray);
+        imgColorsCircle.setAnchorPercent(0.5,0.5);
         float circleSize = 40.0;
-        imgColorsCircle.draw(objPosition.x, objPosition.y, circleSize, circleSize);
+//        imgColorsCircle.draw(objPosition.x, objPosition.y, circleSize, circleSize);
 
         // white circle
         ofDisableLighting();
         ofSetColor(255);
-        ofCircle(objPosition.x, objPosition.y, 10);
+//        ofCircle(objPosition.x, objPosition.y, 10);
 
         noiseImage.draw(0, -200, 50, 50);
 

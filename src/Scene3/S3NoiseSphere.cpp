@@ -23,17 +23,17 @@ void S3NoiseSphere::loadSettings()
 
     // Custom object settings go here
 
-    gui.add(divider.set("divider", 1, 1,10000));
     gui.add(tempo.set("tempo", 1, 0,8));
 
     // perlin noise
     gui.add( noiseFrequency.set( "Noise Frequency", 80.0f, 0.00001f, 4096.0f ) );
     gui.add( animate.set( "Animate", true ) );
+    gui.add( offset.set( "offset",0,-200,200) );
+    gui.add( mode.set( "mode",0,0,5) );
 
     gui.add( doThreshold.set( "Threshold", false ) );
     gui.add( thresholdLow.set( "Treshold Low", 0, 0, 40 ) );
     gui.add( thresholdHigh.set( "Treshold High", 40, 0, 40 ) );
-    gui.add( invert.set( "Invert Threshold", false ) );
 
     gui.loadFromFile(settingsPath);
 }
@@ -98,7 +98,8 @@ void S3NoiseSphere::update()
 */
 
     // perlin noise
-    float time = ofGetElapsedTimef();
+    float time = 0.0f;
+    if( animate ) time = ofGetElapsedTimef();
 
 
 /// trying to change color for each vertex ...
@@ -127,10 +128,20 @@ void S3NoiseSphere::update()
 
     for(int i=0;i<vertexOriginals.size();i++)
     {
-        //vertexOffset = 40 * ofSignedNoise(i/divider,ofGetElapsedTimef()/tempo);
-
-        vertexOffset = 40 * ofNoise(i / noiseFrequency,vertexOriginals.size()-i / noiseFrequency,time/tempo );
-
+        switch (mode)
+        {
+            case 0 :
+                vertexOffset = offset * ofSignedNoise(i/noiseFrequency,time/tempo);
+                break;
+            case 1 :
+                vertexOffset = offset * ofNoise(i / noiseFrequency,vertexOriginals.size()-i / noiseFrequency,time/tempo );
+                break;
+            case 2 :
+                vertexOffset = offset * ofNoise(i / noiseFrequency ,i+1/ noiseFrequency,time/tempo );
+                break;
+        }
+        
+        
         if(doThreshold)
         {
             if((vertexOffset>=thresholdLow)&&(vertexOffset<=thresholdHigh))
@@ -142,10 +153,11 @@ void S3NoiseSphere::update()
                 vertexOffset=0;
             }
         }
-
+        
         ofVec3f newPos = vertexOriginals[i] + vertexOffset * vertexNormals[i];
         sphere.getMesh().setVertex(i, newPos);
     }
+    
 
 /*
     // update light colors
