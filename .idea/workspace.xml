@@ -7,15 +7,6 @@
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.h" afterPath="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Object1.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3Object1.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Object1.h" afterPath="$PROJECT_DIR$/src/Scene3/S3Object1.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Object4.h" afterPath="$PROJECT_DIR$/src/Scene3/S3Object4.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Object5.h" afterPath="$PROJECT_DIR$/src/Scene3/S3Object5.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Object6.h" afterPath="$PROJECT_DIR$/src/Scene3/S3Object6.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConductrEnter.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/ConductrEnter.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/objects/drums_amoeba/shaders/shader.frag" afterPath="$PROJECT_DIR$/bin/data/objects/drums_amoeba/shaders/shader.frag" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/objects/drums_amoeba/shaders/shader.vert" afterPath="$PROJECT_DIR$/bin/data/objects/drums_amoeba/shaders/shader.vert" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +33,8 @@
       <file leaf-file-name="S3DrumsAmoeba.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,8 +93,8 @@
       <file leaf-file-name="S3DrumsAmoeba.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9123661" vertical-offset="113" max-vertical-offset="1140">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.78091526" vertical-offset="2273" max-vertical-offset="3390">
+              <caret line="205" column="16" selection-start-line="205" selection-start-column="16" selection-end-line="205" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -172,13 +163,13 @@
         <option value="$PROJECT_DIR$/bin/data/settings/settings.json" />
         <option value="$PROJECT_DIR$/bin/data/objects/drums_amoeba/shaders/shader.frag" />
         <option value="$PROJECT_DIR$/bin/data/objects/drums_amoeba/shaders/shader.vert" />
-        <option value="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Object1.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Object1.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Object4.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Object5.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Object6.h" />
+        <option value="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.h" />
+        <option value="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.cpp" />
       </list>
     </option>
   </component>
@@ -834,7 +825,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1350" max-vertical-offset="5565">
           <caret line="129" column="18" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
           <folding>
-            <element signature="e#92#111#0" expanded="true" />
+            <element signature="e#92#111#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -844,7 +835,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="647" max-vertical-offset="3465">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
-            <element signature="e#95#117#0" expanded="true" />
+            <element signature="e#95#117#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -877,14 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
           <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -929,10 +912,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9123661" vertical-offset="113" max-vertical-offset="1140">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.78091526" vertical-offset="2273" max-vertical-offset="3390">
+          <caret line="205" column="16" selection-start-line="205" selection-start-column="16" selection-end-line="205" selection-end-column="16" />
           <folding />
         </state>
       </provider>

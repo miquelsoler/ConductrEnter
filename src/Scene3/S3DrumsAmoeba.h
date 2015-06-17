@@ -30,6 +30,34 @@ public:
 private:
 
     virtual void volumeChanged(float &newVolume);
+
+    ofIcoSpherePrimitive    sphere;
+
+    float                   radiusTween;
+    float                   radiusMax;
+    float                   radiusMin;
+
+    ofImage noiseImage;
+    ofPixels                noisePixels;
+    ofShader                shader;
+
+    ofParameter<float>      divider;
+    ofParameter<float>      tempo;
+    // NOISE GUI
+    ofParameter<float>      noiseFrequency;
+    ofParameter<bool>       animate;
+    ofParameter<bool>       doThreshold;
+    ofParameter<int>        thresholdLow;
+    ofParameter<int>        thresholdHigh;
+    ofParameter<bool>       invert;
+    ofParameter<bool>       showNormals;
+    ofParameter<float>  offset;
+
+    // Candidats a moure a l'objecte base
+    ofImage imgColorsCircle;
+    ofLight     pointLight1;
+    ofLight     pointLight2;
+    ofLight     pointLight3;
 };
 
 #endif /* defined(__ConductrEnter__S3DrumsAmoeba__) */
