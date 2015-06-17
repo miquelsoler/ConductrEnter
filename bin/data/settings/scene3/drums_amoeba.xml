@@ -1,6 +1,13 @@
 <Settings>
-    <Camera_Distance>352</Camera_Distance>
+    <Camera_Distance>480</Camera_Distance>
     <Loop_Radius>55</Loop_Radius>
-    <Loop_Angle>306</Loop_Angle>
+    <Loop_Angle>0</Loop_Angle>
 <Settings/>
+<tempo>1.56</tempo>
+	<Noise_Frequency>18</Noise_Frequency>
+	<Threshold>0</Threshold>
+	<Treshold_Low>58</Treshold_Low>
+	<Treshold_High>215</Treshold_High>
+	<show_normals>0</show_normals>
+	<offset>20</offset>
 </Settings>
