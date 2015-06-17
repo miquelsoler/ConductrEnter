@@ -78,17 +78,6 @@ void S3Object1::setPositionFromScreenCoords(int screenX, int screenY)
     sphere.setPosition(objPosition);
 }
 
-///--------------------------------------------------------------
-void S3Object1::windowResized(ofResizeEventArgs &args)
-{
-    S3BaseObj::windowResized(args);
-
-    sphere.setPosition(objPosition);
-
-    camera.setPosition(objPosition);
-    camera.setTarget(sphere);
-}
-
 #pragma mark -
 
 ///--------------------------------------------------------------

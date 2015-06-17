@@ -33,7 +33,6 @@ private:
     void updateRotation();
 
     virtual void volumeChanged(float &newVolume) {};
-    virtual void windowResized(ofResizeEventArgs &args);
 
     ofSpherePrimitive   sphere;
     float               initialRotation;

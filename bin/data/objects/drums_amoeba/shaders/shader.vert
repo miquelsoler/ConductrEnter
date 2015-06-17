@@ -21,6 +21,7 @@ void main() {
     
     //.. and passes the multi texture coordinates along to the fragment shader
 	gl_TexCoord[0] = gl_MultiTexCoord0;
+    gl_TexCoord[0].x = gl_TexCoord[0].x * 2;
 
     float pixelDepth = texture2D(tex,gl_TexCoord[0].st).r;
 //    
@@ -29,11 +30,17 @@ void main() {
 //    gl_Position.xyz = gl_Position.xyz + (100 * pixelDepth * normal);
 //
     v = vec3(gl_ModelViewMatrix * gl_Vertex);
-    N = normalize(gl_Normal * gl_NormalMatrix);
+    N = normalize(gl_NormalMatrix * gl_Normal);
+    //N = vec3(1.0,0.0,0.0);
+    
     gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
 
-    gl_Position.xyz = gl_Position.xyz + N * offset * pixelDepth;
-
+    
+    vec3 vv = gl_Position.xyz;
+    
+    vv = vv + N * offset * pixelDepth;
+    
+    gl_Position = vec4(vv.x,vv.y,vv.z,1000.0);
 
     //this is a default vertex shader all it does is this...
 

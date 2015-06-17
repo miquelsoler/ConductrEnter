@@ -30,7 +30,6 @@ public:
 private:
 
     virtual void volumeChanged(float &newVolume);
-    virtual void windowResized(ofResizeEventArgs &args);
 };
 
 #endif /* defined(__ConductrEnter__S3DrumsAmoeba__) */

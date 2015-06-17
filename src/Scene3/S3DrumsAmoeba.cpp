@@ -68,14 +68,3 @@ void S3DrumsAmoeba::setPositionFromScreenCoords(int screenX, int screenY)
 {
     S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
 }
-
-void S3DrumsAmoeba::windowResized(ofResizeEventArgs &args)
-{
-    S3BaseObj::windowResized(args);
-
-//    sphere1.setPosition(objPosition);
-//    sphere2.setPosition(objPosition);
-
-    camera.setPosition(objPosition);
-//    camera.setTarget(sphere1);
-}
