@@ -11,7 +11,7 @@
 #include "SettingsManager.h"
 
 
-const int LOOP_RESOLUTION = 50;
+const int LOOP_RESOLUTION = 128;
 const int ANGLE_OFFSET = 90;
 const int AXIS_LENGTH = 6;
 
