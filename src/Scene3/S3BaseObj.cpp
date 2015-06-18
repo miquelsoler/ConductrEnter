@@ -44,7 +44,7 @@ void S3BaseObj::setup()
     objPosition.y = 0;
 
     camera.setNearClip(0.1f);
-    camera.setFarClip(500.0f);
+    camera.setFarClip(1000.0f);
     camera.setDistance(camDistance);
 
     gui.setPosition(viewOriginX+viewHalfWidth*0.4, 0);
