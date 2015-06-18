@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utils/AbletonManager.cpp" afterPath="$PROJECT_DIR$/src/Utils/AbletonManager.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3BaseObj.h" afterPath="$PROJECT_DIR$/src/Scene3/S3BaseObj.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/drums.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/drums.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/obj1.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/obj1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,8 +54,8 @@
       <file leaf-file-name="S3BaseObj.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7683353" vertical-offset="1020" max-vertical-offset="3960">
-              <caret line="114" column="1" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.41909197" vertical-offset="1020" max-vertical-offset="3960">
+              <caret line="94" column="13" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -860,8 +854,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7683353" vertical-offset="1020" max-vertical-offset="3960">
-          <caret line="114" column="1" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.41909197" vertical-offset="1020" max-vertical-offset="3960">
+          <caret line="94" column="13" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
           <folding />
         </state>
       </provider>
