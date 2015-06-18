@@ -25,7 +25,10 @@ AbletonManager::AbletonManager(string _senderHost, unsigned int _senderPort, uns
     oscReceiver.setup(receiverPort);
 
     for (int i=0; i<sceneNumObjects; i++)
+    {
         eventsVolumeChanged.push_back(ofEvent<float>());
+        eventsClipPositionChanged.push_back(ofEvent<float>());
+    }
 }
 
 ///--------------------------------------------------------------
@@ -128,6 +131,25 @@ void AbletonManager::requestVolumeUpdates()
     oscSender.sendMessage(m);
 }
 
+///--------------------------------------------------------------
+/**
+* /live/gridupdates
+* Request grid updates in order to receive clip playing position (/clip/playing_position)
+*/
+
+void AbletonManager::requestGridUpdates()
+{
+    ofxOscMessage m;
+    m.setAddress("/live/gridupdates");
+    m.addIntArg(0); // Window id
+    m.addIntArg(0); // X
+    m.addIntArg(0); // Y
+    m.addIntArg(8); // Width
+    m.addIntArg(12); // Height
+
+    oscSender.sendMessage(m);
+}
+
 #pragma mark - Receive messages
 
 ///--------------------------------------------------------------
@@ -139,16 +161,18 @@ void AbletonManager::update()
         oscReceiver.getNextMessage(&m);
 
         if (m.getAddress() == "/live/tempo")
-            manageTempoChanged(m);
+            onTempoChanged(m);
         else if (m.getAddress() == "/live/track/meterblock")
-            manageTracksVolumeChanged(m);
+            onTracksVolumeChanged(m);
         else if (m.getAddress() == "/live/master/meterblock")
-            manageMasterVolumeChanged(m);
+            onMasterVolumeChanged(m);
+        else if (m.getAddress() == "/clip/playing_position")
+            onClipPlayingPositionChanged(m);
     }
 }
 
 ///--------------------------------------------------------------
-void AbletonManager::manageTempoChanged(ofxOscMessage &m)
+void AbletonManager::onTempoChanged(ofxOscMessage &m)
 {
     /**
      * Response for tempo changes:
@@ -160,7 +184,7 @@ void AbletonManager::manageTempoChanged(ofxOscMessage &m)
 }
 
 ///--------------------------------------------------------------
-void AbletonManager::manageTracksVolumeChanged(ofxOscMessage &m)
+void AbletonManager::onTracksVolumeChanged(ofxOscMessage &m)
 {
     /**
      * Response for track volume (amplitude) changes:
@@ -192,7 +216,7 @@ void AbletonManager::manageTracksVolumeChanged(ofxOscMessage &m)
 }
 
 ///--------------------------------------------------------------
-void AbletonManager::manageMasterVolumeChanged(ofxOscMessage &m)
+void AbletonManager::onMasterVolumeChanged(ofxOscMessage &m)
 {
     /**
      * Response for master volume (amplitude) changes:
@@ -200,4 +224,20 @@ void AbletonManager::manageMasterVolumeChanged(ofxOscMessage &m)
      * (int) channel (0=left, 1=right)
      * (float) volume (0..1)
      */
+}
+void AbletonManager::onClipPlayingPositionChanged(ofxOscMessage &m)
+{
+    /**
+    * Response for clip position changes:
+    * /clip/playing_position
+    * (int) track
+    * (int) clip
+    * (float) track position (0..1)
+    */
+
+    int track = m.getArgAsInt32(0);
+    int clip = m.getArgAsInt32(1);
+    float position = m.getArgAsFloat(2);
+
+    ofNotifyEvent(eventsClipPositionChanged[track], position, this);
 }

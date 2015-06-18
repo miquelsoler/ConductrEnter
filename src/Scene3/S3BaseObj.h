@@ -44,6 +44,7 @@ public:
     void setAnimated(bool animate);
 
     virtual void volumeChanged(float &newVolume) = 0;
+    virtual void clipPositionChanged(float &newPosition);
 
 protected:
 
@@ -80,8 +81,6 @@ protected:
     ofPolyline          loopArc;
     ofParameter<int>    loopRadius;
     ofParameter<int>    loopAngle;
-    float               loopTimePerCycle;
-    unsigned int        loopFrequency;
 
     // GUI
     ofxPanel            gui;

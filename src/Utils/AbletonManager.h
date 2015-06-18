@@ -31,17 +31,20 @@ public:
 
     void requestTempo();
     void requestVolumeUpdates();
+    void requestGridUpdates(); // In order to receive /live/playing_position
 
     void update();
 
     ofEvent<float>              eventTempoChanged;
     vector< ofEvent<float> >    eventsVolumeChanged;
+    vector< ofEvent<float> >    eventsClipPositionChanged;
 
 private:
 
-    void manageTempoChanged(ofxOscMessage &m);
-    void manageTracksVolumeChanged(ofxOscMessage &m);
-    void manageMasterVolumeChanged(ofxOscMessage &m);
+    void onTempoChanged(ofxOscMessage &m);
+    void onTracksVolumeChanged(ofxOscMessage &m);
+    void onMasterVolumeChanged(ofxOscMessage &m);
+    void onClipPlayingPositionChanged(ofxOscMessage &m);
 
     ofxOscSender                oscSender;
     ofxOscReceiver              oscReceiver;

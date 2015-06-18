@@ -91,7 +91,7 @@ void S3BaseObj::drawLoop()
     int angleStart =  convertedAngle - 30;
     int angleEnd = convertedAngle;
     loopArc.arc(objPosition, loopRadius, loopRadius, angleStart, angleEnd, LOOP_RESOLUTION);
-    loopArc.draw();
+    loopArc.draw(); 
 
     // Draw axis
     // Top
@@ -232,6 +232,14 @@ void S3BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 void S3BaseObj::setAnimated(bool animate)
 {
     isAnimated = animate;
+}
+
+#pragma mark - Ableton events
+
+///--------------------------------------------------------------
+void S3BaseObj::clipPositionChanged(float &newPosition)
+{
+    cout << "Clip pos changed to " << newPosition << endl;
 }
 
 #pragma mark - TUIO

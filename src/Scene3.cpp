@@ -63,6 +63,7 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
         {
             objects.push_back(object);
             ofAddListener(abletonManager->eventsVolumeChanged[i], object, &S3BaseObj::volumeChanged);
+            ofAddListener(abletonManager->eventsClipPositionChanged[i], object, &S3BaseObj::clipPositionChanged);
         }
     }
 }
@@ -106,6 +107,7 @@ void Scene3::updateEnter()
     ofAddListener(abletonManager->eventTempoChanged, this, &Scene3::tempoChanged);
     abletonManager->requestTempo();
     abletonManager->requestVolumeUpdates();
+    abletonManager->requestGridUpdates();
 
     // Stop all playing clips, just in case (for demo purposes)
     abletonManager->stopAll();
