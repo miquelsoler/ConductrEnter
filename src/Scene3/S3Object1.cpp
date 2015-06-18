@@ -66,6 +66,7 @@ void S3Object1::draw()
         ofSetColor(255);
 
         drawWhiteCircle();
+        if (pinchEnabled) drawPinchCircle();
         drawLoop();
     }
     camera.end();

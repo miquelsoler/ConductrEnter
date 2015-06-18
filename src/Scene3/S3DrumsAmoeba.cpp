@@ -193,7 +193,9 @@ void S3DrumsAmoeba::draw()
 //        imgColorsCircle.draw(objPosition.x, objPosition.y, circleSize, circleSize);
 
         drawWhiteCircle();
+        if (pinchEnabled) drawPinchCircle();
         drawLoop();
+
     }
     camera.end();
 }

@@ -49,6 +49,8 @@ protected:
 
     void drawLoop();
     void drawWhiteCircle();
+    void drawPinchCircle();
+
     virtual void loadSettings() = 0;
     void initSharedSettings();
     virtual void windowResized(ofResizeEventArgs &args);
@@ -64,7 +66,10 @@ protected:
 
     // Circles
     ofParameter<float>  whiteCircleRadius;
-    float               pinchCircleRadius;
+    ofImage             pinchImage;
+    float               pinchImageSize;
+    unsigned int        pinchImageAlpha;
+    unsigned int        pinchImageAlphaMin, pinchImageAlphaMax;
 
     // TUIO
     list<int>           cursorIds;

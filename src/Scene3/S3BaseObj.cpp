@@ -11,9 +11,11 @@
 #include "SettingsManager.h"
 
 
+// Arc loop
 const int LOOP_RESOLUTION = 128;
 const int ANGLE_OFFSET = 90;
 const int AXIS_LENGTH = 6;
+
 
 #pragma mark - Initialization
 
@@ -21,6 +23,13 @@ const int AXIS_LENGTH = 6;
 S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath)  : BaseObject(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     camera.disableMouseInput();
+
+    pinchImage.loadImage("objects/color_circle.png");
+    pinchImage.setAnchorPercent(0.5f, 0.5f);
+
+    pinchImageAlphaMin = SettingsManager::getInstance().pinchCircleAlphaMin;
+    pinchImageAlphaMax = SettingsManager::getInstance().pinchCircleAlphaMax;
+    pinchImageAlpha = pinchImageAlphaMin;
 
     settingsPath = _settingsPath;
 }
@@ -108,6 +117,14 @@ void S3BaseObj::drawWhiteCircle()
     ofCircle(objPosition.x, objPosition.y, 0, whiteCircleRadius);
 }
 
+void S3BaseObj::drawPinchCircle()
+{
+    ofDisableLighting();
+    ofSetColor(255, 2255, 255, pinchImageAlpha);
+    pinchImage.draw(objPosition, pinchImageSize, pinchImageSize);
+
+}
+
 ///--------------------------------------------------------------
 void S3BaseObj::windowResized(ofResizeEventArgs &args)
 {
@@ -165,6 +182,8 @@ void S3BaseObj::enablePinch(bool enable)
     int cursorId2 = cursorIds.back();
 
     pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursorId1, cursorId2);
+
+    pinchImageSize = whiteCircleRadius / 2;
 }
 
 ///--------------------------------------------------------------
@@ -185,7 +204,8 @@ void S3BaseObj::updatePinch()
     float diff = pinchCurrentDist - pinchInitialDist;
     if (diff > 0)
     {
-        camDistance = 350 - diff/2;
+        pinchImageSize = whiteCircleRadius + diff/4;
+        pinchImageAlpha = int(ofMap(pinchCurrentDist, pinchInitialDist, pinchInitialDist*2.0f, pinchImageAlphaMin, pinchImageAlphaMax, true));
     }
 }
 

@@ -44,6 +44,10 @@ public:
     bool            debugShowGUI;
     bool            debugShowTUIOCursors;
 
+    // Pinch
+    unsigned int    pinchCircleAlphaMin;
+    unsigned int    pinchCircleAlphaMax;
+
 private:
 
     SettingsManager();

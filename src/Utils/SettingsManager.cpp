@@ -52,5 +52,9 @@ bool SettingsManager::loadSettings()
     debugShowGUI = json["Debug Mode"]["Show GUI"].asBool();
     debugShowTUIOCursors = json["Debug Mode"]["Show TUIO Cursors"].asBool();
 
+    // Pinch
+    pinchCircleAlphaMin = json["Pinch"]["Circle Alpha Min"].asUInt();
+    pinchCircleAlphaMax = json["Pinch"]["Circle Alpha Max"].asUInt();
+
     return parsingSuccessful;
 }

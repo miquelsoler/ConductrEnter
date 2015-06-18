@@ -107,7 +107,9 @@ void S3Drums::draw()
     sphere2.drawVertices();
 
     drawWhiteCircle();
+    if (pinchEnabled) drawPinchCircle();
     drawLoop();
+
 
     camera.end();
 }

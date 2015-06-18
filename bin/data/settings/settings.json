@@ -19,5 +19,9 @@
     "Debug Mode": {
         "Show GUI": true,
         "Show TUIO Cursors": true
+    },
+    "Pinch": {
+        "Circle Alpha Min": 10,
+        "Circle Alpha Max": 128
     }
 }

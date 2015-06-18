@@ -207,6 +207,7 @@ void S3NoiseSphere::draw()
 */
 
         drawWhiteCircle();
+        if (pinchEnabled) drawPinchCircle();
         drawLoop();
     }
     camera.end();
