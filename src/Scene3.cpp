@@ -238,7 +238,7 @@ void Scene3::handlePress(int x, int y, int cursorId)
         int track = pressedObjectIndex;
         abletonManager->playClip(currentClipIndex, track);
         // Animate the touched object
-        object->setAnimated(true);
+        object->play();
     }
     else // Coming from TUIO
     {
@@ -251,7 +251,7 @@ void Scene3::handlePress(int x, int y, int cursorId)
             abletonManager->playClip(currentClipIndex, track);
 
             // Animate the touched object
-            object->setAnimated(true);
+            object->play();
 
             // Add TUIO cursor
             object->addCursor(cursorId);
@@ -285,7 +285,7 @@ void Scene3::handleRelease(int x, int y, int cursorId)
     abletonManager->stopClip(currentClipIndex, track);
 
     // Stop animating the touched object
-    object->setAnimated(false);
+    object->stop();
 }
 
 ///--------------------------------------------------------------

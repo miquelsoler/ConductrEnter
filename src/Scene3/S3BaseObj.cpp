@@ -85,9 +85,16 @@ void S3BaseObj::drawLoop()
 {
     ofSetLineWidth(2);
 
-    // Draw white loop arc (only if current angle is not 0
+    // Draw full gray loop arc
+    ofSetColor(50, 50, 50);
+    ofNoFill();
+    ofCircle(objPosition, loopRadius);
+
+    // Draw white loop arc (only if current angle is not 0)
     if (int(loopAngle) != 0)
     {
+        ofSetColor(ofColor::white);
+
         // Draw loop arc
         loopArc.clear();
         int convertedAngle = ANGLE_OFFSET + 360 - loopInitialAngle;
@@ -116,6 +123,7 @@ void S3BaseObj::drawLoop()
 
 void S3BaseObj::drawWhiteCircle()
 {
+    ofFill();
     ofDisableLighting();
     ofSetColor(ofColor::white);
     ofCircle(objPosition.x, objPosition.y, 0, whiteCircleRadius);
@@ -123,6 +131,7 @@ void S3BaseObj::drawWhiteCircle()
 
 void S3BaseObj::drawPinchCircle()
 {
+    ofFill();
     ofDisableLighting();
     ofSetColor(255, 2255, 255, pinchImageAlpha);
     pinchImage.draw(objPosition, pinchImageSize, pinchImageSize);
@@ -232,10 +241,20 @@ void S3BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
     objPosition.x = oldX;
 }
 
+#pragma mark - Play/stop messages
+
 ///--------------------------------------------------------------
-void S3BaseObj::setAnimated(bool animate)
+void S3BaseObj::play()
 {
-    isAnimated = animate;
+    loopAngle = 0;
+    isAnimated = true; // To be removed
+}
+
+///--------------------------------------------------------------
+void S3BaseObj::stop()
+{
+    loopAngle = 0;
+    isAnimated = false; // To be removed
 }
 
 #pragma mark - Ableton events
@@ -243,7 +262,6 @@ void S3BaseObj::setAnimated(bool animate)
 ///--------------------------------------------------------------
 void S3BaseObj::clipPositionChanged(float &newPosition)
 {
-    cout << "Clip pos changed to " << newPosition << endl;
     loopAngle = ofMap(newPosition, 0.0f, 1.0f, 0.0f, 360.0f);
 }
 

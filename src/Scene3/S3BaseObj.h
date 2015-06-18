@@ -41,7 +41,9 @@ public:
     void removeLastCursor();
 
     virtual void setPositionFromScreenCoords(int screenX, int screenY);
-    void setAnimated(bool animate);
+
+    void play();
+    void stop();
 
     virtual void volumeChanged(float &newVolume) = 0;
     virtual void clipPositionChanged(float &newPosition);
@@ -62,7 +64,7 @@ protected:
 
     // Object parameters
     float               radius;
-    bool                isAnimated = 0;
+    bool                isAnimated = false;
     bool                isPicked = false;
 
     // Circles
@@ -81,7 +83,7 @@ protected:
     ofPolyline          loopArc;
     ofParameter<int>    loopRadius;
     ofParameter<int>    loopInitialAngle;
-    float               loopAngle;
+    float               loopAngle = 0;
 
     // GUI
     ofxPanel            gui;

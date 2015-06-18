@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3BaseObj.h" afterPath="$PROJECT_DIR$/src/Scene3/S3BaseObj.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3.cpp" afterPath="$PROJECT_DIR$/src/Scene3.cpp" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +34,7 @@
       <file leaf-file-name="AbletonManager.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utils/AbletonManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2894" max-vertical-offset="3765">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2879" max-vertical-offset="3765">
               <caret line="157" column="7" selection-start-line="157" selection-start-column="7" selection-end-line="157" selection-end-column="7" />
               <folding />
             </state>
@@ -42,8 +44,8 @@
       <file leaf-file-name="Scene3.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Scene3.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="401" max-vertical-offset="5625">
-              <caret line="65" column="100" selection-start-line="65" selection-start-column="100" selection-end-line="65" selection-end-column="100" />
+            <state vertical-scroll-proportion="-8.703704" vertical-offset="4070" max-vertical-offset="5625">
+              <caret line="287" column="17" selection-start-line="287" selection-start-column="17" selection-end-line="287" selection-end-column="17" />
               <folding>
                 <element signature="e#92#111#0" expanded="true" />
               </folding>
@@ -51,21 +53,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="S3BaseObj.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp">
+      <file leaf-file-name="BaseObject.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BaseObject.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41909197" vertical-offset="1020" max-vertical-offset="3960">
-              <caret line="94" column="13" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="S3BaseObj.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="S3BaseObj.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.592592" vertical-offset="2039" max-vertical-offset="4140">
+              <caret line="157" column="7" selection-start-line="157" selection-start-column="4" selection-end-line="157" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ofPolyline.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofPolyline.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="305" max-vertical-offset="3375">
+              <caret line="43" column="40" selection-start-line="43" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="S3BaseObj.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="479" max-vertical-offset="1365">
-              <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.74604964" vertical-offset="509" max-vertical-offset="1395">
+              <caret line="84" column="41" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -109,14 +131,14 @@
         <option value="$PROJECT_DIR$/src/Utils/SettingsManager.h" />
         <option value="$PROJECT_DIR$/src/Utils/SettingsManager.cpp" />
         <option value="$PROJECT_DIR$/src/Utils/AbletonManager.h" />
-        <option value="$PROJECT_DIR$/src/Scene3.cpp" />
         <option value="$PROJECT_DIR$/src/Utils/AbletonManager.cpp" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/drums.xml" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/obj1.xml" />
-        <option value="$PROJECT_DIR$/src/Scene3/S3BaseObj.h" />
+        <option value="$PROJECT_DIR$/src/Scene3.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene3/S3BaseObj.h" />
       </list>
     </option>
   </component>
@@ -494,13 +516,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/TUIO/TuioTime.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.334471" vertical-offset="853" max-vertical-offset="2025">
-          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/video/ofQTKitMovieRenderer.m">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="10635">
@@ -778,32 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/AbletonManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2894" max-vertical-offset="3765">
-          <caret line="157" column="7" selection-start-line="157" selection-start-column="7" selection-end-line="157" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="401" max-vertical-offset="5625">
-          <caret line="65" column="100" selection-start-line="65" selection-start-column="100" selection-end-line="65" selection-end-column="100" />
-          <folding>
-            <element signature="e#92#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofPolyline.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="3375">
-          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/data/settings/settings.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="495">
@@ -844,18 +833,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.h">
+    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofPolyline.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="479" max-vertical-offset="1365">
-          <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="305" max-vertical-offset="3375">
+          <caret line="43" column="40" selection-start-line="43" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utils/AbletonManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2894" max-vertical-offset="3765">
+          <caret line="157" column="7" selection-start-line="157" selection-start-column="7" selection-end-line="157" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BaseObject.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="886">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.703704" vertical-offset="4070" max-vertical-offset="5625">
+          <caret line="287" column="17" selection-start-line="287" selection-start-column="17" selection-end-line="287" selection-end-column="17" />
+          <folding>
+            <element signature="e#92#111#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41909197" vertical-offset="1020" max-vertical-offset="3960">
-          <caret line="94" column="13" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
+        <state vertical-scroll-proportion="-10.592592" vertical-offset="2039" max-vertical-offset="4140">
+          <caret line="157" column="7" selection-start-line="157" selection-start-column="4" selection-end-line="157" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74604964" vertical-offset="509" max-vertical-offset="1395">
+          <caret line="84" column="41" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
           <folding />
         </state>
       </provider>
