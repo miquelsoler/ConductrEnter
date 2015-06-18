@@ -106,6 +106,7 @@ void S3Drums::draw()
     sphere1.drawVertices();
     sphere2.drawVertices();
 
+    drawWhiteCircle();
     drawLoop();
 
     camera.end();

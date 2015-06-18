@@ -206,11 +206,7 @@ void S3NoiseSphere::draw()
         imgColorsCircle.draw(ofGetWidth()/2,ofGetHeight()/2,circleSize,circleSize);
 */
 
-        // white circle
-//        ofDisableLighting();
-        ofSetColor(255);
-        ofCircle(ofGetWidth()/2,ofGetHeight()/2,40);
-
+        drawWhiteCircle();
         drawLoop();
     }
     camera.end();

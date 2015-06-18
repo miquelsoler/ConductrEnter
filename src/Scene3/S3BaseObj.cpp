@@ -30,6 +30,7 @@ void S3BaseObj::initSharedSettings()
 {
     gui.setup("Settings", settingsPath);
     gui.add(camDistance.set("Camera_Distance", 0, 0, 600));
+    gui.add(whiteCircleRadius.set("White_Circle_Radius", 40, 0, 30));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
     gui.add(loopAngle.set("Loop_Angle", 0, 0, 720));
 }
@@ -47,7 +48,7 @@ void S3BaseObj::setup()
     camera.setFarClip(1000.0f);
     camera.setDistance(camDistance);
 
-    gui.setPosition(viewOriginX+viewHalfWidth*0.4, 0);
+    gui.setPosition(viewOriginX+viewHalfWidth*0.4f, 0);
 }
 
 ///--------------------------------------------------------------
@@ -100,6 +101,13 @@ void S3BaseObj::drawLoop()
     ofPopMatrix();
 }
 
+void S3BaseObj::drawWhiteCircle()
+{
+    ofDisableLighting();
+    ofSetColor(ofColor::white);
+    ofCircle(objPosition.x, objPosition.y, 0, whiteCircleRadius);
+}
+
 ///--------------------------------------------------------------
 void S3BaseObj::windowResized(ofResizeEventArgs &args)
 {
@@ -109,7 +117,7 @@ void S3BaseObj::windowResized(ofResizeEventArgs &args)
     viewOriginX = sceneObjectIndex * viewWidth;
     viewRectangle = ofRectangle(viewOriginX, 0, viewWidth, args.height);
 
-    gui.setPosition(viewOriginX+viewHalfWidth*0.4, 0);
+    gui.setPosition(viewOriginX+viewHalfWidth*0.4f, 0);
 
     camera.setDistance(camDistance);
 }

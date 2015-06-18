@@ -1,5 +1,6 @@
 <Settings>
     <Camera_Distance>480</Camera_Distance>
+    <White_Circle_Radius>24.3</White_Circle_Radius>
     <Loop_Radius>77</Loop_Radius>
     <Loop_Angle>331</Loop_Angle>
     <tempo>1.56</tempo>

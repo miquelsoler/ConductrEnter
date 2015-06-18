@@ -48,6 +48,7 @@ public:
 protected:
 
     void drawLoop();
+    void drawWhiteCircle();
     virtual void loadSettings() = 0;
     void initSharedSettings();
     virtual void windowResized(ofResizeEventArgs &args);
@@ -60,6 +61,10 @@ protected:
     float               radius;
     bool                isAnimated = 0;
     bool                isPicked = false;
+
+    // Circles
+    ofParameter<float>  whiteCircleRadius;
+    float               pinchCircleRadius;
 
     // TUIO
     list<int>           cursorIds;

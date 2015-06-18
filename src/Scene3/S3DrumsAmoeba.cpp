@@ -192,13 +192,7 @@ void S3DrumsAmoeba::draw()
         float circleSize = 40.0;
 //        imgColorsCircle.draw(objPosition.x, objPosition.y, circleSize, circleSize);
 
-        // white circle
-        ofDisableLighting();
-        ofSetColor(255);
-//        ofCircle(objPosition.x, objPosition.y, 10);
-
-//        noiseImage.draw(0, -200, 50, 50);
-
+        drawWhiteCircle();
         drawLoop();
     }
     camera.end();

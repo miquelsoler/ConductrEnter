@@ -65,6 +65,7 @@ void S3Object1::draw()
         sphere.drawWireframe();
         ofSetColor(255);
 
+        drawWhiteCircle();
         drawLoop();
     }
     camera.end();
