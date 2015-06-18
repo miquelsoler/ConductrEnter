@@ -2,6 +2,6 @@
     <Camera_Distance>370</Camera_Distance>
     <White_Circle_Radius>20.7</White_Circle_Radius>
     <Loop_Radius>64</Loop_Radius>
-    <Loop_Angle>320</Loop_Angle>
+    <Loop_Initial_Angle>320</Loop_Initial_Angle>
 <Settings/>
 </Settings>

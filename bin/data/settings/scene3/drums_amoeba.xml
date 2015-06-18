@@ -2,7 +2,7 @@
     <Camera_Distance>480</Camera_Distance>
     <White_Circle_Radius>24.3</White_Circle_Radius>
     <Loop_Radius>77</Loop_Radius>
-    <Loop_Angle>331</Loop_Angle>
+    <Loop_Initial_Angle>331</Loop_Initial_Angle>
     <tempo>1.56</tempo>
 	<Noise_Frequency>18</Noise_Frequency>
 	<Threshold>0</Threshold>

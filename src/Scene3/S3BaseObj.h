@@ -80,7 +80,8 @@ protected:
     // Loop arc
     ofPolyline          loopArc;
     ofParameter<int>    loopRadius;
-    ofParameter<int>    loopAngle;
+    ofParameter<int>    loopInitialAngle;
+    float               loopAngle;
 
     // GUI
     ofxPanel            gui;

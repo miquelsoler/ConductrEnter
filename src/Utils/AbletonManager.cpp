@@ -239,5 +239,7 @@ void AbletonManager::onClipPlayingPositionChanged(ofxOscMessage &m)
     int clip = m.getArgAsInt32(1);
     float position = m.getArgAsFloat(2);
 
+    if (track >= sceneNumObjects) return;
+
     ofNotifyEvent(eventsClipPositionChanged[track], position, this);
 }

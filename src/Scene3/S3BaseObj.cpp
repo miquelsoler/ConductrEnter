@@ -41,7 +41,7 @@ void S3BaseObj::initSharedSettings()
     gui.add(camDistance.set("Camera_Distance", 0, 0, 600));
     gui.add(whiteCircleRadius.set("White_Circle_Radius", 40, 0, 30));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
-    gui.add(loopAngle.set("Loop_Angle", 0, 0, 720));
+    gui.add(loopInitialAngle.set("Loop_Initial_Angle", 0, 0, 720));
 }
 
 #pragma mark - Basic object methods
@@ -85,26 +85,30 @@ void S3BaseObj::drawLoop()
 {
     ofSetLineWidth(2);
 
-    // Draw loop arc
-    loopArc.clear();
-    int convertedAngle = ANGLE_OFFSET + 360-loopAngle;
-    int angleStart =  convertedAngle - 30;
-    int angleEnd = convertedAngle;
-    loopArc.arc(objPosition, loopRadius, loopRadius, angleStart, angleEnd, LOOP_RESOLUTION);
-    loopArc.draw(); 
+    // Draw white loop arc (only if current angle is not 0
+    if (int(loopAngle) != 0)
+    {
+        // Draw loop arc
+        loopArc.clear();
+        int convertedAngle = ANGLE_OFFSET + 360 - loopInitialAngle;
+        float angleStart = convertedAngle - loopAngle;
+        float angleEnd = convertedAngle;
+        loopArc.arc(objPosition, loopRadius, loopRadius, angleStart, angleEnd, LOOP_RESOLUTION);
+        loopArc.draw();
+    }
 
     // Draw axis
     // Top
     ofPushMatrix();
     ofTranslate(objPosition.x, objPosition.y); // Move to center of object
-    ofRotateZ(360-loopAngle); // Rotate line according to the angle
+    ofRotateZ(360- loopInitialAngle); // Rotate line according to the angle
     ofTranslate(0, loopRadius); // Move it so that it starts at the arc perimeter
     ofLine(0, 0, 0, AXIS_LENGTH);
     ofPopMatrix();
     // Bottom
     ofPushMatrix();
     ofTranslate(objPosition.x, objPosition.y); // Move to center of object
-    ofRotateZ(360-loopAngle); // Rotate line according to the angle
+    ofRotateZ(360- loopInitialAngle); // Rotate line according to the angle
     ofTranslate(0, -loopRadius); // Move it so that it starts at the arc perimeter
     ofLine(0, 0, 0, -AXIS_LENGTH);
     ofPopMatrix();
@@ -205,7 +209,7 @@ void S3BaseObj::updatePinch()
     if (diff > 0)
     {
         pinchImageSize = whiteCircleRadius + diff/4;
-        pinchImageAlpha = int(ofMap(pinchCurrentDist, pinchInitialDist, pinchInitialDist*2.0f, pinchImageAlphaMin, pinchImageAlphaMax, true));
+        pinchImageAlpha = (unsigned int)ofMap(pinchCurrentDist, pinchInitialDist, pinchInitialDist*2.0f, pinchImageAlphaMin, pinchImageAlphaMax, true);
     }
 }
 
@@ -240,6 +244,7 @@ void S3BaseObj::setAnimated(bool animate)
 void S3BaseObj::clipPositionChanged(float &newPosition)
 {
     cout << "Clip pos changed to " << newPosition << endl;
+    loopAngle = ofMap(newPosition, 0.0f, 1.0f, 0.0f, 360.0f);
 }
 
 #pragma mark - TUIO
