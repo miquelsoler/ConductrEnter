@@ -37,9 +37,6 @@ bool SettingsManager::loadSettings()
     sceneFadeInMilliseconds = json["Scenes"]["FadeIn Milliseconds"].asUInt();
     sceneFadeOutMilliseconds = json["Scenes"]["FadeOut Milliseconds"].asUInt();
     scene3TimerMilliseconds = json["Scenes"]["Scene3 Timer Milliseconds"].asUInt();
-#ifdef OF_DEBUG
-    cout << "[Scenes] fadeIn=" << sceneFadeInMilliseconds << " fadeOut=" << sceneFadeOutMilliseconds << " scene3Timer=" << scene3TimerMilliseconds << endl;
-#endif
 
     // Ableton
     abletonHost = json["Ableton"]["Ableton Host"].asString();

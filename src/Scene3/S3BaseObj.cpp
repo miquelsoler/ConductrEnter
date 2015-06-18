@@ -29,7 +29,7 @@ S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 void S3BaseObj::initSharedSettings()
 {
     gui.setup("Settings", settingsPath);
-    gui.add(camDistance.set("Camera_Distance", 0, 0, 500));
+    gui.add(camDistance.set("Camera_Distance", 0, 0, 600));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
     gui.add(loopAngle.set("Loop_Angle", 0, 0, 720));
 }

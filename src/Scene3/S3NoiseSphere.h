@@ -33,7 +33,6 @@ private:
 
     ofImage             imgColorsCircle;
     ofSpherePrimitive   sphere;
-//    ofIcoSpherePrimitive sphere;
     vector<ofMeshFace>      sphereFacesOriginal;
     vector<ofMeshFace>      sphereFacesCurrent;
     vector<ofVec3f>         vertexNormals;
@@ -43,7 +42,6 @@ private:
     // NOISE GUI
     ofParameter<float>      tempo;
     ofParameter<float>      noiseFrequency;
-    ofParameter<bool>       animate;
     ofParameter<bool>       doThreshold;
     ofParameter<int>        thresholdLow;
     ofParameter<int>        thresholdHigh;

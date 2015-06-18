@@ -27,9 +27,8 @@ void S3NoiseSphere::loadSettings()
 
     // perlin noise
     gui.add( noiseFrequency.set( "Noise Frequency", 80.0f, 0.00001f, 4096.0f ) );
-    gui.add( animate.set( "Animate", true ) );
     gui.add( offset.set( "offset",0,-200,200) );
-    gui.add( mode.set( "mode",0,0,5) );
+    gui.add( mode.set( "mode",0,0,2) );
 
     gui.add( doThreshold.set( "Threshold", false ) );
     gui.add( thresholdLow.set( "Treshold Low", 0, 0, 40 ) );
@@ -98,8 +97,7 @@ void S3NoiseSphere::update()
 */
 
     // perlin noise
-    float time = 0.0f;
-    if( animate ) time = ofGetElapsedTimef();
+    float time = ofGetElapsedTimef();
 
 
 /// trying to change color for each vertex ...

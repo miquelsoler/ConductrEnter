@@ -61,8 +61,6 @@ void S3DrumsAmoeba::setup()
     pointLight3.setDiffuseColor( ofFloatColor(68.0/255.f,187.0/255.f,209.0/255.f) );
     pointLight3.setSpecularColor( ofFloatColor(1.0,1.0,1.0) );
 
-
-
     // shader
     shader.load("objects/drums_amoeba/shaders/shader");
     ofDisableArbTex();
@@ -199,7 +197,7 @@ void S3DrumsAmoeba::draw()
         ofSetColor(255);
 //        ofCircle(objPosition.x, objPosition.y, 10);
 
-        noiseImage.draw(0, -200, 50, 50);
+//        noiseImage.draw(0, -200, 50, 50);
 
         drawLoop();
     }
