@@ -208,23 +208,11 @@ void AbletonManager::onTracksVolumeChanged(ofxOscMessage &m)
         if (channel == 1) continue; // Skip right channel messages
         if (track >= sceneNumObjects) continue; // Skip if this track index is larger than the number of objects in scene
 
-//        cout << " " << track << " " << channel << " " << volume << " - ";
-
         ofNotifyEvent(eventsVolumeChanged[track], volume, this);
     }
-//    cout << endl;
 }
 
 ///--------------------------------------------------------------
-void AbletonManager::onMasterVolumeChanged(ofxOscMessage &m)
-{
-    /**
-     * Response for master volume (amplitude) changes:
-     * /live/master/meterblock
-     * (int) channel (0=left, 1=right)
-     * (float) volume (0..1)
-     */
-}
 void AbletonManager::onClipPlayingPositionChanged(ofxOscMessage &m)
 {
     /**
@@ -235,11 +223,28 @@ void AbletonManager::onClipPlayingPositionChanged(ofxOscMessage &m)
     * (float) track position (0..1)
     */
 
-    int track = m.getArgAsInt32(0);
-    int clip = m.getArgAsInt32(1);
-    float position = m.getArgAsFloat(2);
+    int track, clip;
+    float position;
 
-    if (track >= sceneNumObjects) return;
+    int numArgs = m.getNumArgs();
+    for (int i=0; i<numArgs; i+=3)
+    {
+        track = m.getArgAsInt32(i);
+        clip = m.getArgAsInt32(i+1);
+        position = m.getArgAsFloat(i+2);
 
-    ofNotifyEvent(eventsClipPositionChanged[track], position, this);
+        if (track >= sceneNumObjects) continue;
+        ofNotifyEvent(eventsClipPositionChanged[track], position, this);
+    }
+}
+
+///--------------------------------------------------------------
+void AbletonManager::onMasterVolumeChanged(ofxOscMessage &m)
+{
+    /**
+    * Response for master volume (amplitude) changes:
+    * /live/master/meterblock
+    * (int) channel (0=left, 1=right)
+    * (float) volume (0..1)
+    */
 }

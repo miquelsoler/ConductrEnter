@@ -43,8 +43,8 @@ private:
 
     void onTempoChanged(ofxOscMessage &m);
     void onTracksVolumeChanged(ofxOscMessage &m);
-    void onMasterVolumeChanged(ofxOscMessage &m);
     void onClipPlayingPositionChanged(ofxOscMessage &m);
+    void onMasterVolumeChanged(ofxOscMessage &m);
 
     ofxOscSender                oscSender;
     ofxOscReceiver              oscReceiver;

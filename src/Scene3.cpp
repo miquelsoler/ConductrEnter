@@ -59,12 +59,11 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
             default:
                 break;
         }
-        if (object)
-        {
-            objects.push_back(object);
-            ofAddListener(abletonManager->eventsVolumeChanged[i], object, &S3BaseObj::volumeChanged);
-            ofAddListener(abletonManager->eventsClipPositionChanged[i], object, &S3BaseObj::clipPositionChanged);
-        }
+
+        if (!object) continue;
+        objects.push_back(object);
+        ofAddListener(abletonManager->eventsVolumeChanged[i], object, &S3BaseObj::volumeChanged);
+        ofAddListener(abletonManager->eventsClipPositionChanged[i], object, &S3BaseObj::clipPositionChanged);
     }
 }
 
