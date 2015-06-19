@@ -83,10 +83,20 @@ void S3DrumsAmoeba::setup()
 }
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::update()
+void S3DrumsAmoeba::updateInactive()
 {
-    S3BaseObj::update();
+    updateActive(); // Delete this line if it needs a custom update
+}
 
+///--------------------------------------------------------------
+void S3DrumsAmoeba::updateTransitioning()
+{
+    updateActive(); // Delete this line if it needs a custom update
+}
+
+///--------------------------------------------------------------
+void S3DrumsAmoeba::updateActive()
+{
     // lights positions
     pointLight1.setPosition(radius*2,-radius*1.5,400);
     pointLight2.setPosition(radius*2 ,radius*1.5,400);
@@ -133,17 +143,20 @@ void S3DrumsAmoeba::update()
 }
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::volumeChanged(float &newVolume)
+void S3DrumsAmoeba::drawInactive()
 {
+    drawActive(); // Delete this line if it needs a custom draw
 }
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::draw()
+void S3DrumsAmoeba::drawTransitioning()
 {
-    S3BaseObj::draw();
+    drawActive(); // Delete this line if it needs a custom draw
+}
 
-//    ofEnableDepthTest();
-
+///--------------------------------------------------------------
+void S3DrumsAmoeba::drawActive()
+{
     camera.begin(viewRectangle);
     {
         ofEnableLighting();
@@ -199,6 +212,12 @@ void S3DrumsAmoeba::draw()
     }
     camera.end();
 }
+
+///--------------------------------------------------------------
+void S3DrumsAmoeba::volumeChanged(float &newVolume)
+{
+}
+
 
 ///--------------------------------------------------------------
 void S3DrumsAmoeba::setPositionFromScreenCoords(int screenX, int screenY)

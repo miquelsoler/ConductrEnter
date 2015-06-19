@@ -1,24 +1,24 @@
 //
-//  S3Object1.cpp
+//  S3ObjectDefault.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ëngel Soler on 24/5/15.
+//  Created by Miquel ï¿½ngel Soler on 24/5/15.
 //
 //
 
-#include "S3Object1.h"
+#include "S3ObjectDefault.h"
 
 #pragma mark - Initialization
 
 ///--------------------------------------------------------------
-S3Object1::S3Object1(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
+S3ObjectDefault::S3ObjectDefault(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
     S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     loadSettings();
 }
 
 ///--------------------------------------------------------------
-void S3Object1::loadSettings()
+void S3ObjectDefault::loadSettings()
 {
     if (settingsPath.empty()) return;
     S3BaseObj::initSharedSettings();
@@ -32,7 +32,7 @@ void S3Object1::loadSettings()
 #pragma mark - Basic object methods
 
 ///--------------------------------------------------------------
-void S3Object1::setup()
+void S3ObjectDefault::setup()
 {
     S3BaseObj::setup();
 
@@ -46,18 +46,37 @@ void S3Object1::setup()
 }
 
 ///--------------------------------------------------------------
-void S3Object1::update()
+void S3ObjectDefault::updateInactive()
 {
-    S3BaseObj::update();
-
-    if (isAnimated) updateRotation();
+    updateActive(); // Delete this line if it needs a custom update
 }
 
 ///--------------------------------------------------------------
-void S3Object1::draw()
+void S3ObjectDefault::updateTransitioning()
 {
-    S3BaseObj::draw();
+    updateActive(); // Delete this line if it needs a custom update
+}
 
+///--------------------------------------------------------------
+void S3ObjectDefault::updateActive()
+{
+}
+
+///--------------------------------------------------------------
+void S3ObjectDefault::drawInactive()
+{
+    drawActive(); // Delete this line if it needs a custom draw
+}
+
+///--------------------------------------------------------------
+void S3ObjectDefault::drawTransitioning()
+{
+    drawActive(); // Delete this line if it needs a custom draw
+}
+
+///--------------------------------------------------------------
+void S3ObjectDefault::drawActive()
+{
     camera.begin(viewRectangle);
     {
         ofSetLineWidth(1);
@@ -73,7 +92,7 @@ void S3Object1::draw()
 }
 
 ///--------------------------------------------------------------
-void S3Object1::setPositionFromScreenCoords(int screenX, int screenY)
+void S3ObjectDefault::setPositionFromScreenCoords(int screenX, int screenY)
 {
     S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
 
@@ -83,7 +102,7 @@ void S3Object1::setPositionFromScreenCoords(int screenX, int screenY)
 #pragma mark -
 
 ///--------------------------------------------------------------
-void S3Object1::updateRotation()
+void S3ObjectDefault::updateRotation()
 {
     float spinX = sin(initialRotation + ofGetElapsedTimef()*.35f);
     float spinY = cos(initialRotation + ofGetElapsedTimef()*.075f);
@@ -91,4 +110,3 @@ void S3Object1::updateRotation()
     sphere.rotate(spinX, 1.0, 0.0, 0.0);
     sphere.rotate(spinY, 0.0, 1.0, 0.0);
 }
-

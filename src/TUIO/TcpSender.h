@@ -84,7 +84,7 @@ namespace TUIO {
 		bool sendOscPacket (osc::OutboundPacketStream *bundle);
 
 		/**
-		 * This method returns the connection state
+		 * This method returns the connection currentState
 		 *
 		 * @return true if the connection is alive
 		 */

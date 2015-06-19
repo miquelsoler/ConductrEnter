@@ -23,8 +23,12 @@ public:
     S3Drums(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
-    virtual void update();
-    virtual void draw();
+    virtual void updateInactive();
+    virtual void updateTransitioning();
+    virtual void updateActive();
+    virtual void drawInactive();
+    virtual void drawTransitioning();
+    virtual void drawActive();
 
     virtual void loadSettings();
 

@@ -84,10 +84,20 @@ void S3NoiseSphere::setup()
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::update()
+void S3NoiseSphere::updateInactive()
 {
-    S3BaseObj::update();
+    updateActive(); // Delete this line if it needs a custom update
+}
 
+///--------------------------------------------------------------
+void S3NoiseSphere::updateTransitioning()
+{
+    updateActive(); // Delete this line if it needs a custom update
+}
+
+///--------------------------------------------------------------
+void S3NoiseSphere::updateActive()
+{
     sphere.rotate(0.3, 0.0, 1.0, 0.0);
     // set sphere radius on sinus
 /*
@@ -98,7 +108,6 @@ void S3NoiseSphere::update()
 
     // perlin noise
     float time = ofGetElapsedTimef();
-
 
 /// trying to change color for each vertex ...
 //    vector<ofFloatColor> sphereVertexColors = sphere.getMesh().getColors();
@@ -138,8 +147,8 @@ void S3NoiseSphere::update()
                 vertexOffset = offset * ofNoise(i / noiseFrequency ,i+1/ noiseFrequency,time/tempo );
                 break;
         }
-        
-        
+
+
         if(doThreshold)
         {
             if((vertexOffset>=thresholdLow)&&(vertexOffset<=thresholdHigh))
@@ -151,11 +160,11 @@ void S3NoiseSphere::update()
                 vertexOffset=0;
             }
         }
-        
+
         ofVec3f newPos = vertexOriginals[i] + vertexOffset * vertexNormals[i];
         sphere.getMesh().setVertex(i, newPos);
     }
-    
+
 
 /*
     // update light colors
@@ -166,10 +175,20 @@ void S3NoiseSphere::update()
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::draw()
+void S3NoiseSphere::drawInactive()
 {
-    S3BaseObj::draw();
+    drawActive(); // Delete this line if it needs a custom draw
+}
 
+///--------------------------------------------------------------
+void S3NoiseSphere::drawTransitioning()
+{
+    drawActive(); // Delete this line if it needs a custom draw
+}
+
+///--------------------------------------------------------------
+void S3NoiseSphere::drawActive()
+{
     camera.begin(viewRectangle);
     {
         //------------------//

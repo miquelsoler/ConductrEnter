@@ -11,7 +11,7 @@
 #include "S3DrumsAmoeba.h"
 #include "S3Drums.h"
 #include "S3NoiseSphere.h"
-#include "S3Object1.h"
+#include "S3ObjectDefault.h"
 
 #include "SettingsManager.h"
 #include "TUIOHandler.h"
@@ -21,7 +21,7 @@ const unsigned int NUM_OBJECTS = 6;
 #pragma mark - Object creation
 
 ///--------------------------------------------------------------
-Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSetup)
+Scene3::Scene3(const string &name, bool singleSetup) : BaseScene(name, singleSetup)
 {
     num_objects = NUM_OBJECTS;
     viewWidth = ofGetWidth() / num_objects;
@@ -38,24 +38,30 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
     // Create scene objects
     float viewOrigin;
     string objectsPath = "settings/scene3/";
-    for (unsigned int i=0; i<NUM_OBJECTS; i++)
+    for (unsigned int i = 0; i < num_objects; i++)
     {
         viewOrigin = i * viewWidth;
         S3BaseObj *object = NULL;
-        switch(i)
+        switch (i)
         {
             case 0:
-                object = new S3Drums(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums.xml"); break;
+                object = new S3Drums(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums.xml");
+                break;
             case 1:
-                object = new S3NoiseSphere(num_objects, i, viewOrigin, viewWidth, objectsPath + "noise_sphere.xml"); break;
+                object = new S3NoiseSphere(num_objects, i, viewOrigin, viewWidth, objectsPath + "noise_sphere.xml");
+                break;
             case 2:
-                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml"); break;
+                object = new S3DrumsAmoeba(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
+                break;
             case 3:
-                object = new S3DrumsAmoeba(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml"); break;
+                object = new S3ObjectDefault(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                break;
             case 4:
-                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml"); break;
+                object = new S3ObjectDefault(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                break;
             case 5:
-                object = new S3Object1(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml"); break;
+                object = new S3ObjectDefault(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                break;
             default:
                 break;
         }
@@ -70,7 +76,7 @@ Scene3::Scene3(const string& name, bool singleSetup) : BaseScene(name, singleSet
 ///--------------------------------------------------------------
 Scene3::~Scene3()
 {
-    for (int i=0; i<num_objects; ++i)
+    for (int i = 0; i < num_objects; ++i)
         delete objects[i];
 
     delete abletonManager;
@@ -81,7 +87,7 @@ Scene3::~Scene3()
 ///--------------------------------------------------------------
 void Scene3::setup()
 {
-    for (unsigned int i=0; i<num_objects; ++i)
+    for (unsigned int i = 0; i < num_objects; ++i)
         objects[i]->setup();
 }
 
@@ -89,7 +95,7 @@ void Scene3::setup()
 void Scene3::update()
 {
     abletonManager->update();
-    for (unsigned int i=0; i<num_objects; ++i)
+    for (unsigned int i = 0; i < num_objects; ++i)
         objects[i]->update();
 }
 
@@ -131,7 +137,7 @@ void Scene3::draw()
 {
     BaseScene::drawPre();
 
-    for (unsigned int i=0; i<num_objects; ++i)
+    for (unsigned int i = 0; i < num_objects; ++i)
         objects[i]->draw();
 
 #ifdef OF_DEBUG
@@ -156,20 +162,21 @@ void Scene3::exit()
 void Scene3::tuioPressed(ofTouchEventArgs &touch)
 {
     ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
-    handlePress((int)screenCoords.x, (int)screenCoords.y, touch.id);
+    handlePress((int) screenCoords.x, (int) screenCoords.y, touch.id);
 }
 
 ///--------------------------------------------------------------
 void Scene3::tuioReleased(ofTouchEventArgs &touch)
 {
     ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
-    handleRelease((int)screenCoords.x, (int)screenCoords.y, touch.id);
+    handleRelease((int) screenCoords.x, (int) screenCoords.y, touch.id);
 }
+
 ///--------------------------------------------------------------
 void Scene3::tuioDragged(ofTouchEventArgs &touch)
 {
     ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
-    handleDrag((int)screenCoords.x, (int)screenCoords.y, touch.id);
+    handleDrag((int) screenCoords.x, (int) screenCoords.y, touch.id);
 }
 
 #pragma mark - Mouse events
@@ -196,32 +203,32 @@ void Scene3::mouseReleased(int x, int y, int button)
 
 ///--------------------------------------------------------------
 /**
- *  If coming from mouse (cursorId == -1)
- *      If object not yet picked
- *          Try to pick it (coords inside object)
- *          If picked
- *              Play Ableton clip
- *              Animate object
- *          Else
- *              Do nothing
- *  If coming from TUIO (cursorId >= 0):
- *      If object not yet picked
- *          Try to pick it (coords inside object)
- *          If picked
- *              Play Ableton clip
- *              Animate object
- *              Add TUIO cursor id to object
- *          Else
- *              Do nothing
- *      Else
- *          Don't pick it again
- *          Add TUIO cursor id to object
- *          Enable pinch
- */
+*  If coming from mouse (cursorId == -1)
+*      If object not yet picked
+*          Try to pick it (coords inside object)
+*          If picked
+*              Play Ableton clip
+*              Animate object
+*          Else
+*              Do nothing
+*  If coming from TUIO (cursorId >= 0):
+*      If object not yet picked
+*          Try to pick it (coords inside object)
+*          If picked
+*              Play Ableton clip
+*              Animate object
+*              Add TUIO cursor id to object
+*          Else
+*              Do nothing
+*      Else
+*          Don't pick it again
+*          Add TUIO cursor id to object
+*          Enable pinch
+*/
 void Scene3::handlePress(int x, int y, int cursorId)
 {
-    if ((x<0) || (x>=ofGetWidth())) return;
-    if ((y<0) || (y>=viewHeight)) return;
+    if ((x < 0) || (x >= ofGetWidth())) return;
+    if ((y < 0) || (y >= viewHeight)) return;
 
     int pressedObjectIndex = getObjectIndexAtX(x);
     S3BaseObj *object = objects[pressedObjectIndex];
@@ -267,8 +274,8 @@ void Scene3::handlePress(int x, int y, int cursorId)
 ///--------------------------------------------------------------
 void Scene3::handleRelease(int x, int y, int cursorId)
 {
-    if ((x<0) || (x>=ofGetWidth())) return;
-    if ((y<0) || (y>=viewHeight)) return;
+    if ((x < 0) || (x >= ofGetWidth())) return;
+    if ((y < 0) || (y >= viewHeight)) return;
 
     int pressedObjectIndex = getObjectIndexAtX(x);
     S3BaseObj *object = objects[pressedObjectIndex];
@@ -290,8 +297,8 @@ void Scene3::handleRelease(int x, int y, int cursorId)
 ///--------------------------------------------------------------
 void Scene3::handleDrag(int x, int y, int cursorId)
 {
-    if ((x<0) || (x>=ofGetWidth())) return;
-    if ((y<0) || (y>=viewHeight)) return;
+    if ((x < 0) || (x >= ofGetWidth())) return;
+    if ((y < 0) || (y >= viewHeight)) return;
 
     int pressedObjectIndex = getObjectIndexAtX(x);
     S3BaseObj *object = objects[pressedObjectIndex];
@@ -349,19 +356,18 @@ void Scene3::tempoChanged(float &newTempo)
 ///--------------------------------------------------------------
 int Scene3::getObjectIndexAtX(int x)
 {
-    return int(floor(x/viewWidth));
+    return int(floor(x / viewWidth));
 }
 
 ///--------------------------------------------------------------
 int Scene3::getClipIndexAtY(int y)
 {
-    return int(floor(y/clipHeight));
+    return int(floor(y / clipHeight));
 }
 
 ///--------------------------------------------------------------
 void Scene3::windowResized(ofResizeEventArgs &args)
 {
-    float viewWidthMargin = viewWidth/4;
     viewWidth = ofGetWidth() / num_objects;
     viewHeight = ofGetHeight();
     clipHeight = viewHeight / NUM_CLIPS;

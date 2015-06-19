@@ -58,12 +58,28 @@ void S3BaseObj::setup()
     camera.setDistance(camDistance);
 
     gui.setPosition(viewOriginX+viewHalfWidth*0.4f, 0);
+
+    currentState = nextState = S3ObjStateInactive;
+    shouldChangeState = false;
 }
 
 ///--------------------------------------------------------------
 void S3BaseObj::update()
 {
     camera.setDistance(camDistance);
+
+    switch(currentState)
+    {
+        case S3ObjStateInactive:
+            updateInactive();
+            break;
+        case S3ObjStateTransitioning:
+            updateTransitioning();
+            break;
+        case S3ObjStateActive:
+            updateActive();
+            break;
+    }
 }
 
 ///--------------------------------------------------------------
@@ -78,6 +94,19 @@ void S3BaseObj::draw()
     ofSetColor(ofColor::gray);
     ofxBitmapString(viewOriginX, viewHalfHeight) << cursorIds.size();
 #endif
+
+    switch(currentState)
+    {
+        case S3ObjStateInactive:
+            drawInactive();
+            break;
+        case S3ObjStateTransitioning:
+            drawTransitioning();
+            break;
+        case S3ObjStateActive:
+            drawActive();
+            break;
+    }
 }
 
 ///--------------------------------------------------------------
@@ -241,20 +270,45 @@ void S3BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
     objPosition.x = oldX;
 }
 
-#pragma mark - Play/stop messages
+#pragma mark - Play/stop messages + state management
 
 ///--------------------------------------------------------------
 void S3BaseObj::play()
 {
     loopAngle = 0;
-    isAnimated = true; // To be removed
+    switch(currentState)
+    {
+        case S3ObjStateInactive:
+            nextState = S3ObjStateTransitioning;
+            shouldChangeState = true;
+            break;
+        case S3ObjStateTransitioning:
+        case S3ObjStateActive:
+            break;
+    }
 }
 
 ///--------------------------------------------------------------
 void S3BaseObj::stop()
 {
     loopAngle = 0;
-    isAnimated = false; // To be removed
+    switch(currentState)
+    {
+        case S3ObjStateActive:
+        case S3ObjStateTransitioning:
+            nextState = S3ObjStateInactive;
+            shouldChangeState = true;
+            break;
+        case S3ObjStateInactive:
+            break;
+    }
+}
+
+///--------------------------------------------------------------
+void S3BaseObj::goToState(S3ObjState newState)
+{
+    nextState = currentState = newState;
+    shouldChangeState = false;
 }
 
 #pragma mark - Ableton events

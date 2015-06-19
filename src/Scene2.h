@@ -28,9 +28,6 @@ public:
     void draw();
     void exit();
 
-    float   circleX, circleY;
-    float   circleRadius;
-
 private:
 
     // TUIO touch events

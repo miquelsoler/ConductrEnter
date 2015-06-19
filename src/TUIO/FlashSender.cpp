@@ -60,7 +60,7 @@
 void _TFLCSLockSemaphore(TFLCSLocalConnection_t* connection);
 void _TFLCSUnlockSemaphore(TFLCSLocalConnection_t* connection);
 
-// returns non-zero if the given connection is in a usable state, zero otherwise
+// returns non-zero if the given connection is in a usable currentState, zero otherwise
 int _TFLCSConnectionStructureIsValidForUse(TFLCSLocalConnection_t* connection);
 
 // On WIN32, we cannot create the shared memory and semaphore ourselves, because

@@ -67,7 +67,7 @@ namespace TUIO {
 		 */ 
 		std::list<TuioPoint> path;
 		/**
-		 * Reflects the current state of the TuioComponent
+		 * Reflects the current currentState of the TuioComponent
 		 */ 
 		int state;
 		/**
@@ -197,7 +197,7 @@ namespace TUIO {
 		virtual void update (TuioContainer *tcon);
 		
 		/**
-		 * Assigns the REMOVE state to this TuioContainer and sets
+		 * Assigns the REMOVE currentState to this TuioContainer and sets
 		 * its TuioTime time stamp to the provided TuioTime argument.
 		 *
 		 * @param	ttime	the TuioTime to assign
@@ -253,8 +253,8 @@ namespace TUIO {
 		virtual float getMotionAccel() const;
 		
 		/**
-		 * Returns the TUIO state of this TuioContainer.
-		 * @return	the TUIO state of this TuioContainer
+		 * Returns the TUIO currentState of this TuioContainer.
+		 * @return	the TUIO currentState of this TuioContainer
 		 */
 		virtual int getTuioState() const;	
 		

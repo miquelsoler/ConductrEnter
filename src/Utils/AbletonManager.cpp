@@ -142,10 +142,10 @@ void AbletonManager::requestGridUpdates()
     ofxOscMessage m;
     m.setAddress("/live/gridupdates");
     m.addIntArg(0); // Window id
-    m.addIntArg(0); // X
-    m.addIntArg(0); // Y
-    m.addIntArg(8); // Width
-    m.addIntArg(12); // Height
+    m.addIntArg(0); // X (from track)
+    m.addIntArg(0); // Y (from clip)
+    m.addIntArg(8); // Width (track width, i.e. number of tracks)
+    m.addIntArg(12); // Height (clip height, i.e. number of clips)
 
     oscSender.sendMessage(m);
 }
@@ -218,19 +218,20 @@ void AbletonManager::onClipPlayingPositionChanged(ofxOscMessage &m)
     /**
     * Response for clip position changes:
     * /clip/playing_position
-    * (int) track
-    * (int) clip
-    * (float) track position (0..1)
+    * N triplets with:
+    *   (int) track
+    *   (int) clip
+    *   (float) track position (0..1)
     */
 
-    int track, clip;
+    int track;
     float position;
 
     int numArgs = m.getNumArgs();
     for (int i=0; i<numArgs; i+=3)
     {
         track = m.getArgAsInt32(i);
-        clip = m.getArgAsInt32(i+1);
+//        clip = m.getArgAsInt32(i+1);
         position = m.getArgAsFloat(i+2);
 
         if (track >= sceneNumObjects) continue;

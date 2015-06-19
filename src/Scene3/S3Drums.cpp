@@ -64,10 +64,20 @@ void S3Drums::setup()
 }
 
 ///--------------------------------------------------------------
-void S3Drums::update()
+void S3Drums::updateInactive()
 {
-    S3BaseObj::update();
+    updateActive(); // Delete this line if it needs a custom update
+}
 
+///--------------------------------------------------------------
+void S3Drums::updateTransitioning()
+{
+    updateActive(); // Delete this line if it needs a custom update
+}
+
+///--------------------------------------------------------------
+void S3Drums::updateActive()
+{
     ofVec3f triangleNormal;
     int size = (int)trianglesOriginal1.size();
 
@@ -90,16 +100,20 @@ void S3Drums::update()
 }
 
 ///--------------------------------------------------------------
-void S3Drums::volumeChanged(float &newVolume)
+void S3Drums::drawInactive()
 {
-    vertexDistance = (newVolume*0.7f) * exp(newVolume * 5.0f);
+    drawActive(); // Delete this line if it needs a custom draw
 }
 
 ///--------------------------------------------------------------
-void S3Drums::draw()
+void S3Drums::drawTransitioning()
 {
-    S3BaseObj::draw();
+    drawActive(); // Delete this line if it needs a custom draw
+}
 
+///--------------------------------------------------------------
+void S3Drums::drawActive()
+{
     camera.begin(viewRectangle);
 
     ofSetColor(ofColor::white);
@@ -114,7 +128,13 @@ void S3Drums::draw()
     camera.end();
 }
 
-/////--------------------------------------------------------------
+///--------------------------------------------------------------
+void S3Drums::volumeChanged(float &newVolume)
+{
+    vertexDistance = (newVolume*0.7f) * exp(newVolume * 5.0f);
+}
+
+//--------------------------------------------------------------
 void S3Drums::setPositionFromScreenCoords(int screenX, int screenY)
 {
     S3BaseObj::setPositionFromScreenCoords(screenX, screenY);

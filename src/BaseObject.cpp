@@ -27,9 +27,3 @@ BaseObject::BaseObject(unsigned int numObjects, unsigned int objectIndex, float 
 
     ofAddListener(ofEvents().windowResized, this, &BaseObject::windowResized);
 }
-
-///--------------------------------------------------------------
-float BaseObject::getViewOriginX()
-{
-    return viewOriginX;
-}

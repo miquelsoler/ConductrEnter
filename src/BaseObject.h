@@ -25,7 +25,6 @@ public:
     virtual ~BaseObject() {}
 
     virtual void setPositionFromScreenCoords(int screenX, int screenY) = 0;
-    float getViewOriginX();
 
 protected:
     // Listener method to detect window changes

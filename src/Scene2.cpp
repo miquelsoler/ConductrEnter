@@ -51,7 +51,7 @@ void Scene2::draw()
 {
     BaseScene::drawPre();
 
-    videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight() );
+    videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
 
     BaseScene::drawPost();
 }

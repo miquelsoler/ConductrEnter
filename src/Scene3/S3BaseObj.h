@@ -19,6 +19,15 @@
 #include "ofxGui.h"
 #include "ofTrueTypeFont.h"
 
+
+typedef enum
+{
+    S3ObjStateInactive = 0,
+    S3ObjStateTransitioning = 1,
+    S3ObjStateActive = 2
+} S3ObjState;
+
+
 class S3BaseObj : public BaseObject
 {
 public:
@@ -27,7 +36,13 @@ public:
 
     virtual void setup();
     virtual void update();
+    virtual void updateInactive() = 0;
+    virtual void updateTransitioning() = 0;
+    virtual void updateActive() = 0;
     virtual void draw();
+    virtual void drawInactive() = 0;
+    virtual void drawTransitioning() = 0;
+    virtual void drawActive() = 0;
 
     bool pick(int screenX, int screenY);
     void unpick();
@@ -50,6 +65,8 @@ public:
 
 protected:
 
+    void goToState(S3ObjState newState);
+
     void drawLoop();
     void drawWhiteCircle();
     void drawPinchCircle();
@@ -62,9 +79,13 @@ protected:
     ofEasyCam           camera;
     ofParameter<int>    camDistance;
 
+    // Object state
+    S3ObjState currentState;
+    S3ObjState nextState;
+    bool shouldChangeState;
+
     // Object parameters
     float               radius;
-    bool                isAnimated = false;
     bool                isPicked = false;
 
     // Circles
