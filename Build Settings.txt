@@ -1,0 +1,11 @@
+Building in AppCode requires:
+    Open the project in Xcode
+    Go to ConductrEnter target
+    Go to Build Settings
+    In Architectures select "32-bit Intel (i386)"
+
+Final version should be compiled with Xcode and native architecture. To do so:
+    Open the project in Xcode
+    Go to ConductrEnter target
+    Go to Build Settings
+    In Architectures select "Other", remove the current one and manually add $(NATIVE_ARCH)
