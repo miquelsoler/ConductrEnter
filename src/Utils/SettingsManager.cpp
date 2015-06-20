@@ -33,7 +33,7 @@ bool SettingsManager::loadSettings()
 
     // Scene management
     sceneFirstScene = json["Scenes"]["First Scene"].asUInt();
-    scene1IntroLoopFrame = json["Scenes"]["Intro Loop Frame"].asUInt();
+    scene1IntroLoopFrame = json["Scenes"]["Scene1 Intro Loop Frame"].asUInt();
     sceneFadeInMilliseconds = json["Scenes"]["FadeIn Milliseconds"].asUInt();
     sceneFadeOutMilliseconds = json["Scenes"]["FadeOut Milliseconds"].asUInt();
     scene3TimerMilliseconds = json["Scenes"]["Scene3 Timer Milliseconds"].asUInt();

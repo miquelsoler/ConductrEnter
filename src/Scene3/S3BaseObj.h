@@ -36,13 +36,7 @@ public:
 
     virtual void setup();
     virtual void update();
-    virtual void updateInactive() = 0;
-    virtual void updateTransitioning() = 0;
-    virtual void updateActive() = 0;
     virtual void draw();
-    virtual void drawInactive() = 0;
-    virtual void drawTransitioning() = 0;
-    virtual void drawActive() = 0;
 
     bool pick(int screenX, int screenY);
     void unpick();
@@ -65,7 +59,23 @@ public:
 
 protected:
 
-    void goToState(S3ObjState newState);
+    // Managing states
+
+    void changeState();
+
+    virtual void initInactive() = 0;
+    virtual void updateInactive() = 0;
+    virtual void drawInactive() = 0;
+
+    virtual void initTransitioning() = 0;
+    virtual void updateTransitioning() = 0;
+    virtual void drawTransitioning() = 0;
+
+    virtual void initActive() = 0;
+    virtual void updateActive() = 0;
+    virtual void drawActive() = 0;
+
+    // Extra draws
 
     void drawLoop();
     void drawWhiteCircle();
@@ -78,39 +88,40 @@ protected:
     bool                isFirstSetup;
 
     // Camera & viewport
-    ofEasyCam           camera;
-    ofParameter<int>    camDistance;
+    ofEasyCam               camera;
+    ofParameter<int>        camDistance;
 
     // Object state
-    S3ObjState          currentState;
-    S3ObjState          nextState;
-    bool                shouldChangeState;
+    S3ObjState              currentState;
+    S3ObjState              nextState;
+    bool                    shouldChangeState;
+    ofEvent<void>           eventChangeState;
 
     // Object parameters
-    float               radius;
-    bool                isPicked = false;
+    float                   radius;
+    bool                    isPicked = false;
 
     // Circles
-    ofParameter<float>  whiteCircleRadius;
-    ofImage             pinchImage;
-    float               pinchImageSize;
-    unsigned int        pinchImageAlpha;
-    unsigned int        pinchImageAlphaMin, pinchImageAlphaMax;
+    ofParameter<float>      whiteCircleRadius;
+    ofImage                 pinchImage;
+    float                   pinchImageSize;
+    unsigned int            pinchImageAlpha;
+    unsigned int            pinchImageAlphaMin, pinchImageAlphaMax;
 
     // TUIO
-    list<int>           cursorIds;
-    bool                pinchEnabled = false;
-    float               pinchInitialDist;
+    list<int>               cursorIds;
+    bool                    pinchEnabled = false;
+    float                   pinchInitialDist;
 
     // Loop arc
-    ofPolyline          loopArc;
-    ofParameter<int>    loopRadius;
-    ofParameter<int>    loopInitialAngle;
-    float               loopAngle = 0;
+    ofPolyline              loopArc;
+    ofParameter<int>        loopRadius;
+    ofParameter<int>        loopInitialAngle;
+    float                   loopAngle = 0;
 
     // GUI
-    ofxPanel            gui;
-    string              settingsPath;
+    ofxPanel                gui;
+    string                  settingsPath;
 };
 
 #endif /* defined(__ConductrEnter__S4BaseObj__) */

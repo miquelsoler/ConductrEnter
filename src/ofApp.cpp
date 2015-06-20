@@ -24,8 +24,10 @@ void ofApp::setup()
     // TUIO
     TUIOHandler::getInstance().init();
 
-    // Scenes
+    // Tweenzor (must call this before adding any tweens)
+    Tweenzor::init();
 
+    // Scenes
     Scene1 *scene1 = new Scene1("Scene1", true);
     ofAddListener(scene1->eventGoToNextScene, this, &ofApp::goToNextScene);
     sceneManager.add(scene1);

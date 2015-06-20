@@ -34,6 +34,8 @@ S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     settingsPath = _settingsPath;
 
     isFirstSetup = true;
+
+    ofAddListener(eventChangeState, this, &S3BaseObj::changeState);
 }
 
 ///--------------------------------------------------------------
@@ -61,8 +63,12 @@ void S3BaseObj::setup()
 
     gui.setPosition(viewOriginX+viewHalfWidth*0.4f, 0);
 
+    loopAngle = 0;
+
     currentState = nextState = S3ObjStateInactive;
     shouldChangeState = false;
+
+    initInactive();
 }
 
 ///--------------------------------------------------------------
@@ -114,6 +120,8 @@ void S3BaseObj::draw()
 ///--------------------------------------------------------------
 void S3BaseObj::drawLoop()
 {
+//    if (currentState != S3ObjStateActive) return;
+
     ofSetLineWidth(2);
 
     // Draw full gray loop arc
@@ -300,6 +308,7 @@ void S3BaseObj::stop()
         case S3ObjStateTransitioning:
             nextState = S3ObjStateInactive;
             shouldChangeState = true;
+            changeState();
             break;
         case S3ObjStateInactive:
             break;
@@ -307,10 +316,22 @@ void S3BaseObj::stop()
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::goToState(S3ObjState newState)
+void S3BaseObj::changeState()
 {
-    nextState = currentState = newState;
+    currentState = nextState;
     shouldChangeState = false;
+    switch(currentState)
+    {
+        case S3ObjStateInactive:
+            initInactive();
+            break;
+        case S3ObjStateTransitioning:
+            initTransitioning();
+            break;
+        case S3ObjStateActive:
+            initActive();
+            break;
+    }
 }
 
 #pragma mark - Ableton events

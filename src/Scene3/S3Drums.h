@@ -36,6 +36,10 @@ public:
 
 private:
 
+    virtual void initInactive() {};
+    virtual void initTransitioning() {};
+    virtual void initActive() {};
+
     virtual void volumeChanged(float &newVolume);
     virtual void windowResized(ofResizeEventArgs &args);
 

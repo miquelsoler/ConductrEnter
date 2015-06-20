@@ -21,11 +21,6 @@ void Scene1::setup()
     videoPlayer.setLoopState(OF_LOOP_NONE);
     videoState = Loop;
     loopFrame = SettingsManager::getInstance().scene1IntroLoopFrame;
-
-    /// TWEENZOR
-    // must call this before adding any tweens
-	Tweenzor::init();
-
 }
 
 ///--------------------------------------------------------------

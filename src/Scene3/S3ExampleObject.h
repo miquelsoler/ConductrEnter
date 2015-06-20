@@ -21,12 +21,6 @@ public:
     S3ExampleObject(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
-    virtual void updateInactive();
-    virtual void updateTransitioning();
-    virtual void updateActive();
-    virtual void drawInactive();
-    virtual void drawTransitioning();
-    virtual void drawActive();
 
     virtual void loadSettings();
 
@@ -34,12 +28,27 @@ public:
 
 private:
 
-    void updateRotation();
+    virtual void initInactive();
+    void onCompleteInactive(float* arg);
+    virtual void updateInactive();
+    virtual void drawInactive();
+
+    virtual void initTransitioning();
+    void onCompleteTransitioning(float* arg);
+    virtual void updateTransitioning();
+    virtual void drawTransitioning();
+
+    virtual void initActive();
+    void onCompleteActive(float* arg);
+    virtual void updateActive();
+    virtual void drawActive();
+
+//    void updateRotation();
 
     virtual void volumeChanged(float &newVolume) {};
 
     ofSpherePrimitive   sphere;
-    float               initialRotation;
+    float               sphereScale;
 };
 
 #endif /* defined(__ConductrEnter__S3ExampleObject__) */
