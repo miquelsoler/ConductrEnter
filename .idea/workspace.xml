@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Drums.h" afterPath="$PROJECT_DIR$/src/Scene3/S3Drums.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.h" afterPath="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3ExampleObject.h" afterPath="$PROJECT_DIR$/src/Scene3/S3ExampleObject.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3NoiseSphere.h" afterPath="$PROJECT_DIR$/src/Scene3/S3NoiseSphere.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="1.2618772" vertical-offset="1356" max-vertical-offset="2565">
-              <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
+              <caret line="163" column="56" selection-start-line="163" selection-start-column="56" selection-end-line="163" selection-end-column="56" />
               <folding>
                 <element signature="e#101#129#0" expanded="true" />
               </folding>
@@ -492,7 +487,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1074" y="80" width="1315" height="1356" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -506,7 +501,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990506" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14760914" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21715611" sideWeight="0.4995958" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27373418" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27373418" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -935,7 +930,7 @@
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2618772" vertical-offset="1356" max-vertical-offset="2565">
-          <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
+          <caret line="163" column="56" selection-start-line="163" selection-start-column="56" selection-end-line="163" selection-end-column="56" />
           <folding>
             <element signature="e#101#129#0" expanded="true" />
           </folding>

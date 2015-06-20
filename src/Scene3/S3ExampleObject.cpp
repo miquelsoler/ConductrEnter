@@ -161,5 +161,5 @@ void S3ExampleObject::setPositionFromScreenCoords(int screenX, int screenY)
 ///--------------------------------------------------------------
 void S3ExampleObject::volumeChanged(float &newVolume)
 {
-    sphereColor = ofColor(ofMap(newVolume, 0.0f, 1.0f, 10.0f, 255.0f));
+    sphereColor = ofColor(ofMap(newVolume, 0.0f, 1.0f, 40.0f, 255.0f));
 }
