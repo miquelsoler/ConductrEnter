@@ -11,7 +11,7 @@
 #include "S3DrumsAmoeba.h"
 #include "S3Drums.h"
 #include "S3NoiseSphere.h"
-#include "S3ObjectDefault.h"
+#include "S3ExampleObject.h"
 
 #include "SettingsManager.h"
 #include "TUIOHandler.h"
@@ -54,13 +54,13 @@ Scene3::Scene3(const string &name, bool singleSetup) : BaseScene(name, singleSet
                 object = new S3DrumsAmoeba(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
                 break;
             case 3:
-                object = new S3ObjectDefault(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                object = new S3ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
                 break;
             case 4:
-                object = new S3ObjectDefault(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                object = new S3ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
                 break;
             case 5:
-                object = new S3ObjectDefault(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                object = new S3ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
                 break;
             default:
                 break;
@@ -87,8 +87,6 @@ Scene3::~Scene3()
 ///--------------------------------------------------------------
 void Scene3::setup()
 {
-    for (unsigned int i = 0; i < num_objects; ++i)
-        objects[i]->setup();
 }
 
 ///--------------------------------------------------------------
@@ -116,6 +114,9 @@ void Scene3::updateEnter()
 
     // Stop all playing clips, just in case (for demo purposes)
     abletonManager->stopAll();
+
+    for (unsigned int i=0; i<num_objects; ++i)
+        objects[i]->setup();
 
     BaseScene::updateEnter();
 }

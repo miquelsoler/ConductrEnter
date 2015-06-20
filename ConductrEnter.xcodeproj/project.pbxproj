@@ -24,7 +24,7 @@
 		29B40A4DB56C3F8ECA94E7E9 /* TuioDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0891620C23D47639D8AEE84 /* TuioDispatcher.cpp */; };
 		2A0B4EA01B2C7C600033F462 /* TUIOHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A0B4E9E1B2C7C600033F462 /* TUIOHandler.cpp */; };
 		2A5C319D1B299BD400E713F3 /* S3Drums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C319B1B299BD400E713F3 /* S3Drums.cpp */; };
-		2AA9B6BD1B349F8F00BFED62 /* S3ObjectDefault.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AA9B6BB1B349F8F00BFED62 /* S3ObjectDefault.cpp */; };
+		2AA9B6BD1B349F8F00BFED62 /* S3ExampleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AA9B6BB1B349F8F00BFED62 /* S3ExampleObject.cpp */; };
 		2C94348B3606F2B01C9F2E69 /* Simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF750ABAF3178C5BC6A8C233 /* Simulator.cpp */; };
 		38BA747C7CB7F8F8913375B6 /* ofxSimpleTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F1B28BB2551E443EFD686DD /* ofxSimpleTimer.cpp */; };
 		3C9E8F6D5A107A2CE1F7F0C3 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4AA5936821E0FA89447F332 /* Renderer.cpp */; };
@@ -211,8 +211,8 @@
 		2A5C319B1B299BD400E713F3 /* S3Drums.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3Drums.cpp; path = Scene3/S3Drums.cpp; sourceTree = "<group>"; };
 		2A5C319C1B299BD400E713F3 /* S3Drums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Drums.h; path = Scene3/S3Drums.h; sourceTree = "<group>"; };
 		2A9DFB8F1B289B58005BFCB9 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = bin/data; sourceTree = "<group>"; };
-		2AA9B6BB1B349F8F00BFED62 /* S3ObjectDefault.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3ObjectDefault.cpp; path = Scene3/S3ObjectDefault.cpp; sourceTree = "<group>"; };
-		2AA9B6BC1B349F8F00BFED62 /* S3ObjectDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ObjectDefault.h; path = Scene3/S3ObjectDefault.h; sourceTree = "<group>"; };
+		2AA9B6BB1B349F8F00BFED62 /* S3ExampleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3ExampleObject.cpp; path = Scene3/S3ExampleObject.cpp; sourceTree = "<group>"; };
+		2AA9B6BC1B349F8F00BFED62 /* S3ExampleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ExampleObject.h; path = Scene3/S3ExampleObject.h; sourceTree = "<group>"; };
 		2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxml.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = SOURCE_ROOT; };
 		2C7CF000B7B4F782C187C353 /* json.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = json.h; path = ../../../addons/ofxJSON/libs/jsoncpp/include/json/json.h; sourceTree = SOURCE_ROOT; };
 		2EB51DAB3FDC5557D2DBABB6 /* UdpSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UdpSender.h; path = src/TUIO/UdpSender.h; sourceTree = SOURCE_ROOT; };
@@ -842,8 +842,8 @@
 				FB85E31F89901FCC7D44F94E /* S3DrumsAmoeba.h */,
 				FB1F7C6505FC232176A74775 /* S3NoiseSphere.cpp */,
 				24E837B3A82AD01250ABEBBD /* S3NoiseSphere.h */,
-				2AA9B6BB1B349F8F00BFED62 /* S3ObjectDefault.cpp */,
-				2AA9B6BC1B349F8F00BFED62 /* S3ObjectDefault.h */,
+				2AA9B6BB1B349F8F00BFED62 /* S3ExampleObject.cpp */,
+				2AA9B6BC1B349F8F00BFED62 /* S3ExampleObject.h */,
 			);
 			name = Scene3;
 			sourceTree = "<group>";
@@ -1358,7 +1358,7 @@
 				FB84AAF8D1B7A95266DB5C09 /* jsoncpp.cpp in Sources */,
 				5D70EAB5E25CD99800CAF838 /* ofxTuioClient.cpp in Sources */,
 				B5B2F1EE373389DA8C5147A7 /* ofxTuioServer.cpp in Sources */,
-				2AA9B6BD1B349F8F00BFED62 /* S3ObjectDefault.cpp in Sources */,
+				2AA9B6BD1B349F8F00BFED62 /* S3ExampleObject.cpp in Sources */,
 				6205DF95C4D4CD36CC5A274C /* Tween.cpp in Sources */,
 				124BB58EFBC1472D607D739B /* Tweenzor.cpp in Sources */,
 			);

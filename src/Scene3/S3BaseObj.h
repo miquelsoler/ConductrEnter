@@ -75,14 +75,16 @@ protected:
     void initSharedSettings();
     virtual void windowResized(ofResizeEventArgs &args);
 
+    bool                isFirstSetup;
+
     // Camera & viewport
     ofEasyCam           camera;
     ofParameter<int>    camDistance;
 
     // Object state
-    S3ObjState currentState;
-    S3ObjState nextState;
-    bool shouldChangeState;
+    S3ObjState          currentState;
+    S3ObjState          nextState;
+    bool                shouldChangeState;
 
     // Object parameters
     float               radius;

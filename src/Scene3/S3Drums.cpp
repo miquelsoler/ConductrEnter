@@ -47,20 +47,26 @@ void S3Drums::setup()
 
     camera.setTarget(sphere1);
 
-    trianglesOriginal1 = sphere1.getMesh().getUniqueFaces();
-    trianglesCurrent1 = sphere1.getMesh().getUniqueFaces();
-    trianglesOriginal2 = sphere2.getMesh().getUniqueFaces();
-    trianglesCurrent2 = sphere2.getMesh().getUniqueFaces();
-
     vertexDistance = 1;
 
-    int size = (int)trianglesOriginal1.size();
     noises1.clear();
     noises2.clear();
-    for (int i=0; i<size; i++) {
-        noises1.push_back(ofRandom(1));
-        noises2.push_back(ofRandom(1));
+
+    if (isFirstSetup)
+    {
+        trianglesOriginal1 = sphere1.getMesh().getUniqueFaces();
+        trianglesCurrent1 = sphere1.getMesh().getUniqueFaces();
+        trianglesOriginal2 = sphere2.getMesh().getUniqueFaces();
+        trianglesCurrent2 = sphere2.getMesh().getUniqueFaces();
+
+        int size = (int)trianglesOriginal1.size();
+        for (int i=0; i<size; i++) {
+            noises1.push_back(ofRandom(1));
+            noises2.push_back(ofRandom(1));
+        }
     }
+
+    isFirstSetup = false;
 }
 
 ///--------------------------------------------------------------

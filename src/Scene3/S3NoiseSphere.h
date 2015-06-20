@@ -35,8 +35,7 @@ private:
 
     virtual void volumeChanged(float &newVolume) {};
 
-    ofImage             imgColorsCircle;
-    ofSpherePrimitive   sphere;
+    ofSpherePrimitive       sphere;
     vector<ofMeshFace>      sphereFacesOriginal;
     vector<ofMeshFace>      sphereFacesCurrent;
     vector<ofVec3f>         vertexNormals;
@@ -51,10 +50,6 @@ private:
     ofParameter<int>        thresholdHigh;
     ofParameter<float>      offset;
     ofParameter<int>        mode;
-
-    int                     noiseStartX, noiseStartY;
-
-
 };
 
 #endif /* defined(__ConductrEnter__S3NoiseSphere__) */

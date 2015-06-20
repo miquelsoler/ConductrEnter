@@ -47,9 +47,6 @@ void S3NoiseSphere::setup()
     ofSetCircleResolution(64);
     glPointSize(2.0);
 
-    // color image: candidat a codi comœ
-    imgColorsCircle.loadImage("objects/color_circle.png");
-
     sphere.setRadius(radius);
     sphere.setResolution(32);
     sphere.setPosition(objPosition);
@@ -72,15 +69,17 @@ void S3NoiseSphere::setup()
     pointLight3.setPosition(ofGetWidth()/4,(ofGetHeight()/4)*3,200);
 */
 
-    sphereFacesOriginal = sphere.getMesh().getUniqueFaces();
-    sphereFacesCurrent = sphere.getMesh().getUniqueFaces();
+    if (isFirstSetup)
+    {
+        sphereFacesOriginal = sphere.getMesh().getUniqueFaces();
+        sphereFacesCurrent = sphere.getMesh().getUniqueFaces();
 
-    vertexOffset = 140;
-    vertexNormals = sphere.getMesh().getNormals();
-    vertexOriginals = sphere.getMesh().getVertices();
+        vertexOffset = 140;
+        vertexNormals = sphere.getMesh().getNormals();
+        vertexOriginals = sphere.getMesh().getVertices();
+    }
 
-    noiseStartX = 0;
-    noiseStartY = 0;
+    isFirstSetup = false;
 }
 
 ///--------------------------------------------------------------
@@ -212,17 +211,6 @@ void S3NoiseSphere::drawActive()
 /*
         ofDisableDepthTest();
         //------------------//
-*/
-
-/*
-        // color image
-        ofSetColor(ofFloatColor(1.0,1.0,1.0,ofMap(mouseInteractionX,0.0,1.0,0.0,0.55)));
-        imgColorsCircle.setAnchorPercent(0.5,0.5);
-*/
-
-/*
-        float circleSize = ofMap(mouseInteractionX,0.0,1.0,60.0,200);
-        imgColorsCircle.draw(ofGetWidth()/2,ofGetHeight()/2,circleSize,circleSize);
 */
 
         drawWhiteCircle();

@@ -62,24 +62,25 @@ void S3DrumsAmoeba::setup()
     pointLight3.setSpecularColor( ofFloatColor(1.0,1.0,1.0) );
 
     // shader
-    shader.load("objects/drums_amoeba/shaders/shader");
+
+    if (!shader.isLoaded())
+        shader.load("objects/drums_amoeba/shaders/shader");
     ofDisableArbTex();
 
-    // color image: candidat a codi comœ
-    imgColorsCircle.loadImage("objects/color_circle.png");
-
     /// CREATE NOISE IMAGE
-    noiseImage.allocate(100, 100, OF_IMAGE_GRAYSCALE);
-    noisePixels.allocate(100, 100, 1);
-
-    for(int i=0;i<100;i++)
+    if (isFirstSetup)
     {
-        for(int j=0;j<100;j++)
-        {
-            noisePixels[((j*100)+i)*1] = 255;
-        }
+        noisePixels.allocate(100, 100, 1);
+        noiseImage.allocate(100, 100, OF_IMAGE_GRAYSCALE);
+
+        for(int i=0;i<100;i++)
+            for(int j=0;j<100;j++)
+                noisePixels[((j*100)+i)*1] = 255;
+
+        noiseImage.setFromPixels(noisePixels);
     }
-    noiseImage.setFromPixels(noisePixels);
+
+    isFirstSetup = false;
 }
 
 ///--------------------------------------------------------------
@@ -201,10 +202,6 @@ void S3DrumsAmoeba::drawActive()
 */
 
         ofSetColor(ofColor::gray);
-        imgColorsCircle.setAnchorPercent(0.5,0.5);
-        float circleSize = 40.0;
-//        imgColorsCircle.draw(objPosition.x, objPosition.y, circleSize, circleSize);
-
         drawWhiteCircle();
         if (pinchEnabled) drawPinchCircle();
         drawLoop();

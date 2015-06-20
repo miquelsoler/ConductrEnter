@@ -1,24 +1,24 @@
 //
-//  S3ObjectDefault.h
+//  S3ExampleObject.h
 //  ConductrEnter
 //
-//  Created by Miquel �ngel Soler on 24/5/15.
+//  Created by Miquel Àngel Soler on 24/5/15.
 //
 //
 
 #pragma once
 
-#ifndef __ConductrEnter__S3ObjectDefault__
-#define __ConductrEnter__S3ObjectDefault__
+#ifndef __ConductrEnter__S3ExampleObject__
+#define __ConductrEnter__S3ExampleObject__
 
 #include <stdio.h>
 #include "S3BaseObj.h"
 #include "of3dGraphics.h"
 
-class S3ObjectDefault : public S3BaseObj
+class S3ExampleObject : public S3BaseObj
 {
 public:
-    S3ObjectDefault(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
+    S3ExampleObject(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
     virtual void updateInactive();
@@ -42,4 +42,4 @@ private:
     float               initialRotation;
 };
 
-#endif /* defined(__ConductrEnter__S3ObjectDefault__) */
+#endif /* defined(__ConductrEnter__S3ExampleObject__) */

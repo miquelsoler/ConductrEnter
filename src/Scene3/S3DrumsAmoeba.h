@@ -53,7 +53,6 @@ private:
     ofParameter<float>      offset;
 
     // Candidats a moure a l'objecte base
-    ofImage imgColorsCircle;
     ofLight     pointLight1;
     ofLight     pointLight2;
     ofLight     pointLight3;

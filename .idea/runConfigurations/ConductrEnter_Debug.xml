@@ -5,7 +5,9 @@
       <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
     </EXTENSION>
     <RunnerSettings RunnerId="AppRunner" />
+    <RunnerSettings RunnerId="InstrumentsRunner" />
     <ConfigurationWrapper RunnerId="AppRunner" />
+    <ConfigurationWrapper RunnerId="InstrumentsRunner" />
     <method />
   </configuration>
 </component>

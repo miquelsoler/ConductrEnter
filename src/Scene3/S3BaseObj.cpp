@@ -32,6 +32,8 @@ S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     pinchImageAlpha = pinchImageAlphaMin;
 
     settingsPath = _settingsPath;
+
+    isFirstSetup = true;
 }
 
 ///--------------------------------------------------------------
