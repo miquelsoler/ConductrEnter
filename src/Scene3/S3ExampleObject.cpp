@@ -117,10 +117,6 @@ void S3ExampleObject::initActive()
 {
 }
 
-void S3ExampleObject::onCompleteActive(float* arg)
-{
-}
-
 void S3ExampleObject::updateActive()
 {
 }
@@ -130,14 +126,13 @@ void S3ExampleObject::drawActive()
     camera.begin(viewRectangle);
     {
         ofSetLineWidth(1);
-        ofColor color;
         switch(currentState)
         {
-            case S3ObjStateInactive:        color = ofColor::red; break;
-            case S3ObjStateTransitioning:   color = ofColor::orange; break;
-            case S3ObjStateActive:          color = ofColor::green; break;
+            case S3ObjStateInactive:        sphereColor = ofColor::red; break;
+            case S3ObjStateTransitioning:   sphereColor = ofColor::orange; break;
+            default:                        break;
         }
-        ofSetColor(color);
+        ofSetColor(sphereColor);
         sphere.setScale(sphereScale);
         float spinX = sin(ofGetElapsedTimef()*.35f);
         float spinY = cos(ofGetElapsedTimef()*.075f);
@@ -163,14 +158,8 @@ void S3ExampleObject::setPositionFromScreenCoords(int screenX, int screenY)
     sphere.setPosition(objPosition);
 }
 
-#pragma mark -
-
-/////--------------------------------------------------------------
-//void S3ExampleObject::updateRotation()
-//{
-//    float spinX = sin(initialRotation + ofGetElapsedTimef()*.35f);
-//    float spinY = cos(initialRotation + ofGetElapsedTimef()*.075f);
-//
-//    sphere.rotate(spinX, 1.0, 0.0, 0.0);
-//    sphere.rotate(spinY, 0.0, 1.0, 0.0);
-//}
+///--------------------------------------------------------------
+void S3ExampleObject::volumeChanged(float &newVolume)
+{
+    sphereColor = ofColor(ofMap(newVolume, 0.0f, 1.0f, 10.0f, 255.0f));
+}

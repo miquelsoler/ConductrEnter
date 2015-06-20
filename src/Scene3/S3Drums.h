@@ -23,13 +23,6 @@ public:
     S3Drums(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
-    virtual void updateInactive();
-    virtual void updateTransitioning();
-    virtual void updateActive();
-    virtual void drawInactive();
-    virtual void drawTransitioning();
-    virtual void drawActive();
-
     virtual void loadSettings();
 
     virtual void setPositionFromScreenCoords(int screenX, int screenY);
@@ -37,8 +30,16 @@ public:
 private:
 
     virtual void initInactive() {};
+    virtual void updateInactive();
+    virtual void drawInactive();
+
     virtual void initTransitioning() {};
+    virtual void updateTransitioning();
+    virtual void drawTransitioning();
+
     virtual void initActive() {};
+    virtual void updateActive();
+    virtual void drawActive();
 
     virtual void volumeChanged(float &newVolume);
     virtual void windowResized(ofResizeEventArgs &args);

@@ -21,9 +21,7 @@ public:
     S3ExampleObject(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
-
     virtual void loadSettings();
-
     virtual void setPositionFromScreenCoords(int screenX, int screenY);
 
 private:
@@ -39,16 +37,16 @@ private:
     virtual void drawTransitioning();
 
     virtual void initActive();
-    void onCompleteActive(float* arg);
     virtual void updateActive();
     virtual void drawActive();
 
 //    void updateRotation();
 
-    virtual void volumeChanged(float &newVolume) {};
+    virtual void volumeChanged(float &newVolume);
 
     ofSpherePrimitive   sphere;
     float               sphereScale;
+    ofColor             sphereColor;
 };
 
 #endif /* defined(__ConductrEnter__S3ExampleObject__) */
