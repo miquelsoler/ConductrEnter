@@ -11,6 +11,7 @@
 #include "S3DrumsAmoeba.h"
 #include "S3Drums.h"
 #include "S3NoiseSphere.h"
+#include "S3Synthesizer.h"
 #include "S3ExampleObject.h"
 
 #include "SettingsManager.h"
@@ -54,7 +55,7 @@ Scene3::Scene3(const string &name, bool singleSetup) : BaseScene(name, singleSet
                 object = new S3DrumsAmoeba(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
                 break;
             case 3:
-                object = new S3ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                object = new S3Synthesizer(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
                 break;
             case 4:
                 object = new S3ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
