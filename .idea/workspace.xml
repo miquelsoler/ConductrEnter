@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/obj1.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/example.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3ExampleObject.h" afterPath="$PROJECT_DIR$/src/Scene3/S3ExampleObject.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.h" afterPath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3.cpp" afterPath="$PROJECT_DIR$/src/Scene3.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/example.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/example.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,41 +39,29 @@
           <file leaf-file-name="S3Synthesizer.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
-                  <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+                  <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="S3Synthesizer.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ofGraphics.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofGraphics.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-10.925926" vertical-offset="11780" max-vertical-offset="16965">
+                  <caret line="815" column="13" selection-start-line="815" selection-start-column="5" selection-end-line="815" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="S3Synthesizer.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2520">
-                  <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.35502958" vertical-offset="1830" max-vertical-offset="3090">
+                  <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="drums.xml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/drums.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-                  <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Scene3.cpp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Scene3.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5743983" vertical-offset="195" max-vertical-offset="5730">
-                  <caret line="48" column="92" selection-start-line="48" selection-start-column="92" selection-end-line="48" selection-end-column="92" />
-                  <folding>
-                    <element signature="e#92#111#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -96,8 +83,8 @@
           <file leaf-file-name="S3ExampleObject.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.0164114" vertical-offset="121" max-vertical-offset="2505">
-                  <caret line="70" column="28" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="28" />
+                <state vertical-scroll-proportion="0.4871795" vertical-offset="121" max-vertical-offset="2505">
+                  <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
                   <folding>
                     <element signature="e#101#129#0" expanded="true" />
                   </folding>
@@ -128,8 +115,6 @@
         <option value="$PROJECT_DIR$/bin/data/objects/drums_amoeba/shaders/shader.vert" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Object4.h" />
         <option value="$PROJECT_DIR$/src/Utils/SettingsManager.h" />
-        <option value="$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml" />
-        <option value="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/obj1.xml" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/Utils/AbletonManager.h" />
@@ -157,9 +142,13 @@
         <option value="$PROJECT_DIR$/src/Scene3/S3Drums.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S3ExampleObject.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene3.cpp" />
+        <option value="$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml" />
+        <option value="$PROJECT_DIR$/bin/data/settings/scene3/example.xml" />
+        <option value="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" />
+        <option value="$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Synthesizer.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene3.cpp" />
       </list>
     </option>
   </component>
@@ -265,6 +254,54 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="openFrameworksLib" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConductrEnter" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openFrameworksLib" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConductrEnter" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openFrameworksLib" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="math" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -495,11 +532,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3346519" sideWeight="0.5007728" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16702586" sideWeight="0.5004042" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19099379" sideWeight="0.4996535" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19099379" sideWeight="0.4996535" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990506" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14760914" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13096352" sideWeight="0.4995958" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26863354" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26863354" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -556,55 +593,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Utils/TUIOHandler.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/TUIOHandler.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1095">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/AbletonManager.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70388347" vertical-offset="0" max-vertical-offset="1236">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene2.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8883375" vertical-offset="126" max-vertical-offset="1335">
-          <caret line="81" column="23" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/Defaults.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="994">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1170">
-          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofImage.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.814815" vertical-offset="2180" max-vertical-offset="8055">
-          <caret line="167" column="45" selection-start-line="167" selection-start-column="39" selection-end-line="167" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/gl/ofShader.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1454" max-vertical-offset="13020">
@@ -703,13 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/math/ofMath.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="4770">
-          <caret line="85" column="6" selection-start-line="85" selection-start-column="6" selection-end-line="85" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3NoiseSphere.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25444266" vertical-offset="0" max-vertical-offset="1238">
@@ -780,13 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="994">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/types/ofParameter.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37191013" vertical-offset="824" max-vertical-offset="12060">
@@ -829,13 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofGraphics.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3329283" vertical-offset="8921" max-vertical-offset="16965">
-          <caret line="623" column="5" selection-start-line="623" selection-start-column="5" selection-end-line="623" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3015" max-vertical-offset="5310">
@@ -867,7 +834,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
-            <element signature="e#176#194#0" expanded="true" />
+            <element signature="e#176#194#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -880,40 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
-          <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2520">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/drums.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5743983" vertical-offset="195" max-vertical-offset="5730">
-          <caret line="48" column="92" selection-start-line="48" selection-start-column="92" selection-end-line="48" selection-end-column="92" />
-          <folding>
-            <element signature="e#92#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
@@ -922,10 +855,124 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.098468274" vertical-offset="195" max-vertical-offset="5730">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding>
+            <element signature="e#92#111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/drums.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13129103" vertical-offset="0" max-vertical-offset="914">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19693655" vertical-offset="0" max-vertical-offset="914">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/example.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.082056895" vertical-offset="0" max-vertical-offset="914">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19693655" vertical-offset="0" max-vertical-offset="914">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.082056895" vertical-offset="0" max-vertical-offset="914">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofGraphics.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.925926" vertical-offset="11780" max-vertical-offset="16965">
+          <caret line="815" column="13" selection-start-line="815" selection-start-column="5" selection-end-line="815" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/c++/4.2.1/cmath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="2347" max-vertical-offset="9030">
+          <caret line="183" column="2" selection-start-line="183" selection-start-column="2" selection-end-line="183" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../addons/ofxAppUtils/src/ofxApp.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0769231" vertical-offset="2106" max-vertical-offset="3120">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include/stdlib.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="1162" max-vertical-offset="4935">
+          <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/math/ofMath.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3941236" vertical-offset="2356" max-vertical-offset="6615">
+          <caret line="184" column="16" selection-start-line="184" selection-start-column="6" selection-end-line="184" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/math/ofMath.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30374753" vertical-offset="682" max-vertical-offset="4770">
+          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35502958" vertical-offset="1830" max-vertical-offset="3090">
+          <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0164114" vertical-offset="121" max-vertical-offset="2505">
-          <caret line="70" column="28" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.4871795" vertical-offset="121" max-vertical-offset="2505">
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
           <folding>
             <element signature="e#101#129#0" expanded="true" />
           </folding>

@@ -15,6 +15,15 @@
 #include "S3BaseObj.h"
 #include "of3dGraphics.h"
 
+class S3SynthCircle
+{
+public:
+    ofPoint position;
+    float radius;
+    float alpha;
+};
+
+
 class S3Synthesizer : public S3BaseObj
 {
 public:
@@ -42,8 +51,11 @@ private:
 
     virtual void volumeChanged(float &newVolume);
 
-    float       circlesMinRadius;
-    float       circlesMaxRadius;
+    void addCircle();
+
+    list<S3SynthCircle>     circles;
+    float                   circlesMinRadius;
+    float                   circlesMaxRadius;
 };
 
 #endif /* defined(__ConductrEnter__S3Synthesizer__) */

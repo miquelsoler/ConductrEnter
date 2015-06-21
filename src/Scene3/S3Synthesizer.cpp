@@ -41,6 +41,8 @@ void S3Synthesizer::setup()
 {
     S3BaseObj::setup();
 
+    circles.clear();
+
 //    sphere.setRadius(radius);
 //    sphere.setPosition(objPosition);
 //    sphere.setResolution(4);
@@ -55,6 +57,7 @@ void S3Synthesizer::setup()
 ///--------------------------------------------------------------
 void S3Synthesizer::initInactive()
 {
+    initActive(); // To be removed
 //    Tweenzor::add(&sphereScale, 1.0f, 0.9f, 0.0f, 1.0f, EASE_IN_OUT_SINE);
 //    Tween *tween = Tweenzor::getTween(&sphereScale);
 //    tween->setRepeat(1, true);
@@ -73,8 +76,8 @@ void S3Synthesizer::onCompleteInactive(float* arg)
 
 void S3Synthesizer::updateInactive()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
-//    updateActive(); // Delete this line if it needs a custom update
+//    Tweenzor::update(ofGetElapsedTimeMillis());
+////    updateActive(); // Delete this line if it needs a custom update
 }
 
 void S3Synthesizer::drawInactive()
@@ -86,6 +89,8 @@ void S3Synthesizer::drawInactive()
 ///--------------------------------------------------------------
 void S3Synthesizer::initTransitioning()
 {
+    initActive(); // To be removed
+
 //    Tweenzor::add(&sphereScale, 1.0f, 0.0f, 0.0f, 0.5f, EASE_IN_OUT_SINE);
 //    Tween *tween = Tweenzor::getTween(&sphereScale);
 //    tween->setRepeat(1, true);
@@ -102,8 +107,8 @@ void S3Synthesizer::onCompleteTransitioning(float* arg)
 
 void S3Synthesizer::updateTransitioning()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
-//    updateActive(); // Delete this line if it needs a custom update
+//    Tweenzor::update(ofGetElapsedTimeMillis());
+////    updateActive(); // Delete this line if it needs a custom update
 }
 
 void S3Synthesizer::drawTransitioning()
@@ -114,6 +119,7 @@ void S3Synthesizer::drawTransitioning()
 ///--------------------------------------------------------------
 void S3Synthesizer::initActive()
 {
+
 }
 
 void S3Synthesizer::updateActive()
@@ -162,3 +168,35 @@ void S3Synthesizer::volumeChanged(float &newVolume)
 {
 //    sphereColor = ofColor(ofMap(newVolume, 0.0f, 1.0f, 40.0f, 255.0f));
 }
+
+///--------------------------------------------------------------
+void S3Synthesizer::addCircle()
+{
+    S3SynthCircle circle;
+
+    float maxValidRadius = radius - circlesMaxRadius;
+
+    circle.radius = ofRandom(circlesMinRadius, circlesMaxRadius);
+    circle.alpha = 255.0f;
+
+    float angle = ofDegToRad(ofRandom(0.0f, 360.0f));
+//    float displacement= ofRandom(0.0f, 1.0f) * maxValidRadius;
+    float displacement= sqrt(ofRandom(0.0f, 1.0f))
+            * maxValidRadius;
+    float x = objPosition.x + displacement * cos(angle);
+    float y = objPosition.y + displacement * sin(angle);
+    circle.position = ofPoint(x, y, objPosition.z);
+
+    circles.push_back(circle);
+
+/*
+    Taken from
+    var angle = _random.NextDouble() * Math.PI * 2;
+    (v1) var displacement = _random.NextDouble() * _radius;
+    (v2) var displacement = Math.Sqrt(_random.NextDouble()) * _radius;
+    var x = _originX + radius * Math.Cos(angle);
+    var y = _originY + radius * Math.Sin(angle);
+    return new Point((int)x,(int)y);
+*/
+}
+
