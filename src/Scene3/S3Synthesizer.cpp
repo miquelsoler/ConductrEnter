@@ -129,16 +129,19 @@ void S3Synthesizer::initActive()
 
 void S3Synthesizer::updateActive()
 {
+    for (list<S3SynthesizerCircle>::iterator it = circles.begin(); it!=circles.end(); it++)
+    {
+        (*it).update();
+    }
 }
 
 void S3Synthesizer::drawActive()
 {
     camera.begin(viewRectangle);
     {
-        int numCircles = circles.size();
-        for (int i=0; i<numCircles; i++)
+        for (list<S3SynthesizerCircle>::iterator it = circles.begin(); it!=circles.end(); it++)
         {
-
+            (*it).draw();
         }
 //        ofSetLineWidth(1);
 //        switch(currentState)

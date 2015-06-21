@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.h" afterPath="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.h" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,11 +55,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="S3Synthesizer.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="S3Synthesizer.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5614431" vertical-offset="2277" max-vertical-offset="3510">
-                  <caret line="185" column="24" selection-start-line="185" selection-start-column="24" selection-end-line="185" selection-end-column="24" />
+                <state vertical-scroll-proportion="-9.407408" vertical-offset="1741" max-vertical-offset="3555">
+                  <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
                   <folding>
                     <element signature="e#99#125#0" expanded="true" />
                   </folding>
@@ -65,11 +67,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="S3SynthesizerCircle.h" pinned="false" current-in-tab="false">
+          <file leaf-file-name="OscReceiver.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/TUIO/OscReceiver.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
+                  <caret line="25" column="31" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="S3SynthesizerCircle.h" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-                  <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+                <state vertical-scroll-proportion="0.3118162" vertical-offset="0" max-vertical-offset="914">
+                  <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
@@ -78,8 +90,8 @@
           <file leaf-file-name="S3SynthesizerCircle.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+                  <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -181,7 +193,9 @@
         <option value="$PROJECT_DIR$/src/S3SynthesizerCircle.h" />
         <option value="$PROJECT_DIR$/src/S3SynthesizerCircle.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Synthesizer.h" />
+        <option value="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.h" />
       </list>
     </option>
   </component>
@@ -620,13 +634,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofImage.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="10439" max-vertical-offset="16695">
-          <caret line="771" column="26" selection-start-line="771" selection-start-column="26" selection-end-line="771" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofPolyline.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="15240">
@@ -966,16 +973,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <element signature="e#194#212#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2960" max-vertical-offset="5310">
@@ -986,29 +983,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#194#212#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.h">
+    <entry file="file://$PROJECT_DIR$/src/TUIO/OscReceiver.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="990">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5614431" vertical-offset="2277" max-vertical-offset="3510">
-          <caret line="185" column="24" selection-start-line="185" selection-start-column="24" selection-end-line="185" selection-end-column="24" />
+        <state vertical-scroll-proportion="-9.407408" vertical-offset="1741" max-vertical-offset="3555">
+          <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
           <folding>
             <element signature="e#99#125#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3118162" vertical-offset="0" max-vertical-offset="914">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>

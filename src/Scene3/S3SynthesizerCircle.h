@@ -14,12 +14,10 @@ class S3SynthesizerCircle
 public:
 
     ofPoint position;
-    float radius;
-    float alpha;
+    float   radius;
+    int     alpha;
 
-private:
-
-    void drawCircle();
+    void draw();
 };
 
 
