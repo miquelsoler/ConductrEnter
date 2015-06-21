@@ -10,6 +10,9 @@
 
 #include "ofxTweenzor.h"
 
+
+const float VOLUME_THRESHOLD = 0.6f; // Must be an artist parameter.
+
 #pragma mark - Initialization
 
 ///--------------------------------------------------------------
@@ -48,6 +51,8 @@ void S3Synthesizer::setup()
 //    sphere.setResolution(4);
 //
 //    camera.setTarget(sphere);
+
+    shouldAddCircle = true;
 
     isFirstSetup = false;
 
@@ -166,13 +171,29 @@ void S3Synthesizer::setPositionFromScreenCoords(int screenX, int screenY)
 ///--------------------------------------------------------------
 void S3Synthesizer::volumeChanged(float &newVolume)
 {
+    cout << "Volume: " << newVolume << endl;
+
+    if (newVolume >= VOLUME_THRESHOLD)
+    {
+        if (shouldAddCircle)
+        {
+            cout << "Add circle" << endl;
+            addCircle();
+            shouldAddCircle = false;
+        }
+    }
+    else
+    {
+        shouldAddCircle = true;
+    }
+
 //    sphereColor = ofColor(ofMap(newVolume, 0.0f, 1.0f, 40.0f, 255.0f));
 }
 
 ///--------------------------------------------------------------
 void S3Synthesizer::addCircle()
 {
-    S3SynthCircle circle;
+    S3SynthesizerCircle circle;
 
     float maxValidRadius = radius - circlesMaxRadius;
 
@@ -190,7 +211,7 @@ void S3Synthesizer::addCircle()
     circles.push_back(circle);
 
 /*
-    Taken from
+    Taken from http://gamedev.stackexchange.com/questions/26713/calculate-random-points-pixel-within-a-circle-image
     var angle = _random.NextDouble() * Math.PI * 2;
     (v1) var displacement = _random.NextDouble() * _radius;
     (v2) var displacement = Math.Sqrt(_random.NextDouble()) * _radius;

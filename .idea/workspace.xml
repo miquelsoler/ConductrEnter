@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.h" afterPath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/example.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/example.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3.cpp" afterPath="$PROJECT_DIR$/src/Scene3.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConductrEnter.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/ConductrEnter.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,9 +40,11 @@
           <file leaf-file-name="S3Synthesizer.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
-                  <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-                  <folding />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
+                  <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#194#212#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -59,9 +62,11 @@
           <file leaf-file-name="S3Synthesizer.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.35502958" vertical-offset="1830" max-vertical-offset="3090">
-                  <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
-                  <folding />
+                <state vertical-scroll-proportion="0.6121759" vertical-offset="2202" max-vertical-offset="3435">
+                  <caret line="183" column="5" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
+                  <folding>
+                    <element signature="e#99#125#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -73,7 +78,7 @@
           <file leaf-file-name="S3ExampleObject.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
                   <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
                   <folding />
                 </state>
@@ -83,8 +88,8 @@
           <file leaf-file-name="S3ExampleObject.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4871795" vertical-offset="121" max-vertical-offset="2505">
-                  <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+                <state vertical-scroll-proportion="0.607221" vertical-offset="135" max-vertical-offset="2505">
+                  <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
                   <folding>
                     <element signature="e#101#129#0" expanded="true" />
                   </folding>
@@ -142,11 +147,13 @@
         <option value="$PROJECT_DIR$/src/Scene3/S3Drums.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S3ExampleObject.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene3.cpp" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/example.xml" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml" />
+        <option value="$PROJECT_DIR$/src/Scene3.cpp" />
+        <option value="$PROJECT_DIR$/src/S3SynthesizerCircle.h" />
+        <option value="$PROJECT_DIR$/src/S3SynthesizerCircle.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Synthesizer.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" />
       </list>
@@ -248,33 +255,15 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworksLib" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConductrEnter" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemId" value="Scene3" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworksLib" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemId" value="S3Synthesizer" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -288,19 +277,15 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworksLib" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemId" value="Scene3" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="math" />
+              <option name="myItemId" value="S3NoiseSphere" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -314,7 +299,15 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scene3" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="S3ExampleObject" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -328,7 +321,15 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scene3" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="S3DrumsAmoeba" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -342,12 +343,16 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="settings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="Scene3" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="S3Drums" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -360,16 +365,12 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="settings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scene3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="Scene3" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -404,24 +405,6 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConductrEnter" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Scene3" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -432,13 +415,17 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../_4_testGLSL/testGLSL.xcodeproj" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Scene3" />
     <property name="LayoutCode.rearrangeEntriesC/C++/Objective-C" value="false" />
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="ConductrEnter" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/bin/data/settings/scene3" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Scene3" />
+      <recent name="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ConductrEnter Debug">
@@ -532,11 +519,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3346519" sideWeight="0.5007728" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16702586" sideWeight="0.5004042" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19099379" sideWeight="0.4996535" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19099379" sideWeight="0.4996535" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990506" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14760914" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13096352" sideWeight="0.4995958" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26863354" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26863354" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -593,20 +580,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/gl/ofShader.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1454" max-vertical-offset="13020">
-          <caret line="120" column="15" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/gl/ofShader.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2550">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofImage.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="10439" max-vertical-offset="16695">
@@ -847,24 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.098468274" vertical-offset="195" max-vertical-offset="5730">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-          <folding>
-            <element signature="e#92#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/drums.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13129103" vertical-offset="0" max-vertical-offset="914">
@@ -901,22 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.082056895" vertical-offset="0" max-vertical-offset="914">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofGraphics.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.925926" vertical-offset="11780" max-vertical-offset="16965">
-          <caret line="815" column="13" selection-start-line="815" selection-start-column="5" selection-end-line="815" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -961,20 +900,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene3.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35502958" vertical-offset="1830" max-vertical-offset="3090">
-          <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.6892779" vertical-offset="195" max-vertical-offset="5730">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="e#92#111#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/graphics/ofGraphics.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.925926" vertical-offset="11780" max-vertical-offset="16965">
+          <caret line="815" column="13" selection-start-line="815" selection-start-column="5" selection-end-line="815" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#194#212#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4871795" vertical-offset="121" max-vertical-offset="2505">
-          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.607221" vertical-offset="135" max-vertical-offset="2505">
+          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
           <folding>
             <element signature="e#101#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6121759" vertical-offset="2202" max-vertical-offset="3435">
+          <caret line="183" column="5" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
+          <folding>
+            <element signature="e#99#125#0" expanded="true" />
           </folding>
         </state>
       </provider>
