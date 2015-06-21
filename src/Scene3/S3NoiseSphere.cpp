@@ -44,12 +44,11 @@ void S3NoiseSphere::setup()
 
     ofSetSmoothLighting(true);
     ofSetVerticalSync(true);
-    ofSetCircleResolution(64);
-    glPointSize(2.0);
 
     sphere.setRadius(radius);
-    sphere.setResolution(32);
     sphere.setPosition(objPosition);
+    sphere.setResolution(32);
+
     camera.setTarget(sphere);
 
 /*
@@ -121,7 +120,7 @@ void S3NoiseSphere::updateActive()
 //    for (int i=0; i<size; i=i+1) {
 //
 //        for (int j=0; j<3; j++) {
-//            //            trianglesCurrent1[i].setVertex(j, trianglesOriginal1[i].getVertex(j) - (vertexDistance*noises1[i])*triangleNormal);
+//            //            trianglesCurrent[i].setVertex(j, trianglesOriginal[i].getVertex(j) - (vertexDistance*noises[i])*triangleNormal);
 //
 //            vertexOffset = 10 * ofSignedNoise(i,i+j,ofGetElapsedTimef());
 //
@@ -188,8 +187,11 @@ void S3NoiseSphere::drawTransitioning()
 ///--------------------------------------------------------------
 void S3NoiseSphere::drawActive()
 {
+
     camera.begin(viewRectangle);
     {
+        ofSetCircleResolution(64);
+        glPointSize(2.0);
         //------------------//
 /*
         ofEnableDepthTest();

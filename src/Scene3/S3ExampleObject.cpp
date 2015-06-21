@@ -73,7 +73,6 @@ void S3ExampleObject::onCompleteInactive(float* arg)
 void S3ExampleObject::updateInactive()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
-
 //    updateActive(); // Delete this line if it needs a custom update
 }
 
@@ -103,7 +102,6 @@ void S3ExampleObject::onCompleteTransitioning(float* arg)
 void S3ExampleObject::updateTransitioning()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
-
 //    updateActive(); // Delete this line if it needs a custom update
 }
 

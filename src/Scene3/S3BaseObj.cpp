@@ -14,7 +14,7 @@
 // Arc loop
 const int LOOP_RESOLUTION = 128;
 const int ANGLE_OFFSET = 90;
-const int AXIS_LENGTH = 6;
+const int AXIS_LENGTH = 10;
 
 
 #pragma mark - Initialization
@@ -45,7 +45,7 @@ void S3BaseObj::initSharedSettings()
     gui.add(camDistance.set("Camera_Distance", 0, 0, 600));
     gui.add(whiteCircleRadius.set("White_Circle_Radius", 40, 0, 30));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
-    gui.add(loopInitialAngle.set("Loop_Initial_Angle", 0, 0, 720));
+    gui.add(loopInitialAngle.set("Loop_Initial_Angle", 0, 0, 360));
 }
 
 #pragma mark - Basic object methods
@@ -120,14 +120,7 @@ void S3BaseObj::draw()
 ///--------------------------------------------------------------
 void S3BaseObj::drawLoop()
 {
-//    if (currentState != S3ObjStateActive) return;
-
-    ofSetLineWidth(2);
-
-    // Draw full gray loop arc
-    ofSetColor(50, 50, 50);
-    ofNoFill();
-    ofCircle(objPosition, loopRadius);
+     ofSetLineWidth(1);
 
     // Draw white loop arc (only if current angle is not 0)
     if (int(loopAngle) != 0)

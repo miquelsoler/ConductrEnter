@@ -42,11 +42,8 @@ void S3DrumsAmoeba::setup()
 
     ofSetSmoothLighting(true);
     ofSetVerticalSync(true);
-    ofSetCircleResolution(64);
-    glPointSize(2.0);
 
     sphere.setRadius(radius);
-    sphere.setResolution(4);
     sphere.setPosition(objPosition);
     camera.setTarget(sphere);
 
@@ -165,6 +162,9 @@ void S3DrumsAmoeba::drawActive()
         pointLight1.enable();
         pointLight2.enable();
         pointLight3.enable();
+
+        glPointSize(2.0);
+        sphere.setResolution(4);
 
         ofSetColor(ofColor::white);
         shader.begin();

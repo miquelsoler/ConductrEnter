@@ -29,26 +29,41 @@ public:
 
 private:
 
-    virtual void initInactive() {};
+    virtual void initInactive();
+    void onCompleteInactive(float* arg);
     virtual void updateInactive();
     virtual void drawInactive();
 
-    virtual void initTransitioning() {};
+    virtual void initTransitioning();
+    void onCompleteTransitioning(float* arg);
     virtual void updateTransitioning();
     virtual void drawTransitioning();
 
-    virtual void initActive() {};
+    virtual void initActive();
     virtual void updateActive();
     virtual void drawActive();
 
     virtual void volumeChanged(float &newVolume);
     virtual void windowResized(ofResizeEventArgs &args);
 
-    ofIcoSpherePrimitive    sphere1, sphere2;
-    vector<ofMeshFace>      trianglesOriginal1, trianglesCurrent1;
-    vector<ofMeshFace>      trianglesOriginal2, trianglesCurrent2;
-    vector<float>           noises1, noises2;
+    void sphereResolutionChanged(int &newSphereResolution);
+
+    ofSpherePrimitive       sphere;
+    vector<ofMeshFace>      trianglesOriginal, trianglesCurrent;
+    vector<float>           noises;
     float                   vertexDistance;
+
+    float                   sphereGrayColor;
+
+    ofParameter<int>        sphereResolution;
+    ofParameter<float>      spherePointSize;
+
+    // Transitioning state
+    float                   transitioningCircleRadius;
+    float                   transitioningCircleAlpha;
+    ofSpherePrimitive       transitioningSphere;
+    float                   transitioningSphereScale;
+    float                   transitioningSphereAlpha;
 };
 
 #endif /* defined(__ConductrEnter__S4Object2__) */
