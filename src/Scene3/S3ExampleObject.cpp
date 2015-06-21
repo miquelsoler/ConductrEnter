@@ -44,8 +44,6 @@ void S3ExampleObject::setup()
 
     camera.setTarget(sphere);
 
-//    updateRotation();
-
     isFirstSetup = false;
 
     Tweenzor::resetAllTweens();

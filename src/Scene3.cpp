@@ -55,13 +55,13 @@ Scene3::Scene3(const string &name, bool singleSetup) : BaseScene(name, singleSet
                 object = new S3DrumsAmoeba(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
                 break;
             case 3:
-                object = new S3Synthesizer(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                object = new S3Synthesizer(num_objects, i, viewOrigin, viewWidth, objectsPath + "synthesizer.xml");
                 break;
             case 4:
-                object = new S3ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                object = new S3ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "example.xml");
                 break;
             case 5:
-                object = new S3ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "obj1.xml");
+                object = new S3ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "example.xml");
                 break;
             default:
                 break;

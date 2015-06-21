@@ -17,6 +17,9 @@ S3Synthesizer::S3Synthesizer(unsigned int numObjects, unsigned int objectIndex, 
     S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     loadSettings();
+
+    circlesMaxRadius = radius/10.0f;
+    circlesMinRadius = circlesMaxRadius - 10.0f;
 }
 
 ///--------------------------------------------------------------
@@ -38,13 +41,11 @@ void S3Synthesizer::setup()
 {
     S3BaseObj::setup();
 
-    sphere.setRadius(radius);
-    sphere.setPosition(objPosition);
-    sphere.setResolution(4);
-
-    camera.setTarget(sphere);
-
-//    updateRotation();
+//    sphere.setRadius(radius);
+//    sphere.setPosition(objPosition);
+//    sphere.setResolution(4);
+//
+//    camera.setTarget(sphere);
 
     isFirstSetup = false;
 
@@ -54,12 +55,12 @@ void S3Synthesizer::setup()
 ///--------------------------------------------------------------
 void S3Synthesizer::initInactive()
 {
-    Tweenzor::add(&sphereScale, 1.0f, 0.9f, 0.0f, 1.0f, EASE_IN_OUT_SINE);
-    Tween *tween = Tweenzor::getTween(&sphereScale);
-    tween->setRepeat(1, true);
-    Tweenzor::addCompleteListener(tween, this, &S3Synthesizer::onCompleteInactive);
-
-    sphereScale = 1;
+//    Tweenzor::add(&sphereScale, 1.0f, 0.9f, 0.0f, 1.0f, EASE_IN_OUT_SINE);
+//    Tween *tween = Tweenzor::getTween(&sphereScale);
+//    tween->setRepeat(1, true);
+//    Tweenzor::addCompleteListener(tween, this, &S3Synthesizer::onCompleteInactive);
+//
+//    sphereScale = 1;
 }
 
 void S3Synthesizer::onCompleteInactive(float* arg)
@@ -85,13 +86,13 @@ void S3Synthesizer::drawInactive()
 ///--------------------------------------------------------------
 void S3Synthesizer::initTransitioning()
 {
-    Tweenzor::add(&sphereScale, 1.0f, 0.0f, 0.0f, 0.5f, EASE_IN_OUT_SINE);
-    Tween *tween = Tweenzor::getTween(&sphereScale);
-    tween->setRepeat(1, true);
-    Tweenzor::addCompleteListener(tween, this, &S3Synthesizer::onCompleteTransitioning);
-
-    nextState = S3ObjStateActive;
-    shouldChangeState = true;
+//    Tweenzor::add(&sphereScale, 1.0f, 0.0f, 0.0f, 0.5f, EASE_IN_OUT_SINE);
+//    Tween *tween = Tweenzor::getTween(&sphereScale);
+//    tween->setRepeat(1, true);
+//    Tweenzor::addCompleteListener(tween, this, &S3Synthesizer::onCompleteTransitioning);
+//
+//    nextState = S3ObjStateActive;
+//    shouldChangeState = true;
 }
 
 void S3Synthesizer::onCompleteTransitioning(float* arg)
@@ -123,22 +124,22 @@ void S3Synthesizer::drawActive()
 {
     camera.begin(viewRectangle);
     {
-        ofSetLineWidth(1);
-        switch(currentState)
-        {
-            case S3ObjStateInactive:        sphereColor = ofColor::red; break;
-            case S3ObjStateTransitioning:   sphereColor = ofColor::orange; break;
-            default:                        break;
-        }
-        ofSetColor(sphereColor);
-        sphere.setScale(sphereScale);
-        float spinX = sin(ofGetElapsedTimef()*.35f);
-        float spinY = cos(ofGetElapsedTimef()*.075f);
-
-        sphere.rotate(spinX, 1.0, 0.0, 0.0);
-        sphere.rotate(spinY, 0.0, 1.0, 0.0);
-
-        sphere.drawWireframe();
+//        ofSetLineWidth(1);
+//        switch(currentState)
+//        {
+//            case S3ObjStateInactive:        sphereColor = ofColor::red; break;
+//            case S3ObjStateTransitioning:   sphereColor = ofColor::orange; break;
+//            default:                        break;
+//        }
+//        ofSetColor(sphereColor);
+//        sphere.setScale(sphereScale);
+//        float spinX = sin(ofGetElapsedTimef()*.35f);
+//        float spinY = cos(ofGetElapsedTimef()*.075f);
+//
+//        sphere.rotate(spinX, 1.0, 0.0, 0.0);
+//        sphere.rotate(spinY, 0.0, 1.0, 0.0);
+//
+//        sphere.drawWireframe();
         ofSetColor(255);
 
         drawWhiteCircle();
@@ -153,11 +154,11 @@ void S3Synthesizer::setPositionFromScreenCoords(int screenX, int screenY)
 {
     S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
 
-    sphere.setPosition(objPosition);
+//    sphere.setPosition(objPosition);
 }
 
 ///--------------------------------------------------------------
 void S3Synthesizer::volumeChanged(float &newVolume)
 {
-    sphereColor = ofColor(ofMap(newVolume, 0.0f, 1.0f, 40.0f, 255.0f));
+//    sphereColor = ofColor(ofMap(newVolume, 0.0f, 1.0f, 40.0f, 255.0f));
 }

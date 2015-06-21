@@ -40,8 +40,6 @@ private:
     virtual void updateActive();
     virtual void drawActive();
 
-//    void updateRotation();
-
     virtual void volumeChanged(float &newVolume);
 
     ofSpherePrimitive   sphere;
