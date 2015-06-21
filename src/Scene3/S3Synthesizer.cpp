@@ -131,7 +131,7 @@ void S3Synthesizer::updateActive()
 {
     for (list<S3SynthesizerCircle>::iterator it = circles.begin(); it!=circles.end(); it++)
     {
-        (*it).update();
+//        (*it).update();
     }
 }
 
