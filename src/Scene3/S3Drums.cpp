@@ -43,6 +43,7 @@ void S3Drums::setup()
     sphere.setRadius(radius);
     sphere.setPosition(objPosition);
     sphere.rotate(initialSphereRotation, 0.0, 1.0, 0.0);
+    transitioningSphere.setPosition(objPosition);
     transitioningSphere.setRadius(radius);
     transitioningSphere.rotate(initialSphereRotation, 0.0, 1.0, 0.0);
 
@@ -213,6 +214,7 @@ void S3Drums::setPositionFromScreenCoords(int screenX, int screenY)
 {
     S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
     sphere.setPosition(objPosition);
+    transitioningSphere.setPosition(objPosition);
 }
 
 ///--------------------------------------------------------------
@@ -221,6 +223,7 @@ void S3Drums::windowResized(ofResizeEventArgs &args)
     S3BaseObj::windowResized(args);
 
     sphere.setPosition(objPosition);
+    transitioningSphere.setPosition(objPosition);
 
     camera.setPosition(objPosition);
     camera.setTarget(sphere);
