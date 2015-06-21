@@ -73,16 +73,16 @@ void S3Synthesizer::initInactive()
 
 void S3Synthesizer::onCompleteInactive(float* arg)
 {
-    if (!shouldChangeState)
-        initInactive();
-    else
-        changeState();
+//    if (!shouldChangeState)
+//        initInactive();
+//    else
+//        changeState();
 }
 
 void S3Synthesizer::updateInactive()
 {
 //    Tweenzor::update(ofGetElapsedTimeMillis());
-////    updateActive(); // Delete this line if it needs a custom update
+    updateActive(); // Delete this line if it needs a custom update
 }
 
 void S3Synthesizer::drawInactive()
@@ -107,13 +107,13 @@ void S3Synthesizer::initTransitioning()
 
 void S3Synthesizer::onCompleteTransitioning(float* arg)
 {
-    changeState();
+//    changeState();
 }
 
 void S3Synthesizer::updateTransitioning()
 {
 //    Tweenzor::update(ofGetElapsedTimeMillis());
-////    updateActive(); // Delete this line if it needs a custom update
+    updateActive(); // Delete this line if it needs a custom update
 }
 
 void S3Synthesizer::drawTransitioning()
@@ -135,6 +135,11 @@ void S3Synthesizer::drawActive()
 {
     camera.begin(viewRectangle);
     {
+        int numCircles = circles.size();
+        for (int i=0; i<numCircles; i++)
+        {
+
+        }
 //        ofSetLineWidth(1);
 //        switch(currentState)
 //        {
