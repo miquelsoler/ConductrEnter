@@ -314,10 +314,11 @@ void Scene3::handleDrag(int x, int y, int cursorId)
         int pressedClipIndex = getClipIndexAtY(y);
         if (pressedClipIndex != currentClipIndex)
         {
-            currentClipIndex = pressedClipIndex;
-
-            // Play Ableton clip
             int track = pressedObjectIndex;
+
+            abletonManager->stopClip(currentClipIndex, track);
+            currentClipIndex = pressedClipIndex;
+            // Play Ableton clip
             abletonManager->playClip(currentClipIndex, track);
         }
 

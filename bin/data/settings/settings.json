@@ -23,5 +23,8 @@
     "Pinch": {
         "Circle Alpha Min": 10,
         "Circle Alpha Max": 128
+    },
+    "TUIO Server": {
+        "Receiver Port": 9050
     }
 }

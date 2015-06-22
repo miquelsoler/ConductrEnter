@@ -56,5 +56,8 @@ bool SettingsManager::loadSettings()
     pinchCircleAlphaMin = json["Pinch"]["Circle Alpha Min"].asUInt();
     pinchCircleAlphaMax = json["Pinch"]["Circle Alpha Max"].asUInt();
 
+    // TUIO Server
+    tuioServerReceiverPort = json["TUIO Server"]["Receiver Port"].asUInt();
+
     return parsingSuccessful;
 }

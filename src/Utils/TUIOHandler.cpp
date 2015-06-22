@@ -8,7 +8,6 @@
 
 #include "TUIOHandler.h"
 
-#include "TuioCursor.h"
 #include "SettingsManager.h"
 
 ///--------------------------------------------------------------
@@ -17,6 +16,8 @@ TUIOHandler::TUIOHandler()
     unsigned int clientPort = SettingsManager::getInstance().tuioClientPort;
     tuioClient = new ofxTuioClient();
     tuioClient->connect(clientPort);
+
+    oscReceiver.setup(SettingsManager::getInstance().tuioServerReceiverPort);
 }
 
 ///--------------------------------------------------------------
@@ -25,6 +26,29 @@ void TUIOHandler::init()
     ofAddListener(ofEvents().touchDown, this, &TUIOHandler::tuioTouchDown);
     ofAddListener(ofEvents().touchUp, this, &TUIOHandler::tuioTouchUp);
     ofAddListener(ofEvents().touchMoved, this, &TUIOHandler::tuioTouchMoved);
+}
+
+///--------------------------------------------------------------
+void TUIOHandler::update()
+{
+    while(oscReceiver.hasWaitingMessages())
+    {
+        ofxOscMessage m;
+        oscReceiver.getNextMessage(&m);
+
+        if (m.getAddress() == "/server/tuio/touchdown")
+        {
+            cout << "TUIO touch down" << endl;
+        }
+        else if (m.getAddress() == "/server/tuio/touchup")
+        {
+            cout << "TUIO touch up" << endl;
+        }
+        else if (m.getAddress() == "/server/tuio/drag")
+        {
+            cout << "TUIO drag" << endl;
+        }
+    }
 }
 
 ///--------------------------------------------------------------

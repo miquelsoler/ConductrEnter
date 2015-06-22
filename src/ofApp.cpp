@@ -19,7 +19,7 @@ void ofApp::setup()
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
 
-    ofBackground(0, 0, 0);
+    ofBackground(ofColor::black);
 
     // TUIO
     TUIOHandler::getInstance().init();
@@ -70,6 +70,8 @@ void ofApp::update()
 #ifdef OF_DEBUG
     ofShowCursor();
 #endif
+
+    TUIOHandler::getInstance().update();
 }
 
 ///--------------------------------------------------------------

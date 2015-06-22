@@ -28,14 +28,10 @@ public:
     // implementation is not required for this class
     void updateEnter();
 
-    void update() {};
-
     // called when scene is exiting, this is just a demo and this
     // implementation is not required for this class
     void updateExit();
-
-    void draw() {};
-
+    
     // cleanup
     void exit() {};
 

@@ -48,6 +48,9 @@ public:
     unsigned int    pinchCircleAlphaMin;
     unsigned int    pinchCircleAlphaMax;
 
+    // TUIO server
+    unsigned int    tuioServerReceiverPort;
+
 private:
 
     SettingsManager();
