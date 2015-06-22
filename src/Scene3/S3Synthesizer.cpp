@@ -56,7 +56,12 @@ void S3Synthesizer::setup()
 ///--------------------------------------------------------------
 void S3Synthesizer::initInactive()
 {
-    Tweenzor::add(&greyCircleAplha, 25.0f, 50.0f, 0.0f, 1.5f, EASE_IN_OUT_SINE);
+    float alphaFrom = 25.0f;
+    float alphaTo = 50.0f;
+    float delay = 0.0f;
+    float duration = 1.0f;
+
+    Tweenzor::add(&greyCircleAplha, alphaFrom, alphaTo, delay, duration, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&greyCircleAplha);
     tween->setRepeat(1, true);
     Tweenzor::addCompleteListener(tween, this, &S3Synthesizer::onCompleteInactive);
@@ -72,8 +77,7 @@ void S3Synthesizer::onCompleteInactive(float* arg)
 
 void S3Synthesizer::updateInactive()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
-//    updateActive(); // Delete this line if it needs a custom update
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
 }
 
 void S3Synthesizer::drawInactive()
@@ -81,30 +85,34 @@ void S3Synthesizer::drawInactive()
     drawActive(); // Delete this line if it needs a custom draw
 }
 
-
 ///--------------------------------------------------------------
 void S3Synthesizer::initTransitioning()
 {
-    initActive(); // To be removed
+    float radiusFrom = greyCircleRadius;
+    float radiusTo = radius;
+    float alphaFrom = 100.0f;
+    float alphaTo = 0.0f;
+    float duration = 0.2f;
+    float delay = 0.0f;
 
-//    Tweenzor::add(&sphereScale, 1.0f, 0.0f, 0.0f, 0.5f, EASE_IN_OUT_SINE);
-//    Tween *tween = Tweenzor::getTween(&sphereScale);
-//    tween->setRepeat(1, true);
-//    Tweenzor::addCompleteListener(tween, this, &S3Synthesizer::onCompleteTransitioning);
-//
-//    nextState = S3ObjStateActive;
-//    shouldChangeState = true;
+    Tweenzor::add(&transitioningCircleRadius, radiusFrom, radiusTo, delay, duration, EASE_IN_OUT_SINE);
+    Tween *tween = Tweenzor::getTween(&transitioningCircleRadius);
+    Tweenzor::addCompleteListener(tween, this, &S3Synthesizer::onCompleteTransitioning);
+
+    Tweenzor::add(&transitioningCircleAplha, alphaFrom, alphaTo, delay, duration, EASE_IN_OUT_SINE);
+
+    nextState = S3ObjStateActive;
+    shouldChangeState = true;
 }
 
 void S3Synthesizer::onCompleteTransitioning(float* arg)
 {
-//    changeState();
+    changeState();
 }
 
 void S3Synthesizer::updateTransitioning()
 {
-//    Tweenzor::update(ofGetElapsedTimeMillis());
-    updateActive(); // Delete this line if it needs a custom update
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
 }
 
 void S3Synthesizer::drawTransitioning()
@@ -115,7 +123,6 @@ void S3Synthesizer::drawTransitioning()
 ///--------------------------------------------------------------
 void S3Synthesizer::initActive()
 {
-
 }
 
 void S3Synthesizer::updateActive()
@@ -139,10 +146,20 @@ void S3Synthesizer::drawActive()
 {
     camera.begin(viewRectangle);
     {
+        // Grey circle
         ofFill();
         ofDisableLighting();
         ofSetColor(255, 255, 255, int(greyCircleAplha));
         ofCircle(objPosition.x, objPosition.y, 0, greyCircleRadius);
+
+        // Transitioning circle
+        if (currentState == S3ObjStateTransitioning)
+        {
+            ofFill();
+            ofDisableLighting();
+            ofSetColor(255, 255, 255, int(transitioningCircleAplha));
+            ofCircle(objPosition.x, objPosition.y, 0, transitioningCircleRadius);
+        }
 
         drawWhiteCircle();
 
@@ -150,6 +167,7 @@ void S3Synthesizer::drawActive()
             (*it)->draw();
 
         if (pinchEnabled) drawPinchCircle();
+
         drawLoop();
     }
     camera.end();
@@ -194,4 +212,3 @@ void S3Synthesizer::addCircle()
     S3SynthesizerCircle *circle = new S3SynthesizerCircle(objPosition, offset, circleRadius);
     circles.push_back(circle);
 }
-

@@ -52,6 +52,9 @@ private:
 
     ofParameter<float>          greyCircleRadius;
     float                       greyCircleAplha;
+
+    float                       transitioningCircleRadius;
+    float                       transitioningCircleAplha;
 };
 
 #endif /* defined(__ConductrEnter__S3Synthesizer__) */

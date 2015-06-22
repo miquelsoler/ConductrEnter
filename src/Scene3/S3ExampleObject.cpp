@@ -99,7 +99,7 @@ void S3ExampleObject::onCompleteTransitioning(float* arg)
 
 void S3ExampleObject::updateTransitioning()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
 //    updateActive(); // Delete this line if it needs a custom update
 }
 

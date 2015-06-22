@@ -120,7 +120,7 @@ void S3BaseObj::draw()
 ///--------------------------------------------------------------
 void S3BaseObj::drawLoop()
 {
-     ofSetLineWidth(1);
+     ofSetLineWidth(2);
 
     // Draw white loop arc (only if current angle is not 0)
     if (int(loopAngle) != 0)

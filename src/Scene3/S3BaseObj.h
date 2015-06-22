@@ -2,7 +2,7 @@
 //  S3BaseObj.h
 //  ConductrEnter
 //
-//  Created by Miquel Ëngel Soler on 24/5/15.
+//  Created by Miquel Ã€ngel Soler on 24/5/15.
 //
 //
 
@@ -85,7 +85,7 @@ protected:
     void initSharedSettings();
     virtual void windowResized(ofResizeEventArgs &args);
 
-    bool                isFirstSetup;
+    bool                    isFirstSetup;
 
     // Camera & viewport
     ofEasyCam               camera;

@@ -199,10 +199,8 @@
 		214763632FDABE1B67589BA2 /* S3BaseObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3BaseObj.cpp; path = Scene3/S3BaseObj.cpp; sourceTree = "<group>"; };
 		21476371F4A162874C31D09C /* S3NoiseSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3NoiseSphere.h; path = Scene3/S3NoiseSphere.h; sourceTree = "<group>"; };
 		2147638B3668BEE30D952823 /* S3SynthesizerCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SynthesizerCircle.h; path = Scene3/S3SynthesizerCircle.h; sourceTree = "<group>"; };
-		214765ACF5D290DF91C9FC5E /* S3SynthesizerCircle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = S3SynthesizerCircle.cpp; sourceTree = "<group>"; };
 		214766766CE0A36D0163E233 /* S3Drums.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3Drums.cpp; path = Scene3/S3Drums.cpp; sourceTree = "<group>"; };
 		214766BB1296C5FC64BC8B65 /* S3Synthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Synthesizer.h; path = Scene3/S3Synthesizer.h; sourceTree = "<group>"; };
-		21476836BF43E29A3C06C669 /* S3SynthesizerCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3SynthesizerCircle.h; sourceTree = "<group>"; };
 		214769C0F7F7E59DEA03A840 /* S3Synthesizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3Synthesizer.cpp; path = Scene3/S3Synthesizer.cpp; sourceTree = "<group>"; };
 		21476B2353E9BB0584CE641E /* S3DrumsAmoeba.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DrumsAmoeba.h; path = Scene3/S3DrumsAmoeba.h; sourceTree = "<group>"; };
 		21476BA616B1D1D5014C3A37 /* S3ExampleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3ExampleObject.cpp; path = Scene3/S3ExampleObject.cpp; sourceTree = "<group>"; };
@@ -755,8 +753,6 @@
 				F0E7A6D7A19F9F71F4E60589 /* UdpReceiver.h */,
 				B59EF4CD0D507C40523F0F1D /* UdpSender.cpp */,
 				2EB51DAB3FDC5557D2DBABB6 /* UdpSender.h */,
-				21476836BF43E29A3C06C669 /* S3SynthesizerCircle.h */,
-				214765ACF5D290DF91C9FC5E /* S3SynthesizerCircle.cpp */,
 			);
 			name = TUIO;
 			sourceTree = "<group>";
@@ -1106,9 +1102,9 @@
 				87481F5F15160962A4B1A08C /* Scene3.h */,
 				987B75C789AD781A4DC85A32 /* BaseObject.cpp */,
 				34E2D892E7B0F8B558A008F4 /* BaseObject.h */,
+				21476A1881E85D4F0494CFA9 /* Scene3 */,
 				85C7093CD15404193A7664FD /* Utils */,
 				55991F111A077FECD6CDE310 /* TUIO */,
-				21476A1881E85D4F0494CFA9 /* Scene3 */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
