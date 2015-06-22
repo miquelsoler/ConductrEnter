@@ -45,7 +45,7 @@ private:
 
     void addCircle();
 
-    list<S3SynthesizerCircle>   circles;
+    list<S3SynthesizerCircle*>  circles;
     float                       circlesMinRadius;
     float                       circlesMaxRadius;
 

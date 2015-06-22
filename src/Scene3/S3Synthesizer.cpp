@@ -11,7 +11,7 @@
 #include "ofxTweenzor.h"
 
 
-const float VOLUME_THRESHOLD = 0.6f; // Must be an artist parameter.
+const float VOLUME_THRESHOLD = 0.6f; // TODO Must be normalized in Ableton.
 
 #pragma mark - Initialization
 
@@ -20,9 +20,6 @@ S3Synthesizer::S3Synthesizer(unsigned int numObjects, unsigned int objectIndex, 
     S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     loadSettings();
-
-    circlesMaxRadius = radius/10.0f;
-    circlesMinRadius = circlesMaxRadius - 10.0f;
 }
 
 ///--------------------------------------------------------------
@@ -44,14 +41,10 @@ void S3Synthesizer::setup()
 {
     S3BaseObj::setup();
 
+    circlesMaxRadius = radius/4.0f;
+    circlesMinRadius = circlesMaxRadius - 5.0f;
+
     circles.clear();
-
-//    sphere.setRadius(radius);
-//    sphere.setPosition(objPosition);
-//    sphere.setResolution(4);
-//
-//    camera.setTarget(sphere);
-
     shouldAddCircle = true;
 
     isFirstSetup = false;
@@ -129,9 +122,18 @@ void S3Synthesizer::initActive()
 
 void S3Synthesizer::updateActive()
 {
-    for (list<S3SynthesizerCircle>::iterator it = circles.begin(); it!=circles.end(); it++)
+    list<S3SynthesizerCircle*>::iterator it;
+    for (it=circles.begin(); it!=circles.end();)
     {
-//        (*it).update();
+        if ((*it)->isDone())
+        {
+            circles.erase(it++);
+        }
+        else
+        {
+            (*it)->update(objPosition);
+            ++it;
+        }
     }
 }
 
@@ -139,27 +141,8 @@ void S3Synthesizer::drawActive()
 {
     camera.begin(viewRectangle);
     {
-        for (list<S3SynthesizerCircle>::iterator it = circles.begin(); it!=circles.end(); it++)
-        {
-            (*it).draw();
-        }
-//        ofSetLineWidth(1);
-//        switch(currentState)
-//        {
-//            case S3ObjStateInactive:        sphereColor = ofColor::red; break;
-//            case S3ObjStateTransitioning:   sphereColor = ofColor::orange; break;
-//            default:                        break;
-//        }
-//        ofSetColor(sphereColor);
-//        sphere.setScale(sphereScale);
-//        float spinX = sin(ofGetElapsedTimef()*.35f);
-//        float spinY = cos(ofGetElapsedTimef()*.075f);
-//
-//        sphere.rotate(spinX, 1.0, 0.0, 0.0);
-//        sphere.rotate(spinY, 0.0, 1.0, 0.0);
-//
-//        sphere.drawWireframe();
-        ofSetColor(255);
+        for (list<S3SynthesizerCircle*>::iterator it = circles.begin(); it!=circles.end(); ++it)
+            (*it)->draw();
 
         drawWhiteCircle();
         if (pinchEnabled) drawPinchCircle();
@@ -172,20 +155,15 @@ void S3Synthesizer::drawActive()
 void S3Synthesizer::setPositionFromScreenCoords(int screenX, int screenY)
 {
     S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
-
-//    sphere.setPosition(objPosition);
 }
 
 ///--------------------------------------------------------------
 void S3Synthesizer::volumeChanged(float &newVolume)
 {
-    cout << "Volume: " << newVolume << endl;
-
     if (newVolume >= VOLUME_THRESHOLD)
     {
         if (shouldAddCircle)
         {
-            cout << "Add circle" << endl;
             addCircle();
             shouldAddCircle = false;
         }
@@ -194,38 +172,22 @@ void S3Synthesizer::volumeChanged(float &newVolume)
     {
         shouldAddCircle = true;
     }
-
-//    sphereColor = ofColor(ofMap(newVolume, 0.0f, 1.0f, 40.0f, 255.0f));
 }
 
 ///--------------------------------------------------------------
 void S3Synthesizer::addCircle()
 {
-    S3SynthesizerCircle circle;
-
+    float circleRadius = ofRandom(circlesMinRadius, circlesMaxRadius);
     float maxValidRadius = radius - circlesMaxRadius;
 
-    circle.radius = ofRandom(circlesMinRadius, circlesMaxRadius);
-    circle.alpha = 255.0f;
-
     float angle = ofDegToRad(ofRandom(0.0f, 360.0f));
-//    float displacement= ofRandom(0.0f, 1.0f) * maxValidRadius;
-    float displacement= sqrt(ofRandom(0.0f, 1.0f))
-            * maxValidRadius;
-    float x = objPosition.x + displacement * cos(angle);
-    float y = objPosition.y + displacement * sin(angle);
-    circle.position = ofPoint(x, y, objPosition.z);
+    float displacement= sqrt(ofRandom(0.3f, 1.0f)) * maxValidRadius;
+    float x = displacement * cos(angle);
+    float y = displacement * sin(angle);
 
+    ofPoint offset = ofPoint(x, y, 0);
+
+    S3SynthesizerCircle *circle = new S3SynthesizerCircle(objPosition, offset, circleRadius);
     circles.push_back(circle);
-
-/*
-    Taken from http://gamedev.stackexchange.com/questions/26713/calculate-random-points-pixel-within-a-circle-image
-    var angle = _random.NextDouble() * Math.PI * 2;
-    (v1) var displacement = _random.NextDouble() * _radius;
-    (v2) var displacement = Math.Sqrt(_random.NextDouble()) * _radius;
-    var x = _originX + radius * Math.Cos(angle);
-    var y = _originY + radius * Math.Sin(angle);
-    return new Point((int)x,(int)y);
-*/
 }
 

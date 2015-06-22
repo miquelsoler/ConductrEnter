@@ -13,11 +13,22 @@ class S3SynthesizerCircle
 {
 public:
 
-    ofPoint position;
-    float   radius;
-    int     alpha;
+    S3SynthesizerCircle(ofPoint objectCenter, ofPoint offsetPosition, float radius);
+    ~S3SynthesizerCircle();
 
     void draw();
+    void update(ofPoint objectCenter);
+    bool isDone();
+
+private:
+
+    ofPoint position;
+    ofPoint offsetPosition;
+    float   radius;
+    float   alpha;
+    bool    done;
+
+    void onCompleteTween(float* arg);
 };
 
 

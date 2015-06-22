@@ -70,7 +70,7 @@ void S3ExampleObject::onCompleteInactive(float* arg)
 
 void S3ExampleObject::updateInactive()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
 //    updateActive(); // Delete this line if it needs a custom update
 }
 
