@@ -36,18 +36,14 @@ void TUIOHandler::update()
         ofxOscMessage m;
         oscReceiver.getNextMessage(&m);
 
+        ofTouchEventArgs touch;
+        touch.set(m.getArgAsFloat(0), m.getArgAsFloat(1));
         if (m.getAddress() == "/server/tuio/touchdown")
-        {
-            cout << "TUIO touch down" << endl;
-        }
+            tuioTouchDown(touch);
         else if (m.getAddress() == "/server/tuio/touchup")
-        {
-            cout << "TUIO touch up" << endl;
-        }
+            tuioTouchUp(touch);
         else if (m.getAddress() == "/server/tuio/drag")
-        {
-            cout << "TUIO drag" << endl;
-        }
+            tuioTouchMoved(touch);
     }
 }
 

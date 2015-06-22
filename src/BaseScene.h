@@ -31,7 +31,7 @@ public:
     // called when scene is exiting, this is just a demo and this
     // implementation is not required for this class
     void updateExit();
-    
+
     // cleanup
     void exit() {};
 
