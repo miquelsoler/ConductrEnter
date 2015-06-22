@@ -48,8 +48,10 @@ private:
     list<S3SynthesizerCircle*>  circles;
     float                       circlesMinRadius;
     float                       circlesMaxRadius;
-
     bool                        shouldAddCircle;
+
+    ofParameter<float>          greyCircleRadius;
+    float                       greyCircleAplha;
 };
 
 #endif /* defined(__ConductrEnter__S3Synthesizer__) */

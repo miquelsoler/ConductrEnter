@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.h" afterPath="$PROJECT_DIR$/src/Scene3/S3Synthesizer.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.h" afterPath="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,22 +37,10 @@
           <file leaf-file-name="S3Synthesizer.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="915">
-                  <caret line="48" column="48" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="48" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
+                  <caret line="53" column="48" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
                   <folding>
                     <element signature="e#194#212#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="S3Synthesizer.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-3.4444444" vertical-offset="1752" max-vertical-offset="2985">
-                  <caret line="123" column="1" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
-                  <folding>
-                    <element signature="e#99#125#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -71,14 +56,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="S3SynthesizerCircle.cpp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp">
+          <file leaf-file-name="S3Synthesizer.cpp" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7221007" vertical-offset="0" max-vertical-offset="914">
-                  <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.47592998" vertical-offset="435" max-vertical-offset="3045">
+                  <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
                   <folding>
-                    <element signature="e#52#84#0" expanded="true" />
+                    <element signature="e#99#125#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="synthesizer.xml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="210">
+                  <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -86,8 +81,8 @@
           <file leaf-file-name="S3BaseObj.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5280">
-                  <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="1958" max-vertical-offset="5280">
+                  <caret line="161" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -97,21 +92,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="S3ExampleObject.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
-                  <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="S3ExampleObject.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.64261556" vertical-offset="0" max-vertical-offset="2505">
-                  <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+                <state vertical-scroll-proportion="-0.18052517" vertical-offset="615" max-vertical-offset="2505">
+                  <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
                   <folding>
                     <element signature="e#101#129#0" expanded="true" />
                   </folding>
@@ -119,21 +104,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Tweenzor.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../../../addons/ofxTweenzor/src/Tweenzor.h">
+          <file leaf-file-name="S3NoiseSphere.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Scene3/S3NoiseSphere.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="863" max-vertical-offset="2640">
-                  <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+                  <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Tweenzor.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../../../addons/ofxTweenzor/src/Tweenzor.cpp">
+          <file leaf-file-name="S3NoiseSphere.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Scene3/S3NoiseSphere.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="2213" max-vertical-offset="5775">
-                  <caret line="170" column="15" selection-start-line="170" selection-start-column="15" selection-end-line="170" selection-end-column="15" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3555">
+                  <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
@@ -182,7 +167,6 @@
         <option value="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S3DrumsAmoeba.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S3NoiseSphere.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S3Drums.h" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/drums.xml" />
         <option value="$PROJECT_DIR$/src/ofApp.cpp" />
@@ -191,15 +175,16 @@
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/drums_amoeba.xml" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/example.xml" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" />
-        <option value="$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml" />
         <option value="$PROJECT_DIR$/src/Scene3.cpp" />
         <option value="$PROJECT_DIR$/src/S3SynthesizerCircle.h" />
         <option value="$PROJECT_DIR$/src/S3SynthesizerCircle.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene3/S3Synthesizer.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.h" />
-        <option value="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene3/S3Synthesizer.h" />
+        <option value="$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml" />
+        <option value="$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp" />
       </list>
     </option>
   </component>
@@ -301,6 +286,46 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConductrEnter" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="settings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConductrEnter" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="settings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scene3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -581,7 +606,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990506" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14760914" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13096352" sideWeight="0.4995958" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26863354" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26863354" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -633,7 +658,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="26" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -698,13 +723,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1279" max-vertical-offset="2580">
           <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3NoiseSphere.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25444266" vertical-offset="0" max-vertical-offset="1238">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="40" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -865,14 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.082056895" vertical-offset="0" max-vertical-offset="914">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/c++/4.2.1/cmath">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="2347" max-vertical-offset="9030">
@@ -923,14 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TUIO/OscReceiver.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37018755" vertical-offset="0" max-vertical-offset="1013">
@@ -947,32 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../addons/ofxTweenzor/src/Tweenzor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="863" max-vertical-offset="2640">
-          <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../addons/ofxTweenzor/src/Tweenzor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2213" max-vertical-offset="5775">
-          <caret line="170" column="15" selection-start-line="170" selection-start-column="15" selection-end-line="170" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="915">
-          <caret line="48" column="48" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="48" />
-          <folding>
-            <element signature="e#194#212#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/3d/ofEasyCam.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33260393" vertical-offset="941" max-vertical-offset="4110">
@@ -981,28 +957,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64261556" vertical-offset="0" max-vertical-offset="2505">
-          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.7221007" vertical-offset="0" max-vertical-offset="914">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
-            <element signature="e#101#129#0" expanded="true" />
+            <element signature="e#52#84#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp">
+    <entry file="file://$PROJECT_DIR$/../../../addons/ofxTweenzor/src/Tweenzor.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5280">
-          <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.69693655" vertical-offset="863" max-vertical-offset="2640">
+          <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3NoiseSphere.cpp">
+    <entry file="file://$PROJECT_DIR$/../../../addons/ofxTweenzor/src/Tweenzor.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35512966" vertical-offset="0" max-vertical-offset="3555">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.36870897" vertical-offset="2213" max-vertical-offset="5775">
+          <caret line="170" column="15" selection-start-line="170" selection-start-column="15" selection-end-line="170" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3NoiseSphere.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1015,22 +1007,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
+    <entry file="file://$PROJECT_DIR$/bin/data/settings/scene3/synthesizer.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.4444444" vertical-offset="1752" max-vertical-offset="2985">
-          <caret line="123" column="1" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="210">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
+          <caret line="53" column="48" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
           <folding>
-            <element signature="e#99#125#0" expanded="true" />
+            <element signature="e#194#212#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S3SynthesizerCircle.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3BaseObj.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7221007" vertical-offset="0" max-vertical-offset="914">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1958" max-vertical-offset="5280">
+          <caret line="161" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3NoiseSphere.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3555">
+          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3ExampleObject.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.18052517" vertical-offset="615" max-vertical-offset="2505">
+          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
           <folding>
-            <element signature="e#52#84#0" expanded="true" />
+            <element signature="e#101#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S3Synthesizer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47592998" vertical-offset="435" max-vertical-offset="3045">
+          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+          <folding>
+            <element signature="e#99#125#0" expanded="true" />
           </folding>
         </state>
       </provider>

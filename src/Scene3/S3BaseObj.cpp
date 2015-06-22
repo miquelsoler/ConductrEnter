@@ -2,7 +2,7 @@
 //  S3BaseObj.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ëngel Soler on 24/5/15.
+//  Created by Miquel Ã€ngel Soler on 24/5/15.
 //
 //
 
@@ -43,9 +43,9 @@ void S3BaseObj::initSharedSettings()
 {
     gui.setup("Settings", settingsPath);
     gui.add(camDistance.set("Camera_Distance", 0, 0, 600));
-    gui.add(whiteCircleRadius.set("White_Circle_Radius", 40, 0, 30));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
     gui.add(loopInitialAngle.set("Loop_Initial_Angle", 0, 0, 360));
+    gui.add(whiteCircleRadius.set("White_Circle_Radius", 40, 0, 30));
 }
 
 #pragma mark - Basic object methods

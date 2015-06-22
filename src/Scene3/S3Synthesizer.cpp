@@ -29,6 +29,7 @@ void S3Synthesizer::loadSettings()
     S3BaseObj::initSharedSettings();
 
     // Custom object settings go here
+    gui.add(greyCircleRadius.set("Grey Circle Radius", 8.0f, 1.0f, 30.0f));
 
     gui.loadFromFile(settingsPath);
 }
@@ -55,27 +56,24 @@ void S3Synthesizer::setup()
 ///--------------------------------------------------------------
 void S3Synthesizer::initInactive()
 {
-    initActive(); // To be removed
-//    Tweenzor::add(&sphereScale, 1.0f, 0.9f, 0.0f, 1.0f, EASE_IN_OUT_SINE);
-//    Tween *tween = Tweenzor::getTween(&sphereScale);
-//    tween->setRepeat(1, true);
-//    Tweenzor::addCompleteListener(tween, this, &S3Synthesizer::onCompleteInactive);
-//
-//    sphereScale = 1;
+    Tweenzor::add(&greyCircleAplha, 25.0f, 50.0f, 0.0f, 1.5f, EASE_IN_OUT_SINE);
+    Tween *tween = Tweenzor::getTween(&greyCircleAplha);
+    tween->setRepeat(1, true);
+    Tweenzor::addCompleteListener(tween, this, &S3Synthesizer::onCompleteInactive);
 }
 
 void S3Synthesizer::onCompleteInactive(float* arg)
 {
-//    if (!shouldChangeState)
-//        initInactive();
-//    else
-//        changeState();
+    if (!shouldChangeState)
+        initInactive();
+    else
+        changeState();
 }
 
 void S3Synthesizer::updateInactive()
 {
-//    Tweenzor::update(ofGetElapsedTimeMillis());
-    updateActive(); // Delete this line if it needs a custom update
+    Tweenzor::update(ofGetElapsedTimeMillis());
+//    updateActive(); // Delete this line if it needs a custom update
 }
 
 void S3Synthesizer::drawInactive()
@@ -141,10 +139,16 @@ void S3Synthesizer::drawActive()
 {
     camera.begin(viewRectangle);
     {
+        ofFill();
+        ofDisableLighting();
+        ofSetColor(255, 255, 255, int(greyCircleAplha));
+        ofCircle(objPosition.x, objPosition.y, 0, greyCircleRadius);
+
+        drawWhiteCircle();
+
         for (list<S3SynthesizerCircle*>::iterator it = circles.begin(); it!=circles.end(); ++it)
             (*it)->draw();
 
-        drawWhiteCircle();
         if (pinchEnabled) drawPinchCircle();
         drawLoop();
     }
