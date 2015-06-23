@@ -14,8 +14,10 @@
         "Artist Offset": 6
     },
     "TUIO Client": {
-        "Client Local Port": 3333,
-        "Client Remote Port": 3334
+        "Client Port": 3333
+    },
+    "TUIO Server": {
+        "Client Port": 9050
     },
     "Debug Mode": {
         "Show GUI": true,

@@ -27,15 +27,15 @@ public:
     }
 
     void init();
-//    void update();
+    void update();
 
     float getDistBetweenCursors(int cursorId1, int cursorId2);
     static ofVec2f tuioToScreenCoords(float tuioX, float tuioY);
 
     TuioCursor *getCursorForId(int cursorId);
 
-    ofxTuioClient               *tuioClientLocal;
-    ofxTuioClient               *tuioClientRemote;
+    ofxTuioClient               *tuioClient;
+    ofxOscReceiver              tuioOscReceiver;
 
     ofEvent<ofTouchEventArgs>    eventTouchDown;
     ofEvent<ofTouchEventArgs>    eventTouchUp;

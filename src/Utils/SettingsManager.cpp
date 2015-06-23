@@ -45,9 +45,11 @@ bool SettingsManager::loadSettings()
     abletonFirstClipIndex = json["Ableton"]["First Clip Index"].asUInt();
     abletonArtistOffset = json["Ableton"]["Artist Offset"].asUInt();
 
-    // TUIO
-    tuioClientLocalPort = json["TUIO Client"]["Client Local Port"].asUInt();
-    tuioClientRemotePort = json["TUIO Client"]["Client Remote Port"].asUInt();
+    // TUIO Client
+    tuioClientPort = json["TUIO Client"]["Client Port"].asUInt();
+
+    // TUIO Server
+    tuioServerPort = json["TUIO Server"]["Client Port"].asUInt();
 
     // Debug Mode
     debugShowGUI = json["Debug Mode"]["Show GUI"].asBool();

@@ -38,8 +38,10 @@ public:
     unsigned int    abletonArtistOffset;
 
     // TUIO Client
-    unsigned int    tuioClientLocalPort;
-    unsigned int    tuioClientRemotePort;
+    unsigned int    tuioClientPort;
+
+    // TUIO Server
+    unsigned int    tuioServerPort;
 
     // Debug Mode
     bool            debugShowGUI;
