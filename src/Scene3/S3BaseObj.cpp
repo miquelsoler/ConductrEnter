@@ -220,10 +220,10 @@ void S3BaseObj::enablePinch(bool enable)
         return;
     }
 
-    int cursorId1 = cursorIds.front();
-    int cursorId2 = cursorIds.back();
+    TuioCursor *cursor1 = cursorIds.front();
+    TuioCursor *cursor2 = cursorIds.back();
 
-    pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursorId1, cursorId2);
+    pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
 
     pinchImageSize = whiteCircleRadius / 2;
 }
@@ -239,9 +239,9 @@ void S3BaseObj::updatePinch()
 {
     if (!pinchEnabled) return;
 
-    int cursorId1 = cursorIds.front();
-    int cursorId2 = cursorIds.back();
-    float pinchCurrentDist = TUIOHandler::getInstance().getDistBetweenCursors(cursorId1, cursorId2);
+    TuioCursor *cursor1 = cursorIds.front();
+    TuioCursor *cursor2 = cursorIds.back();
+    float pinchCurrentDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
 
     float diff = pinchCurrentDist - pinchInitialDist;
     if (diff > 0)
@@ -252,10 +252,17 @@ void S3BaseObj::updatePinch()
 }
 
 ///--------------------------------------------------------------
-int S3BaseObj::getFirstCursorId()
+TuioCursor *S3BaseObj::getFirstCursor()
 {
-    if (cursorIds.empty()) return -1;
+    if (cursorIds.empty()) return NULL;
     return cursorIds.front();
+}
+
+///--------------------------------------------------------------
+TuioCursor *S3BaseObj::getLastCursor()
+{
+    if (cursorIds.empty()) return NULL;
+    return cursorIds.back();
 }
 
 ///--------------------------------------------------------------
@@ -334,13 +341,15 @@ void S3BaseObj::clipPositionChanged(float &newPosition)
 
 #pragma mark - TUIO
 
-void S3BaseObj::addCursor(int cursorId)
+void S3BaseObj::addCursor(TuioCursor *cursor)
 {
-    cursorIds.push_back(cursorId);
+    cursorIds.push_back(cursor);
 }
 
 void S3BaseObj::removeLastCursor()
 {
     if (cursorIds.empty()) return;
+    TuioCursor *cursor = cursorIds.back();
     cursorIds.pop_back();
+    delete cursor;
 }

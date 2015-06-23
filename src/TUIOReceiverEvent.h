@@ -18,7 +18,6 @@ class TUIOReceiverEvent : public ofEventArgs
 {
 public:
 
-    bool    isLocal;
     int     sourceId;
     int     sessionId;
     int     cursorId;

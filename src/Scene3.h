@@ -17,6 +17,8 @@
 #include "BaseScene.h"
 #include "S3BaseObj.h"
 #include "AbletonManager.h"
+#include "ofxTuioClient.h"
+#include "TuioCursor.h"
 
 const unsigned int NUM_CLIPS = 5;
 const unsigned int DEFAULT_CLIP = 2;
@@ -52,17 +54,19 @@ private:
     virtual void mouseReleased(int x, int y, int button);
 
     // Interaction handling
-    void handlePress(int x, int y, int cursorId = -1);
-    void handleRelease(int x, int y, int cursorId = -1);
-    void handleDrag(int x, int y, int cursorId = -1);
+    void handlePress(int x, int y, TuioCursor *cursor = NULL);
+    void handleRelease(int x, int y, int cursorId = -1); // CursorId is the id received during the release event
+    void handleDrag(int x, int y, int cursorId = -1); // CursorId is the id received during the drag event
 
     // Listeners
     virtual void windowResized(ofResizeEventArgs &args);
     virtual void tempoChanged(float &newTempo);
 
-    // Convenience methods
-    int getObjectIndexAtX(int x);
-    int getClipIndexAtY(int y);
+    // Helper methods
+    unsigned int getObjectIndexAtX(int x);
+    unsigned int getClipIndexAtY(int y);
+    TuioCursor *makeCursor(int cursorId, float x, float y);
+    TuioCursor *makeCursor(int sourceId, int sessionId, int cursorId, float x, float y, float xSpeed, float ySpeed, float motionAccel);
 
     AbletonManager*         abletonManager;
     unsigned int            currentClipIndex;

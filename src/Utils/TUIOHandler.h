@@ -30,8 +30,9 @@ public:
     void init();
     void update();
 
-    float getDistBetweenCursors(int cursorId1, int cursorId2);
+    float getDistBetweenCursors(TuioCursor *cursor1, TuioCursor *cursor2);
     static ofVec2f tuioToScreenCoords(float tuioX, float tuioY);
+    static ofVec2f screenToTuioCoords(float screenX, float screenY);
 
     TuioCursor *getCursorForId(int cursorId);
 

@@ -18,7 +18,8 @@
 #include "ofMain.h"
 #include "ofxGui.h"
 #include "ofTrueTypeFont.h"
-
+#include "ofxTuioClient.h"
+#include "TuioCursor.h"
 
 typedef enum
 {
@@ -44,9 +45,11 @@ public:
     void enablePinch(bool enable);
     bool isPinchEnabled();
     virtual void updatePinch();
-    int getFirstCursorId();
 
-    void addCursor(int cursorId);
+    TuioCursor *getFirstCursor();
+    TuioCursor *getLastCursor();
+
+    void addCursor(TuioCursor *cursor);
     void removeLastCursor();
 
     virtual void setPositionFromScreenCoords(int screenX, int screenY);
@@ -109,7 +112,7 @@ protected:
     unsigned int            pinchImageAlphaMin, pinchImageAlphaMax;
 
     // TUIO
-    list<int>               cursorIds;
+    list<TuioCursor *>      cursorIds;
     bool                    pinchEnabled = false;
     float                   pinchInitialDist;
 
