@@ -57,6 +57,7 @@ void Scene1::update()
 void Scene1::updateEnter()
 {
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene1::tuioPressed);
+    ofAddListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene1::tuioReceiverPressed);
 
     videoState = Loop;
     videoPlayer.play();
@@ -68,6 +69,7 @@ void Scene1::updateEnter()
 void Scene1::updateExit()
 {
     ofRemoveListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene1::tuioPressed);
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene1::tuioReceiverPressed);
     BaseScene::updateExit();
 }
 
@@ -115,6 +117,11 @@ void Scene1::onVideoComplete(float* arg)
 
 ///--------------------------------------------------------------
 void Scene1::tuioPressed(ofTouchEventArgs &touch)
+{
+    goAhead();
+}
+
+void Scene1::tuioReceiverPressed(TUIOReceiverEvent &cursor)
 {
     goAhead();
 }

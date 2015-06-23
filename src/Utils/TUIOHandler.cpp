@@ -36,24 +36,24 @@ void TUIOHandler::update()
         ofxOscMessage m;
 
         tuioOscReceiver.getNextMessage(&m);
-        int sourceId = m.getArgAsInt32(0);
-        int sessionId = m.getArgAsInt32(1);
-        int cursorId = m.getArgAsInt32(2);
-        float x = m.getArgAsFloat(3);
-        float y = m.getArgAsFloat(4);
-        float xSpeed = m.getArgAsFloat(5);
-        float ySpeed = m.getArgAsFloat(6);
-        float motionAccel = m.getArgAsFloat(7);
 
-        ofTouchEventArgs touch;
-        touch.set(x, y);
-        touch.id = cursorId;
+        TUIOReceiverEvent cursor;
+        cursor.isLocal = false;
+        cursor.sourceId = m.getArgAsInt32(0);
+        cursor.sessionId = m.getArgAsInt32(1);
+        cursor.cursorId = m.getArgAsInt32(2);
+        cursor.x = m.getArgAsFloat(3);
+        cursor.y = m.getArgAsFloat(4);
+        cursor.xSpeed = m.getArgAsFloat(5);
+        cursor.ySpeed = m.getArgAsFloat(6);
+        cursor.motionAccel = m.getArgAsFloat(7);
+
         if (m.getAddress() == "/tuio/touchdown")
-            tuioTouchDown(touch);
+            tuioReceiverTouchDown(cursor);
         else if (m.getAddress() == "/tuio/touchup")
-            tuioTouchUp(touch);
+            tuioReceiverTouchUp(cursor);
         else if (m.getAddress() == "/tuio/drag")
-            tuioTouchMoved(touch);
+            tuioReceiverTouchMoved(cursor);
     }
 }
 
@@ -73,6 +73,24 @@ void TUIOHandler::tuioTouchUp(ofTouchEventArgs &touch)
 void TUIOHandler::tuioTouchMoved(ofTouchEventArgs &touch)
 {
     ofNotifyEvent(eventTouchDrag, touch, this);
+}
+
+///--------------------------------------------------------------
+void TUIOHandler::tuioReceiverTouchDown(TUIOReceiverEvent &cursor)
+{
+    ofNotifyEvent(eventTouchDownCursor, cursor, this);
+}
+
+///--------------------------------------------------------------
+void TUIOHandler::tuioReceiverTouchUp(TUIOReceiverEvent &cursor)
+{
+    ofNotifyEvent(eventTouchUpCursor, cursor, this);
+}
+
+///--------------------------------------------------------------
+void TUIOHandler::tuioReceiverTouchMoved(TUIOReceiverEvent &cursor)
+{
+    ofNotifyEvent(eventTouchDragCursor, cursor, this);
 }
 
 ///--------------------------------------------------------------

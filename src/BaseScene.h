@@ -15,6 +15,7 @@
 #include <ofxAppUtils.h>
 #include "ofVideoPlayer.h"
 #include "ofMain.h"
+#include "TUIOReceiverEvent.h"
 
 class BaseScene : public ofxFadeScene
 {
@@ -42,10 +43,15 @@ protected:
     void drawPre();
     void drawPost();
 
-    // TUIO touch events
+    // Local TUIO touch events
     virtual void tuioPressed(ofTouchEventArgs &touch) = 0;
     virtual void tuioReleased(ofTouchEventArgs &touch) = 0;
     virtual void tuioDragged(ofTouchEventArgs &touch) = 0;
+
+    // Remote TUIO touch events
+    virtual void tuioReceiverPressed(TUIOReceiverEvent &cursor) = 0;
+    virtual void tuioReceiverReleased(TUIOReceiverEvent &cursor) = 0;
+    virtual void tuioReceiverDragged(TUIOReceiverEvent &cursor) = 0;
 
     // Touch (currently mouse) events
     virtual void mouseDragged(int x, int y, int button) {};

@@ -42,6 +42,10 @@ private:
     virtual void tuioReleased(ofTouchEventArgs &touch);
     virtual void tuioDragged(ofTouchEventArgs &touch);
 
+    virtual void tuioReceiverPressed(TUIOReceiverEvent &cursor);
+    virtual void tuioReceiverReleased(TUIOReceiverEvent &cursor);
+    virtual void tuioReceiverDragged(TUIOReceiverEvent &cursor);
+
     // Mouse events
     virtual void mouseDragged(int x, int y, int button);
     virtual void mousePressed(int x, int y, int button);

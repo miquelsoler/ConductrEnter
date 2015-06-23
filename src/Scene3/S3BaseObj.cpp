@@ -185,7 +185,7 @@ void S3BaseObj::windowResized(ofResizeEventArgs &args)
 bool S3BaseObj::pick(int screenX, int screenY)
 {
     ofVec3f centerScreenCoords = camera.worldToScreen(objPosition, viewRectangle);
-    ofVec3f perimeterScreenCoords = camera.worldToScreen(ofVec3f(objPosition.x, objPosition.y - radius, objPosition.z), viewRectangle);
+    ofVec3f perimeterScreenCoords = camera.worldToScreen(ofVec3f(objPosition.x, objPosition.y - radius*2, objPosition.z), viewRectangle);
 
     float distToPerimeter = ofDistSquared(centerScreenCoords.x, centerScreenCoords.y, perimeterScreenCoords.x, perimeterScreenCoords.y);
     float distToScreen = ofDistSquared(centerScreenCoords.x, centerScreenCoords.y, screenX, screenY);

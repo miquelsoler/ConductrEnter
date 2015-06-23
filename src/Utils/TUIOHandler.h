@@ -16,6 +16,7 @@
 #include "ofxTuioClient.h"
 #include "TuioCursor.h"
 #include "ofxOsc.h"
+#include "TUIOReceiverEvent.h"
 
 class TUIOHandler
 {
@@ -41,6 +42,10 @@ public:
     ofEvent<ofTouchEventArgs>    eventTouchUp;
     ofEvent<ofTouchEventArgs>    eventTouchDrag;
 
+    ofEvent<TUIOReceiverEvent>   eventTouchDownCursor;
+    ofEvent<TUIOReceiverEvent>   eventTouchUpCursor;
+    ofEvent<TUIOReceiverEvent>   eventTouchDragCursor;
+
 private:
 
     TUIOHandler();
@@ -48,6 +53,10 @@ private:
     void tuioTouchDown(ofTouchEventArgs &touch);
     void tuioTouchUp(ofTouchEventArgs &touch);
     void tuioTouchMoved(ofTouchEventArgs &touch);
+
+    void tuioReceiverTouchDown(TUIOReceiverEvent &cursor);
+    void tuioReceiverTouchUp(TUIOReceiverEvent &cursor);
+    void tuioReceiverTouchMoved(TUIOReceiverEvent &cursor);
 };
 
 #endif /* defined(__ConductrEnter__TUIOHandler__) */

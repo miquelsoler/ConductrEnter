@@ -107,6 +107,10 @@ void Scene3::updateEnter()
     ofAddListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene3::tuioReleased);
     ofAddListener(TUIOHandler::getInstance().eventTouchDrag, this, &Scene3::tuioDragged);
 
+    ofAddListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene3::tuioReceiverPressed);
+    ofAddListener(TUIOHandler::getInstance().eventTouchUpCursor, this, &Scene3::tuioReceiverReleased);
+    ofAddListener(TUIOHandler::getInstance().eventTouchDragCursor, this, &Scene3::tuioReceiverDragged);
+
     // Request tempo in order to set it on objects
     ofAddListener(abletonManager->eventTempoChanged, this, &Scene3::tempoChanged);
     abletonManager->requestTempo();
@@ -129,7 +133,13 @@ void Scene3::updateExit()
     ofRemoveListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene3::tuioReleased);
     ofRemoveListener(TUIOHandler::getInstance().eventTouchDrag, this, &Scene3::tuioDragged);
 
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene3::tuioReceiverPressed);
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchUpCursor, this, &Scene3::tuioReceiverReleased);
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchDragCursor, this, &Scene3::tuioReceiverDragged);
+
     ofRemoveListener(abletonManager->eventTempoChanged, this, &Scene3::tempoChanged);
+
+    abletonManager->stopAll();
 
     BaseScene::updateExit();
 }
@@ -179,6 +189,30 @@ void Scene3::tuioDragged(ofTouchEventArgs &touch)
 {
     ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
     handleDrag((int) screenCoords.x, (int) screenCoords.y, touch.id);
+}
+
+void Scene3::tuioReceiverPressed(TUIOReceiverEvent &cursor)
+{
+    ofTouchEventArgs touch;
+    touch.set(cursor.x, cursor.y);
+    touch.id = cursor.cursorId;
+    tuioPressed(touch);
+}
+
+void Scene3::tuioReceiverReleased(TUIOReceiverEvent &cursor)
+{
+    ofTouchEventArgs touch;
+    touch.set(cursor.x, cursor.y);
+    touch.id = cursor.cursorId;
+    tuioReleased(touch);
+}
+
+void Scene3::tuioReceiverDragged(TUIOReceiverEvent &cursor)
+{
+    ofTouchEventArgs touch;
+    touch.set(cursor.x, cursor.y);
+    touch.id = cursor.cursorId;
+    tuioDragged(touch);
 }
 
 #pragma mark - Mouse events
