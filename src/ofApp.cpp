@@ -70,8 +70,6 @@ void ofApp::update()
 #ifdef OF_DEBUG
     ofShowCursor();
 #endif
-
-    TUIOHandler::getInstance().update();
 }
 
 ///--------------------------------------------------------------

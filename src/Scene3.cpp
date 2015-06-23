@@ -145,7 +145,7 @@ void Scene3::draw()
 #ifdef OF_DEBUG
     if (SettingsManager::getInstance().debugShowTUIOCursors)
     {
-        ofxTuioClient *tuioClient = TUIOHandler::getInstance().tuioClient;
+        ofxTuioClient *tuioClient = TUIOHandler::getInstance().tuioClientLocal;
         tuioClient->drawCursors(0.5, 1, 0);
     }
 #endif

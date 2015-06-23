@@ -47,14 +47,14 @@ AbletonManager::~AbletonManager()
 void AbletonManager::playClip(int clipNumber, int trackNumber)
 {
     ofxOscMessage m;
-    m.setAddress("/live/play/clip");
-    m.addIntArg(trackNumber); // Session view -> col number (track)
-    m.addIntArg(clipNumber); // Session view -> row number (clip)
-
-//    m.setAddress("/live/fire/clipslot");
+//    m.setAddress("/live/play/clip");
 //    m.addIntArg(trackNumber); // Session view -> col number (track)
 //    m.addIntArg(clipNumber); // Session view -> row number (clip)
-//    m.addIntArg(1); // 1=play, 0=stop
+
+    m.setAddress("/live/fire/clipslot");
+    m.addIntArg(trackNumber); // Session view -> col number (track)
+    m.addIntArg(clipNumber); // Session view -> row number (clip)
+    m.addIntArg(1); // 1=play, 0=stop
 
     oscSender.sendMessage(m);
 }
@@ -68,14 +68,14 @@ void AbletonManager::playClip(int clipNumber, int trackNumber)
 void AbletonManager::stopClip(int clipNumber, int trackNumber)
 {
     ofxOscMessage m;
-    m.setAddress("/live/stop/clip");
-    m.addIntArg(trackNumber); // Session view -> col number (track)
-    m.addIntArg(clipNumber); // Session view -> row number (clip)
-
-//    m.setAddress("/live/fire/clipslot");
+//    m.setAddress("/live/stop/clip");
 //    m.addIntArg(trackNumber); // Session view -> col number (track)
 //    m.addIntArg(clipNumber); // Session view -> row number (clip)
-//    m.addIntArg(0); // 1=play, 0=stop
+
+    m.setAddress("/live/fire/clipslot");
+    m.addIntArg(trackNumber); // Session view -> col number (track)
+    m.addIntArg(clipNumber); // Session view -> row number (clip)
+    m.addIntArg(0); // 1=play, 0=stop
 
     oscSender.sendMessage(m);
 }

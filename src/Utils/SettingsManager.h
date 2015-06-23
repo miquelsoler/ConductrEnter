@@ -37,8 +37,9 @@ public:
     unsigned int    abletonFirstClipIndex;
     unsigned int    abletonArtistOffset;
 
-    // TUIO
-    unsigned int    tuioClientPort;
+    // TUIO Client
+    unsigned int    tuioClientLocalPort;
+    unsigned int    tuioClientRemotePort;
 
     // Debug Mode
     bool            debugShowGUI;
@@ -47,9 +48,6 @@ public:
     // Pinch
     unsigned int    pinchCircleAlphaMin;
     unsigned int    pinchCircleAlphaMax;
-
-    // TUIO server
-    unsigned int    tuioServerReceiverPort;
 
 private:
 

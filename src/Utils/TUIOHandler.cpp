@@ -13,11 +13,13 @@
 ///--------------------------------------------------------------
 TUIOHandler::TUIOHandler()
 {
-    unsigned int clientPort = SettingsManager::getInstance().tuioClientPort;
-    tuioClient = new ofxTuioClient();
-    tuioClient->connect(clientPort);
+    unsigned int clientLocalPort = SettingsManager::getInstance().tuioClientLocalPort;
+    tuioClientLocal = new ofxTuioClient();
+    tuioClientLocal->connect(clientLocalPort);
 
-    oscReceiver.setup(SettingsManager::getInstance().tuioServerReceiverPort);
+    unsigned int clientRemotePort = SettingsManager::getInstance().tuioClientRemotePort;
+    tuioClientRemote = new ofxTuioClient();
+    tuioClientRemote->connect(clientRemotePort);
 }
 
 ///--------------------------------------------------------------
@@ -28,24 +30,29 @@ void TUIOHandler::init()
     ofAddListener(ofEvents().touchMoved, this, &TUIOHandler::tuioTouchMoved);
 }
 
-///--------------------------------------------------------------
-void TUIOHandler::update()
-{
-    while(oscReceiver.hasWaitingMessages())
-    {
-        ofxOscMessage m;
-        oscReceiver.getNextMessage(&m);
-
-        ofTouchEventArgs touch;
-        touch.set(m.getArgAsFloat(0), m.getArgAsFloat(1));
-        if (m.getAddress() == "/server/tuio/touchdown")
-            tuioTouchDown(touch);
-        else if (m.getAddress() == "/server/tuio/touchup")
-            tuioTouchUp(touch);
-        else if (m.getAddress() == "/server/tuio/drag")
-            tuioTouchMoved(touch);
-    }
-}
+/////--------------------------------------------------------------
+//void TUIOHandler::update()
+//{
+////    while(oscReceiver.hasWaitingMessages())
+////    {
+////        ofxOscMessage m;
+////        oscReceiver.getNextMessage(&m);
+////
+////        ofTouchEventArgs touch;
+//////        TuioCursor (long si, int ci, float xp, float yp);
+////
+//////        TuioCursor cursor();
+//////        tuioClientLocal->addTuioCursor(<#(TuioCursor*)tcur#>);
+////        touch.set(m.getArgAsFloat(0), m.getArgAsFloat(1));
+////        touch.id = m.getArgAsInt32(2);
+////        if (m.getAddress() == "/server/tuio/touchdown")
+////            tuioTouchDown(touch);
+////        else if (m.getAddress() == "/server/tuio/touchup")
+////            tuioTouchUp(touch);
+////        else if (m.getAddress() == "/server/tuio/drag")
+////            tuioTouchMoved(touch);
+////    }
+//}
 
 ///--------------------------------------------------------------
 void TUIOHandler::tuioTouchDown(ofTouchEventArgs &touch)
@@ -68,8 +75,8 @@ void TUIOHandler::tuioTouchMoved(ofTouchEventArgs &touch)
 ///--------------------------------------------------------------
 float TUIOHandler::getDistBetweenCursors(int cursorId1, int cursorId2)
 {
-    TuioCursor *c1 = tuioClient->client->getTuioCursor(cursorId1);
-    TuioCursor *c2 = tuioClient->client->getTuioCursor(cursorId2);
+    TuioCursor *c1 = tuioClientLocal->client->getTuioCursor(cursorId1);
+    TuioCursor *c2 = tuioClientLocal->client->getTuioCursor(cursorId2);
 
     if ((c1 == NULL) || (c2 == NULL)) return 0;
 
@@ -87,4 +94,13 @@ ofVec2f TUIOHandler::tuioToScreenCoords(float tuioX, float tuioY)
     return screenCoords;
 }
 
-
+///--------------------------------------------------------------
+TuioCursor *TUIOHandler::getCursorForId(int cursorId)
+{
+    TuioCursor *cursor = tuioClientLocal->client->getTuioCursor(cursorId);
+    if (cursor == NULL)
+    {
+        cursor = tuioClientRemote->client->getTuioCursor(cursorId);
+    }
+    return cursor;
+}

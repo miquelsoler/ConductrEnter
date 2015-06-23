@@ -98,9 +98,6 @@ void S3BaseObj::draw()
     {
         gui.draw();
     }
-
-    ofSetColor(ofColor::gray);
-    ofxBitmapString(viewOriginX, viewHalfHeight) << cursorIds.size();
 #endif
 
     switch(currentState)

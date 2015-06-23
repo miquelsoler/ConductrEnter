@@ -13,8 +13,9 @@
         "First Clip Index": 1,
         "Artist Offset": 6
     },
-    "TUIO": {
-        "Client Port": 3333
+    "TUIO Client": {
+        "Client Local Port": 3333,
+        "Client Remote Port": 3334
     },
     "Debug Mode": {
         "Show GUI": true,
@@ -23,8 +24,5 @@
     "Pinch": {
         "Circle Alpha Min": 10,
         "Circle Alpha Max": 128
-    },
-    "TUIO Server": {
-        "Receiver Port": 9050
     }
 }
