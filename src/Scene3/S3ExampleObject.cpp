@@ -126,6 +126,7 @@ void S3ExampleObject::drawActive()
         {
             case S3ObjStateInactive:        sphereColor = ofColor::red; break;
             case S3ObjStateTransitioning:   sphereColor = ofColor::orange; break;
+            case S3ObjStateActive:          sphereColor = ofColor::green; break;
             default:                        break;
         }
         ofSetColor(sphereColor);

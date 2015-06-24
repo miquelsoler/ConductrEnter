@@ -943,8 +943,8 @@
 			isa = PBXGroup;
 			children = (
 				B0BC45CE1B3B18E70021B9A0 /* demoParticle.cpp */,
-				B0422BA61B3B186D001D1A89 /* S3CircleParticles.cpp */,
 				B0422B9F1B3B14CE001D1A89 /* demoParticle.h */,
+				B0422BA61B3B186D001D1A89 /* S3CircleParticles.cpp */,
 				B0422BA11B3B14CE001D1A89 /* S3CircleParticles.h */,
 			);
 			name = S3CircleParticles;

@@ -81,6 +81,7 @@ void demoParticle::update(){
         // UPDATE SCALE WITH A BIT OF SMOOTHING
         float alpha = 0.25;
         scale = scale * (1.0-alpha) + oldScale * alpha;
+        oldScale = scale;
     }
 }
 
@@ -97,7 +98,7 @@ void demoParticle::draw(){
 		ofSetColor((255 - 255*alpha)*factor,(255 - 255*alpha)*factor,( 255 - 255*alpha)*factor);
 	}
     
-	ofCircle(pos.x, pos.y, scale + 1.0);
+	ofCircle(pos.x, pos.y, scale);
 }
 
 //------------------------------------------------------------------

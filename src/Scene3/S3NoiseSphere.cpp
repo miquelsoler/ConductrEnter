@@ -35,6 +35,7 @@ void S3NoiseSphere::loadSettings()
     gui.add( thresholdHigh.set( "Treshold High", 40, 0, 40 ) );
 
     gui.loadFromFile(settingsPath);
+    
 }
 
 ///--------------------------------------------------------------
@@ -79,24 +80,119 @@ void S3NoiseSphere::setup()
     }
 
     isFirstSetup = false;
+
+    Tweenzor::resetAllTweens();
+
 }
 
+///--------------------------------------------------------------
+void S3NoiseSphere::initInactive()
+{
+    stableOffset = 6;
+    stableNoiseFrequency = 50;
+    activeOffset = 25;
+    activeNoiseFrequency = 1000;
+ 
+    float delay = 0.0f;
+    float duration = 0.8f;
+    
+    // noise frequency reset
+    Tweenzor::add((float*)&noiseFrequency.get(), noiseFrequency, stableNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
+    // offset reset
+    Tweenzor::add((float*)&offset.get(), offset, stableOffset, delay, duration, EASE_IN_OUT_SINE);
+
+    
+}
 
 ///--------------------------------------------------------------
 void S3NoiseSphere::updateInactive()
 {
+    
+    cout << "UPDATE INACTIVE " << endl;
+    
     updateActive(); // Delete this line if it needs a custom update
+    
+    if(shouldChangeState)
+    {
+        //        cout << " CHANGE FROM INACTIVE TO NEXT TRANSITION" << endl;
+        cout << "from INactive Changed State !!! " << endl;
+        changeState();
+        
+    }
 }
+
+///--------------------------------------------------------------
+void S3NoiseSphere::initTransitioning()
+{
+    cout << "INIT TRANSITION" << endl;
+    
+    float delay = 0.0f;
+    float duration = 0.3f;
+    
+    // noise frequency
+    Tweenzor::add((float*)&offset.get(), stableOffset, activeOffset, delay, duration, EASE_IN_OUT_SINE);
+    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&offset.get()), this, &S3NoiseSphere::onCompleteTransitioning);
+    
+}
+
 
 ///--------------------------------------------------------------
 void S3NoiseSphere::updateTransitioning()
 {
+    cout << "UPDATE TRANSITIONING " << endl;
+    
     updateActive(); // Delete this line if it needs a custom update
+    
+    if(shouldChangeState)
+    {
+        //        cout << " CHANGE FROM INACTIVE TO NEXT TRANSITION" << endl;
+        cout << "from TRANSITIONING Changed State !!! " << endl;
+        changeState();
+    }
+
 }
+
+///--------------------------------------------------------------
+void S3NoiseSphere::onCompleteTransitioning(float* arg)
+{
+    cout << " ON COMPLETE TRANSITIONING" << endl;
+    
+    float delay = 0.0f;
+    float duration = 0.3f;
+    
+    Tweenzor::add((float*)&offset.get(),offset ,stableOffset, delay, duration, EASE_IN_OUT_SINE);
+    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&offset.get()), this, &S3NoiseSphere::onCompleteToActive);
+
+    
+}
+
+///--------------------------------------------------------------
+void S3NoiseSphere::onCompleteToActive(float* arg)
+{
+    float delay = 0.0f;
+    float duration = 0.2f;
+    
+    Tweenzor::add((float*)&noiseFrequency.get(),noiseFrequency ,activeNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
+
+    cout << "ON COMPLETE TO ACTIVE" << endl;
+    nextState = S3ObjStateActive;
+    shouldChangeState = true;
+    
+}
+
+///--------------------------------------------------------------
+void S3NoiseSphere::initActive()
+{
+    cout << " INIT ACTIVE !!!! " << endl;
+    
+}
+
 
 ///--------------------------------------------------------------
 void S3NoiseSphere::updateActive()
 {
+    Tweenzor::update(ofGetElapsedTimeMillis());
+    
     sphere.rotate(0.3, 0.0, 1.0, 0.0);
     // set sphere radius on sinus
 /*
@@ -207,6 +303,20 @@ void S3NoiseSphere::drawActive()
 
         // sphere
         ofSetColor(ofColor::white);
+        
+//        ofColor particleColor;
+//        
+//        switch(currentState)
+//        {
+//            case S3ObjStateInactive:        particleColor = ofColor::red; break;
+//            case S3ObjStateTransitioning:   particleColor = ofColor::orange; break;
+//            case S3ObjStateActive :         particleColor = ofColor::green; break;
+//                
+//            default:                        break;
+//        }
+//        ofSetColor(particleColor);
+
+        
         sphere.setScale(1.01f);
         sphere.drawVertices();
         sphere.setScale(1.f);
@@ -216,7 +326,10 @@ void S3NoiseSphere::drawActive()
         //------------------//
 */
 
+
         drawWhiteCircle();
+        
+        ofSetColor(255);
         if (pinchEnabled) drawPinchCircle();
         drawLoop();
     }
@@ -229,4 +342,11 @@ void S3NoiseSphere::setPositionFromScreenCoords(int screenX, int screenY)
     S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
 
     sphere.setPosition(objPosition);
+}
+
+///--------------------------------------------------------------
+void S3NoiseSphere::volumeChanged(float &newVolume)
+{
+    float newOffset = ofMap(newVolume,0.0,1.0,stableOffset,40.0);
+    Tweenzor::add((float*)&offset.get(),offset ,newOffset, 0, 0.1, EASE_IN_OUT_SINE);
 }

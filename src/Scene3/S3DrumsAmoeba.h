@@ -66,12 +66,17 @@ private:
     ofLight     pointLight2;
     ofLight     pointLight3;
     
+    float                   volumeCircleRadius;
+    float                   volumeCircleAlpha;
+
     // Transitioning state
     float                   stableNoiseFrequency;
-    float                   transitionedNoiseFrequency;
-    float                   transitioningCircleRadius;
-    float                   transitioningCircleAlpha;
-
+    float                   activeNoiseFrequency;
+    
+    float                   stableCircleRadius;
+    float                   stableCircleAlpha;
+    float                   activeCircleRadius;
+    float                   activeCircleAlpha;
 
 };
 

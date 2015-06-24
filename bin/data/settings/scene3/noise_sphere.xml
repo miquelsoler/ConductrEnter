@@ -1,13 +1,14 @@
 <Settings>
-    <Camera_Distance>375</Camera_Distance>
-    <White_Circle_Radius>16.8</White_Circle_Radius>
-    <Loop_Radius>95</Loop_Radius>
-    <Loop_Initial_Angle>363</Loop_Initial_Angle>
-    <tempo>1.32</tempo>
-    <Noise_Frequency>40.96</Noise_Frequency>
+    <Camera_Distance>372</Camera_Distance>
+    <White_Circle_Radius>14.25</White_Circle_Radius>
+    <Loop_Radius>40</Loop_Radius>
+    <Loop_Initial_Angle>0</Loop_Initial_Angle>
+    <tempo>2.016</tempo>
+    <Noise_Frequency>50</Noise_Frequency>
     <Threshold>0</Threshold>
-    <Treshold_Low>3</Treshold_Low>
+    <Treshold_Low>0</Treshold_Low>
     <Treshold_High>40</Treshold_High>
-    <offset>20</offset>
+    <offset>6</offset>
 	<mode>1</mode>
+<Settings/>
 </Settings>
