@@ -31,33 +31,46 @@ bool SettingsManager::loadSettings()
     cout << "PARSING RESULT: " << parsingSuccessful << endl;
 #endif
 
+    string prefix;
+
+    // Displax
+    prefix = "Displax";
+    displaxWidth = json[prefix]["Screen Width"].asUInt();
+    displaxHeight = json[prefix]["Screen Height"].asUInt();
+
     // Scene management
-    sceneFirstScene = json["Scenes"]["First Scene"].asUInt();
-    scene1IntroLoopFrame = json["Scenes"]["Scene1 Intro Loop Frame"].asUInt();
-    sceneFadeInMilliseconds = json["Scenes"]["FadeIn Milliseconds"].asUInt();
-    sceneFadeOutMilliseconds = json["Scenes"]["FadeOut Milliseconds"].asUInt();
-    scene3TimerMilliseconds = json["Scenes"]["Scene3 Timer Milliseconds"].asUInt();
+    prefix = "Scenes";
+    sceneFirstScene = json[prefix]["First Scene"].asUInt();
+    scene1IntroLoopFrame = json[prefix]["Scene1 Intro Loop Frame"].asUInt();
+    sceneFadeInMilliseconds = json[prefix]["FadeIn Milliseconds"].asUInt();
+    sceneFadeOutMilliseconds = json[prefix]["FadeOut Milliseconds"].asUInt();
+    scene3TimerMilliseconds = json[prefix]["Scene3 Timer Milliseconds"].asUInt();
 
     // Ableton
-    abletonHost = json["Ableton"]["Ableton Host"].asString();
-    abletonSenderPort = json["Ableton"]["Ableton Sender Port"].asUInt();
-    abletonReceiverPort = json["Ableton"]["Ableton Receiver Port"].asUInt();
-    abletonFirstClipIndex = json["Ableton"]["First Clip Index"].asUInt();
-    abletonArtistOffset = json["Ableton"]["Artist Offset"].asUInt();
+    prefix = "Ableton";
+    abletonHost = json[prefix]["Ableton Host"].asString();
+    abletonSenderPort = json[prefix]["Ableton Sender Port"].asUInt();
+    abletonReceiverPort = json[prefix]["Ableton Receiver Port"].asUInt();
+    abletonFirstClipIndex = json[prefix]["First Clip Index"].asUInt();
+    abletonArtistOffset = json[prefix]["Artist Offset"].asUInt();
 
     // TUIO Client
-    tuioClientPort = json["TUIO Client"]["Client Port"].asUInt();
+    prefix = "TUIO Client";
+    tuioClientPort = json[prefix]["Client Port"].asUInt();
 
     // TUIO Server
-    tuioServerPort = json["TUIO Server"]["Client Port"].asUInt();
+    prefix = "TUIO Server";
+    tuioServerPort = json[prefix]["Client Port"].asUInt();
 
     // Debug Mode
-    debugShowGUI = json["Debug Mode"]["Show GUI"].asBool();
-    debugShowTUIOCursors = json["Debug Mode"]["Show TUIO Cursors"].asBool();
+    prefix = "Debug Mode";
+    debugShowGUI = json[prefix]["Show GUI"].asBool();
+    debugShowTUIOCursors = json[prefix]["Show TUIO Cursors"].asBool();
 
     // Pinch
-    pinchCircleAlphaMin = json["Pinch"]["Circle Alpha Min"].asUInt();
-    pinchCircleAlphaMax = json["Pinch"]["Circle Alpha Max"].asUInt();
+    prefix = "Pinch";
+    pinchCircleAlphaMin = json[prefix]["Circle Alpha Min"].asUInt();
+    pinchCircleAlphaMax = json[prefix]["Circle Alpha Max"].asUInt();
 
     return parsingSuccessful;
 }

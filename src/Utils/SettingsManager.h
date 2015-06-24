@@ -23,6 +23,10 @@ public:
         return instance;
     }
 
+    // Displax
+    unsigned int    displaxWidth;
+    unsigned int    displaxHeight;
+
     // Scene management
     unsigned int    sceneFirstScene;
     unsigned int    scene1IntroLoopFrame;
