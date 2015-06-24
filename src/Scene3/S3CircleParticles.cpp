@@ -34,7 +34,6 @@ void S3CircleParticles::loadSettings()
     gui.add(updateParticles.set("updateParticles",false));
     gui.add(baseAge.set("baseAge",10, 0,200));
 
-    
     gui.loadFromFile(settingsPath);
     
     recalculateCircle();
@@ -176,7 +175,7 @@ void S3CircleParticles::onCompleteTransitioning(float* arg)
 
     }
 
-    cout << "RESETTING ALL PARTICLES ON COMPLETE TRASITION" << endl;
+//    cout << "RESETTING ALL PARTICLES ON COMPLETE TRASITION" << endl;
 
     changeParticleState(1);
     

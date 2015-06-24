@@ -29,7 +29,7 @@ void demoParticle::reset()
     particleMaxAge = baseAge + (baseAge/4 * ofRandomf());
     age = particleMaxAge/2 * ofRandomf();
 	
-    float velAmmount = 5.0;
+    float velAmmount = 1.0;
 	vel.x = ofRandom(-velAmmount, velAmmount);
 	vel.y = ofRandom(-velAmmount, velAmmount);
 	
