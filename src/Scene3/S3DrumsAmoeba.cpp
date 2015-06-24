@@ -31,8 +31,13 @@ void S3DrumsAmoeba::loadSettings()
     gui.add(thresholdHigh.set( "Treshold High", 128, 0, 255 ) );
     gui.add(showNormals.set( "show normals", false ) );
     gui.add(offset.set("offset",100.0,-200.0,200.0));
-
+    
     gui.loadFromFile(settingsPath);
+    
+    stableNoiseFrequency = noiseFrequency;
+    transitionedNoiseFrequency = 20;
+    cout << "Amoeba : stable noise freq. on load : " << noiseFrequency << endl;
+
 }
 
 ///--------------------------------------------------------------
@@ -78,19 +83,73 @@ void S3DrumsAmoeba::setup()
     }
 
     isFirstSetup = false;
+    Tweenzor::resetAllTweens();
+
 }
 
+
+///--------------------------------------------------------------
+void S3DrumsAmoeba::initInactive()
+{
+//    cout << "INIT INACTIVE" << endl;
+}
 ///--------------------------------------------------------------
 void S3DrumsAmoeba::updateInactive()
 {
+//    cout << "UPDATE INACTIVE" << endl;
     updateActive(); // Delete this line if it needs a custom update
+    
+    if(shouldChangeState)
+    {
+//        cout << " CHANGE FROM INACTIVE TO NEXT TRANSITION" << endl;
+        changeState();
+    }
+}
+
+///--------------------------------------------------------------
+void S3DrumsAmoeba::onCompleteTransitioning(float* arg)
+{
+//    cout << "COMPLETE TRANSITIONING" << endl;
+    
+    float delay = 0.0f;
+    float duration = 0.4f;
+    Tweenzor::add((float*)&noiseFrequency.get(),noiseFrequency ,stableNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
+
+    if(shouldChangeState)
+    {
+//        cout << " CHANGE FROM TRANSITION TO NEXT ACTIVE" << endl;
+        changeState();
+    }
+
+}
+
+///--------------------------------------------------------------
+void S3DrumsAmoeba::initTransitioning()
+{
+//    cout << "INIT TRANSITION" << endl;
+
+    float delay = 0.0f;
+    float duration = 0.4f;
+
+    // noise frequency
+    Tweenzor::add((float*)&noiseFrequency.get(), stableNoiseFrequency, transitionedNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
+    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&noiseFrequency.get()), this, &S3DrumsAmoeba::onCompleteTransitioning);
+
+    // white circle
+    Tweenzor::add(&transitioningCircleRadius, whiteCircleRadius, whiteCircleRadius*4, delay, duration, EASE_IN_OUT_SINE);
+    Tweenzor::add(&transitioningCircleAlpha, 250.0f, 0.0f, delay, duration, EASE_IN_OUT_SINE);
+
 }
 
 ///--------------------------------------------------------------
 void S3DrumsAmoeba::updateTransitioning()
 {
+    Tweenzor::update(ofGetElapsedTimeMillis());
     updateActive(); // Delete this line if it needs a custom update
 }
+
+
+
 
 ///--------------------------------------------------------------
 void S3DrumsAmoeba::updateActive()
@@ -188,6 +247,18 @@ void S3DrumsAmoeba::drawActive()
             ofSetColor(255,0,0,128);
             sphere.drawNormals(3);
         }
+        
+        
+        // Draw transitioning circle
+        if (currentState == S3ObjStateTransitioning)
+        {
+            // Circle
+            ofFill();
+            ofDisableLighting();
+            ofSetColor(255, 255, 255, int(transitioningCircleAlpha));
+            ofCircle(objPosition.x, objPosition.y, 0, transitioningCircleRadius);
+        }
+
 
         ofDisableDepthTest();
         //------------------//
@@ -213,6 +284,8 @@ void S3DrumsAmoeba::drawActive()
 ///--------------------------------------------------------------
 void S3DrumsAmoeba::volumeChanged(float &newVolume)
 {
+    transitioningCircleRadius = ofMap(newVolume,0.0,1.0,0,45);
+    transitioningCircleAlpha = ofMap(newVolume,0.0,1.0,0,255);
 }
 
 

@@ -81,6 +81,7 @@ void S3NoiseSphere::setup()
     isFirstSetup = false;
 }
 
+
 ///--------------------------------------------------------------
 void S3NoiseSphere::updateInactive()
 {

@@ -80,6 +80,8 @@
 		AC3F106095E50D5D726700D2 /* S3NoiseSphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB1F7C6505FC232176A74775 /* S3NoiseSphere.cpp */; };
 		ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD194746185E2DA11468377 /* IpEndpointName.cpp */; };
 		AF2A79DF8D23EAE35974E6D9 /* TuioContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DF005DEB939F5AD91B59E8 /* TuioContainer.cpp */; };
+		B068D98E1B385F5A009332D5 /* demoParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B068D98C1B385F5A009332D5 /* demoParticle.cpp */; };
+		B0F69C991B37750100C42DB5 /* S3CircleParticles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0F69C971B37750100C42DB5 /* S3CircleParticles.cpp */; };
 		B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */; };
 		B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */; };
 		B5B2F1EE373389DA8C5147A7 /* ofxTuioServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93823F042860E25A1991AFA7 /* ofxTuioServer.cpp */; };
@@ -324,7 +326,11 @@
 		ADD194746185E2DA11468377 /* IpEndpointName.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = IpEndpointName.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.cpp; sourceTree = SOURCE_ROOT; };
 		AE335EB4709BFD4671EEAC84 /* MessageMappingOscPacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MessageMappingOscPacketListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/MessageMappingOscPacketListener.h; sourceTree = SOURCE_ROOT; };
 		AF78ECF3CDA7181D9F3B20DC /* TuioObject.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = TuioObject.cpp; path = src/TUIO/TuioObject.cpp; sourceTree = SOURCE_ROOT; };
+		B068D98C1B385F5A009332D5 /* demoParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = demoParticle.cpp; path = Scene3/demoParticle.cpp; sourceTree = "<group>"; };
+		B068D98D1B385F5A009332D5 /* demoParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = demoParticle.h; path = Scene3/demoParticle.h; sourceTree = "<group>"; };
 		B0891620C23D47639D8AEE84 /* TuioDispatcher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = TuioDispatcher.cpp; path = src/TUIO/TuioDispatcher.cpp; sourceTree = SOURCE_ROOT; };
+		B0F69C971B37750100C42DB5 /* S3CircleParticles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3CircleParticles.cpp; path = Scene3/S3CircleParticles.cpp; sourceTree = "<group>"; };
+		B0F69C981B37750100C42DB5 /* S3CircleParticles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CircleParticles.h; path = Scene3/S3CircleParticles.h; sourceTree = "<group>"; };
 		B21E7E5F548EEA92F368040B /* tinyxml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tinyxml.h; path = ../../../addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
 		B31C608870ECEB2490A93736 /* ofxOscParameterSync.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscParameterSync.h; path = ../../../addons/ofxOsc/src/ofxOscParameterSync.h; sourceTree = SOURCE_ROOT; };
 		B344E436FF955E8FCAD5AD55 /* AbletonManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AbletonManager.h; path = src/Utils/AbletonManager.h; sourceTree = SOURCE_ROOT; };
@@ -849,6 +855,10 @@
 				2AA9B6BC1B349F8F00BFED62 /* S3ExampleObject.h */,
 				214765BDDA6F2077F2FE9AB5 /* S3Synthesizer.cpp */,
 				21476CF79E7C8DF042683EA1 /* S3Synthesizer.h */,
+				B0F69C971B37750100C42DB5 /* S3CircleParticles.cpp */,
+				B0F69C981B37750100C42DB5 /* S3CircleParticles.h */,
+				B068D98C1B385F5A009332D5 /* demoParticle.cpp */,
+				B068D98D1B385F5A009332D5 /* demoParticle.h */,
 			);
 			name = Scene3;
 			sourceTree = "<group>";
@@ -1291,6 +1301,7 @@
 				07CE45C80C433D565B7670AA /* TuioPoint.cpp in Sources */,
 				5BCA7DB39B7D8DAC587482BC /* TuioServer.cpp in Sources */,
 				BD2BCE2D970FB93F28642493 /* TuioTime.cpp in Sources */,
+				B068D98E1B385F5A009332D5 /* demoParticle.cpp in Sources */,
 				EC7B52EAF29A507CC7F6696B /* UdpReceiver.cpp in Sources */,
 				3F05B94F9644567FE4B5CEEA /* UdpSender.cpp in Sources */,
 				F965170AE40D7D9654AB1930 /* AbletonManager.cpp in Sources */,
@@ -1306,6 +1317,7 @@
 				F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */,
 				837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */,
 				B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */,
+				B0F69C991B37750100C42DB5 /* S3CircleParticles.cpp in Sources */,
 				1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */,
 				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
 				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,

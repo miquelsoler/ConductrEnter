@@ -13,6 +13,9 @@
 
 #include <stdio.h>
 #include "S3BaseObj.h"
+#include "ofxSimpleTimer.h"
+#include "Tweenzor.h"
+
 
 class S3DrumsAmoeba : public S3BaseObj
 {
@@ -26,14 +29,15 @@ public:
 
 private:
 
-    virtual void initInactive() {};
+    virtual void initInactive();
     virtual void updateInactive();
     virtual void drawInactive();
 
-    virtual void initTransitioning() {};
+    virtual void initTransitioning();
     virtual void updateTransitioning();
     virtual void drawTransitioning();
-
+    void onCompleteTransitioning(float* arg);
+    
     virtual void initActive() {};
     virtual void updateActive();
     virtual void drawActive();
@@ -61,6 +65,14 @@ private:
     ofLight     pointLight1;
     ofLight     pointLight2;
     ofLight     pointLight3;
+    
+    // Transitioning state
+    float                   stableNoiseFrequency;
+    float                   transitionedNoiseFrequency;
+    float                   transitioningCircleRadius;
+    float                   transitioningCircleAlpha;
+
+
 };
 
 #endif /* defined(__ConductrEnter__S3DrumsAmoeba__) */
