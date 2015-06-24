@@ -31,9 +31,14 @@ private:
     void manageScene3Timer();
     void scene3TimerCompleteHandler(int &args);
 
+    void drawScreenMode();
+    void showScreenModeCompleteHandler(int &args);
+
     ofxSceneManager     sceneManager;
     unsigned int        currentScene;
     ofxSimpleTimer      scene3Timer;
 
     ScreenSetup         screenSetup;
+    bool                showScreenMode;
+    ofxSimpleTimer      showScreenModeTimer;
 };

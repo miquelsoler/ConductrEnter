@@ -15,6 +15,7 @@
 ///--------------------------------------------------------------
 void ofApp::setup()
 {
+    showScreenMode = false;
     screenSetup.setScreenMode(SCREENMODE_WINDOW);
     
     // App settings
@@ -72,6 +73,7 @@ void ofApp::update()
 
 #ifdef OF_DEBUG
     ofShowCursor();
+    showScreenModeTimer.update();
 #endif
 
     TUIOHandler::getInstance().update();
@@ -87,6 +89,9 @@ void ofApp::draw()
     << "SCENE NAME: " << sceneManager.getCurrentSceneName() << endl;
 
     ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", ofGetWidth() - 100, ofGetHeight() - 15);
+
+    // Draw screen mode
+    if (showScreenMode) drawScreenMode();
 #endif
 }
 
@@ -113,7 +118,14 @@ void ofApp::keyReleased(int key)
         case 'f':
         case 'F': {
             screenSetup.switchMode();
-            
+#if OF_DEBUG
+            showScreenModeTimer.stop();
+            showScreenMode = true;
+            showScreenModeTimer.setup(3000);
+            ofAddListener(showScreenModeTimer.TIMER_COMPLETE, this, &ofApp::showScreenModeCompleteHandler);
+            showScreenModeTimer.start(false);
+#endif
+
 //            int windowMode = ofGetWindowMode();
 //            bool fullscreen = (windowMode == OF_WINDOW);
 //            ofSetWindowShape(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
@@ -176,4 +188,31 @@ void ofApp::scene3TimerCompleteHandler(int &args)
     scene3Timer.stop();
     currentScene = 0;
     sceneManager.gotoScene(currentScene);
+}
+
+///--------------------------------------------------------------
+void ofApp::drawScreenMode()
+{
+    float halfWindowWidth = ofGetWidth() / 2;
+    float halfWindowHeight = ofGetHeight() / 2;
+    float textXOffset = 96;
+    float textYOffset = 8;
+    float textX = halfWindowWidth - textXOffset;
+    float textY = halfWindowHeight - textYOffset;
+    float rectOffset = 12;
+
+    ofFill();
+    ofSetColor(50, 125, 50, 200);
+    ofRect(textX-rectOffset, textY-2*rectOffset, 2*textXOffset + 2*rectOffset, 2*textYOffset + 2*rectOffset);
+    ofSetColor(ofColor::white);
+    ofDrawBitmapString("Screen Mode: " + screenSetup.getCurrentScreenModeString(), textX, textY);
+    ofDrawBitmapString("Screen Mode: " + screenSetup.getCurrentScreenModeString(), textX+1, textY);
+}
+
+///--------------------------------------------------------------
+void ofApp::showScreenModeCompleteHandler(int &args)
+{
+    showScreenMode = false;
+    showScreenModeTimer.stop();
+    ofRemoveListener(showScreenModeTimer.TIMER_COMPLETE, this, &ofApp::showScreenModeCompleteHandler);
 }

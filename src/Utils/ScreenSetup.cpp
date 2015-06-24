@@ -12,30 +12,42 @@
 #include "Defaults.h"
 #include "SettingsManager.h"
 
+#pragma mark - Public methods
+
+///--------------------------------------------------------------
 void ScreenSetup::setScreenMode(ScreenMode mode)
 {
     switch (mode)
     {
-        case SCREENMODE_WINDOW:
-            setModeWindow();
-            break;
-        case SCREENMODE_FULL:
-            setModeFull();
-            break;
-        case SCREENMODE_DISPLAX:
-            setModeDisplax();
-            break;
-        default:
-            break;
+        case SCREENMODE_WINDOW:     setModeWindow(); break;
+        case SCREENMODE_FULL:       setModeFull(); break;
+        case SCREENMODE_DISPLAX:    setModeDisplax(); break;
+        default:                    break;
     }
 }
 
+///--------------------------------------------------------------
 void ScreenSetup::switchMode()
 {
     ScreenMode newMode = ScreenMode((currentMode + 1) % SCREENMODE_NUMMODES);
     setScreenMode(newMode);
 }
 
+///--------------------------------------------------------------
+string ScreenSetup::getCurrentScreenModeString()
+{
+    switch(currentMode)
+    {
+        case SCREENMODE_WINDOW:     return "WINDOW";
+        case SCREENMODE_FULL:       return "FULL SCREEN";
+        case SCREENMODE_DISPLAX:    return "DISPLAX";
+        default: return "";
+    }
+}
+
+#pragma mark - Private methods
+
+///--------------------------------------------------------------
 void ScreenSetup::setModeWindow()
 {
     ofSetFullscreen(false);
@@ -43,12 +55,14 @@ void ScreenSetup::setModeWindow()
     currentMode = SCREENMODE_WINDOW;
 }
 
+///--------------------------------------------------------------
 void ScreenSetup::setModeFull()
 {
     ofSetFullscreen(true);
     currentMode = SCREENMODE_FULL;
 }
 
+///--------------------------------------------------------------
 void ScreenSetup::setModeDisplax()
 {
     ofSetFullscreen(true);
@@ -61,6 +75,7 @@ void ScreenSetup::setModeDisplax()
     currentMode = SCREENMODE_DISPLAX;
 }
 
+///--------------------------------------------------------------
 ofVec2f ScreenSetup::getMainScreenOrigin()
 {
     ofAppBaseWindow * win = ofGetWindowPtr();
@@ -89,6 +104,7 @@ ofVec2f ScreenSetup::getMainScreenOrigin()
     return ofVec2f();
 }
 
+///--------------------------------------------------------------
 ofVec2f ScreenSetup::getLeftmostMonitorCoord()
 {
     ofAppBaseWindow * win = ofGetWindowPtr();
