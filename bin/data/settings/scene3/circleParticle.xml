@@ -1,11 +1,11 @@
 <Settings>
-	<Camera_Distance>375</Camera_Distance>
-	<White_Circle_Radius>24.3</White_Circle_Radius>
-	<Loop_Radius>52</Loop_Radius>
+	<Camera_Distance>372</Camera_Distance>
+	<White_Circle_Radius>22.5</White_Circle_Radius>
+	<Loop_Radius>40</Loop_Radius>
 	<Loop_Initial_Angle>0</Loop_Initial_Angle>
 <Settings/>
 <numDotsInCircle>57</numDotsInCircle>
-	<circleRadius>41</circleRadius>
+	<circleRadius>31</circleRadius>
 <updateCircle>1</updateCircle>
 <updateParticles>1</updateParticles>
 	<baseAge>47</baseAge>

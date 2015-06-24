@@ -8,7 +8,6 @@
 
 #include "S3CircleParticles.h"
 
-#include "ofxTweenzor.h"
 
 #pragma mark - Initialization
 
@@ -75,8 +74,10 @@ void S3CircleParticles::setup()
 ///--------------------------------------------------------------
 void S3CircleParticles::initInactive()
 {
+    volumeParticleScale = 1.5;
+    
 //    cout << "circlePart :: init inactive" << endl;
-    Tweenzor::add(&scaleCircle, 1.0f, 1.1f, 0.0f, 0.7f, EASE_IN_OUT_SINE);
+    Tweenzor::add(&scaleCircle, 1.0f, 0.9f, 0.0f, 0.7f, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&scaleCircle);
     tween->setRepeat(1, true);
     Tweenzor::addCompleteListener(tween, this, &S3CircleParticles::onCompleteInactive);
@@ -290,17 +291,6 @@ void S3CircleParticles::setPositionFromScreenCoords(int screenX, int screenY)
 
 }
 
-///--------------------------------------------------------------
-void S3CircleParticles::volumeChanged(float &newVolume)
-{
-
-    for(unsigned int i = 0; i < p.size(); i++)
-    {
-        p[i].scale = 3 * newVolume;
-    }
-
-}
-
 
 ///--------------------------------------------------------------
 void S3CircleParticles::recalculateCircle()
@@ -353,5 +343,18 @@ void S3CircleParticles::changeParticleState(int s)
 	}
     
     //cout << "changed PARTICLE state to : " << particlesState << endl;
+    
+}
+
+///--------------------------------------------------------------
+void S3CircleParticles::volumeChanged(float &newVolume)
+{
+    
+    float newScale = ofMap(newVolume,0.0,1.0,0.25,volumeParticleScale);
+    
+    for(unsigned int i = 0; i < p.size(); i++)
+    {
+        p[i].scale = newScale;
+    }
     
 }

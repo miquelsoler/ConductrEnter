@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include "S3BaseObj.h"
 #include "of3dGraphics.h"
+#include "ofxTweenzor.h"
 
 #include "demoParticle.h"
 
@@ -45,6 +46,7 @@ public:
     ofParameter<float>      baseAge;
     int                     particlesState;
     void                    changeParticleState(int s);
+    float                   volumeParticleScale;
     
     
 private:

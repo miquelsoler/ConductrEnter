@@ -13,6 +13,8 @@
 
 #include <stdio.h>
 #include "S3BaseObj.h"
+#include "ofxTweenzor.h"
+
 
 class S3NoiseSphere : public S3BaseObj
 {
@@ -26,19 +28,21 @@ public:
 
 private:
 
-    virtual void initInactive(){};
+    virtual void initInactive();
     virtual void updateInactive();
     virtual void drawInactive();
 
-    virtual void initTransitioning() {};
+    virtual void initTransitioning() ;
     virtual void updateTransitioning();
     virtual void drawTransitioning();
+    void onCompleteTransitioning(float* arg);
+    void onCompleteToActive(float* arg);
 
-    virtual void initActive() {};
+    virtual void initActive();
     virtual void updateActive();
     virtual void drawActive();
 
-    virtual void volumeChanged(float &newVolume) {};
+    virtual void volumeChanged(float &newVolume);
 
     ofSpherePrimitive       sphere;
     vector<ofMeshFace>      sphereFacesOriginal;
@@ -55,6 +59,12 @@ private:
     ofParameter<int>        thresholdHigh;
     ofParameter<float>      offset;
     ofParameter<int>        mode;
+    
+    // Transitioning state
+    float                   stableNoiseFrequency;
+    float                   stableOffset;
+    float                   activeOffset;
+    float                   activeNoiseFrequency;
 };
 
 #endif /* defined(__ConductrEnter__S3NoiseSphere__) */
