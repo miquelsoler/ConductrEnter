@@ -2,7 +2,7 @@
 //  S3BaseObj.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ëngel Soler on 24/5/15.
+//  Created by Miquel Ã€ngel Soler on 24/5/15.
 //
 //
 
@@ -43,9 +43,9 @@ void S3BaseObj::initSharedSettings()
 {
     gui.setup("Settings", settingsPath);
     gui.add(camDistance.set("Camera_Distance", 0, 0, 600));
-    gui.add(whiteCircleRadius.set("White_Circle_Radius", 40, 0, 30));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
     gui.add(loopInitialAngle.set("Loop_Initial_Angle", 0, 0, 360));
+    gui.add(whiteCircleRadius.set("White_Circle_Radius", 40, 0, 30));
 }
 
 #pragma mark - Basic object methods
@@ -98,9 +98,6 @@ void S3BaseObj::draw()
     {
         gui.draw();
     }
-
-    ofSetColor(ofColor::gray);
-    ofxBitmapString(viewOriginX, viewHalfHeight) << cursorIds.size();
 #endif
 
     switch(currentState)
@@ -120,7 +117,7 @@ void S3BaseObj::draw()
 ///--------------------------------------------------------------
 void S3BaseObj::drawLoop()
 {
-     ofSetLineWidth(1);
+     ofSetLineWidth(2);
 
     // Draw white loop arc (only if current angle is not 0)
     if (int(loopAngle) != 0)
@@ -188,7 +185,7 @@ void S3BaseObj::windowResized(ofResizeEventArgs &args)
 bool S3BaseObj::pick(int screenX, int screenY)
 {
     ofVec3f centerScreenCoords = camera.worldToScreen(objPosition, viewRectangle);
-    ofVec3f perimeterScreenCoords = camera.worldToScreen(ofVec3f(objPosition.x, objPosition.y - radius, objPosition.z), viewRectangle);
+    ofVec3f perimeterScreenCoords = camera.worldToScreen(ofVec3f(objPosition.x, objPosition.y - radius*2, objPosition.z), viewRectangle);
 
     float distToPerimeter = ofDistSquared(centerScreenCoords.x, centerScreenCoords.y, perimeterScreenCoords.x, perimeterScreenCoords.y);
     float distToScreen = ofDistSquared(centerScreenCoords.x, centerScreenCoords.y, screenX, screenY);
@@ -223,10 +220,10 @@ void S3BaseObj::enablePinch(bool enable)
         return;
     }
 
-    int cursorId1 = cursorIds.front();
-    int cursorId2 = cursorIds.back();
+    TuioCursor *cursor1 = cursorIds.front();
+    TuioCursor *cursor2 = cursorIds.back();
 
-    pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursorId1, cursorId2);
+    pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
 
     pinchImageSize = whiteCircleRadius / 2;
 }
@@ -242,9 +239,9 @@ void S3BaseObj::updatePinch()
 {
     if (!pinchEnabled) return;
 
-    int cursorId1 = cursorIds.front();
-    int cursorId2 = cursorIds.back();
-    float pinchCurrentDist = TUIOHandler::getInstance().getDistBetweenCursors(cursorId1, cursorId2);
+    TuioCursor *cursor1 = cursorIds.front();
+    TuioCursor *cursor2 = cursorIds.back();
+    float pinchCurrentDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
 
     float diff = pinchCurrentDist - pinchInitialDist;
     if (diff > 0)
@@ -255,10 +252,17 @@ void S3BaseObj::updatePinch()
 }
 
 ///--------------------------------------------------------------
-int S3BaseObj::getFirstCursorId()
+TuioCursor *S3BaseObj::getFirstCursor()
 {
-    if (cursorIds.empty()) return -1;
+    if (cursorIds.empty()) return NULL;
     return cursorIds.front();
+}
+
+///--------------------------------------------------------------
+TuioCursor *S3BaseObj::getLastCursor()
+{
+    if (cursorIds.empty()) return NULL;
+    return cursorIds.back();
 }
 
 ///--------------------------------------------------------------
@@ -337,13 +341,15 @@ void S3BaseObj::clipPositionChanged(float &newPosition)
 
 #pragma mark - TUIO
 
-void S3BaseObj::addCursor(int cursorId)
+void S3BaseObj::addCursor(TuioCursor *cursor)
 {
-    cursorIds.push_back(cursorId);
+    cursorIds.push_back(cursor);
 }
 
 void S3BaseObj::removeLastCursor()
 {
     if (cursorIds.empty()) return;
+    TuioCursor *cursor = cursorIds.back();
     cursorIds.pop_back();
+    delete cursor;
 }

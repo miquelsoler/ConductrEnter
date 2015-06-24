@@ -3,6 +3,7 @@
 #include "TUIOHandler.h"
 #include "Defaults.h"
 #include "SettingsManager.h"
+#include "ScreenSetup.h"
 
 #include "BaseScene.h"
 #include "Scene1.h"
@@ -14,12 +15,14 @@
 ///--------------------------------------------------------------
 void ofApp::setup()
 {
+    screenSetup.setScreenMode(SCREENMODE_WINDOW);
+    
     // App settings
 
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
 
-    ofBackground(0, 0, 0);
+    ofBackground(ofColor::black);
 
     // TUIO
     TUIOHandler::getInstance().init();
@@ -70,6 +73,8 @@ void ofApp::update()
 #ifdef OF_DEBUG
     ofShowCursor();
 #endif
+
+    TUIOHandler::getInstance().update();
 }
 
 ///--------------------------------------------------------------
@@ -107,10 +112,12 @@ void ofApp::keyReleased(int key)
         }
         case 'f':
         case 'F': {
-            int windowMode = ofGetWindowMode();
-            bool fullscreen = (windowMode == OF_WINDOW);
-            ofSetWindowShape(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
-            ofSetFullscreen(fullscreen);
+            screenSetup.switchMode();
+            
+//            int windowMode = ofGetWindowMode();
+//            bool fullscreen = (windowMode == OF_WINDOW);
+//            ofSetWindowShape(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
+//            ofSetFullscreen(fullscreen);
             break;
         }
         default:

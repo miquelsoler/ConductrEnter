@@ -18,14 +18,19 @@
 		196DEC90F7E0BBFC0278BBA5 /* Scene3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1C1EBCE99989A41462D6C86 /* Scene3.cpp */; };
 		1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 907C5B5E104864A2D3A25745 /* ofxToggle.cpp */; };
 		1CFE669F69FE0A1162755BF6 /* Graphic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A32328FA036BA733F924C0E1 /* Graphic.cpp */; };
-		21476E39AD48CFB691BFE066 /* S3Synthesizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 214765BDDA6F2077F2FE9AB5 /* S3Synthesizer.cpp */; };
+		214760EEF40606F34BAA1BF2 /* S3NoiseSphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21476D19D0D0B8F1986C9BA0 /* S3NoiseSphere.cpp */; };
+		21476134EABCAE43EC6D8C64 /* S3SynthesizerCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21476E3243B6AB9A4E31907B /* S3SynthesizerCircle.cpp */; };
+		214763969996DE95265D029E /* S3Synthesizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 214769C0F7F7E59DEA03A840 /* S3Synthesizer.cpp */; };
+		21476496E1380516E16E4F3D /* S3BaseObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 214763632FDABE1B67589BA2 /* S3BaseObj.cpp */; };
+		2147683760997EBF9A70DBA8 /* S3ExampleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21476BA616B1D1D5014C3A37 /* S3ExampleObject.cpp */; };
+		21476B1085018048508DC47A /* S3DrumsAmoeba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21476D6C9F30B7D162D302E4 /* S3DrumsAmoeba.cpp */; };
+		21476CF0FC569D843CF9A3B2 /* S3Drums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 214766766CE0A36D0163E233 /* S3Drums.cpp */; };
 		235F650AC06759134BAA7849 /* ofxTransformPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC2843824B062FDEF5E0C62 /* ofxTransformPanel.cpp */; };
-		272FB933B6673272E9518010 /* S3BaseObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D1CD9E4ABBADEA15B582F /* S3BaseObj.cpp */; };
 		28090DEB5109115003E8F1C5 /* UdpSocketWin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5928AA323F5C2690B06C837D /* UdpSocketWin.cpp */; };
 		29B40A4DB56C3F8ECA94E7E9 /* TuioDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0891620C23D47639D8AEE84 /* TuioDispatcher.cpp */; };
 		2A0B4EA01B2C7C600033F462 /* TUIOHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A0B4E9E1B2C7C600033F462 /* TUIOHandler.cpp */; };
-		2A5C319D1B299BD400E713F3 /* S3Drums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C319B1B299BD400E713F3 /* S3Drums.cpp */; };
-		2AA9B6BD1B349F8F00BFED62 /* S3ExampleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AA9B6BB1B349F8F00BFED62 /* S3ExampleObject.cpp */; };
+		2A48C62A1B3ACE8E00937E39 /* ScreenSetup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A48C6281B3ACE8E00937E39 /* ScreenSetup.cpp */; };
+		2A61F4E41B39A8F4007DBBA8 /* TUIOReceiverEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A61F4E21B39A8F4007DBBA8 /* TUIOReceiverEvent.cpp */; };
 		2C94348B3606F2B01C9F2E69 /* Simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF750ABAF3178C5BC6A8C233 /* Simulator.cpp */; };
 		38BA747C7CB7F8F8913375B6 /* ofxSimpleTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F1B28BB2551E443EFD686DD /* ofxSimpleTimer.cpp */; };
 		3C9E8F6D5A107A2CE1F7F0C3 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4AA5936821E0FA89447F332 /* Renderer.cpp */; };
@@ -64,7 +69,6 @@
 		87978A351C12B1676C9FDE60 /* GraphicDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44D7089802B01674AA4DEFA9 /* GraphicDispatcher.cpp */; };
 		879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */; };
 		87EB70D1D65B5E4B1CAA7474 /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C327CCC6DB1A6B198DF2BFC3 /* BaseScene.cpp */; };
-		883E10C8422A234A3309708D /* S3DrumsAmoeba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EF2366F441F518D7A055B /* S3DrumsAmoeba.cpp */; };
 		8B20F260496B9778A04E554C /* Scene1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 916661E9D1CB179DDE1B7231 /* Scene1.cpp */; };
 		8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81967292BFC87A0144BD32C6 /* ofxOscSender.cpp */; };
 		92A9E32D494D4A6DDF6E4FFC /* OscReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A20E8DE4DD3DFB57DEF659B /* OscReceiver.cpp */; };
@@ -77,11 +81,10 @@
 		9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 832BDC407620CDBA568B713D /* tinyxmlerror.cpp */; };
 		A29D8C96AE042ECEAA1BD4F3 /* NetworkingUtilsWin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B1FAD3F30C8065C396ACB /* NetworkingUtilsWin.cpp */; };
 		A4C32C6B309DA9A9245C31F9 /* container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D66B0538A9B30C2024C0F038 /* container.cpp */; };
-		AC3F106095E50D5D726700D2 /* S3NoiseSphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB1F7C6505FC232176A74775 /* S3NoiseSphere.cpp */; };
 		ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD194746185E2DA11468377 /* IpEndpointName.cpp */; };
 		AF2A79DF8D23EAE35974E6D9 /* TuioContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DF005DEB939F5AD91B59E8 /* TuioContainer.cpp */; };
-		B068D98E1B385F5A009332D5 /* demoParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B068D98C1B385F5A009332D5 /* demoParticle.cpp */; };
-		B0F69C991B37750100C42DB5 /* S3CircleParticles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0F69C971B37750100C42DB5 /* S3CircleParticles.cpp */; };
+		B0422BA71B3B186D001D1A89 /* S3CircleParticles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0422BA61B3B186D001D1A89 /* S3CircleParticles.cpp */; };
+		B0BC45CF1B3B18E70021B9A0 /* demoParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0BC45CE1B3B18E70021B9A0 /* demoParticle.cpp */; };
 		B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */; };
 		B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */; };
 		B5B2F1EE373389DA8C5147A7 /* ofxTuioServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93823F042860E25A1991AFA7 /* ofxTuioServer.cpp */; };
@@ -197,13 +200,24 @@
 		1DF35AEBC89D1635BA83245C /* FlashSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FlashSender.h; path = src/TUIO/FlashSender.h; sourceTree = SOURCE_ROOT; };
 		1F75A6D2A65723A63E2341DB /* Vector3DS.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Vector3DS.h; path = ../../../addons/ofx3DModelLoader/src/3DS/Vector3DS.h; sourceTree = SOURCE_ROOT; };
 		20F35AFADAF0068B067E713F /* OscReceivedElements.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscReceivedElements.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.h; sourceTree = SOURCE_ROOT; };
-		214765BDDA6F2077F2FE9AB5 /* S3Synthesizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3Synthesizer.cpp; path = Scene3/S3Synthesizer.cpp; sourceTree = "<group>"; };
-		21476CF79E7C8DF042683EA1 /* S3Synthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Synthesizer.h; path = Scene3/S3Synthesizer.h; sourceTree = "<group>"; };
+		214763632FDABE1B67589BA2 /* S3BaseObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3BaseObj.cpp; path = Scene3/S3BaseObj.cpp; sourceTree = "<group>"; };
+		21476371F4A162874C31D09C /* S3NoiseSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3NoiseSphere.h; path = Scene3/S3NoiseSphere.h; sourceTree = "<group>"; };
+		2147638B3668BEE30D952823 /* S3SynthesizerCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SynthesizerCircle.h; path = Scene3/S3SynthesizerCircle.h; sourceTree = "<group>"; };
+		214766766CE0A36D0163E233 /* S3Drums.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3Drums.cpp; path = Scene3/S3Drums.cpp; sourceTree = "<group>"; };
+		214766BB1296C5FC64BC8B65 /* S3Synthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Synthesizer.h; path = Scene3/S3Synthesizer.h; sourceTree = "<group>"; };
+		214769C0F7F7E59DEA03A840 /* S3Synthesizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3Synthesizer.cpp; path = Scene3/S3Synthesizer.cpp; sourceTree = "<group>"; };
+		21476B2353E9BB0584CE641E /* S3DrumsAmoeba.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DrumsAmoeba.h; path = Scene3/S3DrumsAmoeba.h; sourceTree = "<group>"; };
+		21476BA616B1D1D5014C3A37 /* S3ExampleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3ExampleObject.cpp; path = Scene3/S3ExampleObject.cpp; sourceTree = "<group>"; };
+		21476D19D0D0B8F1986C9BA0 /* S3NoiseSphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3NoiseSphere.cpp; path = Scene3/S3NoiseSphere.cpp; sourceTree = "<group>"; };
+		21476D542280DD6975425640 /* S3ExampleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ExampleObject.h; path = Scene3/S3ExampleObject.h; sourceTree = "<group>"; };
+		21476D6C9F30B7D162D302E4 /* S3DrumsAmoeba.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3DrumsAmoeba.cpp; path = Scene3/S3DrumsAmoeba.cpp; sourceTree = "<group>"; };
+		21476DF53421C2225C92AD09 /* S3BaseObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BaseObj.h; path = Scene3/S3BaseObj.h; sourceTree = "<group>"; };
+		21476E3243B6AB9A4E31907B /* S3SynthesizerCircle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3SynthesizerCircle.cpp; path = Scene3/S3SynthesizerCircle.cpp; sourceTree = "<group>"; };
+		21476F720FCEFE2352055E22 /* S3Drums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Drums.h; path = Scene3/S3Drums.h; sourceTree = "<group>"; };
 		21BDE665988474F1B1F4D302 /* jsoncpp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = jsoncpp.cpp; path = ../../../addons/ofxJSON/libs/jsoncpp/src/jsoncpp.cpp; sourceTree = SOURCE_ROOT; };
 		22F13528FB7F2A76A5FA61F9 /* InputGestureTuio1.12.5D.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = InputGestureTuio1.12.5D.cpp; path = ../../../addons/ofxTableGestures/src/Gestures/tuio1.1/InputGestureTuio1.12.5D.cpp; sourceTree = SOURCE_ROOT; };
 		23640F57DF6C4BB6BFC5DA4C /* PacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PacketListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/PacketListener.h; sourceTree = SOURCE_ROOT; };
 		23D3490FFD4F52374BB762A7 /* InputGestureTuio1.13D.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = InputGestureTuio1.13D.cpp; path = ../../../addons/ofxTableGestures/src/Gestures/tuio1.1/InputGestureTuio1.13D.cpp; sourceTree = SOURCE_ROOT; };
-		24E837B3A82AD01250ABEBBD /* S3NoiseSphere.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = S3NoiseSphere.h; path = src/Scene3/S3NoiseSphere.h; sourceTree = SOURCE_ROOT; };
 		2600FB058F34C2FD5037FCCF /* TweenEvent.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = TweenEvent.h; path = ../../../addons/ofxTweenzor/src/TweenEvent.h; sourceTree = SOURCE_ROOT; };
 		26A541233BC6F736E758F718 /* ofxJSONElement.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxJSONElement.h; path = ../../../addons/ofxJSON/src/ofxJSONElement.h; sourceTree = SOURCE_ROOT; };
 		2834D88A62CD23F3DE2C47D1 /* ofxButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxButton.h; path = ../../../addons/ofxGui/src/ofxButton.h; sourceTree = SOURCE_ROOT; };
@@ -212,12 +226,12 @@
 		2A0B4E9F1B2C7C600033F462 /* TUIOHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TUIOHandler.h; path = Utils/TUIOHandler.h; sourceTree = "<group>"; };
 		2A19CB89F75D6694CAEF1A9F /* Figure.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Figure.h; path = ../../../addons/ofx2DFigures/src/Figure.h; sourceTree = SOURCE_ROOT; };
 		2A22B5E46E4AF471AB80A04B /* FigureGraphic.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FigureGraphic.hpp; path = ../../../addons/ofxTableGestures/src/Core/FigureGraphic.hpp; sourceTree = SOURCE_ROOT; };
+		2A48C6281B3ACE8E00937E39 /* ScreenSetup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScreenSetup.cpp; path = Utils/ScreenSetup.cpp; sourceTree = "<group>"; };
+		2A48C6291B3ACE8E00937E39 /* ScreenSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScreenSetup.h; path = Utils/ScreenSetup.h; sourceTree = "<group>"; };
 		2A5B1FAD3F30C8065C396ACB /* NetworkingUtilsWin.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = NetworkingUtilsWin.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/win32/NetworkingUtilsWin.cpp; sourceTree = SOURCE_ROOT; };
-		2A5C319B1B299BD400E713F3 /* S3Drums.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3Drums.cpp; path = Scene3/S3Drums.cpp; sourceTree = "<group>"; };
-		2A5C319C1B299BD400E713F3 /* S3Drums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Drums.h; path = Scene3/S3Drums.h; sourceTree = "<group>"; };
+		2A61F4E21B39A8F4007DBBA8 /* TUIOReceiverEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TUIOReceiverEvent.cpp; sourceTree = "<group>"; };
+		2A61F4E31B39A8F4007DBBA8 /* TUIOReceiverEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUIOReceiverEvent.h; sourceTree = "<group>"; };
 		2A9DFB8F1B289B58005BFCB9 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = bin/data; sourceTree = "<group>"; };
-		2AA9B6BB1B349F8F00BFED62 /* S3ExampleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3ExampleObject.cpp; path = Scene3/S3ExampleObject.cpp; sourceTree = "<group>"; };
-		2AA9B6BC1B349F8F00BFED62 /* S3ExampleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ExampleObject.h; path = Scene3/S3ExampleObject.h; sourceTree = "<group>"; };
 		2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxml.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = SOURCE_ROOT; };
 		2C7CF000B7B4F782C187C353 /* json.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = json.h; path = ../../../addons/ofxJSON/libs/jsoncpp/include/json/json.h; sourceTree = SOURCE_ROOT; };
 		2EB51DAB3FDC5557D2DBABB6 /* UdpSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UdpSender.h; path = src/TUIO/UdpSender.h; sourceTree = SOURCE_ROOT; };
@@ -254,7 +268,6 @@
 		5928AA323F5C2690B06C837D /* UdpSocketWin.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = UdpSocketWin.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/win32/UdpSocketWin.cpp; sourceTree = SOURCE_ROOT; };
 		5A66FCCA3206411C3BEE2E0D /* Simulator.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Simulator.hpp; path = ../../../addons/ofxTableGestures/src/Simulator/Simulator.hpp; sourceTree = SOURCE_ROOT; };
 		5C26E4A6E8DFA7B8F0E281D3 /* Scene2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Scene2.cpp; path = src/Scene2.cpp; sourceTree = SOURCE_ROOT; };
-		5C8D1CD9E4ABBADEA15B582F /* S3BaseObj.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S3BaseObj.cpp; path = src/Scene3/S3BaseObj.cpp; sourceTree = SOURCE_ROOT; };
 		5FAF27C1DA3A626371F1B3CA /* CollisionHelper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CollisionHelper.h; path = ../../../addons/ofx2DFigures/src/CollisionHelper.h; sourceTree = SOURCE_ROOT; };
 		61313493CDB52744E22A604D /* json-forwards.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = "json-forwards.h"; path = "../../../addons/ofxJSON/libs/jsoncpp/include/json/json-forwards.h"; sourceTree = SOURCE_ROOT; };
 		62CFD413B72F01FBE1F24E8A /* Matrix.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Matrix.h; path = ../../../addons/ofx2DFigures/src/Matrix.h; sourceTree = SOURCE_ROOT; };
@@ -279,7 +292,6 @@
 		7720C2AE61FD94318D88F1BA /* TuioDispatcher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TuioDispatcher.h; path = src/TUIO/TuioDispatcher.h; sourceTree = SOURCE_ROOT; };
 		78D67A00EB899FAC09430597 /* ofxLabel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxLabel.cpp; path = ../../../addons/ofxGui/src/ofxLabel.cpp; sourceTree = SOURCE_ROOT; };
 		78DCE1762BCE6B4BC2EF37D2 /* InputGestureBasicObjects.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = InputGestureBasicObjects.cpp; path = ../../../addons/ofxTableGestures/src/Gestures/Gestures/InputGestureBasicObjects.cpp; sourceTree = SOURCE_ROOT; };
-		7E8EF2366F441F518D7A055B /* S3DrumsAmoeba.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S3DrumsAmoeba.cpp; path = src/Scene3/S3DrumsAmoeba.cpp; sourceTree = SOURCE_ROOT; };
 		7FA2F8908748DFC002FE046D /* InputGestureTap.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = InputGestureTap.hpp; path = "../../../addons/ofxTableGestures/src/Gestures/Gestures-Extras/InputGestureTap.hpp"; sourceTree = SOURCE_ROOT; };
 		802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSliderGroup.cpp; path = ../../../addons/ofxGui/src/ofxSliderGroup.cpp; sourceTree = SOURCE_ROOT; };
 		80D2005611C119A1E329E898 /* TuioBlob.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TuioBlob.h; path = src/TUIO/TuioBlob.h; sourceTree = SOURCE_ROOT; };
@@ -326,11 +338,11 @@
 		ADD194746185E2DA11468377 /* IpEndpointName.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = IpEndpointName.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.cpp; sourceTree = SOURCE_ROOT; };
 		AE335EB4709BFD4671EEAC84 /* MessageMappingOscPacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MessageMappingOscPacketListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/MessageMappingOscPacketListener.h; sourceTree = SOURCE_ROOT; };
 		AF78ECF3CDA7181D9F3B20DC /* TuioObject.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = TuioObject.cpp; path = src/TUIO/TuioObject.cpp; sourceTree = SOURCE_ROOT; };
-		B068D98C1B385F5A009332D5 /* demoParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = demoParticle.cpp; path = Scene3/demoParticle.cpp; sourceTree = "<group>"; };
-		B068D98D1B385F5A009332D5 /* demoParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = demoParticle.h; path = Scene3/demoParticle.h; sourceTree = "<group>"; };
+		B0422B9F1B3B14CE001D1A89 /* demoParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = demoParticle.h; path = Scene3/demoParticle.h; sourceTree = "<group>"; };
+		B0422BA11B3B14CE001D1A89 /* S3CircleParticles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CircleParticles.h; path = Scene3/S3CircleParticles.h; sourceTree = "<group>"; };
+		B0422BA61B3B186D001D1A89 /* S3CircleParticles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = S3CircleParticles.cpp; path = Scene3/S3CircleParticles.cpp; sourceTree = "<group>"; };
 		B0891620C23D47639D8AEE84 /* TuioDispatcher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = TuioDispatcher.cpp; path = src/TUIO/TuioDispatcher.cpp; sourceTree = SOURCE_ROOT; };
-		B0F69C971B37750100C42DB5 /* S3CircleParticles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S3CircleParticles.cpp; path = Scene3/S3CircleParticles.cpp; sourceTree = "<group>"; };
-		B0F69C981B37750100C42DB5 /* S3CircleParticles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CircleParticles.h; path = Scene3/S3CircleParticles.h; sourceTree = "<group>"; };
+		B0BC45CE1B3B18E70021B9A0 /* demoParticle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = demoParticle.cpp; path = Scene3/demoParticle.cpp; sourceTree = "<group>"; };
 		B21E7E5F548EEA92F368040B /* tinyxml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tinyxml.h; path = ../../../addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
 		B31C608870ECEB2490A93736 /* ofxOscParameterSync.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscParameterSync.h; path = ../../../addons/ofxOsc/src/ofxOscParameterSync.h; sourceTree = SOURCE_ROOT; };
 		B344E436FF955E8FCAD5AD55 /* AbletonManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AbletonManager.h; path = src/Utils/AbletonManager.h; sourceTree = SOURCE_ROOT; };
@@ -409,7 +421,6 @@
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
 		E99F05E7CAC8BDEF4B1D0C0B /* texture3DS.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = texture3DS.h; path = ../../../addons/ofx3DModelLoader/src/3DS/texture3DS.h; sourceTree = SOURCE_ROOT; };
 		EA11F25C2EEDD0CC8B994E63 /* ofxParticle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxParticle.h; path = ../../../addons/ofxAppUtils/src/ofxParticle.h; sourceTree = SOURCE_ROOT; };
-		EB85304720B1C552D67B1076 /* S3BaseObj.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = S3BaseObj.h; path = src/Scene3/S3BaseObj.h; sourceTree = SOURCE_ROOT; };
 		ECB1696040490235A7DAC0C6 /* Singleton.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Singleton.hpp; path = ../../../addons/ofxTableGestures/src/Utils/Singleton.hpp; sourceTree = SOURCE_ROOT; };
 		ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxGuiGroup.cpp; path = ../../../addons/ofxGui/src/ofxGuiGroup.cpp; sourceTree = SOURCE_ROOT; };
 		EEDB66BDEBB52AC6FE812699 /* InputGestureBasicFingers.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = InputGestureBasicFingers.cpp; path = ../../../addons/ofxTableGestures/src/Gestures/Gestures/InputGestureBasicFingers.cpp; sourceTree = SOURCE_ROOT; };
@@ -425,8 +436,6 @@
 		F6DD3CEE2B9CE893D10F3CED /* Tweenzor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Tweenzor.h; path = ../../../addons/ofxTweenzor/src/Tweenzor.h; sourceTree = SOURCE_ROOT; };
 		F7FBC56859535E597B24BB91 /* NetworkingUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = NetworkingUtils.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/NetworkingUtils.h; sourceTree = SOURCE_ROOT; };
 		F9A8D552638B0B32F8BAC208 /* TuioContainer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TuioContainer.h; path = src/TUIO/TuioContainer.h; sourceTree = SOURCE_ROOT; };
-		FB1F7C6505FC232176A74775 /* S3NoiseSphere.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = S3NoiseSphere.cpp; path = src/Scene3/S3NoiseSphere.cpp; sourceTree = SOURCE_ROOT; };
-		FB85E31F89901FCC7D44F94E /* S3DrumsAmoeba.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = S3DrumsAmoeba.h; path = src/Scene3/S3DrumsAmoeba.h; sourceTree = SOURCE_ROOT; };
 		FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlparser.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = SOURCE_ROOT; };
 		FC7E9B4A22D8921421C51E3C /* ofxScene.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxScene.cpp; path = ../../../addons/ofxAppUtils/src/ofxScene.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -533,6 +542,68 @@
 				9291D2064C1C605B3174B775 /* TapFeedback.hpp */,
 			);
 			name = Feedback;
+			sourceTree = "<group>";
+		};
+		214762585A7F1054D406C9C7 /* S3NoiseSphere */ = {
+			isa = PBXGroup;
+			children = (
+				21476D19D0D0B8F1986C9BA0 /* S3NoiseSphere.cpp */,
+				21476371F4A162874C31D09C /* S3NoiseSphere.h */,
+			);
+			name = S3NoiseSphere;
+			sourceTree = "<group>";
+		};
+		21476A1881E85D4F0494CFA9 /* Scene3 */ = {
+			isa = PBXGroup;
+			children = (
+				214763632FDABE1B67589BA2 /* S3BaseObj.cpp */,
+				21476DF53421C2225C92AD09 /* S3BaseObj.h */,
+				21476DCEC1AC27577535BF04 /* S3Drums */,
+				21476BB87F6C49D57CA91B4F /* S3DrumsAmoeba */,
+				21476B55A417641F796F9EC9 /* S3ExampleObject */,
+				214762585A7F1054D406C9C7 /* S3NoiseSphere */,
+				21476C8B60C7A7E75A1808D7 /* S3Synthesizer */,
+				B0422B9D1B3B14B5001D1A89 /* S3CircleParticles */,
+			);
+			name = Scene3;
+			sourceTree = "<group>";
+		};
+		21476B55A417641F796F9EC9 /* S3ExampleObject */ = {
+			isa = PBXGroup;
+			children = (
+				21476BA616B1D1D5014C3A37 /* S3ExampleObject.cpp */,
+				21476D542280DD6975425640 /* S3ExampleObject.h */,
+			);
+			name = S3ExampleObject;
+			sourceTree = "<group>";
+		};
+		21476BB87F6C49D57CA91B4F /* S3DrumsAmoeba */ = {
+			isa = PBXGroup;
+			children = (
+				21476D6C9F30B7D162D302E4 /* S3DrumsAmoeba.cpp */,
+				21476B2353E9BB0584CE641E /* S3DrumsAmoeba.h */,
+			);
+			name = S3DrumsAmoeba;
+			sourceTree = "<group>";
+		};
+		21476C8B60C7A7E75A1808D7 /* S3Synthesizer */ = {
+			isa = PBXGroup;
+			children = (
+				214769C0F7F7E59DEA03A840 /* S3Synthesizer.cpp */,
+				214766BB1296C5FC64BC8B65 /* S3Synthesizer.h */,
+				21476E3243B6AB9A4E31907B /* S3SynthesizerCircle.cpp */,
+				2147638B3668BEE30D952823 /* S3SynthesizerCircle.h */,
+			);
+			name = S3Synthesizer;
+			sourceTree = "<group>";
+		};
+		21476DCEC1AC27577535BF04 /* S3Drums */ = {
+			isa = PBXGroup;
+			children = (
+				214766766CE0A36D0163E233 /* S3Drums.cpp */,
+				21476F720FCEFE2352055E22 /* S3Drums.h */,
+			);
+			name = S3Drums;
 			sourceTree = "<group>";
 		};
 		2865DAEF86B1907A704CA70B /* ofxJSON */ = {
@@ -763,6 +834,10 @@
 				8C35CEFEAB2815DCADBB156D /* SettingsManager.h */,
 				2A0B4E9E1B2C7C600033F462 /* TUIOHandler.cpp */,
 				2A0B4E9F1B2C7C600033F462 /* TUIOHandler.h */,
+				2A61F4E21B39A8F4007DBBA8 /* TUIOReceiverEvent.cpp */,
+				2A61F4E31B39A8F4007DBBA8 /* TUIOReceiverEvent.h */,
+				2A48C6281B3ACE8E00937E39 /* ScreenSetup.cpp */,
+				2A48C6291B3ACE8E00937E39 /* ScreenSetup.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -840,29 +915,6 @@
 			name = ofx3DModelLoader;
 			sourceTree = "<group>";
 		};
-		A3A066B30B8145EC42B7325B /* Scene3 */ = {
-			isa = PBXGroup;
-			children = (
-				5C8D1CD9E4ABBADEA15B582F /* S3BaseObj.cpp */,
-				EB85304720B1C552D67B1076 /* S3BaseObj.h */,
-				2A5C319B1B299BD400E713F3 /* S3Drums.cpp */,
-				2A5C319C1B299BD400E713F3 /* S3Drums.h */,
-				7E8EF2366F441F518D7A055B /* S3DrumsAmoeba.cpp */,
-				FB85E31F89901FCC7D44F94E /* S3DrumsAmoeba.h */,
-				FB1F7C6505FC232176A74775 /* S3NoiseSphere.cpp */,
-				24E837B3A82AD01250ABEBBD /* S3NoiseSphere.h */,
-				2AA9B6BB1B349F8F00BFED62 /* S3ExampleObject.cpp */,
-				2AA9B6BC1B349F8F00BFED62 /* S3ExampleObject.h */,
-				214765BDDA6F2077F2FE9AB5 /* S3Synthesizer.cpp */,
-				21476CF79E7C8DF042683EA1 /* S3Synthesizer.h */,
-				B0F69C971B37750100C42DB5 /* S3CircleParticles.cpp */,
-				B0F69C981B37750100C42DB5 /* S3CircleParticles.h */,
-				B068D98C1B385F5A009332D5 /* demoParticle.cpp */,
-				B068D98D1B385F5A009332D5 /* demoParticle.h */,
-			);
-			name = Scene3;
-			sourceTree = "<group>";
-		};
 		A763ED608B35AE3310251DEE /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -885,6 +937,17 @@
 				0A1DAC09F322AE313A40706D /* ofxToggle.h */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		B0422B9D1B3B14B5001D1A89 /* S3CircleParticles */ = {
+			isa = PBXGroup;
+			children = (
+				B0BC45CE1B3B18E70021B9A0 /* demoParticle.cpp */,
+				B0422BA61B3B186D001D1A89 /* S3CircleParticles.cpp */,
+				B0422B9F1B3B14CE001D1A89 /* demoParticle.h */,
+				B0422BA11B3B14CE001D1A89 /* S3CircleParticles.h */,
+			);
+			name = S3CircleParticles;
 			sourceTree = "<group>";
 		};
 		B058949906298D201DF33B42 /* src */ = {
@@ -1067,7 +1130,7 @@
 				87481F5F15160962A4B1A08C /* Scene3.h */,
 				987B75C789AD781A4DC85A32 /* BaseObject.cpp */,
 				34E2D892E7B0F8B558A008F4 /* BaseObject.h */,
-				A3A066B30B8145EC42B7325B /* Scene3 */,
+				21476A1881E85D4F0494CFA9 /* Scene3 */,
 				85C7093CD15404193A7664FD /* Utils */,
 				55991F111A077FECD6CDE310 /* TUIO */,
 			);
@@ -1275,15 +1338,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0422BA71B3B186D001D1A89 /* S3CircleParticles.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				9A3E7F41897304DC9B7710DC /* BaseObject.cpp in Sources */,
+				2A48C62A1B3ACE8E00937E39 /* ScreenSetup.cpp in Sources */,
 				87EB70D1D65B5E4B1CAA7474 /* BaseScene.cpp in Sources */,
 				8B20F260496B9778A04E554C /* Scene1.cpp in Sources */,
 				7678521FC5030110E7FE9166 /* Scene2.cpp in Sources */,
-				272FB933B6673272E9518010 /* S3BaseObj.cpp in Sources */,
-				883E10C8422A234A3309708D /* S3DrumsAmoeba.cpp in Sources */,
-				AC3F106095E50D5D726700D2 /* S3NoiseSphere.cpp in Sources */,
 				196DEC90F7E0BBFC0278BBA5 /* Scene3.cpp in Sources */,
 				09A402E5ECD7220EEA6A400B /* Doxyfile in Sources */,
 				D2E07080CB86CDFBF73A6FDA /* FlashSender.cpp in Sources */,
@@ -1296,12 +1358,12 @@
 				AF2A79DF8D23EAE35974E6D9 /* TuioContainer.cpp in Sources */,
 				967223942CE669BC93CD10A4 /* TuioCursor.cpp in Sources */,
 				29B40A4DB56C3F8ECA94E7E9 /* TuioDispatcher.cpp in Sources */,
+				B0BC45CF1B3B18E70021B9A0 /* demoParticle.cpp in Sources */,
 				0591A114740B659CDCAFFCAD /* TuioManager.cpp in Sources */,
 				E12CC07E4ABB6748248BB548 /* TuioObject.cpp in Sources */,
 				07CE45C80C433D565B7670AA /* TuioPoint.cpp in Sources */,
 				5BCA7DB39B7D8DAC587482BC /* TuioServer.cpp in Sources */,
 				BD2BCE2D970FB93F28642493 /* TuioTime.cpp in Sources */,
-				B068D98E1B385F5A009332D5 /* demoParticle.cpp in Sources */,
 				EC7B52EAF29A507CC7F6696B /* UdpReceiver.cpp in Sources */,
 				3F05B94F9644567FE4B5CEEA /* UdpSender.cpp in Sources */,
 				F965170AE40D7D9654AB1930 /* AbletonManager.cpp in Sources */,
@@ -1317,7 +1379,6 @@
 				F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */,
 				837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */,
 				B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */,
-				B0F69C991B37750100C42DB5 /* S3CircleParticles.cpp in Sources */,
 				1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */,
 				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
 				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,
@@ -1332,7 +1393,6 @@
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
 				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
 				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
-				2A5C319D1B299BD400E713F3 /* S3Drums.cpp in Sources */,
 				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
 				159BD30F49FD4EE736C2CBA8 /* BoundingBox.cpp in Sources */,
 				7273D0E2B6812DF0D3615EB7 /* CollisionHelper.cpp in Sources */,
@@ -1351,6 +1411,7 @@
 				C63C099FF30954289EFF2BE6 /* TableApp.cpp in Sources */,
 				747CDFD75B4FD9BC2E4CA5B7 /* CursorFeedback.cpp in Sources */,
 				BDFF77F87E6FA9941F7897BD /* FigureFeedback.cpp in Sources */,
+				2A61F4E41B39A8F4007DBBA8 /* TUIOReceiverEvent.cpp in Sources */,
 				DA2ABD165C5B66A7C2B600D0 /* InputGestureBasicFingers.cpp in Sources */,
 				C50AD4E9686C55B9EED84B1B /* InputGestureBasicObjects.cpp in Sources */,
 				417FB61DAA2B1DD2218C556F /* InputGestureDirectFingers.cpp in Sources */,
@@ -1375,10 +1436,15 @@
 				FB84AAF8D1B7A95266DB5C09 /* jsoncpp.cpp in Sources */,
 				5D70EAB5E25CD99800CAF838 /* ofxTuioClient.cpp in Sources */,
 				B5B2F1EE373389DA8C5147A7 /* ofxTuioServer.cpp in Sources */,
-				2AA9B6BD1B349F8F00BFED62 /* S3ExampleObject.cpp in Sources */,
 				6205DF95C4D4CD36CC5A274C /* Tween.cpp in Sources */,
 				124BB58EFBC1472D607D739B /* Tweenzor.cpp in Sources */,
-				21476E39AD48CFB691BFE066 /* S3Synthesizer.cpp in Sources */,
+				21476496E1380516E16E4F3D /* S3BaseObj.cpp in Sources */,
+				21476CF0FC569D843CF9A3B2 /* S3Drums.cpp in Sources */,
+				21476B1085018048508DC47A /* S3DrumsAmoeba.cpp in Sources */,
+				2147683760997EBF9A70DBA8 /* S3ExampleObject.cpp in Sources */,
+				214760EEF40606F34BAA1BF2 /* S3NoiseSphere.cpp in Sources */,
+				214763969996DE95265D029E /* S3Synthesizer.cpp in Sources */,
+				21476134EABCAE43EC6D8C64 /* S3SynthesizerCircle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1561,7 +1627,7 @@
 		E4B69B600A3A1757003C02F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(NATIVE_ARCH)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1650,7 +1716,7 @@
 		E4B69B610A3A1757003C02F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(NATIVE_ARCH)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (

@@ -164,35 +164,32 @@ void S3Drums::updateActive()
 void S3Drums::drawActive()
 {
     camera.begin(viewRectangle);
-
-    ofSetColor(int(sphereGrayColor));
-    glPointSize(spherePointSize);
-    sphere.drawVertices();
-
-    // Draw transitioning circle and sphere exlosion
-    if (currentState == S3ObjStateTransitioning)
     {
-        // Sphere
-        ofSetColor(255, 255, 255, int(transitioningSphereAlpha));
-        transitioningSphere.setScale(transitioningSphereScale);
-        transitioningSphere.drawVertices();
+        ofSetColor(int(sphereGrayColor));
+        glPointSize(spherePointSize);
+        sphere.drawVertices();
 
-        // Circle
-        ofFill();
-        ofDisableLighting();
-        ofSetColor(255, 255, 255, int(transitioningCircleAlpha));
-        ofCircle(objPosition.x, objPosition.y, 0, transitioningCircleRadius);
+        // Draw transitioning circle and sphere exlosion
+        if (currentState == S3ObjStateTransitioning)
+        {
+            // Sphere
+            ofSetColor(255, 255, 255, int(transitioningSphereAlpha));
+            transitioningSphere.setScale(transitioningSphereScale);
+            transitioningSphere.drawVertices();
 
+            // Circle
+            ofFill();
+            ofDisableLighting();
+            ofSetColor(255, 255, 255, int(transitioningCircleAlpha));
+            ofCircle(objPosition.x, objPosition.y, 0, transitioningCircleRadius);
+
+        }
+
+        drawWhiteCircle();
+        if (pinchEnabled) drawPinchCircle();
+
+        drawLoop();
     }
-
-    drawWhiteCircle();
-    if (pinchEnabled) drawPinchCircle();
-
-
-
-    drawLoop();
-
-
     camera.end();
 }
 

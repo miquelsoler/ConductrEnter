@@ -2,7 +2,7 @@
 //  S3BaseObj.h
 //  ConductrEnter
 //
-//  Created by Miquel Ëngel Soler on 24/5/15.
+//  Created by Miquel Ã€ngel Soler on 24/5/15.
 //
 //
 
@@ -18,7 +18,8 @@
 #include "ofMain.h"
 #include "ofxGui.h"
 #include "ofTrueTypeFont.h"
-
+#include "ofxTuioClient.h"
+#include "TuioCursor.h"
 
 typedef enum
 {
@@ -44,9 +45,11 @@ public:
     void enablePinch(bool enable);
     bool isPinchEnabled();
     virtual void updatePinch();
-    int getFirstCursorId();
 
-    void addCursor(int cursorId);
+    TuioCursor *getFirstCursor();
+    TuioCursor *getLastCursor();
+
+    void addCursor(TuioCursor *cursor);
     void removeLastCursor();
 
     virtual void setPositionFromScreenCoords(int screenX, int screenY);
@@ -85,7 +88,7 @@ protected:
     void initSharedSettings();
     virtual void windowResized(ofResizeEventArgs &args);
 
-    bool                isFirstSetup;
+    bool                    isFirstSetup;
 
     // Camera & viewport
     ofEasyCam               camera;
@@ -109,7 +112,7 @@ protected:
     unsigned int            pinchImageAlphaMin, pinchImageAlphaMax;
 
     // TUIO
-    list<int>               cursorIds;
+    list<TuioCursor *>      cursorIds;
     bool                    pinchEnabled = false;
     float                   pinchInitialDist;
 

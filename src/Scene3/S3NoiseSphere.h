@@ -26,7 +26,7 @@ public:
 
 private:
 
-    virtual void initInactive();
+    virtual void initInactive(){};
     virtual void updateInactive();
     virtual void drawInactive();
 

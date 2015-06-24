@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxAppUtils.h"
 #include "ofxSimpleTimer.h"
+#include "ScreenSetup.h"
 
 const unsigned int NUM_SCENES = 3;
 const unsigned int LAST_SCENE = NUM_SCENES - 1;
@@ -33,4 +34,6 @@ private:
     ofxSceneManager     sceneManager;
     unsigned int        currentScene;
     ofxSimpleTimer      scene3Timer;
+
+    ScreenSetup         screenSetup;
 };

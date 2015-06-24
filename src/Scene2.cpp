@@ -32,6 +32,11 @@ void Scene2::updateEnter()
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene2::tuioPressed);
     ofAddListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene2::tuioReleased);
     ofAddListener(TUIOHandler::getInstance().eventTouchDrag, this, &Scene2::tuioDragged);
+
+    ofAddListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene2::tuioReceiverPressed);
+    ofAddListener(TUIOHandler::getInstance().eventTouchUpCursor, this, &Scene2::tuioReceiverReleased);
+    ofAddListener(TUIOHandler::getInstance().eventTouchDragCursor, this, &Scene2::tuioReceiverDragged);
+
     BaseScene::updateEnter();
 }
 
@@ -43,6 +48,11 @@ void Scene2::updateExit()
     ofRemoveListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene2::tuioPressed);
     ofRemoveListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene2::tuioReleased);
     ofRemoveListener(TUIOHandler::getInstance().eventTouchDrag, this, &Scene2::tuioDragged);
+
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene2::tuioReceiverPressed);
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchUpCursor, this, &Scene2::tuioReceiverReleased);
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchDragCursor, this, &Scene2::tuioReceiverDragged);
+
     BaseScene::updateExit();
 }
 
@@ -70,6 +80,13 @@ void Scene2::tuioPressed(ofTouchEventArgs &touch)
 
     int sceneIndex = 1;
     ofNotifyEvent(eventGoToNextScene, sceneIndex, this);
+}
+
+void Scene2::tuioReceiverPressed(TUIOReceiverEvent &cursor)
+{
+    // TODO fix to receive the selected artist
+    ofTouchEventArgs touch;
+    tuioPressed(touch);
 }
 
 #pragma mark - Mouse events

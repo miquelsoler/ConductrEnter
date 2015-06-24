@@ -53,10 +53,10 @@ Scene3::Scene3(const string &name, bool singleSetup) : BaseScene(name, singleSet
                 object = new S3NoiseSphere(num_objects, i, viewOrigin, viewWidth, objectsPath + "noise_sphere.xml");
                 break;
             case 2:
-                object = new S3DrumsAmoeba(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
+                object = new S3Synthesizer(num_objects, i, viewOrigin, viewWidth, objectsPath + "synthesizer.xml");
                 break;
             case 3:
-                object = new S3Synthesizer(num_objects, i, viewOrigin, viewWidth, objectsPath + "synthesizer.xml");
+                object = new S3DrumsAmoeba(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
                 break;
             case 4:
                 object = new S3CircleParticles(num_objects, i, viewOrigin, viewWidth, objectsPath + "circleParticle.xml");
@@ -108,6 +108,10 @@ void Scene3::updateEnter()
     ofAddListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene3::tuioReleased);
     ofAddListener(TUIOHandler::getInstance().eventTouchDrag, this, &Scene3::tuioDragged);
 
+    ofAddListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene3::tuioReceiverPressed);
+    ofAddListener(TUIOHandler::getInstance().eventTouchUpCursor, this, &Scene3::tuioReceiverReleased);
+    ofAddListener(TUIOHandler::getInstance().eventTouchDragCursor, this, &Scene3::tuioReceiverDragged);
+
     // Request tempo in order to set it on objects
     ofAddListener(abletonManager->eventTempoChanged, this, &Scene3::tempoChanged);
     abletonManager->requestTempo();
@@ -130,7 +134,13 @@ void Scene3::updateExit()
     ofRemoveListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene3::tuioReleased);
     ofRemoveListener(TUIOHandler::getInstance().eventTouchDrag, this, &Scene3::tuioDragged);
 
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene3::tuioReceiverPressed);
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchUpCursor, this, &Scene3::tuioReceiverReleased);
+    ofRemoveListener(TUIOHandler::getInstance().eventTouchDragCursor, this, &Scene3::tuioReceiverDragged);
+
     ofRemoveListener(abletonManager->eventTempoChanged, this, &Scene3::tempoChanged);
+
+    abletonManager->stopAll();
 
     BaseScene::updateExit();
 }
@@ -159,54 +169,11 @@ void Scene3::exit()
 {
 }
 
-#pragma mark - Touch events
-
-///--------------------------------------------------------------
-void Scene3::tuioPressed(ofTouchEventArgs &touch)
-{
-    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
-    handlePress((int) screenCoords.x, (int) screenCoords.y, touch.id);
-}
-
-///--------------------------------------------------------------
-void Scene3::tuioReleased(ofTouchEventArgs &touch)
-{
-    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
-    handleRelease((int) screenCoords.x, (int) screenCoords.y, touch.id);
-}
-
-///--------------------------------------------------------------
-void Scene3::tuioDragged(ofTouchEventArgs &touch)
-{
-    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
-    handleDrag((int) screenCoords.x, (int) screenCoords.y, touch.id);
-}
-
-#pragma mark - Mouse events
-
-///--------------------------------------------------------------
-void Scene3::mouseDragged(int x, int y, int button)
-{
-    handleDrag(x, y);
-}
-
-///--------------------------------------------------------------
-void Scene3::mousePressed(int x, int y, int button)
-{
-    handlePress(x, y);
-}
-
-///--------------------------------------------------------------
-void Scene3::mouseReleased(int x, int y, int button)
-{
-    handleRelease(x, y);
-}
-
 #pragma mark - Interaction handling
 
 ///--------------------------------------------------------------
 /**
-*  If coming from mouse (cursorId == -1)
+*  If coming from mouse (cursorId == NULL)
 *      If object not yet picked
 *          Try to pick it (coords inside object)
 *          If picked
@@ -214,7 +181,7 @@ void Scene3::mouseReleased(int x, int y, int button)
 *              Animate object
 *          Else
 *              Do nothing
-*  If coming from TUIO (cursorId >= 0):
+*  If coming from TUIO (cursorId != NULL):
 *      If object not yet picked
 *          Try to pick it (coords inside object)
 *          If picked
@@ -228,7 +195,7 @@ void Scene3::mouseReleased(int x, int y, int button)
 *          Add TUIO cursor id to object
 *          Enable pinch
 */
-void Scene3::handlePress(int x, int y, int cursorId)
+void Scene3::handlePress(int x, int y, TuioCursor *cursor)
 {
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
@@ -238,7 +205,7 @@ void Scene3::handlePress(int x, int y, int cursorId)
 
     bool isPicked = object->getIsPicked();
 
-    if (cursorId == -1) // Coming from mouse
+    if (cursor == NULL) // Coming from mouse
     {
         if (isPicked) return;
         if (!object->pick(x, y)) return;
@@ -263,12 +230,12 @@ void Scene3::handlePress(int x, int y, int cursorId)
             object->play();
 
             // Add TUIO cursor
-            object->addCursor(cursorId);
+            object->addCursor(cursor);
             object->enablePinch(false);
         }
         else
         {   // Already picked: add cursor and enable pinch
-            object->addCursor(cursorId);
+            object->addCursor(cursor);
             object->enablePinch(true);
         }
     }
@@ -303,7 +270,7 @@ void Scene3::handleDrag(int x, int y, int cursorId)
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
 
-    int pressedObjectIndex = getObjectIndexAtX(x);
+    unsigned int pressedObjectIndex = getObjectIndexAtX(x);
     S3BaseObj *object = objects[pressedObjectIndex];
 
     if (!object->getIsPicked()) return;
@@ -315,10 +282,11 @@ void Scene3::handleDrag(int x, int y, int cursorId)
         int pressedClipIndex = getClipIndexAtY(y);
         if (pressedClipIndex != currentClipIndex)
         {
-            currentClipIndex = pressedClipIndex;
-
-            // Play Ableton clip
             int track = pressedObjectIndex;
+
+            abletonManager->stopClip(currentClipIndex, track);
+            currentClipIndex = pressedClipIndex;
+            // Play Ableton clip
             abletonManager->playClip(currentClipIndex, track);
         }
 
@@ -336,17 +304,100 @@ void Scene3::handleDrag(int x, int y, int cursorId)
 //        abletonManager->setDeviceParameter(device, parameter, value);
 
         // Position object (only if mouse, or if TUIO and cursor is the first one -to avoid crazy repositioning-
-        int firstCursorId = object->getFirstCursorId();
-        if ((firstCursorId == -1) || (firstCursorId == cursorId))
+        TuioCursor *firstCursor = object->getFirstCursor();
+        if ((firstCursor == NULL) || (firstCursor->getCursorID() == cursorId))
+        {
             object->setPositionFromScreenCoords(x, y);
+        }
     }
     else
     {
+        TuioCursor *firstCursor = object->getFirstCursor();
+        TuioCursor *lastCursor = object->getLastCursor();
+
+        if (lastCursor != firstCursor) // Probably unnecessary, because if pinch is enabled, there should be already 2 or more cursors
+        {
+            ofVec2f tuioCoords = TUIOHandler::screenToTuioCoords(x, y);
+
+            if (cursorId == firstCursor->getCursorID())
+                firstCursor->update(tuioCoords.x, tuioCoords.y);
+            else
+                lastCursor->update(tuioCoords.x, tuioCoords.y);
+        }
         object->updatePinch();
     }
 }
 
-#pragma mark - Helper methods
+#pragma mark - Touch events
+
+///--------------------------------------------------------------
+void Scene3::tuioPressed(ofTouchEventArgs &touch)
+{
+    TuioCursor *myCursor = makeCursor(touch.id, touch.x, touch.y);
+
+    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
+    handlePress((int) screenCoords.x, (int) screenCoords.y, myCursor);
+}
+
+///--------------------------------------------------------------
+void Scene3::tuioReleased(ofTouchEventArgs &touch)
+{
+    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
+    handleRelease((int) screenCoords.x, (int) screenCoords.y, touch.id);
+}
+
+///--------------------------------------------------------------
+void Scene3::tuioDragged(ofTouchEventArgs &touch)
+{
+    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
+    handleDrag(int(screenCoords.x), int(screenCoords.y), touch.id);
+}
+
+///--------------------------------------------------------------
+void Scene3::tuioReceiverPressed(TUIOReceiverEvent &cursor)
+{
+    TuioCursor *myCursor = makeCursor(cursor.sourceId, cursor.sessionId, cursor.cursorId,
+                                      cursor.x, cursor.y, cursor.xSpeed, cursor.ySpeed, cursor.motionAccel);
+
+    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(cursor.x, cursor.y);
+    handlePress(int(screenCoords.x), int(screenCoords.y), myCursor);
+}
+
+///--------------------------------------------------------------
+void Scene3::tuioReceiverReleased(TUIOReceiverEvent &cursor)
+{
+    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(cursor.x, cursor.y);
+    handleRelease(int(screenCoords.x), int(screenCoords.y), cursor.cursorId);
+}
+
+///--------------------------------------------------------------
+void Scene3::tuioReceiverDragged(TUIOReceiverEvent &cursor)
+{
+    ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(cursor.x, cursor.y);
+    handleDrag(int(screenCoords.x), int(screenCoords.y), cursor.cursorId);
+}
+
+#pragma mark - Mouse events
+
+///--------------------------------------------------------------
+void Scene3::mouseDragged(int x, int y, int button)
+{
+    handleDrag(x, y);
+}
+
+///--------------------------------------------------------------
+void Scene3::mousePressed(int x, int y, int button)
+{
+    handlePress(x, y);
+}
+
+///--------------------------------------------------------------
+void Scene3::mouseReleased(int x, int y, int button)
+{
+    handleRelease(x, y);
+}
+
+#pragma mark - Some listeners
 
 ///--------------------------------------------------------------
 void Scene3::tempoChanged(float &newTempo)
@@ -357,21 +408,38 @@ void Scene3::tempoChanged(float &newTempo)
 }
 
 ///--------------------------------------------------------------
-int Scene3::getObjectIndexAtX(int x)
-{
-    return int(floor(x / viewWidth));
-}
-
-///--------------------------------------------------------------
-int Scene3::getClipIndexAtY(int y)
-{
-    return int(floor(y / clipHeight));
-}
-
-///--------------------------------------------------------------
 void Scene3::windowResized(ofResizeEventArgs &args)
 {
     viewWidth = ofGetWidth() / num_objects;
     viewHeight = ofGetHeight();
     clipHeight = viewHeight / NUM_CLIPS;
+}
+
+#pragma mark - Helper methods
+
+///--------------------------------------------------------------
+unsigned int Scene3::getObjectIndexAtX(int x)
+{
+    return (unsigned int)(floor(x / viewWidth));
+}
+
+///--------------------------------------------------------------
+unsigned int Scene3::getClipIndexAtY(int y)
+{
+    return (unsigned int)(floor(y / clipHeight));
+}
+
+///--------------------------------------------------------------
+TuioCursor *Scene3::makeCursor(int cursorId, float x, float y)
+{
+    long sessionId = 0;
+    TuioCursor *cursor = new TuioCursor(sessionId, cursorId, x, y);
+    return cursor;
+}
+
+///--------------------------------------------------------------
+TuioCursor *Scene3::makeCursor(int sourceId, int sessionId, int cursorId, float x, float y, float xSpeed, float ySpeed, float motionAccel)
+{
+    TuioCursor *cursor = new TuioCursor(sessionId, cursorId, x, y);
+    return cursor;
 }

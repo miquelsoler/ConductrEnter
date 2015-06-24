@@ -23,6 +23,10 @@ public:
         return instance;
     }
 
+    // Displax
+    unsigned int    displaxWidth;
+    unsigned int    displaxHeight;
+
     // Scene management
     unsigned int    sceneFirstScene;
     unsigned int    scene1IntroLoopFrame;
@@ -37,8 +41,11 @@ public:
     unsigned int    abletonFirstClipIndex;
     unsigned int    abletonArtistOffset;
 
-    // TUIO
+    // TUIO Client
     unsigned int    tuioClientPort;
+
+    // TUIO Server
+    unsigned int    tuioServerPort;
 
     // Debug Mode
     bool            debugShowGUI;

@@ -1,4 +1,8 @@
 {
+    "Displax": {
+        "Screen Width": 1920,
+        "Screen Height": 1080
+    },
     "Scenes": {
         "First Scene": 2, // 0=Intro, 1=Artists, 2=Playground
     	"Scene1 Intro Loop Frame": 1249,
@@ -13,8 +17,11 @@
         "First Clip Index": 1,
         "Artist Offset": 6
     },
-    "TUIO": {
+    "TUIO Client": {
         "Client Port": 3333
+    },
+    "TUIO Server": {
+        "Client Port": 9050
     },
     "Debug Mode": {
         "Show GUI": true,
