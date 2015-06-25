@@ -36,6 +36,17 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     isFirstSetup = true;
 
     ofAddListener(eventChangeState, this, &S2BaseObj::changeState);
+    
+    // FBO
+    //ofFbo::allocate(int width, int height, int internalformat, int numSamples)
+    fbo.allocate(_viewWidth*2,ofGetHeight(),GL_RGBA32F_ARB,1);
+    
+    fbo.begin();
+    {
+        ofClear(0,0,0,0);
+    }
+    fbo.end();
+
 }
 
 ///--------------------------------------------------------------
@@ -88,17 +99,16 @@ void S2BaseObj::update()
             updateActive();
             break;
     }
+    
 }
 
 ///--------------------------------------------------------------
-void S2BaseObj::draw()
+void S2BaseObj::drawIntoFbo()
 {
-#ifdef OF_DEBUG
-    if (SettingsManager::getInstance().debugShowGUI)
-    {
-        gui.draw();
-    }
-#endif
+    
+    fbo.begin();
+    
+    ofClear(0,0,(255/6)*sceneObjectIndex,128);
 
     switch(currentState)
     {
@@ -112,6 +122,20 @@ void S2BaseObj::draw()
             drawActive();
             break;
     }
+    
+    fbo.end();
+}
+///--------------------------------------------------------------
+void S2BaseObj::draw(int x,int y,int w,int h)
+{
+    fbo.draw(x,y,w,h);
+
+#ifdef OF_DEBUG
+    if (SettingsManager::getInstance().debugShowGUI)
+    {
+        gui.draw();
+    }
+#endif
 }
 
 ///--------------------------------------------------------------

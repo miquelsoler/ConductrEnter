@@ -283,7 +283,7 @@ void S2NoiseSphere::drawTransitioning()
 void S2NoiseSphere::drawActive()
 {
 
-    camera.begin(viewRectangle);
+    camera.begin();
     {
         ofSetCircleResolution(64);
         glPointSize(2.0);

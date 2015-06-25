@@ -37,8 +37,9 @@ public:
 
     virtual void setup();
     virtual void update();
-    virtual void draw();
-
+    virtual void draw(int x,int y,int w,int h);
+    virtual void drawIntoFbo();
+    
     bool pick(int screenX, int screenY);
     void unpick();
     bool getIsPicked();
@@ -59,6 +60,10 @@ public:
 
     virtual void volumeChanged(float &newVolume) = 0;
     virtual void clipPositionChanged(float &newPosition);
+    
+    // FBO
+    ofFbo   fbo;
+
 
 protected:
 

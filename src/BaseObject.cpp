@@ -26,4 +26,5 @@ BaseObject::BaseObject(unsigned int numObjects, unsigned int objectIndex, float 
     objPosition = ofPoint(0, 0, 0);
 
     ofAddListener(ofEvents().windowResized, this, &BaseObject::windowResized);
+    
 }

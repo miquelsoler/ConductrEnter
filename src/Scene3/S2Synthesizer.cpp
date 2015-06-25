@@ -144,7 +144,7 @@ void S2Synthesizer::updateActive()
 
 void S2Synthesizer::drawActive()
 {
-    camera.begin(viewRectangle);
+    camera.begin();
     {
         // Grey circle
         ofFill();

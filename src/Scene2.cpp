@@ -26,7 +26,7 @@ const unsigned int NUM_OBJECTS = 6;
 Scene2::Scene2(const string &name, bool singleSetup) : BaseScene(name, singleSetup)
 {
     num_objects = NUM_OBJECTS;
-    viewWidth = ofGetWidth() / num_objects;
+    viewWidth = (ofGetWidth() / num_objects);
     viewHeight = ofGetHeight();
 
     clipHeight = viewHeight / NUM_CLIPS;
@@ -151,8 +151,13 @@ void Scene2::draw()
     BaseScene::drawPre();
 
     for (unsigned int i = 0; i < num_objects; ++i)
-        objects[i]->draw();
-
+    {
+        objects[i]->drawIntoFbo();
+        objects[i]->draw((i*viewWidth)-viewWidth/2,0,1280,1080);
+    }
+    
+    
+    
 #ifdef OF_DEBUG
     if (SettingsManager::getInstance().debugShowTUIOCursors)
     {

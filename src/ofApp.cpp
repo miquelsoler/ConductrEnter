@@ -22,7 +22,7 @@ void ofApp::setup()
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
 
-    ofBackground(ofColor::black);
+    ofBackground(ofColor(0,0,0,255));
 
     // TUIO
     TUIOHandler::getInstance().init();
@@ -62,6 +62,9 @@ void ofApp::setup()
 ///--------------------------------------------------------------
 void ofApp::update()
 {
+    ofBackground(ofColor(255,0,0,255));
+
+    
     if (currentScene == LAST_SCENE) scene3Timer.update();
 
     if (sceneManager.getCurrentSceneIndex() == -1) sceneManager.gotoScene(currentScene);
@@ -72,11 +75,14 @@ void ofApp::update()
 #endif
 
     TUIOHandler::getInstance().update();
+    
+    
 }
 
 ///--------------------------------------------------------------
 void ofApp::draw()
 {
+    
 #ifdef OF_DEBUG
     ofSetColor(ofColor::gray);
     ofxBitmapString(5.0f, ofGetHeight()-20.0f)

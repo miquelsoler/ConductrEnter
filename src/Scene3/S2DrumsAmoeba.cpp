@@ -109,7 +109,6 @@ void S2DrumsAmoeba::initInactive()
 ///--------------------------------------------------------------
 void S2DrumsAmoeba::updateInactive()
 {
-    cout << "UPDATE INACTIVE S2DrumsAmoeba" << endl;
     updateActive(); // Delete this line if it needs a custom update
     
     if(shouldChangeState)
@@ -220,7 +219,7 @@ void S2DrumsAmoeba::drawTransitioning()
 ///--------------------------------------------------------------
 void S2DrumsAmoeba::drawActive()
 {
-    camera.begin(viewRectangle);
+    camera.begin();
     {
         ofEnableLighting();
 

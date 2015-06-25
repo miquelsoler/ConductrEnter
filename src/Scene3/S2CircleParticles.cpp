@@ -241,7 +241,7 @@ void S2CircleParticles::drawActive()
 {
 //    cout << "currentState : " << currentState << endl;
   
-    camera.begin(viewRectangle);
+    camera.begin();
     {
         // PARTICLES
         ofSetColor(255);

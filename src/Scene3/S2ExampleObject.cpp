@@ -119,7 +119,7 @@ void S2ExampleObject::updateActive()
 
 void S2ExampleObject::drawActive()
 {
-    camera.begin(viewRectangle);
+    camera.begin();
     {
         ofSetLineWidth(1);
         switch(currentState)

@@ -26,6 +26,7 @@ public:
 
     virtual void setPositionFromScreenCoords(int screenX, int screenY) = 0;
 
+
 protected:
     // Listener method to detect window changes
     virtual void windowResized(ofResizeEventArgs &args) {}
@@ -40,6 +41,8 @@ protected:
     // Viewport
     float           viewOriginX, viewWidth, viewHalfWidth, viewHalfHeight, viewWidthMargin;
     ofRectangle     viewRectangle;
+    
+    
 
 };
 
