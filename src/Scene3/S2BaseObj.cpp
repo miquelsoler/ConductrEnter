@@ -1,12 +1,12 @@
 //
-//  S3BaseObj.cpp
+//  S2BaseObj.cpp
 //  ConductrEnter
 //
 //  Created by Miquel Àngel Soler on 24/5/15.
 //
 //
 
-#include "S3BaseObj.h"
+#include "S2BaseObj.h"
 #include "TUIOHandler.h"
 #include "SettingsManager.h"
 
@@ -20,7 +20,7 @@ const int AXIS_LENGTH = 10;
 #pragma mark - Initialization
 
 ///--------------------------------------------------------------
-S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath)  : BaseObject(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
+S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath)  : BaseObject(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     camera.disableMouseInput();
 
@@ -35,11 +35,11 @@ S3BaseObj::S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 
     isFirstSetup = true;
 
-    ofAddListener(eventChangeState, this, &S3BaseObj::changeState);
+    ofAddListener(eventChangeState, this, &S2BaseObj::changeState);
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::initSharedSettings()
+void S2BaseObj::initSharedSettings()
 {
     gui.setup("Settings", settingsPath);
     gui.add(camDistance.set("Camera_Distance", 0, 0, 600));
@@ -51,7 +51,7 @@ void S3BaseObj::initSharedSettings()
 #pragma mark - Basic object methods
 
 ///--------------------------------------------------------------
-void S3BaseObj::setup()
+void S2BaseObj::setup()
 {
     radius = viewHalfWidth/5;
     objPosition.x = 0;
@@ -72,7 +72,7 @@ void S3BaseObj::setup()
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::update()
+void S2BaseObj::update()
 {
     camera.setDistance(camDistance);
 
@@ -91,7 +91,7 @@ void S3BaseObj::update()
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::draw()
+void S2BaseObj::draw()
 {
 #ifdef OF_DEBUG
     if (SettingsManager::getInstance().debugShowGUI)
@@ -115,7 +115,7 @@ void S3BaseObj::draw()
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::drawLoop()
+void S2BaseObj::drawLoop()
 {
      ofSetLineWidth(2);
 
@@ -150,7 +150,7 @@ void S3BaseObj::drawLoop()
     ofPopMatrix();
 }
 
-void S3BaseObj::drawWhiteCircle()
+void S2BaseObj::drawWhiteCircle()
 {
     ofFill();
     ofDisableLighting();
@@ -158,7 +158,7 @@ void S3BaseObj::drawWhiteCircle()
     ofCircle(objPosition.x, objPosition.y, 0, whiteCircleRadius);
 }
 
-void S3BaseObj::drawPinchCircle()
+void S2BaseObj::drawPinchCircle()
 {
     ofFill();
     ofDisableLighting();
@@ -168,7 +168,7 @@ void S3BaseObj::drawPinchCircle()
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::windowResized(ofResizeEventArgs &args)
+void S2BaseObj::windowResized(ofResizeEventArgs &args)
 {
     viewWidth = args.width / sceneNumObjects;
     viewHalfWidth = viewWidth / 2.0f;
@@ -182,7 +182,7 @@ void S3BaseObj::windowResized(ofResizeEventArgs &args)
 }
 
 ///--------------------------------------------------------------
-bool S3BaseObj::pick(int screenX, int screenY)
+bool S2BaseObj::pick(int screenX, int screenY)
 {
     ofVec3f centerScreenCoords = camera.worldToScreen(objPosition, viewRectangle);
     ofVec3f perimeterScreenCoords = camera.worldToScreen(ofVec3f(objPosition.x, objPosition.y - radius*2, objPosition.z), viewRectangle);
@@ -196,19 +196,19 @@ bool S3BaseObj::pick(int screenX, int screenY)
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::unpick()
+void S2BaseObj::unpick()
 {
     isPicked = false;
 }
 
 ///--------------------------------------------------------------
-bool S3BaseObj::getIsPicked()
+bool S2BaseObj::getIsPicked()
 {
     return isPicked;
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::enablePinch(bool enable)
+void S2BaseObj::enablePinch(bool enable)
 {
     pinchEnabled = enable;
 
@@ -229,13 +229,13 @@ void S3BaseObj::enablePinch(bool enable)
 }
 
 ///--------------------------------------------------------------
-bool S3BaseObj::isPinchEnabled()
+bool S2BaseObj::isPinchEnabled()
 {
     return pinchEnabled;
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::updatePinch()
+void S2BaseObj::updatePinch()
 {
     if (!pinchEnabled) return;
 
@@ -252,21 +252,21 @@ void S3BaseObj::updatePinch()
 }
 
 ///--------------------------------------------------------------
-TuioCursor *S3BaseObj::getFirstCursor()
+TuioCursor *S2BaseObj::getFirstCursor()
 {
     if (cursorIds.empty()) return NULL;
     return cursorIds.front();
 }
 
 ///--------------------------------------------------------------
-TuioCursor *S3BaseObj::getLastCursor()
+TuioCursor *S2BaseObj::getLastCursor()
 {
     if (cursorIds.empty()) return NULL;
     return cursorIds.back();
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
+void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 {
     ofVec3f objScreenCoords = camera.worldToScreen(objPosition, viewRectangle);
     objScreenCoords.y = screenY;
@@ -280,7 +280,7 @@ void S3BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 #pragma mark - Play/stop messages + state management
 
 ///--------------------------------------------------------------
-void S3BaseObj::play()
+void S2BaseObj::play()
 {
     loopAngle = 0;
     switch(currentState)
@@ -296,7 +296,7 @@ void S3BaseObj::play()
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::stop()
+void S2BaseObj::stop()
 {
     loopAngle = 0;
     switch(currentState)
@@ -313,7 +313,7 @@ void S3BaseObj::stop()
 }
 
 ///--------------------------------------------------------------
-void S3BaseObj::changeState()
+void S2BaseObj::changeState()
 {
     currentState = nextState;
     shouldChangeState = false;
@@ -334,19 +334,19 @@ void S3BaseObj::changeState()
 #pragma mark - Ableton events
 
 ///--------------------------------------------------------------
-void S3BaseObj::clipPositionChanged(float &newPosition)
+void S2BaseObj::clipPositionChanged(float &newPosition)
 {
     loopAngle = ofMap(newPosition, 0.0f, 1.0f, 0.0f, 360.0f);
 }
 
 #pragma mark - TUIO
 
-void S3BaseObj::addCursor(TuioCursor *cursor)
+void S2BaseObj::addCursor(TuioCursor *cursor)
 {
     cursorIds.push_back(cursor);
 }
 
-void S3BaseObj::removeLastCursor()
+void S2BaseObj::removeLastCursor()
 {
     if (cursorIds.empty()) return;
     TuioCursor *cursor = cursorIds.back();

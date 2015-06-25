@@ -1,5 +1,5 @@
 //
-//  S3ExampleObject.h
+//  S2ExampleObject.h
 //  ConductrEnter
 //
 //  Created by Miquel Àngel Soler on 24/5/15.
@@ -8,21 +8,21 @@
 
 #pragma once
 
-#ifndef __ConductrEnter__S3CircleParticles__
-#define __ConductrEnter__S3CircleParticles__
+#ifndef __ConductrEnter__S2CircleParticles__
+#define __ConductrEnter__S2CircleParticles__
 
 #include <stdio.h>
-#include "S3BaseObj.h"
+#include "S2BaseObj.h"
 #include "of3dGraphics.h"
 #include "ofxTweenzor.h"
 
 #include "demoParticle.h"
 
 
-class S3CircleParticles : public S3BaseObj
+class S2CircleParticles : public S2BaseObj
 {
 public:
-    S3CircleParticles(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
+    S2CircleParticles(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
     virtual void loadSettings();
@@ -73,4 +73,4 @@ private:
     
 };
 
-#endif /* defined(__ConductrEnter__S3ExampleObject__) */
+#endif /* defined(__ConductrEnter__S2CircleParticles___) */

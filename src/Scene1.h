@@ -26,6 +26,12 @@ typedef enum {
     Exploding = 2
 } VideoState;
 
+typedef enum
+{
+    SceneStateIntro,
+    SceneStateArtists
+} SceneState;
+
 class Scene1 : public BaseScene
 {
 public:
@@ -36,6 +42,8 @@ public:
     void update();
     void updateEnter();
     void updateExit();
+    void updateStateIntro();
+    void updateStateArtists();
     void draw();
     void exit();
 
@@ -53,13 +61,19 @@ private:
     // Mouse events
     virtual void mousePressed(int x, int y, int button);
 
+    void handlePress(int x, int y);
+
+    // Intro
+    void            skipIntro();
+    void            onVideoComplete(float* arg);
+
+    SceneState      sceneState;
+
     ofVideoPlayer   videoPlayer;
 
     int             loopFrame;
     VideoState      videoState; // 0 : loop     1 : start explode   2 : exploding
     float           videoHeaderFrame;
-    void            goAhead();
-    void            onVideoComplete(float* arg);
 };
 
 #endif /* defined(__ConductrEnter__Scene1__) */

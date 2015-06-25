@@ -1,25 +1,25 @@
 //
-//  S3NoiseSphere.cpp
+//  S2NoiseSphere.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ëngel Soler on 24/5/15.
+//  Created by Miquel ï¿½ngel Soler on 24/5/15.
 //
 //
 
-#include "S3NoiseSphere.h"
+#include "S2NoiseSphere.h"
 
 ///--------------------------------------------------------------
-S3NoiseSphere::S3NoiseSphere(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
-    S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
+S2NoiseSphere::S2NoiseSphere(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
+    S2BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     loadSettings();
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::loadSettings()
+void S2NoiseSphere::loadSettings()
 {
     if (settingsPath.empty()) return;
-    S3BaseObj::initSharedSettings();
+    S2BaseObj::initSharedSettings();
 
     // Custom object settings go here
 
@@ -39,9 +39,9 @@ void S3NoiseSphere::loadSettings()
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::setup()
+void S2NoiseSphere::setup()
 {
-    S3BaseObj::setup();
+    S2BaseObj::setup();
 
     ofSetSmoothLighting(true);
     ofSetVerticalSync(true);
@@ -86,7 +86,7 @@ void S3NoiseSphere::setup()
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::initInactive()
+void S2NoiseSphere::initInactive()
 {
     stableOffset = 6;
     stableNoiseFrequency = 50;
@@ -105,7 +105,7 @@ void S3NoiseSphere::initInactive()
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::updateInactive()
+void S2NoiseSphere::updateInactive()
 {
     
     cout << "UPDATE INACTIVE " << endl;
@@ -122,7 +122,7 @@ void S3NoiseSphere::updateInactive()
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::initTransitioning()
+void S2NoiseSphere::initTransitioning()
 {
     cout << "INIT TRANSITION" << endl;
     
@@ -131,13 +131,13 @@ void S3NoiseSphere::initTransitioning()
     
     // noise frequency
     Tweenzor::add((float*)&offset.get(), stableOffset, activeOffset, delay, duration, EASE_IN_OUT_SINE);
-    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&offset.get()), this, &S3NoiseSphere::onCompleteTransitioning);
+    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&offset.get()), this, &S2NoiseSphere::onCompleteTransitioning);
     
 }
 
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::updateTransitioning()
+void S2NoiseSphere::updateTransitioning()
 {
     cout << "UPDATE TRANSITIONING " << endl;
     
@@ -153,7 +153,7 @@ void S3NoiseSphere::updateTransitioning()
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::onCompleteTransitioning(float* arg)
+void S2NoiseSphere::onCompleteTransitioning(float* arg)
 {
     cout << " ON COMPLETE TRANSITIONING" << endl;
     
@@ -161,13 +161,13 @@ void S3NoiseSphere::onCompleteTransitioning(float* arg)
     float duration = 0.3f;
     
     Tweenzor::add((float*)&offset.get(),offset ,stableOffset, delay, duration, EASE_IN_OUT_SINE);
-    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&offset.get()), this, &S3NoiseSphere::onCompleteToActive);
+    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&offset.get()), this, &S2NoiseSphere::onCompleteToActive);
 
     
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::onCompleteToActive(float* arg)
+void S2NoiseSphere::onCompleteToActive(float* arg)
 {
     float delay = 0.0f;
     float duration = 0.2f;
@@ -181,7 +181,7 @@ void S3NoiseSphere::onCompleteToActive(float* arg)
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::initActive()
+void S2NoiseSphere::initActive()
 {
     cout << " INIT ACTIVE !!!! " << endl;
     
@@ -189,7 +189,7 @@ void S3NoiseSphere::initActive()
 
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::updateActive()
+void S2NoiseSphere::updateActive()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
     
@@ -270,19 +270,19 @@ void S3NoiseSphere::updateActive()
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::drawInactive()
+void S2NoiseSphere::drawInactive()
 {
     drawActive(); // Delete this line if it needs a custom draw
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::drawTransitioning()
+void S2NoiseSphere::drawTransitioning()
 {
     drawActive(); // Delete this line if it needs a custom draw
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::drawActive()
+void S2NoiseSphere::drawActive()
 {
 
     camera.begin(viewRectangle);
@@ -337,15 +337,15 @@ void S3NoiseSphere::drawActive()
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::setPositionFromScreenCoords(int screenX, int screenY)
+void S2NoiseSphere::setPositionFromScreenCoords(int screenX, int screenY)
 {
-    S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
+    S2BaseObj::setPositionFromScreenCoords(screenX, screenY);
 
     sphere.setPosition(objPosition);
 }
 
 ///--------------------------------------------------------------
-void S3NoiseSphere::volumeChanged(float &newVolume)
+void S2NoiseSphere::volumeChanged(float &newVolume)
 {
     float newOffset = ofMap(newVolume,0.0,1.0,stableOffset,40.0);
     Tweenzor::add((float*)&offset.get(),offset ,newOffset, 0, 0.1, EASE_IN_OUT_SINE);

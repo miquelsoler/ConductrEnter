@@ -1,29 +1,29 @@
 //
-//  S3ExampleObject.cpp
+//  S2ExampleObject.cpp
 //  ConductrEnter
 //
 //  Created by Miquel Àngel Soler on 24/5/15.
 //
 //
 
-#include "S3CircleParticles.h"
+#include "S2CircleParticles.h"
 
 
 #pragma mark - Initialization
 
 ///--------------------------------------------------------------
-S3CircleParticles::S3CircleParticles(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
-    S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
+S2CircleParticles::S2CircleParticles(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
+    S2BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     loadSettings();
 
 }
 
 ///--------------------------------------------------------------
-void S3CircleParticles::loadSettings()
+void S2CircleParticles::loadSettings()
 {
     if (settingsPath.empty()) return;
-    S3BaseObj::initSharedSettings();
+    S2BaseObj::initSharedSettings();
 
     // Custom object settings go here
     
@@ -56,9 +56,9 @@ void S3CircleParticles::loadSettings()
 #pragma mark - Basic object methods
 
 ///--------------------------------------------------------------
-void S3CircleParticles::setup()
+void S2CircleParticles::setup()
 {
-    S3BaseObj::setup();
+    S2BaseObj::setup();
 
     sphere.setRadius(radius);
     sphere.setPosition(objPosition);
@@ -72,7 +72,7 @@ void S3CircleParticles::setup()
 }
 
 ///--------------------------------------------------------------
-void S3CircleParticles::initInactive()
+void S2CircleParticles::initInactive()
 {
     volumeParticleScale = 1.5;
     
@@ -80,7 +80,7 @@ void S3CircleParticles::initInactive()
     Tweenzor::add(&scaleCircle, 1.0f, 0.9f, 0.0f, 0.7f, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&scaleCircle);
     tween->setRepeat(1, true);
-    Tweenzor::addCompleteListener(tween, this, &S3CircleParticles::onCompleteInactive);
+    Tweenzor::addCompleteListener(tween, this, &S2CircleParticles::onCompleteInactive);
 
     sphereScale = 0;
     
@@ -91,7 +91,7 @@ void S3CircleParticles::initInactive()
 }
 
 ///--------------------------------------------------------------
-void S3CircleParticles::onCompleteInactive(float* arg)
+void S2CircleParticles::onCompleteInactive(float* arg)
 {
     scaleCircle = 1.0;
     
@@ -115,7 +115,7 @@ void S3CircleParticles::onCompleteInactive(float* arg)
 }
 
 ///--------------------------------------------------------------
-void S3CircleParticles::updateInactive()
+void S2CircleParticles::updateInactive()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
 //    updateActive(); // Delete this line if it needs a custom update
@@ -130,19 +130,19 @@ void S3CircleParticles::updateInactive()
     }
 }
 
-void S3CircleParticles::drawInactive()
+void S2CircleParticles::drawInactive()
 {
     drawActive(); // Delete this line if it needs a custom draw
 }
 
 
 ///--------------------------------------------------------------
-void S3CircleParticles::initTransitioning()
+void S2CircleParticles::initTransitioning()
 {
     Tweenzor::add(&sphereScale, 1.0f, 0.0f, 0.0f, 0.8f, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&sphereScale);
     tween->setRepeat(1, true);
-    Tweenzor::addCompleteListener(tween, this, &S3CircleParticles::onCompleteTransitioning);
+    Tweenzor::addCompleteListener(tween, this, &S2CircleParticles::onCompleteTransitioning);
 
     nextState = S3ObjStateActive;
     shouldChangeState = true;
@@ -163,7 +163,7 @@ void S3CircleParticles::initTransitioning()
 }
 
 ///--------------------------------------------------------------
-void S3CircleParticles::onCompleteTransitioning(float* arg)
+void S2CircleParticles::onCompleteTransitioning(float* arg)
 {
     changeState();
     
@@ -185,7 +185,7 @@ void S3CircleParticles::onCompleteTransitioning(float* arg)
 }
 
 ///--------------------------------------------------------------
-void S3CircleParticles::updateTransitioning()
+void S2CircleParticles::updateTransitioning()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
     
@@ -202,20 +202,20 @@ void S3CircleParticles::updateTransitioning()
 }
 
 ///--------------------------------------------------------------
-void S3CircleParticles::drawTransitioning()
+void S2CircleParticles::drawTransitioning()
 {
     drawActive(); // Delete this line if it needs a custom draw
 }
 
 
 ///--------------------------------------------------------------
-void S3CircleParticles::initActive()
+void S2CircleParticles::initActive()
 {
     changeParticleState(1);
 }
 
 ///--------------------------------------------------------------
-void S3CircleParticles::updateActive()
+void S2CircleParticles::updateActive()
 {
     // PARTICLES
     if(particlesState !=0)
@@ -230,7 +230,7 @@ void S3CircleParticles::updateActive()
 }
 
 ///--------------------------------------------------------------
-void S3CircleParticles::drawActive()
+void S2CircleParticles::drawActive()
 {
 //    cout << "currentState : " << currentState << endl;
   
@@ -275,10 +275,10 @@ void S3CircleParticles::drawActive()
 }
 
 ///--------------------------------------------------------------
-void S3CircleParticles::setPositionFromScreenCoords(int screenX, int screenY)
+void S2CircleParticles::setPositionFromScreenCoords(int screenX, int screenY)
 {
     // baseObj
-    S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
+    S2BaseObj::setPositionFromScreenCoords(screenX, screenY);
 
     // sphere
     sphere.setPosition(objPosition);
@@ -293,7 +293,7 @@ void S3CircleParticles::setPositionFromScreenCoords(int screenX, int screenY)
 
 
 ///--------------------------------------------------------------
-void S3CircleParticles::recalculateCircle()
+void S2CircleParticles::recalculateCircle()
 {
     // create circle mesh
     //int     numDotsInCircle = 100;
@@ -323,7 +323,7 @@ void S3CircleParticles::recalculateCircle()
 }
 
 //--------------------------------------------------------------
-void S3CircleParticles::resetParticles()
+void S2CircleParticles::resetParticles()
 {
     
 	for(unsigned int i = 0; i < p.size(); i++)
@@ -335,7 +335,7 @@ void S3CircleParticles::resetParticles()
 }
 
 //--------------------------------------------------------------
-void S3CircleParticles::changeParticleState(int s)
+void S2CircleParticles::changeParticleState(int s)
 {
     particlesState = s;
 	for(unsigned int i = 0; i < p.size(); i++){
@@ -347,7 +347,7 @@ void S3CircleParticles::changeParticleState(int s)
 }
 
 ///--------------------------------------------------------------
-void S3CircleParticles::volumeChanged(float &newVolume)
+void S2CircleParticles::volumeChanged(float &newVolume)
 {
     
     float newScale = ofMap(newVolume,0.0,1.0,0.25,volumeParticleScale);

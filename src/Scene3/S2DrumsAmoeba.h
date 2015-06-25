@@ -1,26 +1,26 @@
 //
-//  S3DrumsAmoeba.h
+//  S2DrumsAmoeba.h
 //  ConductrEnter
 //
-//  Created by Miquel Ëngel Soler on 24/5/15.
+//  Created by Miquel Ã€ngel Soler on 24/5/15.
 //
 //
 
 #pragma once
 
-#ifndef __ConductrEnter__S3DrumsAmoeba__
-#define __ConductrEnter__S3DrumsAmoeba__
+#ifndef __ConductrEnter__S2DrumsAmoeba__
+#define __ConductrEnter__S2DrumsAmoeba__
 
 #include <stdio.h>
-#include "S3BaseObj.h"
+#include "S2BaseObj.h"
 #include "ofxSimpleTimer.h"
 #include "Tweenzor.h"
 
 
-class S3DrumsAmoeba : public S3BaseObj
+class S2DrumsAmoeba : public S2BaseObj
 {
 public:
-    S3DrumsAmoeba(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
+    S2DrumsAmoeba(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
     virtual void loadSettings();
@@ -80,4 +80,4 @@ private:
 
 };
 
-#endif /* defined(__ConductrEnter__S3DrumsAmoeba__) */
+#endif /* defined(__ConductrEnter__S2DrumsAmoeba__) */

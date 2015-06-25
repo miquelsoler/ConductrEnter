@@ -8,7 +8,6 @@
 #include "BaseScene.h"
 #include "Scene1.h"
 #include "Scene2.h"
-#include "Scene3.h"
 
 #pragma mark - Main class methods
 
@@ -36,11 +35,7 @@ void ofApp::setup()
     ofAddListener(scene1->eventGoToNextScene, this, &ofApp::goToNextScene);
     sceneManager.add(scene1);
 
-    Scene2 *scene2 = new Scene2("Scene2", true);
-    ofAddListener(scene2->eventGoToNextScene, this, &ofApp::goToNextScene);
-    sceneManager.add(scene2);
-
-    sceneManager.add(new Scene3("Scene3", true));
+    sceneManager.add(new Scene2("Scene2", true));
 
     sceneManager.setup(true); // call setup for all of them
     sceneManager.setOverlap(false); // overlap scenes when transitioning

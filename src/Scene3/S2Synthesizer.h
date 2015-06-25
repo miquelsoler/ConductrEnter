@@ -1,5 +1,5 @@
 //
-//  S3Synthesizer.h
+//  S2Synthesizer.h
 //  ConductrEnter
 //
 //  Created by Miquel Àngel Soler on 21/6/15.
@@ -8,18 +8,18 @@
 
 #pragma once
 
-#ifndef __ConductrEnter__S3Synthesizer__
-#define __ConductrEnter__S3Synthesizer__
+#ifndef __ConductrEnter__S2Synthesizer__
+#define __ConductrEnter__S2Synthesizer__
 
 #include <stdio.h>
-#include "S3BaseObj.h"
+#include "S2BaseObj.h"
 #include "of3dGraphics.h"
-#include "S3SynthesizerCircle.h"
+#include "S2SynthesizerCircle.h"
 
-class S3Synthesizer : public S3BaseObj
+class S2Synthesizer : public S2BaseObj
 {
 public:
-    S3Synthesizer(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
+    S2Synthesizer(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
     virtual void loadSettings();
@@ -45,7 +45,7 @@ private:
 
     void addCircle();
 
-    list<S3SynthesizerCircle*>  circles;
+    list<S2SynthesizerCircle *>  circles;
     float                       circlesMinRadius;
     float                       circlesMaxRadius;
     bool                        shouldAddCircle;
@@ -57,4 +57,4 @@ private:
     float                       transitioningCircleAplha;
 };
 
-#endif /* defined(__ConductrEnter__S3Synthesizer__) */
+#endif /* defined(__ConductrEnter__S2Synthesizer__) */

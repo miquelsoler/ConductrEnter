@@ -9,12 +9,12 @@
 
 #include "ofMain.h"
 
-class S3SynthesizerCircle
+class S2SynthesizerCircle
 {
 public:
 
-    S3SynthesizerCircle(ofPoint objectCenter, ofPoint offsetPosition, float radius);
-    ~S3SynthesizerCircle();
+    S2SynthesizerCircle(ofPoint objectCenter, ofPoint offsetPosition, float radius);
+    ~S2SynthesizerCircle();
 
     void draw();
     void update(ofPoint objectCenter);

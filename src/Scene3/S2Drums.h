@@ -1,26 +1,26 @@
 //
-//  S3Drums.h
+//  S2Drums.h
 //  ConductrEnter
 //
-//  Created by Miquel �ngel Soler on 24/5/15.
+//  Created by Miquel Àngel Soler on 24/5/15.
 //
 //
 
 #pragma once
 
-#ifndef __ConductrEnter__S3Drums__
+#ifndef __ConductrEnter__S2Drums__
 #define __ConductrEnter__S3Drums__
 
 #include <stdio.h>
-#include "S3BaseObj.h"
+#include "S2BaseObj.h"
 #include "ofxSimpleTimer.h"
 #include "Tweenzor.h"
 
-class S3Drums : public S3BaseObj
+class S2Drums : public S2BaseObj
 {
 public:
 
-    S3Drums(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
+    S2Drums(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
     virtual void loadSettings();
@@ -66,4 +66,4 @@ private:
     float                   transitioningSphereAlpha;
 };
 
-#endif /* defined(__ConductrEnter__S4Object2__) */
+#endif /* defined(__ConductrEnter__S2Drums__) */
