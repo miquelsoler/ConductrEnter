@@ -169,6 +169,12 @@ void Scene2::exit()
 {
 }
 
+///--------------------------------------------------------------
+void Scene2::setArtistIndex(int _artistIndex)
+{
+    artistIndex = _artistIndex;
+}
+
 #pragma mark - Interaction handling
 
 ///--------------------------------------------------------------

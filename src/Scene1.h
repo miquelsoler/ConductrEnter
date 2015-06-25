@@ -65,14 +65,14 @@ private:
     virtual void mousePressed(int x, int y, int button);
     virtual void mouseMoved(int x, int y);
 
-    void handlePress(int x, int y);
+    void handlePress(float x, float y);
 
     // Intro
     void skipIntro();
     void onVideoComplete(float* arg);
 
     // Artists
-    int getTouchedArtistIndex(int percentX, int percentY);
+    int getTouchedArtistIndex(float percentX, float percentY);
 
     SceneState                  sceneState;
 

@@ -14,8 +14,8 @@
         "Ableton Host": "localhost",
         "Ableton Sender Port": 9030,
         "Ableton Receiver Port": 9031,
-        "First Clip Index": 1,
-        "Artist Offset": 6
+        "First Clip Index": 0,
+        "Artist Offset": 5
     },
     "TUIO Client": {
         "Client Port": 3333

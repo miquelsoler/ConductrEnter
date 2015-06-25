@@ -37,6 +37,8 @@ public:
     void draw();
     void exit();
 
+    void setArtistIndex(int artistIndex);
+
 private:
 
     // TUIO touch events
@@ -67,6 +69,8 @@ private:
     unsigned int getClipIndexAtY(int y);
     TuioCursor *makeCursor(int cursorId, float x, float y);
     TuioCursor *makeCursor(int sourceId, int sessionId, int cursorId, float x, float y, float xSpeed, float ySpeed, float motionAccel);
+
+    int                     artistIndex = 0;
 
     AbletonManager*         abletonManager;
     unsigned int            currentClipIndex;

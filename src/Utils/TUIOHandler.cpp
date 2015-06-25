@@ -115,8 +115,8 @@ ofVec2f TUIOHandler::tuioToScreenCoords(float tuioX, float tuioY)
 ///--------------------------------------------------------------
 ofVec2f TUIOHandler::screenToTuioCoords(float screenX, float screenY)
 {
-    ofVec2f tuioCoords(ofMap(screenX, 0, ofGetWidth(), 0, 1),
-                         ofMap(screenY, 0, ofGetHeight(), 0, 1));
+    ofVec2f tuioCoords(ofMap(screenX, 0.0f, float(ofGetWidth()), 0.0f, 1.0f),
+                         ofMap(screenY, 0.0f, float(ofGetHeight()), 0.0f, 1.0f));
     return tuioCoords;
 }
 
