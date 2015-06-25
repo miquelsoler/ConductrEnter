@@ -36,7 +36,7 @@ public:
     // cleanup
     void exit() {};
 
-    ofEvent<int>         eventGoToNextScene;
+    ofEvent<int> eventGoToArtist;
 
 protected:
 

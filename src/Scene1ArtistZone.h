@@ -16,6 +16,7 @@ public:
     Scene1ArtistZone(float originX, float originY, float width, float height);
 
     void draw();
+    bool isCoordinateInside(float percentX, float percentY);
 
     int artistIndex;
     float originX;

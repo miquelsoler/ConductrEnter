@@ -5,7 +5,7 @@
 #include "ofxSimpleTimer.h"
 #include "ScreenSetup.h"
 
-const unsigned int NUM_SCENES = 3;
+const unsigned int NUM_SCENES = 2;
 const unsigned int LAST_SCENE = NUM_SCENES - 1;
 
 class ofApp : public ofxApp {
@@ -26,7 +26,7 @@ public:
 private:
 
     void goToNextScene();
-    void goToNextScene(int &senderSceneIndex);
+    void goToNextScene(int &artistIndex);
     void goToPreviousScene();
     void manageScene3Timer();
     void scene3TimerCompleteHandler(int &args);

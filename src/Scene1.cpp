@@ -154,11 +154,21 @@ void Scene1::onVideoComplete(float* arg)
 #pragma mark - Artists
 
 ///--------------------------------------------------------------
-int Scene1::getTouchedArtistIndex(int percentX, int percentY)
+int Scene1::getTouchedArtistIndex(float percentX, float percentY)
 {
     int result = -1; // -1 means NONE
 
+    bool found = false;
+    int artistIndex;
+    vector<Scene1ArtistZone>::iterator it;
 
+    for (int i=0; i<artistsZone.size() && !found; i++)
+    {
+        found = artistsZone[i].isCoordinateInside(percentX, percentY);
+        if (found) artistIndex = i;
+    }
+
+    if (found) result=artistIndex;
 
     return result;
 }
@@ -166,17 +176,21 @@ int Scene1::getTouchedArtistIndex(int percentX, int percentY)
 #pragma mark - Touch events
 
 ///--------------------------------------------------------------
-void Scene1::handlePress(int x, int y)
+void Scene1::handlePress(float x, float y)
 {
-    if (sceneState == SceneStateIntro)
+    switch(sceneState)
     {
-        skipIntro();
-    }
-    else
-    {
-        int artistIndex = getTouchedArtistIndex(x, y);
-//        int sceneIndex = 0;
-//        ofNotifyEvent(eventGoToNextScene, sceneIndex, this);
+        case SceneStateIntro:
+        {
+            skipIntro();
+            break;
+        }
+        case SceneStateArtists:
+        {
+            int artistIndex = getTouchedArtistIndex(x, y);
+            if (artistIndex != -1)
+                ofNotifyEvent(eventGoToArtist, artistIndex, this);
+        }
     }
 }
 

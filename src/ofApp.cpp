@@ -32,7 +32,7 @@ void ofApp::setup()
 
     // Scenes
     Scene1 *scene1 = new Scene1("Scene1", true);
-    ofAddListener(scene1->eventGoToNextScene, this, &ofApp::goToNextScene);
+    ofAddListener(scene1->eventGoToArtist, this, &ofApp::goToNextScene);
     sceneManager.add(scene1);
 
     sceneManager.add(new Scene2("Scene2", true));
@@ -148,8 +148,10 @@ void ofApp::goToNextScene()
 }
 
 ///--------------------------------------------------------------
-void ofApp::goToNextScene(int &senderSceneIndex)
+void ofApp::goToNextScene(int &artistIndex)
 {
+    Scene2 *scene2 = (Scene2 *)sceneManager.getSceneAt(1);
+    scene2->setArtistIndex(artistIndex);
     goToNextScene();
 }
 

@@ -29,13 +29,15 @@ Scene2::Scene2(const string &name, bool singleSetup) : BaseScene(name, singleSet
     viewWidth = (ofGetWidth() / num_objects);
     viewHeight = ofGetHeight();
 
-    clipHeight = viewHeight / NUM_CLIPS;
+    clipHeight = viewHeight / SettingsManager::getInstance().abletonArtistOffset;
 
     // Initialitze OSC
     string host = SettingsManager::getInstance().abletonHost;
     unsigned int senderPort = SettingsManager::getInstance().abletonSenderPort;
     unsigned int receiverPort = SettingsManager::getInstance().abletonReceiverPort;
     abletonManager = new AbletonManager(host, senderPort, receiverPort, num_objects);
+
+    artistOffset = SettingsManager::getInstance().abletonArtistOffset;
 
     // Create scene objects
     float viewOrigin;
@@ -102,7 +104,7 @@ void Scene2::update()
 ///--------------------------------------------------------------
 void Scene2::updateEnter()
 {
-    currentClipIndex = DEFAULT_CLIP;
+    currentClipIndex = (artistIndex * artistOffset) + (artistOffset/2);
 
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene2::tuioPressed);
     ofAddListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene2::tuioReleased);
@@ -172,6 +174,12 @@ void Scene2::draw()
 ///--------------------------------------------------------------
 void Scene2::exit()
 {
+}
+
+///--------------------------------------------------------------
+void Scene2::setArtistIndex(int _artistIndex)
+{
+    artistIndex = _artistIndex;
 }
 
 #pragma mark - Interaction handling
@@ -284,7 +292,7 @@ void Scene2::handleDrag(int x, int y, int cursorId)
     {
         // Send message to Ableton
 
-        int pressedClipIndex = getClipIndexAtY(y);
+        int pressedClipIndex = getClipIndexAtY(y) + (artistIndex * artistOffset);
         if (pressedClipIndex != currentClipIndex)
         {
             int track = pressedObjectIndex;
@@ -417,7 +425,7 @@ void Scene2::windowResized(ofResizeEventArgs &args)
 {
     viewWidth = ofGetWidth() / num_objects;
     viewHeight = ofGetHeight();
-    clipHeight = viewHeight / NUM_CLIPS;
+    clipHeight = viewHeight / SettingsManager::getInstance().abletonArtistOffset;
 }
 
 #pragma mark - Helper methods
