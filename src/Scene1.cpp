@@ -21,6 +21,17 @@ void Scene1::setup()
     videoPlayer.setLoopState(OF_LOOP_NONE);
     videoState = Loop;
     loopFrame = SettingsManager::getInstance().scene1IntroLoopFrame;
+
+    float artistZoneWidth = 0.052083333;
+    float artistZoneHeight = 0.03;
+    artistsZone.push_back(Scene1ArtistZone(0.119791667, 0.668518519, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.227604167, 0.437037037, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.2640625, 0.57037037, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.3578125, 0.675925926, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.60625, 0.638888889, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.682291667, 0.462962963, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.7703125, 0.564814815, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.834895833, 0.42962963, artistZoneWidth, artistZoneHeight));
 }
 
 ///--------------------------------------------------------------
@@ -99,11 +110,15 @@ void Scene1::draw()
     
     videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
 
+#ifdef OF_DEBUG
     if (sceneState == SceneStateArtists)
     {
-        ofNoFill();
+        float numArtists = artistsZone.size();
+        for (int i=0; i<numArtists; i++)
+            artistsZone[i].draw();
     }
-    
+#endif
+
     BaseScene::drawPost();
 }
 
@@ -136,6 +151,18 @@ void Scene1::onVideoComplete(float* arg)
     videoPlayer.play();
 }
 
+#pragma mark - Artists
+
+///--------------------------------------------------------------
+int Scene1::getTouchedArtistIndex(int percentX, int percentY)
+{
+    int result = -1; // -1 means NONE
+
+
+
+    return result;
+}
+
 #pragma mark - Touch events
 
 ///--------------------------------------------------------------
@@ -147,8 +174,9 @@ void Scene1::handlePress(int x, int y)
     }
     else
     {
-        int sceneIndex = 0;
-        ofNotifyEvent(eventGoToNextScene, sceneIndex, this);
+        int artistIndex = getTouchedArtistIndex(x, y);
+//        int sceneIndex = 0;
+//        ofNotifyEvent(eventGoToNextScene, sceneIndex, this);
     }
 }
 
@@ -163,8 +191,13 @@ void Scene1::tuioReceiverPressed(TUIOReceiverEvent &cursor)
     handlePress(cursor.x, cursor.y);
 }
 
-///--------------------------------------------------------------
 void Scene1::mousePressed(int x, int y, int button)
 {
-    handlePress(x, y);
+    ofVec2f percentCoords = TUIOHandler::screenToTuioCoords(x, y);
+    handlePress(percentCoords.x, percentCoords.y);
+}
+
+void Scene1::mouseMoved(int x, int y)
+{
+//    cout << "mouse moved (" << x << ", " << y << ")" << endl;
 }

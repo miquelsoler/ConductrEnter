@@ -31,6 +31,7 @@
 		2A0B4EA01B2C7C600033F462 /* TUIOHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A0B4E9E1B2C7C600033F462 /* TUIOHandler.cpp */; };
 		2A48C62A1B3ACE8E00937E39 /* ScreenSetup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A48C6281B3ACE8E00937E39 /* ScreenSetup.cpp */; };
 		2A61F4E41B39A8F4007DBBA8 /* TUIOReceiverEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A61F4E21B39A8F4007DBBA8 /* TUIOReceiverEvent.cpp */; };
+		2AA485E01B3C147200EBFD5F /* Scene1ArtistZone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AA485DF1B3C147200EBFD5F /* Scene1ArtistZone.cpp */; };
 		2C94348B3606F2B01C9F2E69 /* Simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF750ABAF3178C5BC6A8C233 /* Simulator.cpp */; };
 		38BA747C7CB7F8F8913375B6 /* ofxSimpleTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F1B28BB2551E443EFD686DD /* ofxSimpleTimer.cpp */; };
 		3C9E8F6D5A107A2CE1F7F0C3 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4AA5936821E0FA89447F332 /* Renderer.cpp */; };
@@ -231,6 +232,8 @@
 		2A61F4E21B39A8F4007DBBA8 /* TUIOReceiverEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TUIOReceiverEvent.cpp; sourceTree = "<group>"; };
 		2A61F4E31B39A8F4007DBBA8 /* TUIOReceiverEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUIOReceiverEvent.h; sourceTree = "<group>"; };
 		2A9DFB8F1B289B58005BFCB9 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = bin/data; sourceTree = "<group>"; };
+		2AA485DE1B3C0FD300EBFD5F /* Scene1ArtistZone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene1ArtistZone.h; sourceTree = "<group>"; };
+		2AA485DF1B3C147200EBFD5F /* Scene1ArtistZone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene1ArtistZone.cpp; sourceTree = "<group>"; };
 		2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxml.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = SOURCE_ROOT; };
 		2C7CF000B7B4F782C187C353 /* json.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = json.h; path = ../../../addons/ofxJSON/libs/jsoncpp/include/json/json.h; sourceTree = SOURCE_ROOT; };
 		2EB51DAB3FDC5557D2DBABB6 /* UdpSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UdpSender.h; path = src/TUIO/UdpSender.h; sourceTree = SOURCE_ROOT; };
@@ -1121,6 +1124,8 @@
 				4A59748741A76A3CE1C310DD /* BaseScene.h */,
 				916661E9D1CB179DDE1B7231 /* Scene1.cpp */,
 				18BA419E921FA5E8DA97F58E /* Scene1.h */,
+				2AA485DE1B3C0FD300EBFD5F /* Scene1ArtistZone.h */,
+				2AA485DF1B3C147200EBFD5F /* Scene1ArtistZone.cpp */,
 				E1C1EBCE99989A41462D6C86 /* Scene2.cpp */,
 				87481F5F15160962A4B1A08C /* Scene2.h */,
 				987B75C789AD781A4DC85A32 /* BaseObject.cpp */,
@@ -1337,6 +1342,7 @@
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				9A3E7F41897304DC9B7710DC /* BaseObject.cpp in Sources */,
+				2AA485E01B3C147200EBFD5F /* Scene1ArtistZone.cpp in Sources */,
 				2A48C62A1B3ACE8E00937E39 /* ScreenSetup.cpp in Sources */,
 				87EB70D1D65B5E4B1CAA7474 /* BaseScene.cpp in Sources */,
 				8B20F260496B9778A04E554C /* Scene1.cpp in Sources */,
