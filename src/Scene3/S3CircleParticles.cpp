@@ -76,6 +76,13 @@ void S3CircleParticles::initInactive()
 {
     volumeParticleScale = 1.5;
     
+    for(unsigned int i = 0; i < p.size(); i++)
+    {
+        p[i].scale = 1.0;
+    }
+
+    
+    
 //    cout << "circlePart :: init inactive" << endl;
     Tweenzor::add(&scaleCircle, 1.0f, 0.9f, 0.0f, 0.7f, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&scaleCircle);

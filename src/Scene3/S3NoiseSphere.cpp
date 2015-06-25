@@ -108,14 +108,13 @@ void S3NoiseSphere::initInactive()
 void S3NoiseSphere::updateInactive()
 {
     
-    cout << "UPDATE INACTIVE " << endl;
+//    cout << "UPDATE INACTIVE " << endl;
     
     updateActive(); // Delete this line if it needs a custom update
     
     if(shouldChangeState)
     {
-        //        cout << " CHANGE FROM INACTIVE TO NEXT TRANSITION" << endl;
-        cout << "from INactive Changed State !!! " << endl;
+//        cout << "from INactive Changed State !!! " << endl;
         changeState();
         
     }
@@ -124,7 +123,7 @@ void S3NoiseSphere::updateInactive()
 ///--------------------------------------------------------------
 void S3NoiseSphere::initTransitioning()
 {
-    cout << "INIT TRANSITION" << endl;
+//    cout << "INIT TRANSITION" << endl;
     
     float delay = 0.0f;
     float duration = 0.3f;
@@ -139,14 +138,13 @@ void S3NoiseSphere::initTransitioning()
 ///--------------------------------------------------------------
 void S3NoiseSphere::updateTransitioning()
 {
-    cout << "UPDATE TRANSITIONING " << endl;
+//    cout << "UPDATE TRANSITIONING " << endl;
     
     updateActive(); // Delete this line if it needs a custom update
     
     if(shouldChangeState)
     {
-        //        cout << " CHANGE FROM INACTIVE TO NEXT TRANSITION" << endl;
-        cout << "from TRANSITIONING Changed State !!! " << endl;
+//        cout << "from TRANSITIONING Changed State !!! " << endl;
         changeState();
     }
 
@@ -155,7 +153,7 @@ void S3NoiseSphere::updateTransitioning()
 ///--------------------------------------------------------------
 void S3NoiseSphere::onCompleteTransitioning(float* arg)
 {
-    cout << " ON COMPLETE TRANSITIONING" << endl;
+//    cout << " ON COMPLETE TRANSITIONING" << endl;
     
     float delay = 0.0f;
     float duration = 0.3f;
@@ -174,7 +172,7 @@ void S3NoiseSphere::onCompleteToActive(float* arg)
     
     Tweenzor::add((float*)&noiseFrequency.get(),noiseFrequency ,activeNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
 
-    cout << "ON COMPLETE TO ACTIVE" << endl;
+//    cout << "ON COMPLETE TO ACTIVE" << endl;
     nextState = S3ObjStateActive;
     shouldChangeState = true;
     
@@ -183,7 +181,7 @@ void S3NoiseSphere::onCompleteToActive(float* arg)
 ///--------------------------------------------------------------
 void S3NoiseSphere::initActive()
 {
-    cout << " INIT ACTIVE !!!! " << endl;
+//    cout << " INIT ACTIVE !!!! " << endl;
     
 }
 
