@@ -1,0 +1,19 @@
+<Settings>
+	<activate>1</activate>
+	<Camera_Distance>375</Camera_Distance>
+	<Loop_Radius>0</Loop_Radius>
+	<Loop_Initial_Angle>0</Loop_Initial_Angle>
+	<White_Circle_Radius>7.5</White_Circle_Radius>
+	<tempo>1.92</tempo>
+	<Noise_Frequency>716.8</Noise_Frequency>
+	<offset>30</offset>
+	<mode>2</mode>
+	<Threshold>0</Threshold>
+	<Treshold_Low>0</Treshold_Low>
+	<Treshold_High>0</Treshold_High>
+	<plexus_min_distance>3.9</plexus_min_distance>
+	<plexus_max_distance>11.2</plexus_max_distance>
+	<noise_min_distance>0</noise_min_distance>
+	<noise_max_distance>0.64</noise_max_distance>
+<Settings/>
+</Settings>

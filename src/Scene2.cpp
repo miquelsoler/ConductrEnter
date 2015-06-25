@@ -14,6 +14,7 @@
 #include "S2Synthesizer.h"
 #include "S2ExampleObject.h"
 #include "S2CircleParticles.h"
+#include "S2NoisePlexus.h"
 
 #include "Defaults.h"
 
@@ -66,7 +67,8 @@ Scene2::Scene2(const string &name, bool singleSetup, ScreenSetup *screenSetup) :
                 object = new S2CircleParticles(num_objects, i, viewOrigin, viewWidth, objectsPath + "circleParticle.xml");
                 break;
             case 5:
-                object = new S2ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "example.xml");
+                object = new S2NoisePlexus(num_objects, i, viewOrigin, viewWidth, objectsPath + "plexus.xml");
+//                object = new S2ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "example.xml");
                 break;
             default:
                 break;

@@ -83,6 +83,7 @@
 		A4C32C6B309DA9A9245C31F9 /* container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D66B0538A9B30C2024C0F038 /* container.cpp */; };
 		ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD194746185E2DA11468377 /* IpEndpointName.cpp */; };
 		AF2A79DF8D23EAE35974E6D9 /* TuioContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DF005DEB939F5AD91B59E8 /* TuioContainer.cpp */; };
+		B02D9CF01B3CB9F0001EB061 /* S2NoisePlexus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B02D9CEE1B3CB9F0001EB061 /* S2NoisePlexus.cpp */; };
 		B0422BA71B3B186D001D1A89 /* S2CircleParticles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0422BA61B3B186D001D1A89 /* S2CircleParticles.cpp */; };
 		B0BC45CF1B3B18E70021B9A0 /* demoParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0BC45CE1B3B18E70021B9A0 /* demoParticle.cpp */; };
 		B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */; };
@@ -339,6 +340,8 @@
 		ADD194746185E2DA11468377 /* IpEndpointName.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = IpEndpointName.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.cpp; sourceTree = SOURCE_ROOT; };
 		AE335EB4709BFD4671EEAC84 /* MessageMappingOscPacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MessageMappingOscPacketListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/MessageMappingOscPacketListener.h; sourceTree = SOURCE_ROOT; };
 		AF78ECF3CDA7181D9F3B20DC /* TuioObject.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = TuioObject.cpp; path = src/TUIO/TuioObject.cpp; sourceTree = SOURCE_ROOT; };
+		B02D9CEE1B3CB9F0001EB061 /* S2NoisePlexus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S2NoisePlexus.cpp; path = Scene3/S2NoisePlexus.cpp; sourceTree = "<group>"; };
+		B02D9CEF1B3CB9F0001EB061 /* S2NoisePlexus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S2NoisePlexus.h; path = Scene3/S2NoisePlexus.h; sourceTree = "<group>"; };
 		B0422B9F1B3B14CE001D1A89 /* demoParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = demoParticle.h; path = Scene3/demoParticle.h; sourceTree = "<group>"; };
 		B0422BA11B3B14CE001D1A89 /* S2CircleParticles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S2CircleParticles.h; path = Scene3/S2CircleParticles.h; sourceTree = "<group>"; };
 		B0422BA61B3B186D001D1A89 /* S2CircleParticles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = S2CircleParticles.cpp; path = Scene3/S2CircleParticles.cpp; sourceTree = "<group>"; };
@@ -564,6 +567,7 @@
 				214762585A7F1054D406C9C7 /* S2NoiseSphere */,
 				21476C8B60C7A7E75A1808D7 /* S2Synthesizer */,
 				B0422B9D1B3B14B5001D1A89 /* S2CircleParticles */,
+				B02D9CED1B3CB9DC001EB061 /* S3NoisePlexus */,
 			);
 			name = Scene2;
 			sourceTree = "<group>";
@@ -937,6 +941,15 @@
 				0A1DAC09F322AE313A40706D /* ofxToggle.h */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		B02D9CED1B3CB9DC001EB061 /* S3NoisePlexus */ = {
+			isa = PBXGroup;
+			children = (
+				B02D9CEE1B3CB9F0001EB061 /* S2NoisePlexus.cpp */,
+				B02D9CEF1B3CB9F0001EB061 /* S2NoisePlexus.h */,
+			);
+			name = S3NoisePlexus;
 			sourceTree = "<group>";
 		};
 		B0422B9D1B3B14B5001D1A89 /* S2CircleParticles */ = {
@@ -1364,6 +1377,7 @@
 				07CE45C80C433D565B7670AA /* TuioPoint.cpp in Sources */,
 				5BCA7DB39B7D8DAC587482BC /* TuioServer.cpp in Sources */,
 				BD2BCE2D970FB93F28642493 /* TuioTime.cpp in Sources */,
+				B02D9CF01B3CB9F0001EB061 /* S2NoisePlexus.cpp in Sources */,
 				EC7B52EAF29A507CC7F6696B /* UdpReceiver.cpp in Sources */,
 				3F05B94F9644567FE4B5CEEA /* UdpSender.cpp in Sources */,
 				F965170AE40D7D9654AB1930 /* AbletonManager.cpp in Sources */,
