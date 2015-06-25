@@ -13,8 +13,10 @@
 #pragma mark - Initialization
 
 ///--------------------------------------------------------------
-BaseScene::BaseScene(const string& name, bool singleSetup) : ofxFadeScene(name)
+BaseScene::BaseScene(const string& name, bool singleSetup, ScreenSetup *_screenSetup) : ofxFadeScene(name)
 {
+    screenSetup = _screenSetup;
+
     setSingleSetup(singleSetup);  // call setup each time the scene is loaded
     setFade(SettingsManager::getInstance().sceneFadeInMilliseconds, SettingsManager::getInstance().sceneFadeOutMilliseconds);
 

@@ -45,6 +45,11 @@ string ScreenSetup::getCurrentScreenModeString()
     }
 }
 
+ScreenMode ScreenSetup::getCurrentMode()
+{
+    return currentMode;
+}
+
 #pragma mark - Private methods
 
 ///--------------------------------------------------------------

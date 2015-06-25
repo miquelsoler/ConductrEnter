@@ -31,6 +31,7 @@ public:
     void setScreenMode(ScreenMode mode);
     void switchMode();
     string getCurrentScreenModeString();
+    ScreenMode getCurrentMode();
 
 private:
 

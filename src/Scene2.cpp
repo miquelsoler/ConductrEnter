@@ -15,6 +15,8 @@
 #include "S2ExampleObject.h"
 #include "S2CircleParticles.h"
 
+#include "Defaults.h"
+
 #include "SettingsManager.h"
 #include "TUIOHandler.h"
 
@@ -23,7 +25,7 @@ const unsigned int NUM_OBJECTS = 6;
 #pragma mark - Object creation
 
 ///--------------------------------------------------------------
-Scene2::Scene2(const string &name, bool singleSetup) : BaseScene(name, singleSetup)
+Scene2::Scene2(const string &name, bool singleSetup, ScreenSetup *screenSetup) : BaseScene(name, singleSetup, screenSetup)
 {
     num_objects = NUM_OBJECTS;
     viewWidth = (ofGetWidth() / num_objects);
@@ -152,13 +154,34 @@ void Scene2::draw()
 {
     BaseScene::drawPre();
 
+    int x, y, w, h;
     for (unsigned int i = 0; i < num_objects; ++i)
     {
         objects[i]->drawIntoFbo();
-        objects[i]->draw((i*viewWidth)-viewWidth/2,0,1280,1080);
+        switch(screenSetup->getCurrentMode())
+        {
+            case SCREENMODE_WINDOW:
+            case SCREENMODE_FULL:
+            {
+                w = (ofGetWidth() / num_objects) * 2;
+                h = w/(float(FBO_WIDTH)/float(FINAL_WINDOW_HEIGHT));
+                x = (i*w/2) - (w/4);
+                y = (ofGetHeight() - h) / 2;
+                break;
+            }
+            case SCREENMODE_DISPLAX:
+            {
+                w = ((SettingsManager::getInstance().displaxWidth * 2) / num_objects) * 2;
+                h = SettingsManager::getInstance().displaxHeight;
+                x = (i*w/2) - (w/4);
+                y = 0;
+
+                break;
+            }
+            default: break;
+        }
+        objects[i]->draw(x, y, w, h);
     }
-    
-    
     
 #ifdef OF_DEBUG
     if (SettingsManager::getInstance().debugShowTUIOCursors)

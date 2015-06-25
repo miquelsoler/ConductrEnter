@@ -24,7 +24,7 @@ class Scene2 : public BaseScene
 {
 public:
 
-    Scene2(const string& name, bool singleSetup);
+    Scene2(const string& name, bool singleSetup, ScreenSetup *screenSetup);
     virtual ~Scene2();
 
     void setup();

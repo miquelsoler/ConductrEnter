@@ -16,12 +16,13 @@
 #include "ofVideoPlayer.h"
 #include "ofMain.h"
 #include "TUIOReceiverEvent.h"
+#include "ScreenSetup.h"
 
 class BaseScene : public ofxFadeScene
 {
 public:
 
-    BaseScene(const string& name, bool singleSetup);
+    BaseScene(const string& name, bool singleSetup, ScreenSetup *screenSetup);
 
     void setup() {};
 
@@ -60,6 +61,8 @@ protected:
 
     // Listener method to detect window changes
     virtual void windowResized(ofResizeEventArgs &args) {}
+
+    ScreenSetup *screenSetup;
 };
 
 #endif /* defined(__ConductrEnter__BaseScene__) */

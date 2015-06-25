@@ -9,6 +9,7 @@
 #include "S2BaseObj.h"
 #include "TUIOHandler.h"
 #include "SettingsManager.h"
+#include "Defaults.h"
 
 
 // Arc loop
@@ -39,8 +40,8 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     
     // FBO
     //ofFbo::allocate(int width, int height, int internalformat, int numSamples)
-    fbo.allocate(_viewWidth*2,ofGetHeight(),GL_RGBA32F_ARB,1);
-    
+    fbo.allocate(FBO_WIDTH, FINAL_WINDOW_HEIGHT, GL_RGBA32F_ARB, 1);
+
     fbo.begin();
     {
         ofClear(0,0,0,0);

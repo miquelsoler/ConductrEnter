@@ -39,7 +39,7 @@ class Scene1 : public BaseScene
 {
 public:
 
-    Scene1(const string& name, bool singleSetup) : BaseScene(name, singleSetup) {}
+    Scene1(const string& name, bool singleSetup, ScreenSetup *screenSetup) : BaseScene(name, singleSetup, screenSetup) {}
 
     void setup();
     void update();

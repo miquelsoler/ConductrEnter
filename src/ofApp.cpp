@@ -31,11 +31,11 @@ void ofApp::setup()
     Tweenzor::init();
 
     // Scenes
-    Scene1 *scene1 = new Scene1("Scene1", true);
+    Scene1 *scene1 = new Scene1("Scene1", true, &screenSetup);
     ofAddListener(scene1->eventGoToArtist, this, &ofApp::goToNextScene);
     sceneManager.add(scene1);
 
-    sceneManager.add(new Scene2("Scene2", true));
+    sceneManager.add(new Scene2("Scene2", true, &screenSetup));
 
     sceneManager.setup(true); // call setup for all of them
     sceneManager.setOverlap(false); // overlap scenes when transitioning
