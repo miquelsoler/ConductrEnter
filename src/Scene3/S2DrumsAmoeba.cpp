@@ -1,25 +1,25 @@
 //
-//  S3DrumsAmoeba.cpp
+//  S2DrumsAmoeba.cpp
 //  ConductrEnter
 //
-//  Created by Miquel Ëngel Soler on 24/5/15.
+//  Created by Miquel ï¿½ngel Soler on 24/5/15.
 //
 //
 
-#include "S3DrumsAmoeba.h"
+#include "S2DrumsAmoeba.h"
 
 ///--------------------------------------------------------------
-S3DrumsAmoeba::S3DrumsAmoeba(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
-    S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
+S2DrumsAmoeba::S2DrumsAmoeba(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
+    S2BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     loadSettings();
 }
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::loadSettings()
+void S2DrumsAmoeba::loadSettings()
 {
     if (settingsPath.empty()) return;
-    S3BaseObj::initSharedSettings();
+    S2BaseObj::initSharedSettings();
 
     // Custom object settings go here
     gui.add(tempo.set("tempo", 1, 0,8));
@@ -40,9 +40,9 @@ void S3DrumsAmoeba::loadSettings()
 }
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::setup()
+void S2DrumsAmoeba::setup()
 {
-    S3BaseObj::setup();
+    S2BaseObj::setup();
 
     ofSetSmoothLighting(true);
     ofSetVerticalSync(true);
@@ -88,7 +88,7 @@ void S3DrumsAmoeba::setup()
 
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::initInactive()
+void S2DrumsAmoeba::initInactive()
 {
     activeNoiseFrequency = 20;
     
@@ -107,9 +107,9 @@ void S3DrumsAmoeba::initInactive()
 
 }
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::updateInactive()
+void S2DrumsAmoeba::updateInactive()
 {
-    //cout << "UPDATE INACTIVE" << endl;
+    cout << "UPDATE INACTIVE S2DrumsAmoeba" << endl;
     updateActive(); // Delete this line if it needs a custom update
     
     if(shouldChangeState)
@@ -121,16 +121,14 @@ void S3DrumsAmoeba::updateInactive()
 
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::initTransitioning()
+void S2DrumsAmoeba::initTransitioning()
 {
-//    cout << "INIT TRANSITION" << endl;
-
     float delay = 0.0f;
     float duration = 0.4f;
 
     // noise frequency
     Tweenzor::add((float*)&noiseFrequency.get(), stableNoiseFrequency, activeNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
-    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&noiseFrequency.get()), this, &S3DrumsAmoeba::onCompleteTransitioning);
+    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&noiseFrequency.get()), this, &S2DrumsAmoeba::onCompleteTransitioning);
 
     // white circle
     Tweenzor::add(&volumeCircleRadius, whiteCircleRadius, activeCircleRadius, delay, duration, EASE_IN_OUT_SINE);
@@ -139,17 +137,15 @@ void S3DrumsAmoeba::initTransitioning()
 }
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::updateTransitioning()
+void S2DrumsAmoeba::updateTransitioning()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
     updateActive(); // Delete this line if it needs a custom update
 }
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::onCompleteTransitioning(float* arg)
+void S2DrumsAmoeba::onCompleteTransitioning(float* arg)
 {
-    //    cout << "COMPLETE TRANSITIONING" << endl;
-    
     float delay = 0.0f;
     float duration = 0.4f;
     Tweenzor::add((float*)&noiseFrequency.get(),noiseFrequency ,stableNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
@@ -159,13 +155,10 @@ void S3DrumsAmoeba::onCompleteTransitioning(float* arg)
         //        cout << " CHANGE FROM TRANSITION TO NEXT ACTIVE" << endl;
         changeState();
     }
-    
 }
 
-
-
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::updateActive()
+void S2DrumsAmoeba::updateActive()
 {
     // lights positions
     pointLight1.setPosition(radius*2,-radius*1.5,400);
@@ -213,19 +206,19 @@ void S3DrumsAmoeba::updateActive()
 }
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::drawInactive()
+void S2DrumsAmoeba::drawInactive()
 {
     drawActive(); // Delete this line if it needs a custom draw
 }
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::drawTransitioning()
+void S2DrumsAmoeba::drawTransitioning()
 {
     drawActive(); // Delete this line if it needs a custom draw
 }
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::drawActive()
+void S2DrumsAmoeba::drawActive()
 {
     camera.begin(viewRectangle);
     {
@@ -295,7 +288,7 @@ void S3DrumsAmoeba::drawActive()
 }
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::volumeChanged(float &newVolume)
+void S2DrumsAmoeba::volumeChanged(float &newVolume)
 {
     
     float toRadius = ofMap(newVolume,0.0,1.0,0,activeCircleRadius);
@@ -311,9 +304,9 @@ void S3DrumsAmoeba::volumeChanged(float &newVolume)
 
 
 ///--------------------------------------------------------------
-void S3DrumsAmoeba::setPositionFromScreenCoords(int screenX, int screenY)
+void S2DrumsAmoeba::setPositionFromScreenCoords(int screenX, int screenY)
 {
-    S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
+    S2BaseObj::setPositionFromScreenCoords(screenX, screenY);
 
     sphere.setPosition(objPosition);
 }

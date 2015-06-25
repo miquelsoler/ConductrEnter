@@ -16,46 +16,42 @@
 void Scene1::setup()
 {
     /// VIDEO
-    if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/introLoop.mov");
+    if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/video_LoopIntroArtistes_v1.mov");
 
     videoPlayer.setLoopState(OF_LOOP_NONE);
     videoState = Loop;
     loopFrame = SettingsManager::getInstance().scene1IntroLoopFrame;
+
+    float artistZoneWidth = 0.052083333;
+    float artistZoneHeight = 0.03;
+    artistsZone.push_back(Scene1ArtistZone(0.119791667, 0.668518519, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.227604167, 0.437037037, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.2640625, 0.57037037, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.3578125, 0.675925926, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.60625, 0.638888889, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.682291667, 0.462962963, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.7703125, 0.564814815, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.834895833, 0.42962963, artistZoneWidth, artistZoneHeight));
 }
 
 ///--------------------------------------------------------------
 void Scene1::update()
 {
-    videoPlayer.update();
-    Tweenzor::update(int(ofGetElapsedTimeMillis()));
-
-    switch(videoState)
+    switch (sceneState)
     {
-        case Loop: {
-            // Loop back to first frame when finished the loop segment
-            if (videoPlayer.getCurrentFrame() >= loopFrame) videoPlayer.firstFrame();
+        case SceneStateIntro:
+            updateStateIntro();
             break;
-        }
-        case StartExplode: {
-            // Manually set video header's frame based on Tweenzor driven parameter videoHeaderFrame
-            videoPlayer.setFrame(int(videoHeaderFrame));
-            break;
-        }
-        case Exploding: {
-            // When we reach the end of the video ... change to Scene 2
-            if (videoPlayer.getCurrentFrame() >= videoPlayer.getTotalNumFrames())
-            {
-                int sceneIndex = 0;
-                ofNotifyEvent(eventGoToNextScene, sceneIndex, this);
-            }
-            break;
-        }
+        case SceneStateArtists:
+            updateStateArtists();
     }
 }
 
 ///--------------------------------------------------------------
 void Scene1::updateEnter()
 {
+    sceneState = SceneStateIntro;
+
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene1::tuioPressed);
     ofAddListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene1::tuioReceiverPressed);
 
@@ -73,14 +69,56 @@ void Scene1::updateExit()
     BaseScene::updateExit();
 }
 
+///--------------------------------------------------------------
+void Scene1::updateStateIntro()
+{
+    videoPlayer.update();
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
+
+    switch(videoState)
+    {
+        case Loop: {
+            // Loop back to first frame when finished the loop segment
+            if (videoPlayer.getCurrentFrame() >= loopFrame) videoPlayer.firstFrame();
+            break;
+        }
+        case StartExplode: {
+            // Manually set video header's frame based on Tweenzor driven parameter videoHeaderFrame
+            videoPlayer.setFrame(int(videoHeaderFrame));
+            break;
+        }
+        case Exploding: {
+            // When we reach the end of the video ... switch to Artists State
+            if (videoPlayer.getCurrentFrame() >= videoPlayer.getTotalNumFrames())
+            {
+                sceneState = SceneStateArtists;
+            }
+            break;
+        }
+    }
+}
+
+///--------------------------------------------------------------
+void Scene1::updateStateArtists()
+{
+}
 
 ///--------------------------------------------------------------
 void Scene1::draw()
 {
     BaseScene::drawPre();
     
-    videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight() );
-    
+    videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
+
+#ifdef OF_DEBUG
+    if (sceneState == SceneStateArtists)
+    {
+        float numArtists = artistsZone.size();
+        for (int i=0; i<numArtists; i++)
+            artistsZone[i].draw();
+    }
+#endif
+
     BaseScene::drawPost();
 }
 
@@ -94,14 +132,14 @@ void Scene1::exit()
 #pragma mark - Video handling
 
 ///--------------------------------------------------------------
-void Scene1::goAhead()
+void Scene1::skipIntro()
 {
     if (videoState == Loop)
     {
         // set video paused and add a tweenzor on videoHeaderFrame to drive it to the "end point" in x seconds
         videoState = StartExplode;
         videoPlayer.setPaused(true);
-        Tweenzor::add(&videoHeaderFrame, float(videoPlayer.getCurrentFrame()), float(loopFrame), 0.0f, 0.8f,   EASE_OUT_EXPO);
+        Tweenzor::add(&videoHeaderFrame, float(videoPlayer.getCurrentFrame()), float(loopFrame), 0.0f, 0.8f, EASE_OUT_EXPO);
         Tweenzor::addCompleteListener( Tweenzor::getTween(&videoHeaderFrame), this, &Scene1::onVideoComplete);
     }
 }
@@ -113,23 +151,53 @@ void Scene1::onVideoComplete(float* arg)
     videoPlayer.play();
 }
 
-#pragma mark - TUIO Touch events
+#pragma mark - Artists
+
+///--------------------------------------------------------------
+int Scene1::getTouchedArtistIndex(int percentX, int percentY)
+{
+    int result = -1; // -1 means NONE
+
+
+
+    return result;
+}
+
+#pragma mark - Touch events
+
+///--------------------------------------------------------------
+void Scene1::handlePress(int x, int y)
+{
+    if (sceneState == SceneStateIntro)
+    {
+        skipIntro();
+    }
+    else
+    {
+        int artistIndex = getTouchedArtistIndex(x, y);
+//        int sceneIndex = 0;
+//        ofNotifyEvent(eventGoToNextScene, sceneIndex, this);
+    }
+}
 
 ///--------------------------------------------------------------
 void Scene1::tuioPressed(ofTouchEventArgs &touch)
 {
-    goAhead();
+    handlePress(touch.x, touch.y);
 }
 
 void Scene1::tuioReceiverPressed(TUIOReceiverEvent &cursor)
 {
-    goAhead();
+    handlePress(cursor.x, cursor.y);
 }
 
-#pragma mark - Mouse events
-
-///--------------------------------------------------------------
 void Scene1::mousePressed(int x, int y, int button)
 {
-    goAhead();
+    ofVec2f percentCoords = TUIOHandler::screenToTuioCoords(x, y);
+    handlePress(percentCoords.x, percentCoords.y);
+}
+
+void Scene1::mouseMoved(int x, int y)
+{
+//    cout << "mouse moved (" << x << ", " << y << ")" << endl;
 }

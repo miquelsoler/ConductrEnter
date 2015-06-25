@@ -19,12 +19,21 @@
 #include <stdio.h>
 #include "BaseScene.h"
 #include "ofxTweenzor.h"
+#include "Scene1ArtistZone.h"
+
 
 typedef enum {
     Loop = 0,
     StartExplode = 1,
     Exploding = 2
 } VideoState;
+
+typedef enum
+{
+    SceneStateIntro,
+    SceneStateArtists
+} SceneState;
+
 
 class Scene1 : public BaseScene
 {
@@ -36,6 +45,8 @@ public:
     void update();
     void updateEnter();
     void updateExit();
+    void updateStateIntro();
+    void updateStateArtists();
     void draw();
     void exit();
 
@@ -52,14 +63,26 @@ private:
 
     // Mouse events
     virtual void mousePressed(int x, int y, int button);
+    virtual void mouseMoved(int x, int y);
 
-    ofVideoPlayer   videoPlayer;
+    void handlePress(int x, int y);
 
-    int             loopFrame;
-    VideoState      videoState; // 0 : loop     1 : start explode   2 : exploding
-    float           videoHeaderFrame;
-    void            goAhead();
-    void            onVideoComplete(float* arg);
+    // Intro
+    void skipIntro();
+    void onVideoComplete(float* arg);
+
+    // Artists
+    int getTouchedArtistIndex(int percentX, int percentY);
+
+    SceneState                  sceneState;
+
+    ofVideoPlayer               videoPlayer;
+
+    int                         loopFrame;
+    VideoState                  videoState; // 0 : loop     1 : start explode   2 : exploding
+    float                       videoHeaderFrame;
+
+    vector<Scene1ArtistZone>    artistsZone;
 };
 
 #endif /* defined(__ConductrEnter__Scene1__) */

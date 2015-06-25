@@ -1,32 +1,32 @@
 //
-//  S3Drums.cpp
+//  S2Drums.cpp
 //  ConductrEnter
 //
 //  Created by Miquel Àngel Soler on 24/5/15.
 //
 //
 
-#include "S3Drums.h"
+#include "S2Drums.h"
 
 #pragma mark - Initialization
 
 ///--------------------------------------------------------------
-S3Drums::S3Drums(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
-    S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
+S2Drums::S2Drums(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
+    S2BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     loadSettings();
 }
 
 ///--------------------------------------------------------------
-void S3Drums::loadSettings()
+void S2Drums::loadSettings()
 {
     if (settingsPath.empty()) return;
-    S3BaseObj::initSharedSettings();
+    S2BaseObj::initSharedSettings();
 
     // Custom object settings go here
 
     gui.add(sphereResolution.set("Resolution", 16, 8,128));
-    sphereResolution.addListener(this, &S3Drums::sphereResolutionChanged);
+    sphereResolution.addListener(this, &S2Drums::sphereResolutionChanged);
     gui.add(spherePointSize.set("Point Size", 1, 1.0, 10.0));
 
     gui.loadFromFile(settingsPath);
@@ -35,9 +35,9 @@ void S3Drums::loadSettings()
 #pragma mark - Basic object methods
 
 ///--------------------------------------------------------------
-void S3Drums::setup()
+void S2Drums::setup()
 {
-    S3BaseObj::setup();
+    S2BaseObj::setup();
 
     float initialSphereRotation = 33.0f;
     sphere.setRadius(radius);
@@ -74,19 +74,19 @@ void S3Drums::setup()
 #pragma mark - Object states
 
 ///--------------------------------------------------------------
-void S3Drums::initInactive()
+void S2Drums::initInactive()
 {
     float delay = 0.0f;
     float duration = 0.7f;
     Tweenzor::add(&sphereGrayColor, 255.0f, 120.0f, delay, duration, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&sphereGrayColor);
     tween->setRepeat(1, true);
-    Tweenzor::addCompleteListener(tween, this, &S3Drums::onCompleteInactive);
+    Tweenzor::addCompleteListener(tween, this, &S2Drums::onCompleteInactive);
 
     sphereGrayColor = 255.0f;
 }
 
-void S3Drums::onCompleteInactive(float* arg)
+void S2Drums::onCompleteInactive(float* arg)
 {
     if (!shouldChangeState)
         initInactive();
@@ -94,13 +94,13 @@ void S3Drums::onCompleteInactive(float* arg)
         changeState();
 }
 
-void S3Drums::updateInactive()
+void S2Drums::updateInactive()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
     updateActive(); // Delete this line if it needs a custom update
 }
 
-void S3Drums::drawInactive()
+void S2Drums::drawInactive()
 {
     drawActive(); // Delete this line if it needs a custom draw
 }
@@ -108,13 +108,13 @@ void S3Drums::drawInactive()
 
 ///--------------------------------------------------------------
 
-void S3Drums::initTransitioning()
+void S2Drums::initTransitioning()
 {
     float delay = 0.0f;
     float duration = 0.3f;
     Tweenzor::add(&transitioningCircleRadius, whiteCircleRadius, whiteCircleRadius*4, delay, duration, EASE_IN_OUT_SINE);
     Tween *tween1 = Tweenzor::getTween(&transitioningCircleRadius);
-    Tweenzor::addCompleteListener(tween1, this, &S3Drums::onCompleteTransitioning);
+    Tweenzor::addCompleteListener(tween1, this, &S2Drums::onCompleteTransitioning);
 
     Tweenzor::add(&transitioningCircleAlpha, 250.0f, 0.0f, delay, duration, EASE_IN_OUT_SINE);
     Tweenzor::add(&transitioningSphereScale, 1.0f, 1.5f, delay, duration, EASE_IN_OUT_SINE);
@@ -124,29 +124,30 @@ void S3Drums::initTransitioning()
     shouldChangeState = true;
 }
 
-void S3Drums::onCompleteTransitioning(float* arg)
+void S2Drums::onCompleteTransitioning(float* arg)
 {
     changeState();
 }
 
-void S3Drums::updateTransitioning()
+void S2Drums::updateTransitioning()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
 //    updateActive(); // Delete this line if it needs a custom update
 }
 
-void S3Drums::drawTransitioning()
+void S2Drums::drawTransitioning()
 {
     drawActive(); // Delete this line if it needs a custom draw
 }
 
 ///--------------------------------------------------------------
-void S3Drums::initActive()
+void S2Drums::initActive()
 {
-
+    trianglesCurrent.clear();
+    trianglesCurrent = sphere.getMesh().getUniqueFaces();
 }
 
-void S3Drums::updateActive()
+void S2Drums::updateActive()
 {
     ofVec3f triangleNormal;
     int size = (int) trianglesOriginal.size();
@@ -161,7 +162,7 @@ void S3Drums::updateActive()
     sphere.getMesh().setFromTriangles(trianglesCurrent);
 }
 
-void S3Drums::drawActive()
+void S2Drums::drawActive()
 {
     camera.begin(viewRectangle);
     {
@@ -194,7 +195,7 @@ void S3Drums::drawActive()
 }
 
 ///--------------------------------------------------------------
-void S3Drums::volumeChanged(float &newVolume)
+void S2Drums::volumeChanged(float &newVolume)
 {
     if (currentState == S3ObjStateActive)
     {
@@ -207,17 +208,17 @@ void S3Drums::volumeChanged(float &newVolume)
 }
 
 //--------------------------------------------------------------
-void S3Drums::setPositionFromScreenCoords(int screenX, int screenY)
+void S2Drums::setPositionFromScreenCoords(int screenX, int screenY)
 {
-    S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
+    S2BaseObj::setPositionFromScreenCoords(screenX, screenY);
     sphere.setPosition(objPosition);
     transitioningSphere.setPosition(objPosition);
 }
 
 ///--------------------------------------------------------------
-void S3Drums::windowResized(ofResizeEventArgs &args)
+void S2Drums::windowResized(ofResizeEventArgs &args)
 {
-    S3BaseObj::windowResized(args);
+    S2BaseObj::windowResized(args);
 
     sphere.setPosition(objPosition);
     transitioningSphere.setPosition(objPosition);
@@ -227,7 +228,7 @@ void S3Drums::windowResized(ofResizeEventArgs &args)
 }
 
 ///--------------------------------------------------------------
-void S3Drums::sphereResolutionChanged(int &newSphereResolution)
+void S2Drums::sphereResolutionChanged(int &newSphereResolution)
 {
     sphere.setResolution(newSphereResolution);
     transitioningSphere.setResolution(newSphereResolution);

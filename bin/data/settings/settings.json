@@ -4,7 +4,7 @@
         "Screen Height": 1080
     },
     "Scenes": {
-        "First Scene": 2, // 0=Intro, 1=Artists, 2=Playground
+        "First Scene": 0, // 0=Intro, 1=Playground
     	"Scene1 Intro Loop Frame": 1249,
         "FadeIn Milliseconds": 0,
         "FadeOut Milliseconds": 0,

@@ -1,12 +1,12 @@
 //
-//  S3Synthesizer.cpp
+//  S2Synthesizer.cpp
 //  ConductrEnter
 //
 //  Created by Miquel Àngel Soler on 21/6/15.
 //
 //
 
-#include "S3Synthesizer.h"
+#include "S2Synthesizer.h"
 
 #include "ofxTweenzor.h"
 
@@ -16,17 +16,17 @@ const float VOLUME_THRESHOLD = 0.6f; // TODO Must be normalized in Ableton.
 #pragma mark - Initialization
 
 ///--------------------------------------------------------------
-S3Synthesizer::S3Synthesizer(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
-    S3BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
+S2Synthesizer::S2Synthesizer(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
+    S2BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
 {
     loadSettings();
 }
 
 ///--------------------------------------------------------------
-void S3Synthesizer::loadSettings()
+void S2Synthesizer::loadSettings()
 {
     if (settingsPath.empty()) return;
-    S3BaseObj::initSharedSettings();
+    S2BaseObj::initSharedSettings();
 
     // Custom object settings go here
     gui.add(greyCircleRadius.set("Grey Circle Radius", 8.0f, 1.0f, 30.0f));
@@ -38,9 +38,9 @@ void S3Synthesizer::loadSettings()
 #pragma mark - Basic object methods
 
 ///--------------------------------------------------------------
-void S3Synthesizer::setup()
+void S2Synthesizer::setup()
 {
-    S3BaseObj::setup();
+    S2BaseObj::setup();
 
     circlesMaxRadius = radius/4.0f;
     circlesMinRadius = circlesMaxRadius - 5.0f;
@@ -54,7 +54,7 @@ void S3Synthesizer::setup()
 }
 
 ///--------------------------------------------------------------
-void S3Synthesizer::initInactive()
+void S2Synthesizer::initInactive()
 {
     float alphaFrom = 25.0f;
     float alphaTo = 50.0f;
@@ -64,10 +64,10 @@ void S3Synthesizer::initInactive()
     Tweenzor::add(&greyCircleAplha, alphaFrom, alphaTo, delay, duration, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&greyCircleAplha);
     tween->setRepeat(1, true);
-    Tweenzor::addCompleteListener(tween, this, &S3Synthesizer::onCompleteInactive);
+    Tweenzor::addCompleteListener(tween, this, &S2Synthesizer::onCompleteInactive);
 }
 
-void S3Synthesizer::onCompleteInactive(float* arg)
+void S2Synthesizer::onCompleteInactive(float* arg)
 {
     if (!shouldChangeState)
         initInactive();
@@ -75,18 +75,18 @@ void S3Synthesizer::onCompleteInactive(float* arg)
         changeState();
 }
 
-void S3Synthesizer::updateInactive()
+void S2Synthesizer::updateInactive()
 {
     Tweenzor::update(int(ofGetElapsedTimeMillis()));
 }
 
-void S3Synthesizer::drawInactive()
+void S2Synthesizer::drawInactive()
 {
     drawActive(); // Delete this line if it needs a custom draw
 }
 
 ///--------------------------------------------------------------
-void S3Synthesizer::initTransitioning()
+void S2Synthesizer::initTransitioning()
 {
     float radiusFrom = greyCircleRadius;
     float radiusTo = radius;
@@ -97,7 +97,7 @@ void S3Synthesizer::initTransitioning()
 
     Tweenzor::add(&transitioningCircleRadius, radiusFrom, radiusTo, delay, duration, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&transitioningCircleRadius);
-    Tweenzor::addCompleteListener(tween, this, &S3Synthesizer::onCompleteTransitioning);
+    Tweenzor::addCompleteListener(tween, this, &S2Synthesizer::onCompleteTransitioning);
 
     Tweenzor::add(&transitioningCircleAplha, alphaFrom, alphaTo, delay, duration, EASE_IN_OUT_SINE);
 
@@ -105,29 +105,29 @@ void S3Synthesizer::initTransitioning()
     shouldChangeState = true;
 }
 
-void S3Synthesizer::onCompleteTransitioning(float* arg)
+void S2Synthesizer::onCompleteTransitioning(float* arg)
 {
     changeState();
 }
 
-void S3Synthesizer::updateTransitioning()
+void S2Synthesizer::updateTransitioning()
 {
     Tweenzor::update(int(ofGetElapsedTimeMillis()));
 }
 
-void S3Synthesizer::drawTransitioning()
+void S2Synthesizer::drawTransitioning()
 {
     drawActive(); // Delete this line if it needs a custom draw
 }
 
 ///--------------------------------------------------------------
-void S3Synthesizer::initActive()
+void S2Synthesizer::initActive()
 {
 }
 
-void S3Synthesizer::updateActive()
+void S2Synthesizer::updateActive()
 {
-    list<S3SynthesizerCircle*>::iterator it;
+    list<S2SynthesizerCircle *>::iterator it;
     for (it=circles.begin(); it!=circles.end();)
     {
         if ((*it)->isDone())
@@ -142,7 +142,7 @@ void S3Synthesizer::updateActive()
     }
 }
 
-void S3Synthesizer::drawActive()
+void S2Synthesizer::drawActive()
 {
     camera.begin(viewRectangle);
     {
@@ -163,7 +163,7 @@ void S3Synthesizer::drawActive()
 
         drawWhiteCircle();
 
-        for (list<S3SynthesizerCircle*>::iterator it = circles.begin(); it!=circles.end(); ++it)
+        for (list<S2SynthesizerCircle *>::iterator it = circles.begin(); it!=circles.end(); ++it)
             (*it)->draw();
 
         if (pinchEnabled) drawPinchCircle();
@@ -174,13 +174,13 @@ void S3Synthesizer::drawActive()
 }
 
 ///--------------------------------------------------------------
-void S3Synthesizer::setPositionFromScreenCoords(int screenX, int screenY)
+void S2Synthesizer::setPositionFromScreenCoords(int screenX, int screenY)
 {
-    S3BaseObj::setPositionFromScreenCoords(screenX, screenY);
+    S2BaseObj::setPositionFromScreenCoords(screenX, screenY);
 }
 
 ///--------------------------------------------------------------
-void S3Synthesizer::volumeChanged(float &newVolume)
+void S2Synthesizer::volumeChanged(float &newVolume)
 {
     if (newVolume >= VOLUME_THRESHOLD)
     {
@@ -197,7 +197,7 @@ void S3Synthesizer::volumeChanged(float &newVolume)
 }
 
 ///--------------------------------------------------------------
-void S3Synthesizer::addCircle()
+void S2Synthesizer::addCircle()
 {
     float circleRadius = ofRandom(circlesMinRadius, circlesMaxRadius);
     float maxValidRadius = radius - circlesMaxRadius;
@@ -209,6 +209,6 @@ void S3Synthesizer::addCircle()
 
     ofPoint offset = ofPoint(x, y, 0);
 
-    S3SynthesizerCircle *circle = new S3SynthesizerCircle(objPosition, offset, circleRadius);
+    S2SynthesizerCircle *circle = new S2SynthesizerCircle(objPosition, offset, circleRadius);
     circles.push_back(circle);
 }

@@ -1,5 +1,5 @@
 //
-//  S3ExampleObject.h
+//  S2ExampleObject.h
 //  ConductrEnter
 //
 //  Created by Miquel Àngel Soler on 24/5/15.
@@ -8,17 +8,17 @@
 
 #pragma once
 
-#ifndef __ConductrEnter__S3ExampleObject__
-#define __ConductrEnter__S3ExampleObject__
+#ifndef __ConductrEnter__S2ExampleObject__
+#define __ConductrEnter__S2ExampleObject__
 
 #include <stdio.h>
-#include "S3BaseObj.h"
+#include "S2BaseObj.h"
 #include "of3dGraphics.h"
 
-class S3ExampleObject : public S3BaseObj
+class S2ExampleObject : public S2BaseObj
 {
 public:
-    S3ExampleObject(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
+    S2ExampleObject(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
     virtual void loadSettings();
@@ -47,4 +47,4 @@ private:
     ofColor             sphereColor;
 };
 
-#endif /* defined(__ConductrEnter__S3ExampleObject__) */
+#endif /* defined(__ConductrEnter__S2ExampleObject__) */

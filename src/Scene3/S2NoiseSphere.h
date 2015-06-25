@@ -1,25 +1,25 @@
 //
-//  S3NoiseSphere.h
+//  S2NoiseSphere.h
 //  ConductrEnter
 //
-//  Created by Miquel Ëngel Soler on 24/5/15.
+//  Created by Miquel Ã€ngel Soler on 24/5/15.
 //
 //
 
 #pragma once
 
-#ifndef __ConductrEnter__S3NoiseSphere__
-#define __ConductrEnter__S3NoiseSphere__
+#ifndef __ConductrEnter__S2NoiseSphere__
+#define __ConductrEnter__S2NoiseSphere__
 
 #include <stdio.h>
-#include "S3BaseObj.h"
+#include "S2BaseObj.h"
 #include "ofxTweenzor.h"
 
 
-class S3NoiseSphere : public S3BaseObj
+class S2NoiseSphere : public S2BaseObj
 {
 public:
-    S3NoiseSphere(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
+    S2NoiseSphere(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
 
     virtual void setup();
     virtual void loadSettings();
@@ -67,4 +67,4 @@ private:
     float                   activeNoiseFrequency;
 };
 
-#endif /* defined(__ConductrEnter__S3NoiseSphere__) */
+#endif /* defined(__ConductrEnter__S2NoiseSphere__) */

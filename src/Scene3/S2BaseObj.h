@@ -1,5 +1,5 @@
 //
-//  S3BaseObj.h
+//  S2BaseObj.h
 //  ConductrEnter
 //
 //  Created by Miquel Àngel Soler on 24/5/15.
@@ -8,8 +8,8 @@
 
 #pragma once
 
-#ifndef __ConductrEnter__S3BaseObj__
-#define __ConductrEnter__S3BaseObj__
+#ifndef __ConductrEnter__S2BaseObj__
+#define __ConductrEnter__S2BaseObj__
 
 #include <stdio.h>
 
@@ -29,11 +29,11 @@ typedef enum
 } S3ObjState;
 
 
-class S3BaseObj : public BaseObject
+class S2BaseObj : public BaseObject
 {
 public:
-    S3BaseObj(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
-    virtual ~S3BaseObj() {}
+    S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath);
+    virtual ~S2BaseObj() {}
 
     virtual void setup();
     virtual void update();
@@ -127,4 +127,4 @@ protected:
     string                  settingsPath;
 };
 
-#endif /* defined(__ConductrEnter__S4BaseObj__) */
+#endif /* defined(__ConductrEnter__S2BaseObj__) */

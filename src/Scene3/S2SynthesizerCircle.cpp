@@ -2,10 +2,10 @@
 // Created by Miquel Àngel Soler on 22/6/15.
 //
 
-#include "S3SynthesizerCircle.h"
+#include "S2SynthesizerCircle.h"
 #include "ofxTweenzor.h"
 
-S3SynthesizerCircle::S3SynthesizerCircle(ofPoint objectCenter, ofPoint _offsetPosition, float _radius)
+S2SynthesizerCircle::S2SynthesizerCircle(ofPoint objectCenter, ofPoint _offsetPosition, float _radius)
 {
     offsetPosition = _offsetPosition;
     position = ofPoint(objectCenter.x + offsetPosition.x, objectCenter.y + offsetPosition.y, objectCenter.z);
@@ -16,31 +16,31 @@ S3SynthesizerCircle::S3SynthesizerCircle(ofPoint objectCenter, ofPoint _offsetPo
 
     Tweenzor::add(&alpha, 255.0f, 0.0f, 0.0f, 1.0f, EASE_LINEAR);
     Tween *tween = Tweenzor::getTween(&alpha);
-    Tweenzor::addCompleteListener(tween, this, &S3SynthesizerCircle::onCompleteTween);
+    Tweenzor::addCompleteListener(tween, this, &S2SynthesizerCircle::onCompleteTween);
 }
 
-S3SynthesizerCircle::~S3SynthesizerCircle()
+S2SynthesizerCircle::~S2SynthesizerCircle()
 {
 }
 
-void S3SynthesizerCircle::update(ofPoint objectCenter)
+void S2SynthesizerCircle::update(ofPoint objectCenter)
 {
     position = ofPoint(objectCenter.x + offsetPosition.x, objectCenter.y + offsetPosition.y, objectCenter.z);
     Tweenzor::update(int(ofGetElapsedTimeMillis()));
 }
 
-void S3SynthesizerCircle::draw()
+void S2SynthesizerCircle::draw()
 {
     ofSetColor(255, 255, 255, int(alpha));
     ofCircle(position, radius);
 }
 
-bool S3SynthesizerCircle::isDone()
+bool S2SynthesizerCircle::isDone()
 {
     return done;
 }
 
-void S3SynthesizerCircle::onCompleteTween(float* arg)
+void S2SynthesizerCircle::onCompleteTween(float* arg)
 {
     Tweenzor::removeTween(&alpha);
     done = true;
