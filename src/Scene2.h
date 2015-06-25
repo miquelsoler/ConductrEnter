@@ -20,9 +20,6 @@
 #include "ofxTuioClient.h"
 #include "TuioCursor.h"
 
-const unsigned int NUM_CLIPS = 5;
-const unsigned int DEFAULT_CLIP = 2;
-
 class Scene2 : public BaseScene
 {
 public:
@@ -74,6 +71,7 @@ private:
 
     AbletonManager*         abletonManager;
     unsigned int            currentClipIndex;
+    unsigned int            artistOffset;
 
     vector<S2BaseObj *>      objects;
     unsigned int            num_objects;
