@@ -221,12 +221,14 @@ void S2DrumsAmoeba::drawActive()
 {
     camera.begin();
     {
+        /*
         ofEnableLighting();
 
         pointLight1.enable();
         pointLight2.enable();
         pointLight3.enable();
-
+*/
+        
         glPointSize(2.0);
         sphere.setResolution(4);
 
@@ -249,7 +251,7 @@ void S2DrumsAmoeba::drawActive()
         if(showNormals)
         {
             // draw normals
-            ofSetColor(255,0,0,128);
+            ofSetColor(255,0,0,255);
             sphere.drawNormals(3);
         }
         

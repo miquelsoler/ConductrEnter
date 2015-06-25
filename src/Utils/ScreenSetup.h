@@ -19,6 +19,7 @@ typedef enum
     SCREENMODE_WINDOW,
     SCREENMODE_FULL,
     SCREENMODE_DISPLAX,
+    SCREENMODE_FULLWINDOW,
     SCREENMODE_NUMMODES
 } ScreenMode;
 
@@ -38,6 +39,7 @@ private:
     void setModeWindow();
     void setModeFull();
     void setModeDisplax();
+    void setModeFullWindow();
 
     ofVec2f getMainScreenOrigin();
     ofVec2f getLeftmostMonitorCoord();

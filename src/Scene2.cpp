@@ -169,6 +169,7 @@ void Scene2::draw()
                 y = (ofGetHeight() - h) / 2;
                 break;
             }
+            case SCREENMODE_FULLWINDOW:
             case SCREENMODE_DISPLAX:
             {
                 w = ((SettingsManager::getInstance().displaxWidth * 2) / num_objects) * 2;

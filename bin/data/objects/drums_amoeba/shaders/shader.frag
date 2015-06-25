@@ -41,6 +41,6 @@ void main (void) {
         // write Total Color: 
         gl_FragColor = gl_FrontLightModelProduct.sceneColor + finalColor;
     
-    //gl_FragColor = vec4 (1.0,1.0,1.0,1.0);
+    gl_FragColor.a = 1.0;
     
 }

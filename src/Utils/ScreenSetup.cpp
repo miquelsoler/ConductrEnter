@@ -22,6 +22,7 @@ void ScreenSetup::setScreenMode(ScreenMode mode)
         case SCREENMODE_WINDOW:     setModeWindow(); break;
         case SCREENMODE_FULL:       setModeFull(); break;
         case SCREENMODE_DISPLAX:    setModeDisplax(); break;
+        case SCREENMODE_FULLWINDOW: setModeFullWindow(); break;
         default:                    break;
     }
 }
@@ -41,10 +42,12 @@ string ScreenSetup::getCurrentScreenModeString()
         case SCREENMODE_WINDOW:     return "WINDOW";
         case SCREENMODE_FULL:       return "FULL SCREEN";
         case SCREENMODE_DISPLAX:    return "DISPLAX";
+        case SCREENMODE_FULLWINDOW: return "FULL WINDOW";
         default: return "";
     }
 }
 
+///--------------------------------------------------------------
 ScreenMode ScreenSetup::getCurrentMode()
 {
     return currentMode;
@@ -78,6 +81,20 @@ void ScreenSetup::setModeDisplax()
     ofSetWindowPosition(mainScreenOffset.x, mainScreenOffset.y);
 
     currentMode = SCREENMODE_DISPLAX;
+}
+
+///--------------------------------------------------------------
+void ScreenSetup::setModeFullWindow()
+{
+    ofSetFullscreen(false);
+    int windowWidth = SettingsManager::getInstance().displaxWidth * 2;
+    int windowHeight = SettingsManager::getInstance().displaxHeight;
+    ofSetWindowShape(windowWidth, windowHeight);
+//    ofVec2f mainScreenOffset = getMainScreenOrigin();
+//    ofSetWindowPosition(mainScreenOffset.x, mainScreenOffset.y);
+    
+    currentMode = SCREENMODE_FULLWINDOW;
+
 }
 
 ///--------------------------------------------------------------

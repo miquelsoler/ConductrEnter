@@ -54,6 +54,7 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 void S2BaseObj::initSharedSettings()
 {
     gui.setup("Settings", settingsPath);
+    gui.add(activate.set("activate",true));
     gui.add(camDistance.set("Camera_Distance", 0, 0, 600));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
     gui.add(loopInitialAngle.set("Loop_Initial_Angle", 0, 0, 360));
@@ -86,57 +87,69 @@ void S2BaseObj::setup()
 ///--------------------------------------------------------------
 void S2BaseObj::update()
 {
-    camera.setDistance(camDistance);
-
-    switch(currentState)
+    if(activate)
     {
-        case S3ObjStateInactive:
-            updateInactive();
-            break;
-        case S3ObjStateTransitioning:
-            updateTransitioning();
-            break;
-        case S3ObjStateActive:
-            updateActive();
-            break;
+        camera.setDistance(camDistance);
+
+        switch(currentState)
+        {
+            case S3ObjStateInactive:
+                updateInactive();
+                break;
+            case S3ObjStateTransitioning:
+                updateTransitioning();
+                break;
+            case S3ObjStateActive:
+                updateActive();
+                break;
+        }
     }
-    
 }
 
 ///--------------------------------------------------------------
 void S2BaseObj::drawIntoFbo()
 {
-    
-    fbo.begin();
-    
-    ofClear(0,0,(255/6)*sceneObjectIndex,128);
-
-    switch(currentState)
+    if(activate)
     {
-        case S3ObjStateInactive:
-            drawInactive();
-            break;
-        case S3ObjStateTransitioning:
-            drawTransitioning();
-            break;
-        case S3ObjStateActive:
-            drawActive();
-            break;
-    }
     
-    fbo.end();
+        fbo.begin();
+        
+        //ofClear(0,0,(255/6)*sceneObjectIndex,128);
+        ofClear(0,0,0,0);
+        
+        switch(currentState)
+        {
+            case S3ObjStateInactive:
+                drawInactive();
+                break;
+            case S3ObjStateTransitioning:
+                drawTransitioning();
+                break;
+            case S3ObjStateActive:
+                drawActive();
+                break;
+        }
+        
+        fbo.end();
+
+    }
 }
+
 ///--------------------------------------------------------------
 void S2BaseObj::draw(int x,int y,int w,int h)
 {
-    fbo.draw(x,y,w,h);
-
-#ifdef OF_DEBUG
-    if (SettingsManager::getInstance().debugShowGUI)
+    if(activate)
     {
-        gui.draw();
+
+        fbo.draw(x,y,w,h);
     }
-#endif
+    #ifdef OF_DEBUG
+        if (SettingsManager::getInstance().debugShowGUI)
+        {
+            gui.draw();
+        }
+    #endif
+
 }
 
 ///--------------------------------------------------------------

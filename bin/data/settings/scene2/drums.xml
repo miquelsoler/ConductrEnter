@@ -5,5 +5,5 @@
     <Loop_Initial_Angle>0</Loop_Initial_Angle>
     <Resolution>26</Resolution>
 	<Point_Size>1</Point_Size>
-<Settings/>
+    <activate>0</activate>
 </Settings>

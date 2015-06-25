@@ -95,6 +95,8 @@ protected:
 
     bool                    isFirstSetup;
 
+    ofParameter<bool>       activate;
+    
     // Camera & viewport
     ofEasyCam               camera;
     ofParameter<int>        camDistance;
