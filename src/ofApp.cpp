@@ -1,9 +1,7 @@
 #include "ofApp.h"
 
 #include "TUIOHandler.h"
-#include "Defaults.h"
 #include "SettingsManager.h"
-#include "ScreenSetup.h"
 
 #include "BaseScene.h"
 #include "Scene1.h"
@@ -59,10 +57,6 @@ void ofApp::setup()
     //
     setSceneManager(&sceneManager);
 
-    // Timer listener for scene 3
-    manageScene3Timer();
-    ofAddListener(scene3Timer.TIMER_COMPLETE, this, &ofApp::scene3TimerCompleteHandler);
-
     sceneManager.gotoScene(SettingsManager::getInstance().sceneFirstScene);
 }
 
@@ -71,8 +65,6 @@ void ofApp::update()
 {
 //    ofBackground(ofColor(255,0,0,255));
     
-    if (currentScene == LAST_SCENE) scene3Timer.update();
-
     if (sceneManager.getCurrentSceneIndex() == -1) sceneManager.gotoScene(currentScene);
 
 #ifdef OF_DEBUG
@@ -176,42 +168,44 @@ void ofApp::goToPreviousScene()
         currentScene = LAST_SCENE;
     else
         currentScene--;
-
-    manageScene3Timer();
 }
 
 ///--------------------------------------------------------------
-void ofApp::manageScene3Timer()
+/*
+void ofApp::manageScene2Timer()
 {
-//    if (currentScene == LAST_SCENE)
-//    {
-//        // Scene is #4, init timer for it
-//        scene3Timer.setup(SettingsManager::getInstance().scene3TimerMilliseconds);
-//        scene3Timer.start(true);
-//    }
-//    else
-//    {
-//        // Scene isn't #4, reset its timer
-//        scene3Timer.stop();
-//        scene3Timer.reset();
-//    }
+    if (currentScene == LAST_SCENE)
+    {
+        // Scene is #2, init timer for it
+        scene2Timer.setup(SettingsManager::getInstance().scene2TimerMilliseconds);
+        scene2Timer.start(true);
+    }
+    else
+    {
+        // Scene isn't #2, reset its timer
+        scene2Timer.stop();
+        scene2Timer.reset();
+    }
 }
+*/
 
+/*
 ///--------------------------------------------------------------
-void ofApp::scene3TimerCompleteHandler(int &args)
+void ofApp::scene2TimerCompleteHandler(int &args)
 {
     ofLog(OF_LOG_NOTICE, "Timer completed. Jump to scene 1.");
-    scene3Timer.stop();
+    scene2Timer.stop();
     currentScene = 0;
     sceneManager.gotoScene(currentScene);
 }
+*/
 
 ///--------------------------------------------------------------
 void ofApp::drawScreenMode()
 {
     float halfWindowWidth = ofGetWidth() / 2;
     float halfWindowHeight = ofGetHeight() / 2;
-    float textXOffset = 96;
+    float textXOffset = 98;
     float textYOffset = 8;
     float textX = halfWindowWidth - textXOffset;
     float textY = halfWindowHeight - textYOffset;

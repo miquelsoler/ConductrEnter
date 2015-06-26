@@ -19,6 +19,7 @@
 #include "AbletonManager.h"
 #include "ofxTuioClient.h"
 #include "TuioCursor.h"
+#include "ofxSimpleTimer.h"
 
 class Scene2 : public BaseScene
 {
@@ -80,6 +81,8 @@ private:
     float                   clipHeight;
 
     ofVideoPlayer           videoPlayer;
+
+    ofxSimpleTimer          leaveSceneTimer;
 };
 
 #endif /* defined(__ConductrEnter__Scene2__) */

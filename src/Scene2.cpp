@@ -138,6 +138,8 @@ void Scene2::updateEnter()
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->setup();
 
+    leaveSceneTimer.setup(SettingsManager::getInstance().scene2TimerMilliseconds);
+
     BaseScene::updateEnter();
 }
 

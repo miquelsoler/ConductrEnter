@@ -32,7 +32,7 @@ public:
     unsigned int    scene1IntroLoopFrame;
     unsigned int    sceneFadeInMilliseconds;
     unsigned int    sceneFadeOutMilliseconds;
-    unsigned long   scene3TimerMilliseconds;
+    unsigned long   scene2TimerMilliseconds;
 
     // Ableton
     string          abletonHost;

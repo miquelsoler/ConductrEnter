@@ -8,7 +8,7 @@
     	"Scene1 Intro Loop Frame": 1249,
         "FadeIn Milliseconds": 0,
         "FadeOut Milliseconds": 0,
-        "Scene3 Timer Milliseconds": 600000
+        "Scene2 Timer Milliseconds": 600000
     },
     "Ableton": {
         "Ableton Host": "localhost",

@@ -44,7 +44,7 @@ bool SettingsManager::loadSettings()
     scene1IntroLoopFrame = json[prefix]["Scene1 Intro Loop Frame"].asUInt();
     sceneFadeInMilliseconds = json[prefix]["FadeIn Milliseconds"].asUInt();
     sceneFadeOutMilliseconds = json[prefix]["FadeOut Milliseconds"].asUInt();
-    scene3TimerMilliseconds = json[prefix]["Scene2 Timer Milliseconds"].asUInt();
+    scene2TimerMilliseconds = json[prefix]["Scene2 Timer Milliseconds"].asUInt();
 
     // Ableton
     prefix = "Ableton";
