@@ -209,7 +209,7 @@ void S2BaseObj::drawPinchColor()
     ofFill();
     ofDisableLighting();
     ofSetColor(255, 2255, 255, pinchImageAlpha);
-    pinchImage.draw(objPosition, pinchColorSize, pinchColorSize);
+    pinchImage.draw(objPosition, pinchImageSize * 2, pinchImageSize * 2);
     ofDisableBlendMode();
 }
 
@@ -272,7 +272,6 @@ void S2BaseObj::enablePinch(bool enable)
     pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
 
     pinchImageSize = whiteCircleRadius / 2;
-    pinchColorSize = pinchImageSize * 2;
 }
 
 ///--------------------------------------------------------------
@@ -294,7 +293,6 @@ void S2BaseObj::updatePinch()
     if (diff > 0)
     {
         pinchImageSize = whiteCircleRadius + diff/4;
-        pinchColorSize = pinchImageSize * 2;
         pinchImageAlpha = (unsigned int)ofMap(pinchCurrentDist, pinchInitialDist, pinchInitialDist*2.0f, pinchImageAlphaMin, pinchImageAlphaMax, true);
     }
 }

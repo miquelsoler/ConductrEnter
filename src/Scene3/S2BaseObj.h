@@ -118,7 +118,6 @@ protected:
     float                   pinchImageSize;
     unsigned int            pinchImageAlpha;
     unsigned int            pinchImageAlphaMin, pinchImageAlphaMax;
-    unsigned int            pinchColorSize;
 
     // TUIO
     list<TuioCursor *>      cursorIds;
