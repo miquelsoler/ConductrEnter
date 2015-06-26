@@ -74,7 +74,7 @@ void S2BaseObj::setup()
     camera.setFarClip(1000.0f);
     camera.setDistance(camDistance);
 
-    gui.setPosition(viewOriginX+viewHalfWidth*0.4f, 0);
+    gui.setPosition(viewOriginX+viewHalfWidth*0.7f, 0);
 
     loopAngle = 0;
 

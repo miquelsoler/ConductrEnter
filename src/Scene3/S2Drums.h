@@ -57,6 +57,7 @@ private:
 
     ofParameter<int>        sphereResolution;
     ofParameter<float>      spherePointSize;
+    ofParameter<float>      sphereVolumeScale;
 
     // Transitioning state
     float                   transitioningCircleRadius;

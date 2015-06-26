@@ -28,6 +28,7 @@ void S2Drums::loadSettings()
     gui.add(sphereResolution.set("Resolution", 16, 8,128));
     sphereResolution.addListener(this, &S2Drums::sphereResolutionChanged);
     gui.add(spherePointSize.set("Point Size", 1, 1.0, 10.0));
+    gui.add(sphereVolumeScale.set("Volume Scale", 4, 1.0, 5.0));
 
     gui.loadFromFile(settingsPath);
 }
@@ -200,7 +201,7 @@ void S2Drums::volumeChanged(float &newVolume)
 {
     if (currentState == S3ObjStateActive)
     {
-        vertexDistance = (newVolume*0.7f) * exp(newVolume * 3.0f);
+        vertexDistance = (newVolume*0.7f) * exp(newVolume * sphereVolumeScale);
     }
     else
     {
