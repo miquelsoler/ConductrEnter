@@ -15,5 +15,4 @@
 	<plexus_max_distance>40</plexus_max_distance>
 	<noise_min_distance>0</noise_min_distance>
 	<noise_max_distance>0.369</noise_max_distance>
-<Settings/>
 </Settings>
