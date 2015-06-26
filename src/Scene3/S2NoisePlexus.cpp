@@ -33,8 +33,8 @@ void S2NoisePlexus::loadSettings()
     gui.add( doThreshold.set( "Threshold", false ) );
     gui.add( thresholdLow.set( "Treshold Low", 0, 0, 40 ) );
     gui.add( thresholdHigh.set( "Treshold High", 40, 0, 40 ) );
-    gui.add( plexusMinDistance.set( "plexus min distance",0,0,20) );
-    gui.add( plexusMaxDistance.set( "plexus max distance",0,0,20) );
+    gui.add( plexusMinDistance.set( "plexus min distance",0,0,40) );
+    gui.add( plexusMaxDistance.set( "plexus max distance",0,0,40) );
     gui.add( noiseMinDistance.set( "noise min distance",0,0.0,1.0) );
     gui.add( noiseMaxDistance.set( "noise max distance",0,0.0,1.0) );
 
@@ -42,7 +42,7 @@ void S2NoisePlexus::loadSettings()
     
     // MESH
     dontDraw=false;
-    sphere.setResolution(3);
+    sphere.setResolution(2);
 
     plexus.setMode(OF_PRIMITIVE_LINES);
     for(int i=0;i<sphere.getMesh().getNumVertices();i++)
@@ -62,7 +62,7 @@ void S2NoisePlexus::setup()
 
     sphere.setRadius(radius);
     sphere.setPosition(objPosition);
-    sphere.setResolution(3);
+    sphere.setResolution(2);
 
     camera.setTarget(sphere);
 
@@ -205,7 +205,7 @@ void S2NoisePlexus::updateActive()
 {
     Tweenzor::update(ofGetElapsedTimeMillis());
     
-    sphere.rotate(0.3, 0.0, 1.0, 0.0);
+    //sphere.rotate(0.3, 0.0, 1.0, 0.0);
 
     // perlin noise
     float time = ofGetElapsedTimef();
@@ -263,12 +263,14 @@ void S2NoisePlexus::updateActive()
         {
             ofVec3f vertb = plexus.getVertex(b);
             float distance = verta.distance(vertb);
-            //if ((distance > plexusMinDistance) && (distance < plexusMaxDistance) )
+            if ((distance > plexusMinDistance) && (distance < plexusMaxDistance) )
+            
             if((vertexNoise>noiseMinDistance)&&(vertexNoise<noiseMaxDistance) && (distance > plexusMinDistance) && (distance < plexusMaxDistance))
             {
                 plexus.addIndex(i);
                 plexus.addIndex(b);
             }
+            
         }
         
         

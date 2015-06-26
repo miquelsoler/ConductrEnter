@@ -41,7 +41,12 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     // FBO
     //-----
     //ofFbo::allocate(int width, int height, int internalformat, int numSamples)
+<<<<<<< HEAD
+    
+    fbo.allocate(FBO_WIDTH, FINAL_WINDOW_HEIGHT, GL_RGBA32F_ARB, 1);
+=======
     fbo.allocate(FBO_WIDTH, FBO_HEIGHT, GL_RGBA32F_ARB, 1);
+>>>>>>> 3faa7d2d1f9d0f66e6e808b7ea6eae908a75c0ae
 
     fbo.begin();
     {
@@ -57,7 +62,7 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 void S2BaseObj::initSharedSettings()
 {
     gui.setup("Settings", settingsPath);
-    gui.add(activated.set("activated",true));
+    gui.add(activate.set("activate",true));
     gui.add(camDistance.set("Camera_Distance", 0, 0, 600));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
     gui.add(loopInitialAngle.set("Loop_Initial_Angle", 0, 0, 360));
@@ -90,7 +95,7 @@ void S2BaseObj::setup()
 ///--------------------------------------------------------------
 void S2BaseObj::update()
 {
-    if(activated)
+    if(activate)
     {
         camera.setDistance(camDistance);
 
@@ -112,7 +117,7 @@ void S2BaseObj::update()
 ///--------------------------------------------------------------
 void S2BaseObj::drawIntoFbo()
 {
-    if(activated)
+    if(activate)
     {
     
         fbo.begin();
@@ -141,8 +146,9 @@ void S2BaseObj::drawIntoFbo()
 ///--------------------------------------------------------------
 void S2BaseObj::draw(int x,int y,int w,int h)
 {
-    if(activated)
+    if(activate)
     {
+
         fbo.draw(x,y,w,h);
     }
 
@@ -158,7 +164,7 @@ void S2BaseObj::draw(int x,int y,int w,int h)
 ///--------------------------------------------------------------
 void S2BaseObj::drawLoop()
 {
-    ofSetLineWidth(2);
+     ofSetLineWidth(2);
     ofSetColor(ofColor::white);
 
     // Draw white loop arc (only if current angle is not 0)

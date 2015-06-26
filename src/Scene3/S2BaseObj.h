@@ -62,7 +62,8 @@ public:
     virtual void clipPositionChanged(float &newPosition);
     
     // FBO
-    ofFbo   fbo;
+    ofFbo           fbo;
+    bool            showGUI;
 
 
 protected:

@@ -19,7 +19,6 @@ public:
     void draw();
 
     // Interaction events
-
     void keyPressed(int key);
     void keyReleased(int key);
 
@@ -41,4 +40,7 @@ private:
     ScreenSetup         screenSetup;
     bool                showScreenMode;
     ofxSimpleTimer      showScreenModeTimer;
+    
+    bool                showGUI;
+    bool                showFPS;
 };

@@ -14,6 +14,8 @@
 ///--------------------------------------------------------------
 void ofApp::setup()
 {
+    showGUI = false;
+    showFPS = false;
     showScreenMode = false;
     screenSetup.setScreenMode(SCREENMODE_WINDOW);
     
@@ -89,11 +91,15 @@ void ofApp::draw()
     << "SCENE INDEX: " << sceneManager.getCurrentSceneIndex() << endl
     << "SCENE NAME: " << sceneManager.getCurrentSceneName() << endl;
 
-    ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", ofGetWidth() - 100, ofGetHeight() - 15);
-
     // Draw screen mode
     if (showScreenMode) drawScreenMode();
 #endif
+    
+    if(showFPS)
+    {
+        ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 20, ofGetHeight() - 15);
+    }
+    
 }
 
 #pragma mark - Interaction events
@@ -133,6 +139,21 @@ void ofApp::keyReleased(int key)
 //            ofSetFullscreen(fullscreen);
             break;
         }
+        case 'g':
+        case 'G':
+        {
+            showGUI = !showGUI;
+            Scene2 *scene2 = (Scene2 *)sceneManager.getSceneAt(1);
+            scene2->setShowGUI(!showGUI);
+            break;
+        }
+        case 'p':
+        case 'P':
+        {
+            showFPS=!showFPS;
+            break;
+        }
+    
         default:
             break;
     }
