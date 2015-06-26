@@ -90,7 +90,7 @@ void S2Synthesizer::initTransitioning()
 {
     float radiusFrom = greyCircleRadius;
     float radiusTo = radius;
-    float alphaFrom = 100.0f;
+    float alphaFrom = 150.0f;
     float alphaTo = 0.0f;
     float duration = 0.2f;
     float delay = 0.0f;

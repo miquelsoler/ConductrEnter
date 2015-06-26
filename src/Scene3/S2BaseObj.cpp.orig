@@ -41,7 +41,12 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     // FBO
     //-----
     //ofFbo::allocate(int width, int height, int internalformat, int numSamples)
+<<<<<<< HEAD
+    
+    fbo.allocate(FBO_WIDTH, FINAL_WINDOW_HEIGHT, GL_RGBA32F_ARB, 1);
+=======
     fbo.allocate(FBO_WIDTH, FBO_HEIGHT, GL_RGBA32F_ARB, 1);
+>>>>>>> 3faa7d2d1f9d0f66e6e808b7ea6eae908a75c0ae
 
     fbo.begin();
     {

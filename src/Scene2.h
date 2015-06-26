@@ -78,6 +78,8 @@ private:
     unsigned int            num_objects;
     float                   viewWidth, viewHeight;
     float                   clipHeight;
+
+    ofVideoPlayer               videoPlayer;
 };
 
 #endif /* defined(__ConductrEnter__Scene2__) */
