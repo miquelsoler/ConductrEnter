@@ -567,7 +567,7 @@
 				214762585A7F1054D406C9C7 /* S2NoiseSphere */,
 				21476C8B60C7A7E75A1808D7 /* S2Synthesizer */,
 				B0422B9D1B3B14B5001D1A89 /* S2CircleParticles */,
-				B02D9CED1B3CB9DC001EB061 /* S3NoisePlexus */,
+				B02D9CED1B3CB9DC001EB061 /* S2NoisePlexus */,
 			);
 			name = Scene2;
 			sourceTree = "<group>";
@@ -943,13 +943,13 @@
 			name = src;
 			sourceTree = "<group>";
 		};
-		B02D9CED1B3CB9DC001EB061 /* S3NoisePlexus */ = {
+		B02D9CED1B3CB9DC001EB061 /* S2NoisePlexus */ = {
 			isa = PBXGroup;
 			children = (
 				B02D9CEE1B3CB9F0001EB061 /* S2NoisePlexus.cpp */,
 				B02D9CEF1B3CB9F0001EB061 /* S2NoisePlexus.h */,
 			);
-			name = S3NoisePlexus;
+			name = S2NoisePlexus;
 			sourceTree = "<group>";
 		};
 		B0422B9D1B3B14B5001D1A89 /* S2CircleParticles */ = {
