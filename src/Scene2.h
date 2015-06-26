@@ -35,6 +35,7 @@ public:
     void exit();
 
     void setArtistIndex(int artistIndex);
+    void setShowGUI(bool b);
 
 private:
 

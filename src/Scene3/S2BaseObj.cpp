@@ -39,7 +39,9 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     ofAddListener(eventChangeState, this, &S2BaseObj::changeState);
     
     // FBO
+    //-----
     //ofFbo::allocate(int width, int height, int internalformat, int numSamples)
+    
     fbo.allocate(FBO_WIDTH, FINAL_WINDOW_HEIGHT, GL_RGBA32F_ARB, 1);
 
     fbo.begin();
@@ -47,6 +49,8 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
         ofClear(0,0,0,0);
     }
     fbo.end();
+    
+    showGUI = false;
 
 }
 
@@ -143,13 +147,14 @@ void S2BaseObj::draw(int x,int y,int w,int h)
 
         fbo.draw(x,y,w,h);
     }
-    #ifdef OF_DEBUG
+
+    if(showGUI)
+    {
         if (SettingsManager::getInstance().debugShowGUI)
         {
             gui.draw();
         }
-    #endif
-
+    }
 }
 
 ///--------------------------------------------------------------

@@ -482,3 +482,12 @@ TuioCursor *Scene2::makeCursor(int sourceId, int sessionId, int cursorId, float 
     TuioCursor *cursor = new TuioCursor(sessionId, cursorId, x, y);
     return cursor;
 }
+
+///--------------------------------------------------------------
+void Scene2::setShowGUI(bool b)
+{
+    for(int i=0;i<objects.size();i++)
+    {
+        objects[i]->showGUI = b;
+    }
+}
