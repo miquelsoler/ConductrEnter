@@ -1,7 +1,7 @@
 <Settings>
-	<Camera_Distance>372</Camera_Distance>
+	<Camera_Distance>389</Camera_Distance>
 	<White_Circle_Radius>22.5</White_Circle_Radius>
-	<Loop_Radius>40</Loop_Radius>
+	<Loop_Radius>75</Loop_Radius>
 	<Loop_Initial_Angle>0</Loop_Initial_Angle>
     <numDotsInCircle>57</numDotsInCircle>
 	<circleRadius>31</circleRadius>
