@@ -40,7 +40,7 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     
     // FBO
     //ofFbo::allocate(int width, int height, int internalformat, int numSamples)
-    fbo.allocate(FBO_WIDTH, FINAL_WINDOW_HEIGHT, GL_RGBA32F_ARB, 1);
+    fbo.allocate(FBO_WIDTH, FBO_HEIGHT, GL_RGBA32F_ARB, 1);
 
     fbo.begin();
     {
@@ -156,12 +156,11 @@ void S2BaseObj::draw(int x,int y,int w,int h)
 void S2BaseObj::drawLoop()
 {
      ofSetLineWidth(2);
+    ofSetColor(ofColor::white);
 
     // Draw white loop arc (only if current angle is not 0)
     if (int(loopAngle) != 0)
     {
-        ofSetColor(ofColor::white);
-
         // Draw loop arc
         loopArc.clear();
         int convertedAngle = ANGLE_OFFSET + 360 - loopInitialAngle;

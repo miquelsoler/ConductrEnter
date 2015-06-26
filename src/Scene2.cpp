@@ -173,7 +173,7 @@ void Scene2::draw()
             case SCREENMODE_FULL:
             {
                 w = (ofGetWidth() / num_objects) * 2;
-                h = w/(float(FBO_WIDTH)/float(FINAL_WINDOW_HEIGHT));
+                h = w/(float(FBO_WIDTH)/float(FBO_HEIGHT));
                 x = (i*w/2) - (w/4);
                 y = (ofGetHeight() - h) / 2;
                 break;
