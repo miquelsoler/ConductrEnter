@@ -57,7 +57,7 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 void S2BaseObj::initSharedSettings()
 {
     gui.setup("Settings", settingsPath);
-    gui.add(activated.set("activated",true));
+    gui.add(activated.set("activate",true));
     gui.add(camDistance.set("Camera_Distance", 0, 0, 600));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
     gui.add(loopInitialAngle.set("Loop_Initial_Angle", 0, 0, 360));
