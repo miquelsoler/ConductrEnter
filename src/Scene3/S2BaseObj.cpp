@@ -211,6 +211,7 @@ void S2BaseObj::drawPinchColor()
     ofSetColor(255, 2255, 255, pinchImageAlpha);
     pinchImage.draw(objPosition, pinchImageSize * 2, pinchImageSize * 2);
     ofDisableBlendMode();
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
 }
 
 ///--------------------------------------------------------------
