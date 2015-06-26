@@ -503,8 +503,8 @@ TuioCursor *Scene2::makeCursor(int sourceId, int sessionId, int cursorId, float 
 }
 
 ///--------------------------------------------------------------
-void Scene2::setShowGUI(bool b)
+void Scene2::switchShowGUI()
 {
     for(int i=0;i<objects.size();i++)
-        objects[i]->showGUI = b;
+        objects[i]->showGUI = !objects[i]->showGUI;
 }

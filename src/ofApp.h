@@ -41,6 +41,5 @@ private:
     bool                showScreenMode;
     ofxSimpleTimer      showScreenModeTimer;
     
-    bool                showGUI;
     bool                showFPS;
 };

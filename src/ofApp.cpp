@@ -15,10 +15,8 @@
 void ofApp::setup()
 {
 #ifdef OF_DEBUG
-    showGUI = SettingsManager::getInstance().debugShowGUI;
     showFPS = SettingsManager::getInstance().debugShowFPS;
 #else
-    showGUI = SettingsManager::getInstance().releaseShowGUI;
     showFPS = SettingsManager::getInstance().releaseShowFPS;
 #endif
 
@@ -137,9 +135,8 @@ void ofApp::keyReleased(int key)
         case 'g':
         case 'G':
         {
-            showGUI = !showGUI;
             Scene2 *scene2 = (Scene2 *)sceneManager.getSceneAt(1);
-            scene2->setShowGUI(!showGUI);
+            scene2->switchShowGUI();
             break;
         }
         case 'p':
