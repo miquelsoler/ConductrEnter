@@ -43,9 +43,6 @@ void S2NoiseSphere::setup()
 {
     S2BaseObj::setup();
 
-    ofSetSmoothLighting(true);
-    ofSetVerticalSync(true);
-
     sphere.setRadius(radius);
     sphere.setPosition(objPosition);
     sphere.setResolution(32);

@@ -27,6 +27,7 @@ void ofApp::setup()
 
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
+    ofSetSmoothLighting(true);
 
     ofBackground(ofColor(0,0,0,255));
 
@@ -76,8 +77,8 @@ void ofApp::update()
 
 #ifdef OF_DEBUG
     ofShowCursor();
-    showScreenModeTimer.update();
 #endif
+    showScreenModeTimer.update();
 
     TUIOHandler::getInstance().update();
     
@@ -88,11 +89,9 @@ void ofApp::update()
 void ofApp::draw()
 {
     
-#ifdef OF_DEBUG
     // Draw screen mode
     if (showScreenMode) drawScreenMode();
-#endif
-    
+
     if (showFPS)
     {
         ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 20, ofGetHeight() - 15);
@@ -121,15 +120,16 @@ void ofApp::keyReleased(int key)
             break;
         }
         case 'f':
-        case 'F': {
+        case 'F':
+        {
             screenSetup.switchMode();
-#if OF_DEBUG
+
             showScreenModeTimer.stop();
             showScreenMode = true;
             showScreenModeTimer.setup(3000);
             ofAddListener(showScreenModeTimer.TIMER_COMPLETE, this, &ofApp::showScreenModeCompleteHandler);
             showScreenModeTimer.start(false);
-#endif
+
             break;
         }
         case 'g':

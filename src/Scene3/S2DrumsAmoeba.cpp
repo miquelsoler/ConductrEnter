@@ -44,9 +44,6 @@ void S2DrumsAmoeba::setup()
 {
     S2BaseObj::setup();
 
-    ofSetSmoothLighting(true);
-    ofSetVerticalSync(true);
-
     sphere.setRadius(radius);
     sphere.setPosition(objPosition);
     camera.setTarget(sphere);
