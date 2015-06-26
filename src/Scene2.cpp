@@ -103,7 +103,9 @@ void Scene2::setup()
 ///--------------------------------------------------------------
 void Scene2::update()
 {
-    videoPlayer.update();
+    if (videoPlayer.isPlaying())
+        videoPlayer.update();
+
     abletonManager->update();
     for (unsigned int i = 0; i < num_objects; ++i)
         objects[i]->update();
@@ -162,7 +164,9 @@ void Scene2::draw()
 {
     BaseScene::drawPre();
 
-    videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
+    if (videoPlayer.isPlaying())
+        videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
+
     int x, y, w, h;
     for (unsigned int i = 0; i < num_objects; ++i)
     {

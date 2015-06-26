@@ -64,8 +64,7 @@ void ofApp::setup()
 ///--------------------------------------------------------------
 void ofApp::update()
 {
-    ofBackground(ofColor(255,0,0,255));
-
+//    ofBackground(ofColor(255,0,0,255));
     
     if (currentScene == LAST_SCENE) scene3Timer.update();
 
