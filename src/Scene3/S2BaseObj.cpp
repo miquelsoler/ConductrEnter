@@ -120,7 +120,7 @@ void S2BaseObj::drawIntoFbo()
         fbo.begin();
         
         //ofClear(0,0,(255/6)*sceneObjectIndex,128);
-        ofClear(0,0,0,0);
+        ofClear(0,0,0,255);
         
         switch(currentState)
         {

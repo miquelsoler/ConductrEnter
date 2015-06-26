@@ -175,6 +175,8 @@ void Scene2::draw()
 #endif
     }
 
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
+
     int x, y, w, h;
     for (unsigned int i = 0; i < num_objects; ++i)
     {
@@ -204,6 +206,8 @@ void Scene2::draw()
         }
         objects[i]->draw(x, y, w, h);
     }
+
+    ofDisableBlendMode();
 
     bool showTUIOCursors;
 #ifdef OF_DEBUG
