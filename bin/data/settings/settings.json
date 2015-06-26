@@ -29,11 +29,13 @@
     },
     "Debug Mode": {
         "Show GUI": true,
+        "Show FPS": true,
         "Show TUIO Cursors": true,
         "Show Scene2 Background Video": false
     },
     "Release Mode": {
         "Show GUI": false,
+        "Show FPS": false,
         "Show Scene2 Background Video": true
     }
 }

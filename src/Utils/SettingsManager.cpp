@@ -70,12 +70,14 @@ bool SettingsManager::loadSettings()
     // Debug Mode
     prefix = "Debug Mode";
     debugShowGUI = json[prefix]["Show GUI"].asBool();
+    debugShowFPS = json[prefix]["Show FPS"].asBool();
     debugShowTUIOCursors = json[prefix]["Show TUIO Cursors"].asBool();
     debugShowScene2BackgroundVideo = json[prefix]["Show Scene2 Background Video"].asBool();
 
     // Release mode
     prefix = "Release Mode";
     releaseShowGUI = json[prefix]["Show GUI"].asBool();
+    releaseShowFPS = json[prefix]["Show FPS"].asBool();
     releaseShowScene2BackgroundVideo = json[prefix]["Show Scene2 Background Video"].asBool();
 
     return parsingSuccessful;

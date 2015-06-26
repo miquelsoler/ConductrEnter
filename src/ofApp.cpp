@@ -16,10 +16,12 @@ void ofApp::setup()
 {
 #ifdef OF_DEBUG
     showGUI = SettingsManager::getInstance().debugShowGUI;
+    showFPS = SettingsManager::getInstance().debugShowFPS;
 #else
     showGUI = SettingsManager::getInstance().releaseShowGUI;
+    showFPS = SettingsManager::getInstance().releaseShowFPS;
 #endif
-    showFPS = false;
+
     showScreenMode = false;
     screenSetup.setScreenMode(SCREENMODE_WINDOW);
     
@@ -89,16 +91,11 @@ void ofApp::draw()
 {
     
 #ifdef OF_DEBUG
-    ofSetColor(ofColor::gray);
-    ofxBitmapString(5.0f, ofGetHeight()-20.0f)
-    << "SCENE INDEX: " << sceneManager.getCurrentSceneIndex() << endl
-    << "SCENE NAME: " << sceneManager.getCurrentSceneName() << endl;
-
     // Draw screen mode
     if (showScreenMode) drawScreenMode();
 #endif
     
-    if(showFPS)
+    if (showFPS)
     {
         ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 20, ofGetHeight() - 15);
     }

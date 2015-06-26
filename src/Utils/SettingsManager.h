@@ -53,11 +53,13 @@ public:
 
     // Debug Mode
     bool            debugShowGUI;
+    bool            debugShowFPS;
     bool            debugShowTUIOCursors;
     bool            debugShowScene2BackgroundVideo;
 
     // Release Mode
     bool            releaseShowGUI;
+    bool            releaseShowFPS;
     bool            releaseShowScene2BackgroundVideo;
 
 private:
