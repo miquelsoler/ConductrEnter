@@ -5,15 +5,15 @@
 	<Loop_Initial_Angle>44</Loop_Initial_Angle>
 	<White_Circle_Radius>7.5</White_Circle_Radius>
 	<tempo>1.92</tempo>
-	<Noise_Frequency>716.8</Noise_Frequency>
-	<offset>29.4364</offset>
+	<Noise_Frequency>57.345</Noise_Frequency>
+	<offset>29.6001</offset>
 	<mode>2</mode>
 	<Threshold>0</Threshold>
 	<Treshold_Low>0</Treshold_Low>
 	<Treshold_High>0</Treshold_High>
-	<plexus_min_distance>3.9</plexus_min_distance>
-	<plexus_max_distance>11.2</plexus_max_distance>
+	<plexus_min_distance>0</plexus_min_distance>
+	<plexus_max_distance>40</plexus_max_distance>
 	<noise_min_distance>0</noise_min_distance>
-	<noise_max_distance>0.64</noise_max_distance>
+	<noise_max_distance>0.369</noise_max_distance>
 <Settings/>
 </Settings>

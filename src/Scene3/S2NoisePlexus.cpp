@@ -312,7 +312,7 @@ void S2NoisePlexus::drawActive()
     camera.begin();
     {
         ofSetCircleResolution(64);
-        glPointSize(1.0);
+        glPointSize(2.0);
         ofSetLineWidth(1.0);
         //------------------//
 /*
