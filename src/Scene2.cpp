@@ -165,7 +165,15 @@ void Scene2::draw()
     BaseScene::drawPre();
 
     if (videoPlayer.isPlaying())
-        videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
+    {
+#ifdef OF_DEBUG
+        if (SettingsManager::getInstance().debugShowScene2BackgroundVideo)
+            videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
+#else
+        if (SettingsManager::getInstance().releaseShowScene2BackgroundVideo)
+            videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
+#endif
+    }
 
     int x, y, w, h;
     for (unsigned int i = 0; i < num_objects; ++i)

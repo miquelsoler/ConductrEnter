@@ -62,15 +62,20 @@ bool SettingsManager::loadSettings()
     prefix = "TUIO Server";
     tuioServerPort = json[prefix]["Client Port"].asUInt();
 
-    // Debug Mode
-    prefix = "Debug Mode";
-    debugShowGUI = json[prefix]["Show GUI"].asBool();
-    debugShowTUIOCursors = json[prefix]["Show TUIO Cursors"].asBool();
-
     // Pinch
     prefix = "Pinch";
     pinchCircleAlphaMin = json[prefix]["Circle Alpha Min"].asUInt();
     pinchCircleAlphaMax = json[prefix]["Circle Alpha Max"].asUInt();
+
+    // Debug Mode
+    prefix = "Debug Mode";
+    debugShowGUI = json[prefix]["Show GUI"].asBool();
+    debugShowTUIOCursors = json[prefix]["Show TUIO Cursors"].asBool();
+    debugShowScene2BackgroundVideo = json[prefix]["Show Scene2 Background Video"].asBool();
+
+    // Release mode
+    prefix = "Release Mode";
+    releaseShowScene2BackgroundVideo = json[prefix]["Show Scene2 Background Video"].asBool();
 
     return parsingSuccessful;
 }

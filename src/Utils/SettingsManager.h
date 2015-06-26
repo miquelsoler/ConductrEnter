@@ -47,13 +47,17 @@ public:
     // TUIO Server
     unsigned int    tuioServerPort;
 
-    // Debug Mode
-    bool            debugShowGUI;
-    bool            debugShowTUIOCursors;
-
     // Pinch
     unsigned int    pinchCircleAlphaMin;
     unsigned int    pinchCircleAlphaMax;
+
+    // Debug Mode
+    bool            debugShowGUI;
+    bool            debugShowTUIOCursors;
+    bool            debugShowScene2BackgroundVideo;
+
+    // Release Mode
+    bool            releaseShowScene2BackgroundVideo;
 
 private:
 

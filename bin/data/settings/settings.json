@@ -23,12 +23,16 @@
     "TUIO Server": {
         "Client Port": 9050
     },
-    "Debug Mode": {
-        "Show GUI": true,
-        "Show TUIO Cursors": true
-    },
     "Pinch": {
         "Circle Alpha Min": 10,
         "Circle Alpha Max": 128
+    },
+    "Debug Mode": {
+        "Show GUI": true,
+        "Show TUIO Cursors": true,
+        "Show Scene2 Background Video": false
+    },
+    "Release Mode": {
+        "Show Scene2 Background Video": true
     }
 }
