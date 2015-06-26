@@ -204,14 +204,19 @@ void Scene2::draw()
         }
         objects[i]->draw(x, y, w, h);
     }
-    
+
+    bool showTUIOCursors;
 #ifdef OF_DEBUG
-    if (SettingsManager::getInstance().debugShowTUIOCursors)
+    showTUIOCursors = SettingsManager::getInstance().debugShowTUIOCursors;
+#else
+    showTUIOCursors = SettingsManager::getInstance().releaseShowTUIOCursors;
+#endif
+
+    if (showTUIOCursors)
     {
         ofxTuioClient *tuioClient = TUIOHandler::getInstance().tuioClient;
         tuioClient->drawCursors(0.5, 1, 0);
     }
-#endif
 
     BaseScene::drawPost();
 }

@@ -60,6 +60,7 @@ public:
     // Release Mode
     bool            releaseShowGUI;
     bool            releaseShowFPS;
+    bool            releaseShowTUIOCursors;
     bool            releaseShowScene2BackgroundVideo;
 
 private:

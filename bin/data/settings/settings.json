@@ -36,6 +36,7 @@
     "Release Mode": {
         "Show GUI": false,
         "Show FPS": false,
+        "Show TUIO Cursors": false,
         "Show Scene2 Background Video": true
     }
 }

@@ -78,6 +78,7 @@ bool SettingsManager::loadSettings()
     prefix = "Release Mode";
     releaseShowGUI = json[prefix]["Show GUI"].asBool();
     releaseShowFPS = json[prefix]["Show FPS"].asBool();
+    releaseShowTUIOCursors = json[prefix]["Show TUIO Cursors"].asBool();
     releaseShowScene2BackgroundVideo = json[prefix]["Show Scene2 Background Video"].asBool();
 
     return parsingSuccessful;
