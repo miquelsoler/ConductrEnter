@@ -14,7 +14,11 @@
 ///--------------------------------------------------------------
 void ofApp::setup()
 {
-    showGUI = false;
+#ifdef OF_DEBUG
+    showGUI = SettingsManager::getInstance().debugShowGUI;
+#else
+    showGUI = SettingsManager::getInstance().releaseShowGUI;
+#endif
     showFPS = false;
     showScreenMode = false;
     screenSetup.setScreenMode(SCREENMODE_WINDOW);
@@ -131,11 +135,6 @@ void ofApp::keyReleased(int key)
             ofAddListener(showScreenModeTimer.TIMER_COMPLETE, this, &ofApp::showScreenModeCompleteHandler);
             showScreenModeTimer.start(false);
 #endif
-
-//            int windowMode = ofGetWindowMode();
-//            bool fullscreen = (windowMode == OF_WINDOW);
-//            ofSetWindowShape(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
-//            ofSetFullscreen(fullscreen);
             break;
         }
         case 'g':

@@ -79,7 +79,7 @@ private:
     float                   viewWidth, viewHeight;
     float                   clipHeight;
 
-    ofVideoPlayer               videoPlayer;
+    ofVideoPlayer           videoPlayer;
 };
 
 #endif /* defined(__ConductrEnter__Scene2__) */

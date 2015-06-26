@@ -75,6 +75,7 @@ bool SettingsManager::loadSettings()
 
     // Release mode
     prefix = "Release Mode";
+    releaseShowGUI = json[prefix]["Show GUI"].asBool();
     releaseShowScene2BackgroundVideo = json[prefix]["Show Scene2 Background Video"].asBool();
 
     return parsingSuccessful;

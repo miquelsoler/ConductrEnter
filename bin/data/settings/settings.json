@@ -33,6 +33,7 @@
         "Show Scene2 Background Video": false
     },
     "Release Mode": {
+        "Show GUI": false,
         "Show Scene2 Background Video": true
     }
 }

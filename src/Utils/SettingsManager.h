@@ -57,6 +57,7 @@ public:
     bool            debugShowScene2BackgroundVideo;
 
     // Release Mode
+    bool            releaseShowGUI;
     bool            releaseShowScene2BackgroundVideo;
 
 private:

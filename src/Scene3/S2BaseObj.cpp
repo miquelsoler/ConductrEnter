@@ -48,9 +48,12 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
         ofClear(0,0,0,0);
     }
     fbo.end();
-    
-    showGUI = false;
 
+#ifdef OF_DEBUG
+    showGUI = SettingsManager::getInstance().debugShowGUI;
+#else
+    showGUI = SettingsManager::getInstance().releaseShowGUI;
+#endif
 }
 
 ///--------------------------------------------------------------
@@ -114,7 +117,6 @@ void S2BaseObj::drawIntoFbo()
 {
     if(activated)
     {
-    
         fbo.begin();
         
         //ofClear(0,0,(255/6)*sceneObjectIndex,128);
@@ -134,7 +136,6 @@ void S2BaseObj::drawIntoFbo()
         }
         
         fbo.end();
-
     }
 }
 
@@ -142,17 +143,10 @@ void S2BaseObj::drawIntoFbo()
 void S2BaseObj::draw(int x,int y,int w,int h)
 {
     if(activated)
-    {
         fbo.draw(x,y,w,h);
-    }
 
-    if(showGUI)
-    {
-        if (SettingsManager::getInstance().debugShowGUI)
-        {
-            gui.draw();
-        }
-    }
+    if (showGUI)
+        gui.draw();
 }
 
 ///--------------------------------------------------------------

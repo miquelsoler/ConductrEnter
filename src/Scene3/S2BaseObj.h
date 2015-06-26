@@ -61,7 +61,6 @@ public:
     virtual void volumeChanged(float &newVolume) = 0;
     virtual void clipPositionChanged(float &newPosition);
     
-    // FBO
     ofFbo           fbo;
     bool            showGUI;
 
