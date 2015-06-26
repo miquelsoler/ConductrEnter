@@ -88,6 +88,7 @@ protected:
     void drawLoop();
     void drawWhiteCircle();
     void drawPinchCircle();
+    void drawPinchColor();
 
     virtual void loadSettings() = 0;
     void initSharedSettings();
@@ -117,6 +118,7 @@ protected:
     float                   pinchImageSize;
     unsigned int            pinchImageAlpha;
     unsigned int            pinchImageAlphaMin, pinchImageAlphaMax;
+    unsigned int            pinchColorSize;
 
     // TUIO
     list<TuioCursor *>      cursorIds;

@@ -141,7 +141,11 @@ void S2ExampleObject::drawActive()
         ofSetColor(255);
 
         drawWhiteCircle();
-        if (pinchEnabled) drawPinchCircle();
+        if (pinchEnabled)
+        {
+            drawPinchCircle();
+            drawPinchColor();
+        }
         drawLoop();
     }
     camera.end();

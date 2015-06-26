@@ -278,7 +278,11 @@ void S2DrumsAmoeba::drawActive()
 
         ofSetColor(ofColor::gray);
         drawWhiteCircle();
-        if (pinchEnabled) drawPinchCircle();
+        if (pinchEnabled)
+        {
+            drawPinchCircle();
+            drawPinchColor();
+        }
         drawLoop();
 
     }

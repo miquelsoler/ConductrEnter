@@ -187,8 +187,11 @@ void S2Drums::drawActive()
         }
 
         drawWhiteCircle();
-        if (pinchEnabled) drawPinchCircle();
-
+        if (pinchEnabled)
+        {
+            drawPinchCircle();
+            drawPinchColor();
+        }
         drawLoop();
     }
     camera.end();

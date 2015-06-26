@@ -184,6 +184,7 @@ void S2BaseObj::drawLoop()
     ofPopMatrix();
 }
 
+///--------------------------------------------------------------
 void S2BaseObj::drawWhiteCircle()
 {
     ofFill();
@@ -192,13 +193,24 @@ void S2BaseObj::drawWhiteCircle()
     ofCircle(objPosition.x, objPosition.y, 0, whiteCircleRadius);
 }
 
+///--------------------------------------------------------------
 void S2BaseObj::drawPinchCircle()
 {
     ofFill();
     ofDisableLighting();
     ofSetColor(255, 2255, 255, pinchImageAlpha);
     pinchImage.draw(objPosition, pinchImageSize, pinchImageSize);
+}
 
+///--------------------------------------------------------------
+void S2BaseObj::drawPinchColor()
+{
+    ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
+    ofFill();
+    ofDisableLighting();
+    ofSetColor(255, 2255, 255, pinchImageAlpha);
+    pinchImage.draw(objPosition, pinchColorSize, pinchColorSize);
+    ofDisableBlendMode();
 }
 
 ///--------------------------------------------------------------
@@ -260,6 +272,7 @@ void S2BaseObj::enablePinch(bool enable)
     pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
 
     pinchImageSize = whiteCircleRadius / 2;
+    pinchColorSize = pinchImageSize * 2;
 }
 
 ///--------------------------------------------------------------
@@ -281,6 +294,7 @@ void S2BaseObj::updatePinch()
     if (diff > 0)
     {
         pinchImageSize = whiteCircleRadius + diff/4;
+        pinchColorSize = pinchImageSize * 2;
         pinchImageAlpha = (unsigned int)ofMap(pinchCurrentDist, pinchInitialDist, pinchInitialDist*2.0f, pinchImageAlphaMin, pinchImageAlphaMax, true);
     }
 }

@@ -274,8 +274,11 @@ void S2CircleParticles::drawActive()
         
         // draw white circle
         drawWhiteCircle();
-        if (pinchEnabled) drawPinchCircle();
-
+        if (pinchEnabled)
+        {
+            drawPinchCircle();
+            drawPinchColor();
+        }
         drawLoop();
     }
     camera.end();
