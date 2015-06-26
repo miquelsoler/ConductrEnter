@@ -161,8 +161,6 @@ void S2Synthesizer::drawActive()
             ofCircle(objPosition.x, objPosition.y, 0, transitioningCircleRadius);
         }
 
-        drawWhiteCircle();
-
         for (list<S2SynthesizerCircle *>::iterator it = circles.begin(); it!=circles.end(); ++it)
             (*it)->draw();
 
@@ -171,6 +169,7 @@ void S2Synthesizer::drawActive()
             drawPinchCircle();
             drawPinchColor();
         }
+        drawWhiteCircle();
 
         drawLoop();
     }

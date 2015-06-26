@@ -25,17 +25,17 @@
     },
     "Pinch": {
         "Circle Alpha Min": 10,
-        "Circle Alpha Max": 128
+        "Circle Alpha Max": 255
     },
     "Debug Mode": {
         "Show GUI": true,
         "Show FPS": true,
         "Show TUIO Cursors": true,
-        "Show Scene2 Background Video": false
+        "Show Scene2 Background Video": true
     },
     "Release Mode": {
         "Show GUI": false,
-        "Show FPS": false,
+        "Show FPS": true,
         "Show TUIO Cursors": false,
         "Show Scene2 Background Video": true
     }

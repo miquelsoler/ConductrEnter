@@ -273,12 +273,12 @@ void S2CircleParticles::drawActive()
         ofPopMatrix();
         
         // draw white circle
-        drawWhiteCircle();
         if (pinchEnabled)
         {
             drawPinchCircle();
             drawPinchColor();
         }
+        drawWhiteCircle();
         drawLoop();
     }
     camera.end();

@@ -322,14 +322,13 @@ void S2NoiseSphere::drawActive()
 */
 
 
-        drawWhiteCircle();
-        
         ofSetColor(255);
         if (pinchEnabled)
         {
             drawPinchCircle();
             drawPinchColor();
         }
+        drawWhiteCircle();
         drawLoop();
     }
     camera.end();

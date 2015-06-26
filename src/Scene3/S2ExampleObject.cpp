@@ -140,12 +140,12 @@ void S2ExampleObject::drawActive()
         sphere.drawWireframe();
         ofSetColor(255);
 
-        drawWhiteCircle();
         if (pinchEnabled)
         {
             drawPinchCircle();
             drawPinchColor();
         }
+        drawWhiteCircle();
         drawLoop();
     }
     camera.end();
