@@ -53,7 +53,6 @@ void S2Drums::setup()
     vertexDistance = 1;
 
     trianglesOriginal.clear();
-    trianglesCurrent.clear();
     noises.clear();
 
     if (isFirstSetup)
@@ -144,7 +143,6 @@ void S2Drums::drawTransitioning()
 ///--------------------------------------------------------------
 void S2Drums::initActive()
 {
-    trianglesCurrent.clear();
     trianglesCurrent = sphere.getMesh().getUniqueFaces();
 }
 
@@ -236,7 +234,6 @@ void S2Drums::sphereResolutionChanged(int &newSphereResolution)
     transitioningSphere.setResolution(newSphereResolution);
 
     trianglesOriginal.clear();
-    trianglesCurrent.clear();
     noises.clear();
 
     trianglesOriginal = sphere.getMesh().getUniqueFaces();

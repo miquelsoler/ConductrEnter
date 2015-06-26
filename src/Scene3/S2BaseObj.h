@@ -95,7 +95,7 @@ protected:
 
     bool                    isFirstSetup;
 
-    ofParameter<bool>       activate;
+    ofParameter<bool>       activated;
     
     // Camera & viewport
     ofEasyCam               camera;

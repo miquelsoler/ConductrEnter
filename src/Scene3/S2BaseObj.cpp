@@ -54,7 +54,7 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 void S2BaseObj::initSharedSettings()
 {
     gui.setup("Settings", settingsPath);
-    gui.add(activate.set("activate",true));
+    gui.add(activated.set("activated",true));
     gui.add(camDistance.set("Camera_Distance", 0, 0, 600));
     gui.add(loopRadius.set("Loop_Radius", 0, 0, 100));
     gui.add(loopInitialAngle.set("Loop_Initial_Angle", 0, 0, 360));
@@ -87,7 +87,7 @@ void S2BaseObj::setup()
 ///--------------------------------------------------------------
 void S2BaseObj::update()
 {
-    if(activate)
+    if(activated)
     {
         camera.setDistance(camDistance);
 
@@ -109,7 +109,7 @@ void S2BaseObj::update()
 ///--------------------------------------------------------------
 void S2BaseObj::drawIntoFbo()
 {
-    if(activate)
+    if(activated)
     {
     
         fbo.begin();
@@ -138,9 +138,8 @@ void S2BaseObj::drawIntoFbo()
 ///--------------------------------------------------------------
 void S2BaseObj::draw(int x,int y,int w,int h)
 {
-    if(activate)
+    if(activated)
     {
-
         fbo.draw(x,y,w,h);
     }
     #ifdef OF_DEBUG
@@ -155,7 +154,7 @@ void S2BaseObj::draw(int x,int y,int w,int h)
 ///--------------------------------------------------------------
 void S2BaseObj::drawLoop()
 {
-     ofSetLineWidth(2);
+    ofSetLineWidth(2);
     ofSetColor(ofColor::white);
 
     // Draw white loop arc (only if current angle is not 0)
