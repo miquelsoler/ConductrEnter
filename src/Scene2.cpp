@@ -95,11 +95,15 @@ Scene2::~Scene2()
 ///--------------------------------------------------------------
 void Scene2::setup()
 {
+    /// VIDEO
+    if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/Loop_background_Playground_v3.mov");
+    videoPlayer.setLoopState(OF_LOOP_NORMAL);
 }
 
 ///--------------------------------------------------------------
 void Scene2::update()
 {
+    videoPlayer.update();
     abletonManager->update();
     for (unsigned int i = 0; i < num_objects; ++i)
         objects[i]->update();
@@ -126,6 +130,8 @@ void Scene2::updateEnter()
 
     // Stop all playing clips, just in case (for demo purposes)
     abletonManager->stopAll();
+
+    videoPlayer.play();
 
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->setup();
@@ -156,6 +162,7 @@ void Scene2::draw()
 {
     BaseScene::drawPre();
 
+    videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
     int x, y, w, h;
     for (unsigned int i = 0; i < num_objects; ++i)
     {
