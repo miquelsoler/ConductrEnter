@@ -159,7 +159,7 @@ void S2BaseObj::drawLoop()
     ofSetColor(ofColor::white);
 
     // Draw white loop arc (only if current angle is not 0)
-    if (int(loopAngle) != 0)
+    if ((currentState == S3ObjStateActive) && (int(loopAngle) != 0))
     {
         // Draw loop arc
         loopArc.clear();

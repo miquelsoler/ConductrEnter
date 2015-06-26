@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utils/Defaults.h" afterPath="$PROJECT_DIR$/src/Utils/Defaults.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2BaseObj.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S2BaseObj.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene2.cpp" afterPath="$PROJECT_DIR$/src/Scene2.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene2/drums.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene2/drums.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene2/drums_amoeba.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene2/drums_amoeba.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene2/noise_sphere.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene2/noise_sphere.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/scene2/plexus.xml" afterPath="$PROJECT_DIR$/bin/data/settings/scene2/plexus.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
