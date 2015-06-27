@@ -28,7 +28,7 @@ void ScreenSetup::setScreenMode(ScreenMode mode)
 }
 
 ///--------------------------------------------------------------
-void ScreenSetup::switchMode()
+void ScreenSetup::changeToNextMode()
 {
     ScreenMode newMode = ScreenMode((currentMode + 1) % SCREENMODE_NUMMODES);
     setScreenMode(newMode);

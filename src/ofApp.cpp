@@ -114,7 +114,7 @@ void ofApp::keyReleased(int key)
         case 'f':
         case 'F':
         {
-            screenSetup.switchMode();
+            screenSetup.changeToNextMode();
 
             showScreenModeTimer.stop();
             showScreenMode = true;
