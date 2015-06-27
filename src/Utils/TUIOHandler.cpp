@@ -48,11 +48,17 @@ void TUIOHandler::update()
         cursor.motionAccel = m.getArgAsFloat(7);
 
         if (m.getAddress() == "/tuio/touchdown")
+        {
             tuioReceiverTouchDown(cursor);
+        }
         else if (m.getAddress() == "/tuio/touchup")
+        {
             tuioReceiverTouchUp(cursor);
+        }
         else if (m.getAddress() == "/tuio/drag")
+        {
             tuioReceiverTouchMoved(cursor);
+        }
     }
 }
 
@@ -115,8 +121,8 @@ ofVec2f TUIOHandler::tuioToScreenCoords(float tuioX, float tuioY)
 ///--------------------------------------------------------------
 ofVec2f TUIOHandler::screenToTuioCoords(float screenX, float screenY)
 {
-    ofVec2f tuioCoords(ofMap(screenX, 0.0f, float(ofGetWidth()), 0.0f, 1.0f),
-                         ofMap(screenY, 0.0f, float(ofGetHeight()), 0.0f, 1.0f));
+    ofVec2f tuioCoords(ofMap(screenX, 0.0f, ofGetWidth(), 0.0f, 1.0f),
+                         ofMap(screenY, 0.0f, ofGetHeight(), 0.0f, 1.0f));
     return tuioCoords;
 }
 

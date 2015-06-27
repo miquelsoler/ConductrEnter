@@ -272,12 +272,11 @@ void S2CircleParticles::drawActive()
         }
         ofPopMatrix();
         
-        // draw white circle
-        if (pinchEnabled)
-        {
+//        if (pinchEnabled)
+//        {
             drawPinchCircle();
             drawPinchColor();
-        }
+//        }
         drawWhiteCircle();
         drawLoop();
     }

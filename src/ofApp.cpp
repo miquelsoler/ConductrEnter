@@ -73,8 +73,6 @@ void ofApp::update()
     showScreenModeTimer.update();
 
     TUIOHandler::getInstance().update();
-    
-    
 }
 
 ///--------------------------------------------------------------

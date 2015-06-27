@@ -53,6 +53,8 @@ public:
     void addCursor(TuioCursor *cursor);
     void removeLastCursor();
 
+    list<TuioCursor *> getCursors();
+
     virtual void setPositionFromScreenCoords(int screenX, int screenY);
 
     void play();

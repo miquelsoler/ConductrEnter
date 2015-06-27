@@ -276,12 +276,12 @@ void S2DrumsAmoeba::drawActive()
         float circleSize = ofMap(mouseInteractionX,0.0,1.0,60.0,200);
 */
 
-        ofSetColor(ofColor::gray);
-        if (pinchEnabled)
-        {
+//        ofSetColor(ofColor::gray);
+//        if (pinchEnabled)
+//        {
             drawPinchCircle();
             drawPinchColor();
-        }
+//        }
         drawWhiteCircle();
         drawLoop();
 

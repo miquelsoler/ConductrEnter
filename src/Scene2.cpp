@@ -300,12 +300,12 @@ void Scene2::handlePress(int x, int y, TuioCursor *cursor)
 
             // Add TUIO cursor
             object->addCursor(cursor);
-            object->enablePinch(false);
+//            object->enablePinch(false);
         }
         else
         {   // Already picked: add cursor and enable pinch
             object->addCursor(cursor);
-            object->enablePinch(true);
+//            object->enablePinch(true);
         }
     }
 }
@@ -316,7 +316,21 @@ void Scene2::handleRelease(int x, int y, int cursorId)
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
 
-    int pressedObjectIndex = getObjectIndexAtX(x);
+    int pressedObjectIndex;
+
+    if (cursorId == -1)
+    {
+        pressedObjectIndex = getObjectIndexAtX(x);
+    }
+    else
+    {
+        pressedObjectIndex = getObjectIndetWithCursor(cursorId);
+        if (pressedObjectIndex == -1)
+        {
+            return;
+        }
+    }
+
     S2BaseObj *object = objects[pressedObjectIndex];
 
     // Remove TUIO cursors and disable pinch
@@ -344,8 +358,8 @@ void Scene2::handleDrag(int x, int y, int cursorId)
 
     if (!object->getIsPicked()) return;
 
-    if (!object->isPinchEnabled())
-    {
+//    if (!object->isPinchEnabled())
+//    {
         // Send message to Ableton
 
         int pressedClipIndex = getClipIndexAtY(y) + (artistIndex * artistOffset);
@@ -378,23 +392,23 @@ void Scene2::handleDrag(int x, int y, int cursorId)
         {
             object->setPositionFromScreenCoords(x, y);
         }
-    }
-    else
-    {
-        TuioCursor *firstCursor = object->getFirstCursor();
-        TuioCursor *lastCursor = object->getLastCursor();
-
-        if (lastCursor != firstCursor) // Probably unnecessary, because if pinch is enabled, there should be already 2 or more cursors
-        {
-            ofVec2f tuioCoords = TUIOHandler::screenToTuioCoords(x, y);
-
-            if (cursorId == firstCursor->getCursorID())
-                firstCursor->update(tuioCoords.x, tuioCoords.y);
-            else
-                lastCursor->update(tuioCoords.x, tuioCoords.y);
-        }
-        object->updatePinch();
-    }
+//    }
+//    else
+//    {
+//        TuioCursor *firstCursor = object->getFirstCursor();
+//        TuioCursor *lastCursor = object->getLastCursor();
+//
+//        if (lastCursor != firstCursor) // Probably unnecessary, because if pinch is enabled, there should be already 2 or more cursors
+//        {
+//            ofVec2f tuioCoords = TUIOHandler::screenToTuioCoords(x, y);
+//
+//            if (cursorId == firstCursor->getCursorID())
+//                firstCursor->update(tuioCoords.x, tuioCoords.y);
+//            else
+//                lastCursor->update(tuioCoords.x, tuioCoords.y);
+//        }
+//        object->updatePinch();
+//    }
 }
 
 #pragma mark - Touch events
@@ -490,6 +504,26 @@ void Scene2::windowResized(ofResizeEventArgs &args)
 unsigned int Scene2::getObjectIndexAtX(int x)
 {
     return (unsigned int)(floor(x / viewWidth));
+}
+
+unsigned int Scene2::getObjectIndetWithCursor(int cursorId)
+{
+    bool found = false;
+    int objectIndex = -1;
+    for (int i=0; i<num_objects && !found; i++)
+    {
+        list<TuioCursor *> objectCursors = objects[i]->getCursors();
+        list<TuioCursor *>::iterator it;
+        for (it = objectCursors.begin(); it != objectCursors.end() && !found; ++it)
+        {
+            found = ((*it)->getCursorID() == cursorId);
+            if (found) objectIndex = i;
+        }
+    }
+
+    cout << "Released object " << objectIndex << " with cId=" << cursorId << endl;
+
+    return objectIndex;
 }
 
 ///--------------------------------------------------------------

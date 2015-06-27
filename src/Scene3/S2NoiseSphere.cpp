@@ -322,12 +322,12 @@ void S2NoiseSphere::drawActive()
 */
 
 
-        ofSetColor(255);
-        if (pinchEnabled)
-        {
+//        ofSetColor(255);
+//        if (pinchEnabled)
+//        {
             drawPinchCircle();
             drawPinchColor();
-        }
+//        }
         drawWhiteCircle();
         drawLoop();
     }

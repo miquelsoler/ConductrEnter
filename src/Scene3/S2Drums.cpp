@@ -186,11 +186,11 @@ void S2Drums::drawActive()
 
         }
 
-        if (pinchEnabled)
-        {
+//        if (pinchEnabled)
+//        {
             drawPinchCircle();
             drawPinchColor();
-        }
+//        }
         drawWhiteCircle();
         drawLoop();
     }

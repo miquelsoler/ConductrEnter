@@ -140,11 +140,11 @@ void S2ExampleObject::drawActive()
         sphere.drawWireframe();
         ofSetColor(255);
 
-        if (pinchEnabled)
-        {
+//        if (pinchEnabled)
+//        {
             drawPinchCircle();
             drawPinchColor();
-        }
+//        }
         drawWhiteCircle();
         drawLoop();
     }

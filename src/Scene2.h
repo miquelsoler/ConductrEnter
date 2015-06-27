@@ -65,6 +65,7 @@ private:
 
     // Helper methods
     unsigned int getObjectIndexAtX(int x);
+    unsigned int getObjectIndetWithCursor(int cursorId);
     unsigned int getClipIndexAtY(int y);
     TuioCursor *makeCursor(int cursorId, float x, float y);
     TuioCursor *makeCursor(int sourceId, int sessionId, int cursorId, float x, float y, float xSpeed, float ySpeed, float motionAccel);

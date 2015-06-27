@@ -32,6 +32,9 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     pinchImageAlphaMax = SettingsManager::getInstance().pinchCircleAlphaMax;
     pinchImageAlpha = pinchImageAlphaMin;
 
+    /**/
+    pinchImageAlpha = 255;
+
     settingsPath = _settingsPath;
 
     isFirstSetup = true;
@@ -257,22 +260,27 @@ bool S2BaseObj::getIsPicked()
 ///--------------------------------------------------------------
 void S2BaseObj::enablePinch(bool enable)
 {
-    pinchEnabled = enable;
-
-    if (!pinchEnabled) return;
-
-    if (cursorIds.size() <= 1)
+    if (!enable)
     {
-        pinchEnabled = false;
-        return;
+        pinchImageSize = 0.0f;
     }
 
-    TuioCursor *cursor1 = cursorIds.front();
-    TuioCursor *cursor2 = cursorIds.back();
-
-    pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
-
-    pinchImageSize = whiteCircleRadius / 2;
+//    pinchEnabled = enable;
+//
+//    if (!pinchEnabled) return;
+//
+//    if (cursorIds.size() <= 1)
+//    {
+//        pinchEnabled = false;
+//        return;
+//    }
+//
+//    TuioCursor *cursor1 = cursorIds.front();
+//    TuioCursor *cursor2 = cursorIds.back();
+//
+//    pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
+//
+//    pinchImageSize = whiteCircleRadius / 2;
 }
 
 ///--------------------------------------------------------------
@@ -294,7 +302,7 @@ void S2BaseObj::updatePinch()
     if (diff > 0)
     {
         pinchImageSize = whiteCircleRadius + diff/4;
-        pinchImageAlpha = (unsigned int)ofMap(pinchCurrentDist, pinchInitialDist, pinchInitialDist*2.0f, pinchImageAlphaMin, pinchImageAlphaMax, true);
+//        pinchImageAlpha = (unsigned int)ofMap(pinchCurrentDist, pinchInitialDist, pinchInitialDist*2.0f, pinchImageAlphaMin, pinchImageAlphaMax, true);
     }
 }
 
@@ -316,11 +324,15 @@ TuioCursor *S2BaseObj::getLastCursor()
 void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 {
     ofVec3f objScreenCoords = camera.worldToScreen(objPosition, viewRectangle);
+    objScreenCoords.x = screenX;
     objScreenCoords.y = screenY;
 
     float oldX = objPosition.x;
 
     objPosition = camera.screenToWorld(objScreenCoords, viewRectangle);
+
+    pinchImageSize = whiteCircleRadius + fabs(objPosition.x);
+
     objPosition.x = oldX;
 }
 
@@ -399,4 +411,9 @@ void S2BaseObj::removeLastCursor()
     TuioCursor *cursor = cursorIds.back();
     cursorIds.pop_back();
     delete cursor;
+}
+
+list<TuioCursor *> S2BaseObj::getCursors()
+{
+    return cursorIds;
 }

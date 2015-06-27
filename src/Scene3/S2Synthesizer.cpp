@@ -164,11 +164,11 @@ void S2Synthesizer::drawActive()
         for (list<S2SynthesizerCircle *>::iterator it = circles.begin(); it!=circles.end(); ++it)
             (*it)->draw();
 
-        if (pinchEnabled)
-        {
+//        if (pinchEnabled)
+//        {
             drawPinchCircle();
             drawPinchColor();
-        }
+//        }
         drawWhiteCircle();
 
         drawLoop();
