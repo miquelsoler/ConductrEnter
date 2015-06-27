@@ -77,7 +77,7 @@ void S2Drums::setup()
 void S2Drums::initInactive()
 {
     float delay = 0.0f;
-    float duration = 0.7f;
+    float duration = 0.2f;
     Tweenzor::add(&sphereGrayColor, 255.0f, 120.0f, delay, duration, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&sphereGrayColor);
     tween->setRepeat(1, true);
