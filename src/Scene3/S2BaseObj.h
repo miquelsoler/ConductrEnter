@@ -44,9 +44,9 @@ public:
     void unpick();
     bool getIsPicked();
     void disableColorImage();
-    void enablePinch(bool enable);
-    bool isPinchEnabled();
-    virtual void updatePinch();
+//    void enablePinch(bool enable);
+//    bool isPinchEnabled();
+//    virtual void updatePinch();
 
     TuioCursor *getFirstCursor();
     TuioCursor *getLastCursor();
@@ -117,14 +117,14 @@ protected:
 
     // Circles
     ofParameter<float>      whiteCircleRadius;
-    ofImage                 pinchImage;
-    float                   pinchImageSize;
-    unsigned int            pinchImageAlpha;
-    unsigned int            pinchImageAlphaMin, pinchImageAlphaMax;
+    ofImage                 colorImage;
+    float                   colorImageSize;
+    unsigned int            colorImageAlpha;
+    unsigned int            colorImageAlphaMin, colorImageAlphaMax;
 
     // TUIO
     list<TuioCursor *>      cursorIds;
-    bool                    pinchEnabled = false;
+//    bool                    pinchEnabled = false;
     float                   pinchInitialDist;
 
     // Loop arc

@@ -522,8 +522,6 @@ unsigned int Scene2::getObjectIndetWithCursor(int cursorId)
         }
     }
 
-    cout << "Released object " << objectIndex << " with cId=" << cursorId << endl;
-
     return objectIndex;
 }
 

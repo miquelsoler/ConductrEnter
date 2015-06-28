@@ -25,15 +25,15 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 {
     camera.disableMouseInput();
 
-    pinchImage.loadImage("objects/color_circle.png");
-    pinchImage.setAnchorPercent(0.5f, 0.5f);
+    colorImage.loadImage("objects/color_circle.png");
+    colorImage.setAnchorPercent(0.5f, 0.5f);
 
-    pinchImageAlphaMin = SettingsManager::getInstance().pinchCircleAlphaMin;
-    pinchImageAlphaMax = SettingsManager::getInstance().pinchCircleAlphaMax;
-    pinchImageAlpha = pinchImageAlphaMin;
+    colorImageAlphaMin = SettingsManager::getInstance().pinchCircleAlphaMin;
+    colorImageAlphaMax = SettingsManager::getInstance().pinchCircleAlphaMax;
+    colorImageAlpha = colorImageAlphaMin;
 
     /**/
-    pinchImageAlpha = 255;
+    colorImageAlpha = 255;
 
     settingsPath = _settingsPath;
 
@@ -202,8 +202,8 @@ void S2BaseObj::drawPinchCircle()
 {
     ofFill();
     ofDisableLighting();
-    ofSetColor(255, 2255, 255, pinchImageAlpha);
-    pinchImage.draw(objPosition, pinchImageSize, pinchImageSize);
+    ofSetColor(255, 2255, 255, colorImageAlpha);
+    colorImage.draw(objPosition, colorImageSize, colorImageSize);
 }
 
 ///--------------------------------------------------------------
@@ -212,8 +212,8 @@ void S2BaseObj::drawPinchColor()
     ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
     ofFill();
     ofDisableLighting();
-    ofSetColor(255, 255, 255, pinchImageAlpha);
-    pinchImage.draw(objPosition, pinchImageSize*2, pinchImageSize*2);
+    ofSetColor(255, 255, 255, colorImageAlpha);
+    colorImage.draw(objPosition, colorImageSize *2, colorImageSize *2);
     ofDisableBlendMode();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
 }
@@ -261,9 +261,10 @@ bool S2BaseObj::getIsPicked()
 ///--------------------------------------------------------------
 void S2BaseObj::disableColorImage()
 {
-    pinchImageSize = 0.0f;
+    colorImageSize = 0.0f;
 }
 
+/*
 ///--------------------------------------------------------------
 void S2BaseObj::enablePinch(bool enable)
 {
@@ -282,17 +283,19 @@ void S2BaseObj::enablePinch(bool enable)
 
     pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
 
-    pinchImageSize = whiteCircleRadius / 2;
+    colorImageSize = whiteCircleRadius / 2;
 }
+*/
 
-
-
+/*
 ///--------------------------------------------------------------
 bool S2BaseObj::isPinchEnabled()
 {
     return pinchEnabled;
 }
+*/
 
+/*
 ///--------------------------------------------------------------
 void S2BaseObj::updatePinch()
 {
@@ -305,10 +308,11 @@ void S2BaseObj::updatePinch()
     float diff = pinchCurrentDist - pinchInitialDist;
     if (diff > 0)
     {
-        pinchImageSize = whiteCircleRadius + diff/4;
-//        pinchImageAlpha = (unsigned int)ofMap(pinchCurrentDist, pinchInitialDist, pinchInitialDist*2.0f, pinchImageAlphaMin, pinchImageAlphaMax, true);
+        colorImageSize = whiteCircleRadius + diff/4;
+//        colorImageAlpha = (unsigned int)ofMap(pinchCurrentDist, pinchInitialDist, pinchInitialDist*2.0f, colorImageAlphaMin, colorImageAlphaMax, true);
     }
 }
+*/
 
 ///--------------------------------------------------------------
 TuioCursor *S2BaseObj::getFirstCursor()
@@ -335,7 +339,7 @@ void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 
     objPosition = camera.screenToWorld(objScreenCoords, viewRectangle);
 
-    pinchImageSize = whiteCircleRadius + fabs(objPosition.x);
+    colorImageSize = whiteCircleRadius + fabs(objPosition.x);
 
     objPosition.x = oldX;
 }
