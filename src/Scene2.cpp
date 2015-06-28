@@ -114,7 +114,7 @@ void Scene2::update()
 ///--------------------------------------------------------------
 void Scene2::updateEnter()
 {
-    currentClipIndex = (artistIndex * artistOffset) + (artistOffset/2);
+    currentClipIndex = (artistIndex * artistOffset) + (artistOffset/2) + SettingsManager::getInstance().abletonFirstClipIndex;
 
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene2::tuioPressed);
     ofAddListener(TUIOHandler::getInstance().eventTouchUp, this, &Scene2::tuioReleased);
@@ -363,7 +363,7 @@ void Scene2::handleDrag(int x, int y, int cursorId)
 //    {
         // Send message to Ableton
 
-        int pressedClipIndex = getClipIndexAtY(y) + (artistIndex * artistOffset);
+        int pressedClipIndex = getClipIndexAtY(y) + (artistIndex * artistOffset) + SettingsManager::getInstance().abletonFirstClipIndex;
         if (pressedClipIndex != currentClipIndex)
         {
             int track = pressedObjectIndex;
