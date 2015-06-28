@@ -86,6 +86,7 @@ void S2BaseObj::setup()
     gui.setPosition(viewOriginX+viewHalfWidth*0.7f, 0);
 
     loopAngle = 0;
+    disableColorImage();
 
     currentState = nextState = S3ObjStateInactive;
     shouldChangeState = false;
@@ -258,30 +259,33 @@ bool S2BaseObj::getIsPicked()
 }
 
 ///--------------------------------------------------------------
+void S2BaseObj::disableColorImage()
+{
+    pinchImageSize = 0.0f;
+}
+
+///--------------------------------------------------------------
 void S2BaseObj::enablePinch(bool enable)
 {
-    if (!enable)
+    pinchEnabled = enable;
+
+    if (!pinchEnabled) return;
+
+    if (cursorIds.size() <= 1)
     {
-        pinchImageSize = 0.0f;
+        pinchEnabled = false;
+        return;
     }
 
-//    pinchEnabled = enable;
-//
-//    if (!pinchEnabled) return;
-//
-//    if (cursorIds.size() <= 1)
-//    {
-//        pinchEnabled = false;
-//        return;
-//    }
-//
-//    TuioCursor *cursor1 = cursorIds.front();
-//    TuioCursor *cursor2 = cursorIds.back();
-//
-//    pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
-//
-//    pinchImageSize = whiteCircleRadius / 2;
+    TuioCursor *cursor1 = cursorIds.front();
+    TuioCursor *cursor2 = cursorIds.back();
+
+    pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
+
+    pinchImageSize = whiteCircleRadius / 2;
 }
+
+
 
 ///--------------------------------------------------------------
 bool S2BaseObj::isPinchEnabled()

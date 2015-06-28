@@ -335,7 +335,8 @@ void Scene2::handleRelease(int x, int y, int cursorId)
 
     // Remove TUIO cursors and disable pinch
     object->removeLastCursor();
-    object->enablePinch(false);
+    object->disableColorImage();
+//    object->enablePinch(false);
     if (!object->getIsPicked()) return;
     object->unpick();
 

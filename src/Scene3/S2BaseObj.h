@@ -43,6 +43,7 @@ public:
     bool pick(int screenX, int screenY);
     void unpick();
     bool getIsPicked();
+    void disableColorImage();
     void enablePinch(bool enable);
     bool isPinchEnabled();
     virtual void updatePinch();
