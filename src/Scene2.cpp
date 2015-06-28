@@ -374,6 +374,13 @@ void Scene2::handleDrag(int x, int y, int cursorId)
             abletonManager->playClip(currentClipIndex, track);
         }
 
+    // Position object (only if mouse, or if TUIO and cursor is the first one -to avoid crazy repositioning-
+    TuioCursor *firstCursor = object->getFirstCursor();
+    if ((firstCursor == NULL) || (firstCursor->getCursorID() == cursorId))
+    {
+        object->setPositionFromScreenCoords(x, y);
+    }
+
 //        /**/
 //        int device = 0;
 //        int parameter = pressedObjectIndex + 1;
@@ -387,12 +394,6 @@ void Scene2::handleDrag(int x, int y, int cursorId)
 //
 //        abletonManager->setDeviceParameter(device, parameter, value);
 
-        // Position object (only if mouse, or if TUIO and cursor is the first one -to avoid crazy repositioning-
-        TuioCursor *firstCursor = object->getFirstCursor();
-        if ((firstCursor == NULL) || (firstCursor->getCursorID() == cursorId))
-        {
-            object->setPositionFromScreenCoords(x, y);
-        }
 //    }
 //    else
 //    {

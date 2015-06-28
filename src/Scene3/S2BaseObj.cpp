@@ -32,9 +32,6 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     colorImageAlphaMax = SettingsManager::getInstance().pinchCircleAlphaMax;
     colorImageAlpha = colorImageAlphaMin;
 
-    /**/
-    colorImageAlpha = 255;
-
     settingsPath = _settingsPath;
 
     isFirstSetup = true;
@@ -339,8 +336,9 @@ void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 
     objPosition = camera.screenToWorld(objScreenCoords, viewRectangle);
 
-    colorImageSize = whiteCircleRadius + fabs(objPosition.x);
-
+    float xOffset = fabs(objPosition.x);
+    colorImageSize = whiteCircleRadius + xOffset;
+    colorImageAlpha = (unsigned int)ofMap(xOffset, whiteCircleRadius, whiteCircleRadius*4.0f, colorImageAlphaMin, colorImageAlphaMax, true);
     objPosition.x = oldX;
 }
 
