@@ -125,7 +125,7 @@ protected:
     // TUIO
     list<TuioCursor *>      cursorIds;
 //    bool                    pinchEnabled = false;
-    float                   pinchInitialDist;
+//    float                   pinchInitialDist;
 
     // Loop arc
     ofPolyline              loopArc;

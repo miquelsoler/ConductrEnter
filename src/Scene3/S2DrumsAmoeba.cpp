@@ -30,7 +30,7 @@ void S2DrumsAmoeba::loadSettings()
     gui.add(thresholdLow.set( "Treshold Low", 0, 0, 255 ) );
     gui.add(thresholdHigh.set( "Treshold High", 128, 0, 255 ) );
     gui.add(showNormals.set( "show normals", false ) );
-    gui.add(offset.set("offset",100.0,-200.0,200.0));
+    gui.add(offset.set("offset",100.0,-200.0f,200.0f));
     
     gui.loadFromFile(settingsPath);
     
@@ -50,13 +50,13 @@ void S2DrumsAmoeba::setup()
 
 
     // lights
-    pointLight1.setDiffuseColor( ofFloatColor(0, 1.0, 160.0/255.0) );
+    pointLight1.setDiffuseColor( ofFloatColor(0, 1.0, 160.0f/255.0f) );
     pointLight1.setSpecularColor( ofFloatColor(1.f, 1.f, 1.f));
 
-    pointLight2.setDiffuseColor( ofFloatColor( 247.0/255.f, 66.f/255.f, 55.0/255.f ));
+    pointLight2.setDiffuseColor( ofFloatColor( 247.0f/255.f, 66.f/255.f, 55.0f/255.f ));
     pointLight2.setSpecularColor(ofFloatColor(1.0f, 1.0f, 1.0f));
 
-    pointLight3.setDiffuseColor( ofFloatColor(68.0/255.f,187.0/255.f,209.0/255.f) );
+    pointLight3.setDiffuseColor( ofFloatColor(68.0f/255.f,187.0f/255.f,209.0f/255.f) );
     pointLight3.setSpecularColor( ofFloatColor(1.0,1.0,1.0) );
 
     // shader
@@ -135,7 +135,7 @@ void S2DrumsAmoeba::initTransitioning()
 ///--------------------------------------------------------------
 void S2DrumsAmoeba::updateTransitioning()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
     updateActive(); // Delete this line if it needs a custom update
 }
 
@@ -157,8 +157,8 @@ void S2DrumsAmoeba::onCompleteTransitioning(float* arg)
 void S2DrumsAmoeba::updateActive()
 {
     // lights positions
-    pointLight1.setPosition(radius*2,-radius*1.5,400);
-    pointLight2.setPosition(radius*2 ,radius*1.5,400);
+    pointLight1.setPosition(radius*2,-radius*1.5f,400);
+    pointLight2.setPosition(radius*2 ,radius*1.5f,400);
     pointLight3.setPosition(-radius*2,0,400);
 
 //    sphere.rotate(0.3, 0.0, 1.0, 0.0);

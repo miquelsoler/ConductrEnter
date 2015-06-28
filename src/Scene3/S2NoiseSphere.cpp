@@ -186,7 +186,7 @@ void S2NoiseSphere::initActive()
 ///--------------------------------------------------------------
 void S2NoiseSphere::updateActive()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
     
     sphere.rotate(0.3, 0.0, 1.0, 0.0);
     // set sphere radius on sinus

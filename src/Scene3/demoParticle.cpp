@@ -54,8 +54,8 @@ void demoParticle::update(){
         }
         
         if( mode == PARTICLE_MODE_REPEL ){
-            ofPoint attractPt(origin.x,origin.y);
-            //frc = attractPt-pos;
+//            ofPoint attractPt(origin.x,origin.y);
+//            frc = attractPt-pos;
             
             //let get the distance and only repel points close to the mouse
             float dist = frc.length();
@@ -90,7 +90,7 @@ void demoParticle::draw(){
 
     float alpha = (age/particleMaxAge);
 
-    ofVec3f posDist;
+//    ofVec3f posDist;
     float factor;
     factor = ofMap(fabs(pos.x),0.0,20.0,0.0,1.0,true);
 

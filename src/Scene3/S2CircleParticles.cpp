@@ -38,7 +38,7 @@ void S2CircleParticles::loadSettings()
     recalculateCircle();
 
     // PARTICLE SYSTEM SETUP
-    int num = 800;
+    unsigned long num = 800;
 	p.assign(num, demoParticle());
 	currentMode = PARTICLE_MODE_REPEL;
 	resetParticles();
@@ -124,7 +124,7 @@ void S2CircleParticles::onCompleteInactive(float* arg)
 ///--------------------------------------------------------------
 void S2CircleParticles::updateInactive()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
 //    updateActive(); // Delete this line if it needs a custom update
     if(updateCircle) recalculateCircle();
     
@@ -174,27 +174,24 @@ void S2CircleParticles::onCompleteTransitioning(float* arg)
 {
     changeState();
     
-    for(unsigned int i = 0; i < p.size(); i++)
-    {
-        //p[i].reset();
+//    for(unsigned int i = 0; i < p.size(); i++)
+//    {
+//        //p[i].reset();
 //        float velAmmount = 5;
 //        p[i].vel.x = ofRandom(-velAmmount, velAmmount);
 //        p[i].vel.y = ofRandom(-velAmmount, velAmmount);
-
-    }
+//
+//    }
 
 //    cout << "RESETTING ALL PARTICLES ON COMPLETE TRASITION" << endl;
 
     changeParticleState(1);
-    
-    
-
 }
 
 ///--------------------------------------------------------------
 void S2CircleParticles::updateTransitioning()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
     
     // PARTICLES
     if(particlesState !=0)
@@ -250,7 +247,7 @@ void S2CircleParticles::drawActive()
         }
         
         // draw circle of points
-        ofColor particleColor;
+//        ofColor particleColor;
         
 //        switch(currentState)
 //        {
@@ -315,7 +312,7 @@ void S2CircleParticles::recalculateCircle()
     for(float i=0;i<=numDotsInCircle+1;i++)
     {
         //where we are in pct to the total ?
-        float pct = i/float(numDotsInCircle);
+//        float pct = i/float(numDotsInCircle);
         
         ofVec3f aPoint;
         

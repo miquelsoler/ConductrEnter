@@ -7,7 +7,6 @@
 //
 
 #include "S2BaseObj.h"
-#include "TUIOHandler.h"
 #include "SettingsManager.h"
 #include "Defaults.h"
 

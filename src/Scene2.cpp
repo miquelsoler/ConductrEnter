@@ -369,7 +369,7 @@ void Scene2::handleDrag(int x, int y, int cursorId)
             int track = pressedObjectIndex;
 
             abletonManager->stopClip(currentClipIndex, track);
-            currentClipIndex = pressedClipIndex;
+            currentClipIndex = (unsigned int)pressedClipIndex;
             // Play Ableton clip
             abletonManager->playClip(currentClipIndex, track);
         }

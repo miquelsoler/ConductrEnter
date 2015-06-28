@@ -96,7 +96,7 @@ void S2Drums::onCompleteInactive(float* arg)
 
 void S2Drums::updateInactive()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
     updateActive(); // Delete this line if it needs a custom update
 }
 
@@ -131,7 +131,7 @@ void S2Drums::onCompleteTransitioning(float* arg)
 
 void S2Drums::updateTransitioning()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
 //    updateActive(); // Delete this line if it needs a custom update
 }
 

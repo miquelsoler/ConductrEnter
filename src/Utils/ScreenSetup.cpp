@@ -78,7 +78,7 @@ void ScreenSetup::setModeDisplax()
     int windowHeight = SettingsManager::getInstance().displaxHeight;
     ofSetWindowShape(windowWidth, windowHeight);
     ofVec2f mainScreenOffset = getMainScreenOrigin();
-    ofSetWindowPosition(mainScreenOffset.x, mainScreenOffset.y);
+    ofSetWindowPosition(int(mainScreenOffset.x), int(mainScreenOffset.y));
 
     currentMode = SCREENMODE_DISPLAX;
 }
@@ -119,7 +119,6 @@ ofVec2f ScreenSetup::getMainScreenOrigin()
             ofRectangle monitorRect(xM, yM, desktopMode->width, desktopMode->height);
             if (monitorRect.inside(xW, yW)){
                 return ofVec2f(xM, yM);
-                break;
             }
         }
     }

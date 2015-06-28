@@ -104,15 +104,13 @@ void S2NoisePlexus::initInactive()
     activeOffset = 25;
     activeNoiseFrequency = 1000;
  
-    float delay = 0.0f;
-    float duration = 0.8f;
-    
-    // noise frequency reset
-    //Tweenzor::add((float*)&noiseFrequency.get(), noiseFrequency, stableNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
-    // offset reset
-    //Tweenzor::add((float*)&offset.get(), offset, stableOffset, delay, duration, EASE_IN_OUT_SINE);
-
-    
+//    float delay = 0.0f;
+//    float duration = 0.8f;
+//
+//    // noise frequency reset
+//    Tweenzor::add((float*)&noiseFrequency.get(), noiseFrequency, stableNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
+//     offset reset
+//    Tweenzor::add((float*)&offset.get(), offset, stableOffset, delay, duration, EASE_IN_OUT_SINE);
 }
 
 ///--------------------------------------------------------------
@@ -136,13 +134,12 @@ void S2NoisePlexus::initTransitioning()
 {
 //    cout << "INIT TRANSITION" << endl;
     
-    float delay = 0.0f;
-    float duration = 0.3f;
-    
-    // noise frequency
-    //Tweenzor::add((float*)&offset.get(), stableOffset, activeOffset, delay, duration, EASE_IN_OUT_SINE);
-    //Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&offset.get()), this, &S2NoisePlexus::onCompleteTransitioning);
-    
+//    float delay = 0.0f;
+//    float duration = 0.3f;
+//
+//    // noise frequency
+//    Tweenzor::add((float*)&offset.get(), stableOffset, activeOffset, delay, duration, EASE_IN_OUT_SINE);
+//    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&offset.get()), this, &S2NoisePlexus::onCompleteTransitioning);
 }
 
 
@@ -166,13 +163,11 @@ void S2NoisePlexus::onCompleteTransitioning(float* arg)
 {
 //    cout << " ON COMPLETE TRANSITIONING" << endl;
     
-    float delay = 0.0f;
-    float duration = 0.3f;
-    
-    //Tweenzor::add((float*)&offset.get(),offset ,stableOffset, delay, duration, EASE_IN_OUT_SINE);
-    //Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&offset.get()), this, &S2NoisePlexus::onCompleteToActive);
-
-    
+//    float delay = 0.0f;
+//    float duration = 0.3f;
+//
+//    Tweenzor::add((float*)&offset.get(),offset ,stableOffset, delay, duration, EASE_IN_OUT_SINE);
+//    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&offset.get()), this, &S2NoisePlexus::onCompleteToActive);
 }
 
 ///--------------------------------------------------------------
@@ -200,7 +195,7 @@ void S2NoisePlexus::initActive()
 ///--------------------------------------------------------------
 void S2NoisePlexus::updateActive()
 {
-    Tweenzor::update(ofGetElapsedTimeMillis());
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
     
     //sphere.rotate(0.3, 0.0, 1.0, 0.0);
 
