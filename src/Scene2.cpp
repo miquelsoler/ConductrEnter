@@ -45,33 +45,47 @@ Scene2::Scene2(const string &name, bool singleSetup, ScreenSetup *screenSetup) :
     // Create scene objects
     float viewOrigin;
     string objectsPath = "settings/scene2/";
+
+    bool enableDemoObjects;
+#ifdef OF_DEBUG
+    enableDemoObjects = SettingsManager::getInstance().debugEnableDemoObjects;
+#else
+    enableDemoObjects = SettingsManager::getInstance().releaseEnableDemoObjects;
+#endif
+
     for (unsigned int i = 0; i < num_objects; i++)
     {
         viewOrigin = i * viewWidth;
         S2BaseObj *object = NULL;
-        switch (i)
+        if (!enableDemoObjects)
         {
-            case 0:
-                object = new S2Drums(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums.xml");
-                break;
-            case 1:
-                object = new S2NoiseSphere(num_objects, i, viewOrigin, viewWidth, objectsPath + "noise_sphere.xml");
-                break;
-            case 2:
-                object = new S2DrumsAmoeba(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
-                break;
-            case 3:
-                object = new S2Synthesizer(num_objects, i, viewOrigin, viewWidth, objectsPath + "synthesizer.xml");
-                break;
-            case 4:
-                object = new S2CircleParticles(num_objects, i, viewOrigin, viewWidth, objectsPath + "circleParticle.xml");
-                break;
-            case 5:
-                object = new S2NoisePlexus(num_objects, i, viewOrigin, viewWidth, objectsPath + "plexus.xml");
-//                object = new S2ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "example.xml");
-                break;
-            default:
-                break;
+            switch (i)
+            {
+                case 0:
+                    object = new S2Drums(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums.xml");
+                    break;
+                case 1:
+                    object = new S2NoiseSphere(num_objects, i, viewOrigin, viewWidth, objectsPath + "noise_sphere.xml");
+                    break;
+                case 2:
+                    object = new S2DrumsAmoeba(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
+                    break;
+                case 3:
+                    object = new S2Synthesizer(num_objects, i, viewOrigin, viewWidth, objectsPath + "synthesizer.xml");
+                    break;
+                case 4:
+                    object = new S2CircleParticles(num_objects, i, viewOrigin, viewWidth, objectsPath + "circleParticle.xml");
+                    break;
+                case 5:
+                    object = new S2NoisePlexus(num_objects, i, viewOrigin, viewWidth, objectsPath + "plexus.xml");
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            object = new S2ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "example.xml");
         }
 
         if (!object) continue;

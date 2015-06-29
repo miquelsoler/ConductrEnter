@@ -33,7 +33,8 @@
         "Show TUIO Cursors": true,
         "Show Background Videos": true,
         "Enable VBO": true,
-        "Enable Vertical Sync": false
+        "Enable Vertical Sync": false,
+        "Enable Demo Objects": false
     },
     "Release Mode": {
         "Show GUI": false,
@@ -41,6 +42,7 @@
         "Show TUIO Cursors": false,
         "Show Background Videos": true,
         "Enable VBO": true,
-        "Enable Vertical Sync": true
+        "Enable Vertical Sync": true,
+        "Enable Demo Objects": false
     }
 }

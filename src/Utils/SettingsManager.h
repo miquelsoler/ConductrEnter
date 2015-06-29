@@ -58,6 +58,7 @@ public:
     bool            debugShowVideos;
     bool            debugEnableVBO;
     bool            debugEnableVSync;
+    bool            debugEnableDemoObjects;
 
     // Release Mode
     bool            releaseShowGUI;
@@ -66,6 +67,7 @@ public:
     bool            releaseShowVideos;
     bool            releaseEnableVBO;
     bool            releaseEnableVSync;
+    bool            releaseEnableDemoObjects;
 
 private:
 

@@ -75,6 +75,7 @@ bool SettingsManager::loadSettings()
     debugShowVideos = json[prefix]["Show Background Videos"].asBool();
     debugEnableVBO = json[prefix]["Enable VBO"].asBool();
     debugEnableVSync = json[prefix]["Enable Vertical Sync"].asBool();
+    debugEnableDemoObjects = json[prefix]["Enable Demo Objects"].asBool();
 
     // Release mode
     prefix = "Release Mode";
@@ -84,6 +85,7 @@ bool SettingsManager::loadSettings()
     releaseShowVideos = json[prefix]["Show Background Videos"].asBool();
     releaseEnableVBO = json[prefix]["Enable VBO"].asBool();
     releaseEnableVSync = json[prefix]["Enable Vertical Sync"].asBool();
+    releaseEnableDemoObjects = json[prefix]["Enable Demo Objects"].asBool();
 
     return parsingSuccessful;
 }
