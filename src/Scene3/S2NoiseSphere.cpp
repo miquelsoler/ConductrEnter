@@ -35,7 +35,6 @@ void S2NoiseSphere::loadSettings()
     gui.add( thresholdHigh.set( "Treshold High", 40, 0, 40 ) );
 
     gui.loadFromFile(settingsPath);
-    
 }
 
 ///--------------------------------------------------------------
@@ -48,23 +47,6 @@ void S2NoiseSphere::setup()
     sphere.setResolution(32);
 
     camera.setTarget(sphere);
-
-/*
-    // lights
-    pointLight1.setDiffuseColor( ofFloatColor(0, 1.0, 160.0/255.0) );
-    pointLight1.setSpecularColor( ofFloatColor(1.f, 1.f, 1.f));
-
-    pointLight2.setDiffuseColor( ofFloatColor( 247.0/255.f, 66.f/255.f, 55.0/255.f ));
-    pointLight2.setSpecularColor(ofFloatColor(1.0f, 1.0f, 1.0f));
-
-    pointLight3.setDiffuseColor( ofFloatColor(68.0/255.f,187.0/255.f,209.0/255.f) );
-    pointLight3.setSpecularColor( ofFloatColor(1.0,1.0,1.0) );
-
-    // lights positions
-    pointLight1.setPosition(ofGetWidth()/4 ,ofGetHeight()/4,200);
-    pointLight2.setPosition((ofGetWidth()/4)*3 ,ofGetHeight()/2,200);
-    pointLight3.setPosition(ofGetWidth()/4,(ofGetHeight()/4)*3,200);
-*/
 
     if (isFirstSetup)
     {
@@ -254,14 +236,6 @@ void S2NoiseSphere::updateActive()
         ofVec3f newPos = vertexOriginals[i] + vertexOffset * vertexNormals[i];
         sphere.getMesh().setVertex(i, newPos);
     }
-
-
-/*
-    // update light colors
-    pointLight1.setDiffuseColor( ofFloatColor(    ofMap(mouseInteractionX,0.0,1.0,1.0,0.0),     ofMap(mouseInteractionX,0.0,1.0,1.0,1.0),     ofMap(mouseInteractionX,0.0,1.0,1.0,160.0/255.0)) );
-    pointLight2.setDiffuseColor( ofFloatColor(  ofMap(mouseInteractionX,0.0,1.0,1.0,247.0/255.f), ofMap(mouseInteractionX,0.0,1.0,1.0,66.f/255.f), ofMap(mouseInteractionX,0.0,1.0,1.0,55.0/255.f) ));
-    pointLight3.setDiffuseColor( ofFloatColor(ofMap(mouseInteractionX,0.0,1.0,1.0,68.0/255.f),ofMap(mouseInteractionX,0.0,1.0,1.0,187.0/255.f),ofMap(mouseInteractionX,0.0,1.0,1.0,209.0/255.f)) );
-*/
 }
 
 ///--------------------------------------------------------------
@@ -280,54 +254,20 @@ void S2NoiseSphere::drawTransitioning()
 void S2NoiseSphere::drawActive()
 {
 
-    camera.begin();
+    camera.begin(viewRectangle);
     {
         ofSetCircleResolution(64);
         glPointSize(2.0);
-        //------------------//
-/*
-        ofEnableDepthTest();
-        ofEnableLighting();
-*/
-
-/*
-        pointLight1.enable();
-        pointLight2.enable();
-        pointLight3.enable();
-*/
 
         // sphere
         ofSetColor(ofColor::white);
-        
-//        ofColor particleColor;
-//        
-//        switch(currentState)
-//        {
-//            case S3ObjStateInactive:        particleColor = ofColor::red; break;
-//            case S3ObjStateTransitioning:   particleColor = ofColor::orange; break;
-//            case S3ObjStateActive :         particleColor = ofColor::green; break;
-//                
-//            default:                        break;
-//        }
-//        ofSetColor(particleColor);
 
-        
         sphere.setScale(1.01f);
         sphere.drawVertices();
         sphere.setScale(1.f);
 
-/*
-        ofDisableDepthTest();
-        //------------------//
-*/
-
-
-//        ofSetColor(255);
-//        if (pinchEnabled)
-//        {
-            drawPinchCircle();
-            drawPinchColor();
-//        }
+        drawPinchCircle();
+        drawPinchColor();
         drawWhiteCircle();
         drawLoop();
     }

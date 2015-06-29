@@ -144,7 +144,7 @@ void S2Synthesizer::updateActive()
 
 void S2Synthesizer::drawActive()
 {
-    camera.begin();
+    camera.begin(viewRectangle);
     {
         // Grey circle
         ofFill();
@@ -164,13 +164,9 @@ void S2Synthesizer::drawActive()
         for (list<S2SynthesizerCircle *>::iterator it = circles.begin(); it!=circles.end(); ++it)
             (*it)->draw();
 
-//        if (pinchEnabled)
-//        {
-            drawPinchCircle();
-            drawPinchColor();
-//        }
+        drawPinchCircle();
+        drawPinchColor();
         drawWhiteCircle();
-
         drawLoop();
     }
     camera.end();

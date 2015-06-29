@@ -45,16 +45,16 @@ private:
 
     void addCircle();
 
-    list<S2SynthesizerCircle *>  circles;
-    float                       circlesMinRadius;
-    float                       circlesMaxRadius;
-    bool                        shouldAddCircle;
+    list<S2SynthesizerCircle *>     circles;
+    float                           circlesMinRadius;
+    float                           circlesMaxRadius;
+    bool                            shouldAddCircle;
 
-    ofParameter<float>          greyCircleRadius;
-    float                       greyCircleAplha;
+    ofParameter<float>              greyCircleRadius;
+    float                           greyCircleAplha;
 
-    float                       transitioningCircleRadius;
-    float                       transitioningCircleAplha;
+    float                           transitioningCircleRadius;
+    float                           transitioningCircleAplha;
 };
 
 #endif /* defined(__ConductrEnter__S2Synthesizer__) */

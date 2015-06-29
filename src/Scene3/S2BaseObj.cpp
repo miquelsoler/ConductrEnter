@@ -36,17 +36,6 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     isFirstSetup = true;
 
     ofAddListener(eventChangeState, this, &S2BaseObj::changeState);
-    
-    // FBO
-    //-----
-    //ofFbo::allocate(int width, int height, int internalformat, int numSamples)
-    fbo.allocate(FBO_WIDTH, FBO_HEIGHT, GL_RGBA32F_ARB, 1);
-
-    fbo.begin();
-    {
-        ofClear(0,0,0,0);
-    }
-    fbo.end();
 
 #ifdef OF_DEBUG
     showGUI = SettingsManager::getInstance().debugShowGUI;
@@ -113,15 +102,10 @@ void S2BaseObj::update()
 }
 
 ///--------------------------------------------------------------
-void S2BaseObj::drawIntoFbo()
+void S2BaseObj::draw()
 {
-    if(activated)
+    if (activated)
     {
-        fbo.begin();
-        
-        //ofClear(0,0,(255/6)*sceneObjectIndex,128);
-        ofClear(0,0,0,255);
-        
         switch(currentState)
         {
             case S3ObjStateInactive:
@@ -134,16 +118,7 @@ void S2BaseObj::drawIntoFbo()
                 drawActive();
                 break;
         }
-        
-        fbo.end();
     }
-}
-
-///--------------------------------------------------------------
-void S2BaseObj::draw(int x,int y,int w,int h)
-{
-    if(activated)
-        fbo.draw(x,y,w,h);
 
     if (showGUI)
         gui.draw();

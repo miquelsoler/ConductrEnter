@@ -49,16 +49,6 @@ void S2DrumsAmoeba::setup()
     camera.setTarget(sphere);
 
 
-    // lights
-    pointLight1.setDiffuseColor( ofFloatColor(0, 1.0, 160.0f/255.0f) );
-    pointLight1.setSpecularColor( ofFloatColor(1.f, 1.f, 1.f));
-
-    pointLight2.setDiffuseColor( ofFloatColor( 247.0f/255.f, 66.f/255.f, 55.0f/255.f ));
-    pointLight2.setSpecularColor(ofFloatColor(1.0f, 1.0f, 1.0f));
-
-    pointLight3.setDiffuseColor( ofFloatColor(68.0f/255.f,187.0f/255.f,209.0f/255.f) );
-    pointLight3.setSpecularColor( ofFloatColor(1.0,1.0,1.0) );
-
     // shader
 
     if (!shader.isLoaded())
@@ -156,13 +146,6 @@ void S2DrumsAmoeba::onCompleteTransitioning(float* arg)
 ///--------------------------------------------------------------
 void S2DrumsAmoeba::updateActive()
 {
-    // lights positions
-    pointLight1.setPosition(radius*2,-radius*1.5f,400);
-    pointLight2.setPosition(radius*2 ,radius*1.5f,400);
-    pointLight3.setPosition(-radius*2,0,400);
-
-//    sphere.rotate(0.3, 0.0, 1.0, 0.0);
-
     // perlin noise time
     float time = ofGetElapsedTimef();
 
@@ -191,14 +174,6 @@ void S2DrumsAmoeba::updateActive()
         }
     }
     noiseImage.setFromPixels(noisePixels);
-
-
-    /*
-     // update light colors
-     pointLight1.setDiffuseColor( ofFloatColor(ofMap(mouseInteractionX,0.0,1.0,1.0,0.0),ofMap(mouseInteractionX,0.0,1.0,1.0,1.0),ofMap(mouseInteractionX,0.0,1.0,1.0,160.0/255.0)) );
-     pointLight2.setDiffuseColor( ofFloatColor(ofMap(mouseInteractionX,0.0,1.0,1.0,247.0/255.f),ofMap(mouseInteractionX,0.0,1.0,1.0,66.f/255.f),ofMap(mouseInteractionX,0.0,1.0,1.0,55.0/255.f) ));
-     pointLight3.setDiffuseColor( ofFloatColor(ofMap(mouseInteractionX,0.0,1.0,1.0,68.0/255.f),ofMap(mouseInteractionX,0.0,1.0,1.0,187.0/255.f),ofMap(mouseInteractionX,0.0,1.0,1.0,209.0/255.f)) );
-     */
 }
 
 ///--------------------------------------------------------------
@@ -216,16 +191,8 @@ void S2DrumsAmoeba::drawTransitioning()
 ///--------------------------------------------------------------
 void S2DrumsAmoeba::drawActive()
 {
-    camera.begin();
+    camera.begin(viewRectangle);
     {
-        /*
-        ofEnableLighting();
-
-        pointLight1.enable();
-        pointLight2.enable();
-        pointLight3.enable();
-*/
-        
         glPointSize(2.0);
         sphere.setResolution(4);
 
@@ -263,25 +230,10 @@ void S2DrumsAmoeba::drawActive()
             ofCircle(objPosition.x, objPosition.y, 0, volumeCircleRadius);
         }
 
-
         ofDisableDepthTest();
-        //------------------//
 
-        // color image
-/*
-        ofSetColor(ofFloatColor(1.0,1.0,1.0,ofMap(mouseInteractionX,0.0,1.0,0.0,0.55)));
-*/
-
-/*
-        float circleSize = ofMap(mouseInteractionX,0.0,1.0,60.0,200);
-*/
-
-//        ofSetColor(ofColor::gray);
-//        if (pinchEnabled)
-//        {
-            drawPinchCircle();
-            drawPinchColor();
-//        }
+        drawPinchCircle();
+        drawPinchColor();
         drawWhiteCircle();
         drawLoop();
 

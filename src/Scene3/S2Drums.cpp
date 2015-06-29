@@ -163,8 +163,7 @@ void S2Drums::updateActive()
 
 void S2Drums::drawActive()
 {
-    camera.begin();
-//    camera.begin(viewRectangle);
+    camera.begin(viewRectangle);
     {
         ofSetColor(int(sphereGrayColor));
         glPointSize(spherePointSize);

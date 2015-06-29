@@ -179,35 +179,8 @@ void Scene2::draw()
 
     ofEnableBlendMode(OF_BLENDMODE_ADD);
 
-    int x, y, w, h;
     for (unsigned int i = 0; i < num_objects; ++i)
-    {
-        objects[i]->drawIntoFbo();
-        switch(screenSetup->getCurrentMode())
-        {
-            case SCREENMODE_WINDOW:
-            case SCREENMODE_FULL:
-            {
-                w = (ofGetWidth() / num_objects) * 2;
-                h = w/(float(FBO_WIDTH)/float(FBO_HEIGHT));
-                x = (i*w/2) - (w/4);
-                y = (ofGetHeight() - h) / 2;
-                break;
-            }
-            case SCREENMODE_FULLWINDOW:
-            case SCREENMODE_DISPLAX:
-            {
-                w = ((SettingsManager::getInstance().displaxWidth * 2) / num_objects) * 2;
-                h = SettingsManager::getInstance().displaxHeight;
-                x = (i*w/2) - (w/4);
-                y = 0;
-
-                break;
-            }
-            default: break;
-        }
-        objects[i]->draw(x, y, w, h);
-    }
+        objects[i]->draw();
 
     ofDisableBlendMode();
 

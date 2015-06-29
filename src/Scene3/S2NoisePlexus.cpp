@@ -63,23 +63,6 @@ void S2NoisePlexus::setup()
 
     camera.setTarget(sphere);
 
-/*
-    // lights
-    pointLight1.setDiffuseColor( ofFloatColor(0, 1.0, 160.0/255.0) );
-    pointLight1.setSpecularColor( ofFloatColor(1.f, 1.f, 1.f));
-
-    pointLight2.setDiffuseColor( ofFloatColor( 247.0/255.f, 66.f/255.f, 55.0/255.f ));
-    pointLight2.setSpecularColor(ofFloatColor(1.0f, 1.0f, 1.0f));
-
-    pointLight3.setDiffuseColor( ofFloatColor(68.0/255.f,187.0/255.f,209.0/255.f) );
-    pointLight3.setSpecularColor( ofFloatColor(1.0,1.0,1.0) );
-
-    // lights positions
-    pointLight1.setPosition(ofGetWidth()/4 ,ofGetHeight()/4,200);
-    pointLight2.setPosition((ofGetWidth()/4)*3 ,ofGetHeight()/2,200);
-    pointLight3.setPosition(ofGetWidth()/4,(ofGetHeight()/4)*3,200);
-*/
-
     if (isFirstSetup)
     {
         sphereFacesOriginal = sphere.getMesh().getUniqueFaces();
@@ -116,16 +99,12 @@ void S2NoisePlexus::initInactive()
 ///--------------------------------------------------------------
 void S2NoisePlexus::updateInactive()
 {
-    
-//    cout << "UPDATE INACTIVE " << endl;
-    
     updateActive(); // Delete this line if it needs a custom update
     
     if(shouldChangeState)
     {
 //        cout << "from INactive Changed State !!! " << endl;
         changeState();
-        
     }
 }
 
@@ -146,13 +125,10 @@ void S2NoisePlexus::initTransitioning()
 ///--------------------------------------------------------------
 void S2NoisePlexus::updateTransitioning()
 {
-//    cout << "UPDATE TRANSITIONING " << endl;
-    
     updateActive(); // Delete this line if it needs a custom update
     
     if(shouldChangeState)
     {
-//        cout << "from TRANSITIONING Changed State !!! " << endl;
         changeState();
     }
 
@@ -187,17 +163,12 @@ void S2NoisePlexus::onCompleteToActive(float* arg)
 ///--------------------------------------------------------------
 void S2NoisePlexus::initActive()
 {
-//    cout << " INIT ACTIVE !!!! " << endl;
-    
 }
-
 
 ///--------------------------------------------------------------
 void S2NoisePlexus::updateActive()
 {
     Tweenzor::update(int(ofGetElapsedTimeMillis()));
-    
-    //sphere.rotate(0.3, 0.0, 1.0, 0.0);
 
     // perlin noise
     float time = ofGetElapsedTimef();
@@ -248,7 +219,6 @@ void S2NoisePlexus::updateActive()
         plexus.setVertex(i,sphere.getMesh().getVertex(i) + sphere.getPosition() + vertexOffset * vertexNormals[i]);
         //plexus.setColor(i, ofFloatColor(1.0,1.0,1.0));
         
-        
         int numVerts = sphere.getMesh().getNumVertices();
         ofVec3f verta = plexus.getVertex(i);
         for (int b=i+1; b<numVerts; ++b)
@@ -264,10 +234,6 @@ void S2NoisePlexus::updateActive()
             }
             
         }
-        
-        
-        /////////////
-        
     }
     
     if(plexus.getIndices().size()>0) plexus.setMode(OF_PRIMITIVE_LINES);
@@ -275,14 +241,6 @@ void S2NoisePlexus::updateActive()
     {
         dontDraw = true;
     }
-
-
-/*
-    // update light colors
-    pointLight1.setDiffuseColor( ofFloatColor(    ofMap(mouseInteractionX,0.0,1.0,1.0,0.0),     ofMap(mouseInteractionX,0.0,1.0,1.0,1.0),     ofMap(mouseInteractionX,0.0,1.0,1.0,160.0/255.0)) );
-    pointLight2.setDiffuseColor( ofFloatColor(  ofMap(mouseInteractionX,0.0,1.0,1.0,247.0/255.f), ofMap(mouseInteractionX,0.0,1.0,1.0,66.f/255.f), ofMap(mouseInteractionX,0.0,1.0,1.0,55.0/255.f) ));
-    pointLight3.setDiffuseColor( ofFloatColor(ofMap(mouseInteractionX,0.0,1.0,1.0,68.0/255.f),ofMap(mouseInteractionX,0.0,1.0,1.0,187.0/255.f),ofMap(mouseInteractionX,0.0,1.0,1.0,209.0/255.f)) );
-*/
 }
 
 ///--------------------------------------------------------------
@@ -301,22 +259,12 @@ void S2NoisePlexus::drawTransitioning()
 void S2NoisePlexus::drawActive()
 {
 
-    camera.begin();
+    camera.begin(viewRectangle);
     {
         ofSetCircleResolution(64);
         glPointSize(2.0);
         ofSetLineWidth(1.0);
         //------------------//
-/*
-        ofEnableDepthTest();
-        ofEnableLighting();
-*/
-
-/*
-        pointLight1.enable();
-        pointLight2.enable();
-        pointLight3.enable();
-*/
 
         // sphere
         ofSetColor(ofColor::white);
@@ -343,17 +291,8 @@ void S2NoisePlexus::drawActive()
         /// PLEXUS
         if(!dontDraw) plexus.draw();
 
-/*
-        ofDisableDepthTest();
-        //------------------//
-*/
-
-//        ofSetColor(255);
-//        if (pinchEnabled)
-//        {
-            drawPinchCircle();
-            drawPinchColor();
-//        }
+        drawPinchCircle();
+        drawPinchColor();
         drawWhiteCircle();
         drawLoop();
     }

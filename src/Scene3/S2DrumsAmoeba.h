@@ -61,11 +61,6 @@ private:
     ofParameter<bool>       showNormals;
     ofParameter<float>      offset;
 
-    // Candidats a moure a l'objecte base
-    ofLight     pointLight1;
-    ofLight     pointLight2;
-    ofLight     pointLight3;
-    
     float                   volumeCircleRadius;
     float                   volumeCircleAlpha;
 

@@ -119,7 +119,7 @@ void S2ExampleObject::updateActive()
 
 void S2ExampleObject::drawActive()
 {
-    camera.begin();
+    camera.begin(viewRectangle);
     {
         ofSetLineWidth(1);
         switch(currentState)
@@ -140,11 +140,8 @@ void S2ExampleObject::drawActive()
         sphere.drawWireframe();
         ofSetColor(255);
 
-//        if (pinchEnabled)
-//        {
-            drawPinchCircle();
-            drawPinchColor();
-//        }
+        drawPinchCircle();
+        drawPinchColor();
         drawWhiteCircle();
         drawLoop();
     }
