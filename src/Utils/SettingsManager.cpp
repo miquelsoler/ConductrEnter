@@ -72,14 +72,18 @@ bool SettingsManager::loadSettings()
     debugShowGUI = json[prefix]["Show GUI"].asBool();
     debugShowFPS = json[prefix]["Show FPS"].asBool();
     debugShowTUIOCursors = json[prefix]["Show TUIO Cursors"].asBool();
-    debugShowScene2BackgroundVideo = json[prefix]["Show Scene2 Background Video"].asBool();
+    debugShowVideos = json[prefix]["Show Background Videos"].asBool();
+    debugEnableVBO = json[prefix]["Enable VBO"].asBool();
+    debugEnableVSync = json[prefix]["Enable Vertical Sync"].asBool();
 
     // Release mode
     prefix = "Release Mode";
     releaseShowGUI = json[prefix]["Show GUI"].asBool();
     releaseShowFPS = json[prefix]["Show FPS"].asBool();
     releaseShowTUIOCursors = json[prefix]["Show TUIO Cursors"].asBool();
-    releaseShowScene2BackgroundVideo = json[prefix]["Show Scene2 Background Video"].asBool();
+    releaseShowVideos = json[prefix]["Show Background Videos"].asBool();
+    releaseEnableVBO = json[prefix]["Enable VBO"].asBool();
+    releaseEnableVSync = json[prefix]["Enable Vertical Sync"].asBool();
 
     return parsingSuccessful;
 }

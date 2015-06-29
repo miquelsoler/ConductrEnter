@@ -24,10 +24,15 @@ void ofApp::setup()
     // App settings
 
     ofSetFrameRate(60);
-    ofSetVerticalSync(true);
-    ofSetSmoothLighting(true);
+    bool enableVerticalSync;
+#ifdef OF_DEBUG
+    enableVerticalSync = SettingsManager::getInstance().debugEnableVSync;
+#else
+    enableVerticalSync = SettingsManager::getInstance().releaseEnableVsync;
+#endif
+    ofSetVerticalSync(enableVerticalSync);
 
-    ofBackground(ofColor(0,0,0,255));
+    ofBackground(ofColor::black);
 
     // TUIO
     TUIOHandler::getInstance().init();

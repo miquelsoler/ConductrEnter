@@ -169,10 +169,10 @@ void Scene2::draw()
     if (videoPlayer.isPlaying())
     {
 #ifdef OF_DEBUG
-        if (SettingsManager::getInstance().debugShowScene2BackgroundVideo)
+        if (SettingsManager::getInstance().debugShowVideos)
             videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
 #else
-        if (SettingsManager::getInstance().releaseShowScene2BackgroundVideo)
+        if (SettingsManager::getInstance().releaseShowVideos)
             videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
 #endif
     }

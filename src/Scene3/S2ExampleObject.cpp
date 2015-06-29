@@ -9,6 +9,7 @@
 #include "S2ExampleObject.h"
 
 #include "ofxTweenzor.h"
+#include "SettingsManager.h"
 
 #pragma mark - Initialization
 
@@ -41,6 +42,13 @@ void S2ExampleObject::setup()
     sphere.setRadius(radius);
     sphere.setPosition(objPosition);
     sphere.setResolution(4);
+    bool enableVBO;
+#ifdef OF_DEBUG
+    enableVBO = SettingsManager::getInstance().debugEnableVBO;
+#else
+    enableVBO = SettingsManager::getInstance().releaseEnableVBO;
+#endif
+    sphere.setUseVbo(enableVBO);
 
     camera.setTarget(sphere);
 

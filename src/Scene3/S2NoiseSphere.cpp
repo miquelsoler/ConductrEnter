@@ -8,6 +8,8 @@
 
 #include "S2NoiseSphere.h"
 
+#include "SettingsManager.h"
+
 ///--------------------------------------------------------------
 S2NoiseSphere::S2NoiseSphere(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
     S2BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
@@ -45,6 +47,13 @@ void S2NoiseSphere::setup()
     sphere.setRadius(radius);
     sphere.setPosition(objPosition);
     sphere.setResolution(32);
+    bool enableVBO;
+#ifdef OF_DEBUG
+    enableVBO = SettingsManager::getInstance().debugEnableVBO;
+#else
+    enableVBO = SettingsManager::getInstance().releaseEnableVBO;
+#endif
+    sphere.setUseVbo(enableVBO);
 
     camera.setTarget(sphere);
 

@@ -7,6 +7,7 @@
 //
 
 #include "S2Drums.h"
+#include "SettingsManager.h"
 
 #pragma mark - Initialization
 
@@ -44,6 +45,14 @@ void S2Drums::setup()
     sphere.setRadius(radius);
     sphere.setPosition(objPosition);
     sphere.rotate(initialSphereRotation, 0.0, 1.0, 0.0);
+    bool enableVBO;
+#ifdef OF_DEBUG
+    enableVBO = SettingsManager::getInstance().debugEnableVBO;
+#else
+    enableVBO = SettingsManager::getInstance().releaseEnableVBO;
+#endif
+
+    sphere.setUseVbo(enableVBO);
     transitioningSphere.setPosition(objPosition);
     transitioningSphere.setRadius(radius);
     transitioningSphere.rotate(initialSphereRotation, 0.0, 1.0, 0.0);

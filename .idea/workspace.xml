@@ -6,19 +6,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2BaseObj.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S2BaseObj.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2BaseObj.h" afterPath="$PROJECT_DIR$/src/Scene3/S2BaseObj.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2CircleParticles.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S2CircleParticles.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2Drums.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S2Drums.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.h" afterPath="$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2ExampleObject.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S2ExampleObject.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2NoisePlexus.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S2NoisePlexus.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2NoiseSphere.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S2NoiseSphere.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2Synthesizer.cpp" afterPath="$PROJECT_DIR$/src/Scene3/S2Synthesizer.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene3/S2Synthesizer.h" afterPath="$PROJECT_DIR$/src/Scene3/S2Synthesizer.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene2.cpp" afterPath="$PROJECT_DIR$/src/Scene2.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConductrEnter.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/ConductrEnter.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utils/SettingsManager.cpp" afterPath="$PROJECT_DIR$/src/Utils/SettingsManager.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utils/SettingsManager.h" afterPath="$PROJECT_DIR$/src/Utils/SettingsManager.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ofApp.cpp" afterPath="$PROJECT_DIR$/src/ofApp.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/settings.json" afterPath="$PROJECT_DIR$/bin/data/settings/settings.json" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,19 +42,12 @@
       <file leaf-file-name="S2DrumsAmoeba.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3135" max-vertical-offset="4080">
-              <caret line="227" column="26" selection-start-line="227" selection-start-column="21" selection-end-line="227" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="S2Drums.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Scene3/S2Drums.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.111111" vertical-offset="2469" max-vertical-offset="3810">
-              <caret line="181" column="26" selection-start-line="181" selection-start-column="21" selection-end-line="181" selection-end-column="26" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="4200">
+              <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+              <folding>
+                <element signature="e#99#125#0" expanded="true" />
+                <element signature="e#1618#1678#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,9 +55,35 @@
       <file leaf-file-name="S2Drums.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Scene3/S2Drums.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.333333" vertical-offset="0" max-vertical-offset="1095">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="246" max-vertical-offset="1095">
+              <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="S2Drums.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Scene3/S2Drums.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.49469966" vertical-offset="405" max-vertical-offset="3945">
+              <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+              <folding>
+                <element signature="e#93#113#0" expanded="true" />
+                <element signature="e#1416#1476#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="S2ExampleObject.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Scene3/S2ExampleObject.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2655">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="e#101#129#0" expanded="true" />
+                <element signature="e#1159#1219#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,31 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="S2ExampleObject.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Scene3/S2ExampleObject.h">
+      <file leaf-file-name="S2Synthesizer.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Scene3/S2Synthesizer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-              <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="S2NoisePlexus.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Scene3/S2NoisePlexus.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.888889" vertical-offset="0" max-vertical-offset="1260">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="S2NoiseSphere.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Scene3/S2NoiseSphere.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.888889" vertical-offset="0" max-vertical-offset="1110">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2094" max-vertical-offset="3255">
+              <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -115,32 +111,39 @@
       <file leaf-file-name="S2Synthesizer.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Scene3/S2Synthesizer.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.88889" vertical-offset="123" max-vertical-offset="945">
+            <state vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="945">
               <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="S2BaseObj.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Scene3/S2BaseObj.h">
+      <file leaf-file-name="S2NoiseSphere.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Scene3/S2NoiseSphere.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="39.0" vertical-offset="1353" max-vertical-offset="2175">
-              <caret line="20" column="20" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1110">
+              <caret line="18" column="27" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="S2BaseObj.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Scene3/S2BaseObj.cpp">
+      <file leaf-file-name="S2NoisePlexus.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Scene3/S2NoisePlexus.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.9306569" vertical-offset="2385" max-vertical-offset="6075">
-              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-              <folding>
-                <element signature="e#95#117#0" expanded="true" />
-                <element signature="e#1131#1187#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1260">
+              <caret line="18" column="27" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="S2ExampleObject.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Scene3/S2ExampleObject.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+              <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -193,17 +196,17 @@
         <option value="$PROJECT_DIR$/src/Utils/ScreenSetup.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/demoParticle.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S2BaseObj.h" />
-        <option value="$PROJECT_DIR$/src/Scene2.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene3/S2Drums.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S2CircleParticles.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene3/S2ExampleObject.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S2Synthesizer.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene3/S2NoiseSphere.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene3/S2NoisePlexus.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S2Synthesizer.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S2BaseObj.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene2.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene3/S2Drums.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene3/S2ExampleObject.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene3/S2NoisePlexus.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene3/S2NoiseSphere.cpp" />
       </list>
     </option>
   </component>
@@ -732,7 +735,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3346519" sideWeight="0.5007728" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16702586" sideWeight="0.5004042" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18871415" sideWeight="0.4996535" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18871415" sideWeight="0.4996535" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14703493" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1712204" sideWeight="0.4995958" order="0" side_tool="false" content_ui="combo" />
@@ -793,13 +796,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../addons/ofxTuioWrapper/src/ofxTuioClient.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.518518" vertical-offset="1564" max-vertical-offset="2550">
-          <caret line="161" column="27" selection-start-line="161" selection-start-column="18" selection-end-line="161" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TUIO/TuioPoint.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="624" max-vertical-offset="1950">
@@ -1018,6 +1014,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35058823" vertical-offset="302" max-vertical-offset="1185">
           <caret line="41" column="39" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1025,14 +1022,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3533569" vertical-offset="0" max-vertical-offset="849">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene2.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="2306" max-vertical-offset="7800">
-          <caret line="186" column="18" selection-start-line="186" selection-start-column="17" selection-end-line="186" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1061,66 +1050,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2Synthesizer.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2BaseObj.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.222222" vertical-offset="2094" max-vertical-offset="3255">
-          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+        <state vertical-scroll-proportion="39.0" vertical-offset="1353" max-vertical-offset="2175">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2NoiseSphere.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2BaseObj.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="4440">
-          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2358" max-vertical-offset="6075">
+          <caret line="177" column="1" selection-start-line="177" selection-start-column="1" selection-end-line="177" selection-end-column="1" />
+          <folding>
+            <element signature="e#95#117#0" expanded="true" />
+            <element signature="e#1131#1187#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene2.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2087" max-vertical-offset="7815">
+          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+          <folding>
+            <element signature="e#6159#6277#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/3d/of3dPrimitives.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.148149" vertical-offset="641" max-vertical-offset="4695">
+          <caret line="61" column="18" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="18" />
+          <folding>
+            <element signature="e#110#132#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S2NoisePlexus.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.111111" vertical-offset="159" max-vertical-offset="4815">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="4950">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding>
+            <element signature="e#99#125#0" expanded="true" />
+            <element signature="e#1979#2039#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2NoiseSphere.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="4575">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#99#125#0" expanded="true" />
+            <element signature="e#1468#1528#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2Synthesizer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2094" max-vertical-offset="3255">
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2ExampleObject.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2Synthesizer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.111111" vertical-offset="579" max-vertical-offset="2505">
-          <caret line="57" column="27" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="945">
+          <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2NoiseSphere.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3135" max-vertical-offset="4080">
-          <caret line="227" column="26" selection-start-line="227" selection-start-column="21" selection-end-line="227" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1110">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2Drums.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2NoisePlexus.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.111111" vertical-offset="2469" max-vertical-offset="3810">
-          <caret line="181" column="26" selection-start-line="181" selection-start-column="21" selection-end-line="181" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2Drums.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.333333" vertical-offset="0" max-vertical-offset="1095">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1215">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1260">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -1133,45 +1151,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2NoisePlexus.h">
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2ExampleObject.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.888889" vertical-offset="0" max-vertical-offset="1260">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2NoiseSphere.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.888889" vertical-offset="0" max-vertical-offset="1110">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2Synthesizer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.88889" vertical-offset="123" max-vertical-offset="945">
-          <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2BaseObj.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="39.0" vertical-offset="1353" max-vertical-offset="2175">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2BaseObj.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9306569" vertical-offset="2385" max-vertical-offset="6075">
-          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2655">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <element signature="e#95#117#0" expanded="true" />
-            <element signature="e#1131#1187#0" expanded="true" />
+            <element signature="e#101#129#0" expanded="true" />
+            <element signature="e#1159#1219#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1215">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="4200">
+          <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+          <folding>
+            <element signature="e#99#125#0" expanded="true" />
+            <element signature="e#1618#1678#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2Drums.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="246" max-vertical-offset="1095">
+          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2Drums.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49469966" vertical-offset="405" max-vertical-offset="3945">
+          <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+          <folding>
+            <element signature="e#93#113#0" expanded="true" />
+            <element signature="e#1416#1476#0" expanded="true" />
           </folding>
         </state>
       </provider>

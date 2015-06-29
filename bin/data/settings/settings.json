@@ -31,12 +31,16 @@
         "Show GUI": true,
         "Show FPS": true,
         "Show TUIO Cursors": true,
-        "Show Scene2 Background Video": true
+        "Show Background Videos": true,
+        "Enable VBO": true,
+        "Enable Vertical Sync": false
     },
     "Release Mode": {
         "Show GUI": false,
         "Show FPS": true,
         "Show TUIO Cursors": false,
-        "Show Scene2 Background Video": true
+        "Show Background Videos": true,
+        "Enable VBO": true,
+        "Enable Vertical Sync": false
     }
 }

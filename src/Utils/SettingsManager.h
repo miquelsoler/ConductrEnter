@@ -55,13 +55,17 @@ public:
     bool            debugShowGUI;
     bool            debugShowFPS;
     bool            debugShowTUIOCursors;
-    bool            debugShowScene2BackgroundVideo;
+    bool            debugShowVideos;
+    bool            debugEnableVBO;
+    bool            debugEnableVSync;
 
     // Release Mode
     bool            releaseShowGUI;
     bool            releaseShowFPS;
     bool            releaseShowTUIOCursors;
-    bool            releaseShowScene2BackgroundVideo;
+    bool            releaseShowVideos;
+    bool            releaseEnableVBO;
+    bool            releaseEnableVSync;
 
 private:
 

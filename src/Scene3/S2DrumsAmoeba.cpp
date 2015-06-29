@@ -7,6 +7,7 @@
 //
 
 #include "S2DrumsAmoeba.h"
+#include "SettingsManager.h"
 
 ///--------------------------------------------------------------
 S2DrumsAmoeba::S2DrumsAmoeba(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
@@ -47,6 +48,13 @@ void S2DrumsAmoeba::setup()
     sphere.setRadius(radius);
     sphere.setPosition(objPosition);
     camera.setTarget(sphere);
+    bool enableVBO;
+#ifdef OF_DEBUG
+    enableVBO = SettingsManager::getInstance().debugEnableVBO;
+#else
+    enableVBO = SettingsManager::getInstance().releaseEnableVBO;
+#endif
+    sphere.setUseVbo(enableVBO);
 
 
     // shader

@@ -8,6 +8,8 @@
 
 #include "S2NoisePlexus.h"
 
+#include "SettingsManager.h"
+
 ///--------------------------------------------------------------
 S2NoisePlexus::S2NoisePlexus(unsigned int numObjects, unsigned int objectIndex, float _viewOriginX, float _viewWidth, string _settingsPath) :
     S2BaseObj(numObjects, objectIndex, _viewOriginX, _viewWidth, _settingsPath)
@@ -60,6 +62,13 @@ void S2NoisePlexus::setup()
     sphere.setRadius(radius);
     sphere.setPosition(objPosition);
     sphere.setResolution(2);
+    bool enableVBO;
+#ifdef OF_DEBUG
+    enableVBO = SettingsManager::getInstance().debugEnableVBO;
+#else
+    enableVBO = SettingsManager::getInstance().releaseEnableVBO;
+#endif
+    sphere.setUseVbo(enableVBO);
 
     camera.setTarget(sphere);
 
