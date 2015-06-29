@@ -28,7 +28,7 @@ void ofApp::setup()
 #ifdef OF_DEBUG
     enableVerticalSync = SettingsManager::getInstance().debugEnableVSync;
 #else
-    enableVerticalSync = SettingsManager::getInstance().releaseEnableVsync;
+    enableVerticalSync = SettingsManager::getInstance().releaseEnableVSync;
 #endif
     ofSetVerticalSync(enableVerticalSync);
 
@@ -89,6 +89,7 @@ void ofApp::draw()
 
     if (showFPS)
     {
+        ofSetColor(ofColor::green);
         ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 20, ofGetHeight() - 15);
     }
     

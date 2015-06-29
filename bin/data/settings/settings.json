@@ -31,7 +31,7 @@
         "Show GUI": true,
         "Show FPS": true,
         "Show TUIO Cursors": true,
-        "Show Background Videos": true,
+        "Show Background Videos": false,
         "Enable VBO": true,
         "Enable Vertical Sync": false
     },

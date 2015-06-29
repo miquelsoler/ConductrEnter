@@ -63,6 +63,8 @@ protected:
     virtual void windowResized(ofResizeEventArgs &args) {}
 
     ScreenSetup *screenSetup;
+
+    bool enableBackgroundVideos;
 };
 
 #endif /* defined(__ConductrEnter__BaseScene__) */

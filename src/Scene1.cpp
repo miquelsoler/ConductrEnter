@@ -15,23 +15,29 @@
 ///--------------------------------------------------------------
 void Scene1::setup()
 {
-    /// VIDEO
-    if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/video_LoopIntroArtistes_v1.mov");
+    if (enableBackgroundVideos)
+    {
+        if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/video_LoopIntroArtistes_v1.mov");
 
-    videoPlayer.setLoopState(OF_LOOP_NONE);
-    videoState = Loop;
-    loopFrame = SettingsManager::getInstance().scene1IntroLoopFrame;
+        videoPlayer.setLoopState(OF_LOOP_NONE);
+        videoState = Loop;
+        loopFrame = SettingsManager::getInstance().scene1IntroLoopFrame;
+    }
+    else
+    {
+        sceneState = SceneStateArtists;
+    }
 
-    float artistZoneWidth = 0.052083333;
-    float artistZoneHeight = 0.03;
-    artistsZone.push_back(Scene1ArtistZone(0.119791667, 0.668518519, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.227604167, 0.437037037, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.2640625, 0.57037037, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.3578125, 0.675925926, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.60625, 0.638888889, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.682291667, 0.462962963, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.7703125, 0.564814815, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.834895833, 0.42962963, artistZoneWidth, artistZoneHeight));
+    float artistZoneWidth = 0.052083333f;
+    float artistZoneHeight = 0.03f;
+    artistsZone.push_back(Scene1ArtistZone(0.119791667f, 0.668518519f, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.227604167f, 0.437037037f, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.2640625f, 0.57037037f, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.3578125f, 0.675925926f, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.60625f, 0.638888889f, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.682291667f, 0.462962963f, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.7703125f, 0.564814815f, artistZoneWidth, artistZoneHeight));
+    artistsZone.push_back(Scene1ArtistZone(0.834895833f, 0.42962963f, artistZoneWidth, artistZoneHeight));
 }
 
 ///--------------------------------------------------------------
@@ -50,13 +56,23 @@ void Scene1::update()
 ///--------------------------------------------------------------
 void Scene1::updateEnter()
 {
-    sceneState = SceneStateIntro;
+    if (enableBackgroundVideos)
+    {
+        sceneState = SceneStateIntro;
+    }
+    else
+    {
+        sceneState = SceneStateArtists;
+    }
 
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene1::tuioPressed);
     ofAddListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene1::tuioReceiverPressed);
 
-    videoState = Loop;
-    videoPlayer.play();
+    if (enableBackgroundVideos)
+    {
+        videoState = Loop;
+        videoPlayer.play();
+    }
 
     BaseScene::updateEnter();
 }
@@ -72,6 +88,8 @@ void Scene1::updateExit()
 ///--------------------------------------------------------------
 void Scene1::updateStateIntro()
 {
+    if (!enableBackgroundVideos) return;
+
     videoPlayer.update();
     Tweenzor::update(int(ofGetElapsedTimeMillis()));
 
@@ -107,8 +125,9 @@ void Scene1::updateStateArtists()
 void Scene1::draw()
 {
     BaseScene::drawPre();
-    
-    videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
+
+    if (enableBackgroundVideos)
+        videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
 
 #ifdef OF_DEBUG
     if (sceneState == SceneStateArtists)
@@ -119,12 +138,20 @@ void Scene1::draw()
     }
 #endif
 
+    if (!enableBackgroundVideos)
+    {
+        ofSetColor(ofColor::green);
+        ofDrawBitmapString("[NOT SHOWING BACKGROUND VIDEOS]\n\n-Touch a box to start playground with a specific artist\n-Or press right key to go to 1st artist", 10, 20);
+    }
+
     BaseScene::drawPost();
 }
 
 ///--------------------------------------------------------------
 void Scene1::exit()
 {
+    if (!enableBackgroundVideos) return;
+
     videoPlayer.stop();
     videoPlayer.firstFrame();
 }
@@ -134,6 +161,8 @@ void Scene1::exit()
 ///--------------------------------------------------------------
 void Scene1::skipIntro()
 {
+    if (!enableBackgroundVideos) return;
+
     if (videoState == Loop)
     {
         // set video paused and add a tweenzor on videoHeaderFrame to drive it to the "end point" in x seconds
@@ -147,6 +176,8 @@ void Scene1::skipIntro()
 ///--------------------------------------------------------------
 void Scene1::onVideoComplete(float* arg)
 {
+    if (!enableBackgroundVideos) return;
+
     videoState = Exploding;
     videoPlayer.play();
 }
