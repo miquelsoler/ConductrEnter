@@ -37,6 +37,7 @@ private:
     virtual void updateTransitioning();
     virtual void drawTransitioning();
     void onCompleteTransitioning(float* arg);
+    void onCompleteTransitioningToActive(float* arg);
     
     virtual void initActive() {};
     virtual void updateActive();
@@ -61,18 +62,23 @@ private:
     ofParameter<bool>       showNormals;
     ofParameter<float>      offset;
 
-    float                   volumeCircleRadius;
-    float                   volumeCircleAlpha;
+    float                   stableOffset;
 
-    // Transitioning state
-    float                   stableNoiseFrequency;
-    float                   activeNoiseFrequency;
+    float                   inactiveNoiseFrequency;
+    float                   inactiveCircleRadius;
+    float                   inactiveCircleAlpha;
+
+    float                   transitionCircleRadius;
+    float                   transitionCircleAlpha;
     
-    float                   stableCircleRadius;
-    float                   stableCircleAlpha;
     float                   activeCircleRadius;
     float                   activeCircleAlpha;
+    float                   activeNoiseFrequency;
 
+    float                   maxCircleRadius;
+    float                   maxCircleAlpha;
+    float                   maxOffset;
+    
 };
 
 #endif /* defined(__ConductrEnter__S2DrumsAmoeba__) */

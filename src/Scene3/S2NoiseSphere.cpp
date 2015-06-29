@@ -160,7 +160,7 @@ void S2NoiseSphere::onCompleteToActive(float* arg)
     
     Tweenzor::add((float*)&noiseFrequency.get(),noiseFrequency ,activeNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
 
-//    cout << "ON COMPLETE TO ACTIVE" << endl;
+//    cout << "ON COMPLETE TRANSITION SO TO ACTIVE" << endl;
     nextState = S3ObjStateActive;
     shouldChangeState = true;
     
@@ -170,7 +170,8 @@ void S2NoiseSphere::onCompleteToActive(float* arg)
 void S2NoiseSphere::initActive()
 {
 //    cout << " INIT ACTIVE !!!! " << endl;
-    
+    Tweenzor::resetAllTweens();
+
 }
 
 
@@ -180,39 +181,9 @@ void S2NoiseSphere::updateActive()
     Tweenzor::update(int(ofGetElapsedTimeMillis()));
     
     sphere.rotate(0.3, 0.0, 1.0, 0.0);
-    // set sphere radius on sinus
-/*
-    if(isTouchDown) sphere.setRadius(fabs(sin(ofGetElapsedTimef()*3)*80)+150);
-    else sphere.setRadius(150);
-    sphere.setRadius(radiusTween + fabs(sin(ofGetElapsedTimef()*3)*80) );
-*/
 
     // perlin noise
     float time = ofGetElapsedTimef();
-
-/// trying to change color for each vertex ...
-//    vector<ofFloatColor> sphereVertexColors = sphere.getMesh().getColors();
-//    for(int i = 0 ; i< sphereVertexColors.size();i++)
-//    {
-//        sphere.getMesh().setColor(i,ofFloatColor(ofRandomf(),ofRandomf(),ofRandomf()));
-//    }
-
-//    ofVec3f triangleNormal;
-//    int size = (int)sphereFacesOriginal.size();
-//
-//    for (int i=0; i<size; i=i+1) {
-//
-//        for (int j=0; j<3; j++) {
-//            //            trianglesCurrent[i].setVertex(j, trianglesOriginal[i].getVertex(j) - (vertexDistance*noises[i])*triangleNormal);
-//
-//            vertexOffset = 10 * ofSignedNoise(i,i+j,ofGetElapsedTimef());
-//
-//            ofVec3f newVertex =sphereFacesOriginal[i].getVertex(j);
-//
-//            sphereFacesCurrent[i].setVertex(j, sphereFacesOriginal[i].getVertex(j) - vertexOffset*triangleNormal);
-//        }
-//    }
-//    sphere.getMesh().setFromTriangles(sphereFacesCurrent);
 
     for(int i=0;i<vertexOriginals.size();i++)
     {
@@ -270,7 +241,22 @@ void S2NoiseSphere::drawActive()
 
         // sphere
         ofSetColor(ofColor::white);
-
+        
+//        ofColor c;
+//        switch(currentState)
+//        {
+//            case S3ObjStateInactive:
+//                c = ofColor(255,0,0);
+//                break;
+//            case S3ObjStateTransitioning:
+//                c = ofColor(255,128,0);
+//                break;
+//            case S3ObjStateActive:
+//                c = ofColor(0,255,0);
+//                break;
+//        }
+//        ofSetColor(c);
+        
         sphere.setScale(1.01f);
         sphere.drawVertices();
         sphere.setScale(1.f);
@@ -295,5 +281,6 @@ void S2NoiseSphere::setPositionFromScreenCoords(int screenX, int screenY)
 void S2NoiseSphere::volumeChanged(float &newVolume)
 {
     float newOffset = ofMap(newVolume,0.0,1.0,stableOffset,40.0);
-    Tweenzor::add((float*)&offset.get(),offset ,newOffset, 0, 0.1, EASE_IN_OUT_SINE);
+    //Tweenzor::add((float*)&offset.get(),offset ,newOffset, 0, 0.1, EASE_IN_OUT_SINE);
+    offset = newOffset;
 }

@@ -5,6 +5,7 @@
     <Loop_Initial_Angle>0</Loop_Initial_Angle>
     <Resolution>26</Resolution>
 	<Point_Size>1</Point_Size>
-    <activate>1</activate>
+    <activate>0</activate>
     <Volume_Scale>4</Volume_Scale>
+<Settings/>
 </Settings>

@@ -35,8 +35,7 @@ void S2DrumsAmoeba::loadSettings()
     
     gui.loadFromFile(settingsPath);
     
-    stableNoiseFrequency = noiseFrequency;
-    cout << "Amoeba : stable noise freq. on load : " << noiseFrequency << endl;
+    //cout << "Amoeba : stable noise freq. on load : " << noiseFrequency << endl;
 
 }
 
@@ -77,6 +76,13 @@ void S2DrumsAmoeba::setup()
     }
 
     isFirstSetup = false;
+    
+    // Max offset is the minimum offset applied with volume reaction
+    // stable offset is the inactive state one ... it copys from offset at startup (load xml)
+    maxOffset = -18;
+    stableOffset = offset;
+
+    
     Tweenzor::resetAllTweens();
 
 }
@@ -85,27 +91,35 @@ void S2DrumsAmoeba::setup()
 ///--------------------------------------------------------------
 void S2DrumsAmoeba::initInactive()
 {
-    activeNoiseFrequency = 20;
     
-    stableCircleRadius = 0;
-    stableCircleAlpha = 0;
+    colorImageAlpha = 0;
+    
+    //cout << "INIT INACTIVE " << endl;
+    inactiveNoiseFrequency = 100;
+    inactiveCircleRadius = 0;
+    inactiveCircleAlpha = 0;
 
-    activeCircleAlpha = 250;
-    activeCircleRadius = whiteCircleRadius*3;
+    transitionCircleRadius = 0;
+    transitionCircleAlpha = 255;
+    activeNoiseFrequency = 20;
+
+    maxCircleRadius = 50;
+    maxCircleAlpha = 250;
+    
 
     // noise set to original position
-    Tweenzor::add((float*)&noiseFrequency.get(),noiseFrequency ,stableNoiseFrequency, 0, 0.3, EASE_IN_OUT_SINE);
+    Tweenzor::add((float*)&noiseFrequency.get(),noiseFrequency ,inactiveNoiseFrequency, 0, 0.3, EASE_IN_OUT_SINE);
 
     // white circle set to original position
-    Tweenzor::add(&volumeCircleRadius, volumeCircleRadius, stableCircleRadius, 0, 0.6, EASE_IN_OUT_SINE);
-    Tweenzor::add(&volumeCircleAlpha , volumeCircleAlpha,  stableCircleAlpha,  0, 0.6, EASE_IN_OUT_SINE);
+    Tweenzor::add(&activeCircleRadius, activeCircleRadius, inactiveCircleRadius, 0, 0.6, EASE_IN_OUT_SINE);
+    Tweenzor::add(&activeCircleAlpha , activeCircleAlpha,  inactiveCircleAlpha,  0, 0.6, EASE_IN_OUT_SINE);
 
 }
 ///--------------------------------------------------------------
 void S2DrumsAmoeba::updateInactive()
 {
+    //cout << "Update INACTIVE " << endl;
     updateActive(); // Delete this line if it needs a custom update
-    
     if(shouldChangeState)
     {
         //cout << " CHANGE FROM INACTIVE TO NEXT TRANSITION" << endl;
@@ -117,43 +131,59 @@ void S2DrumsAmoeba::updateInactive()
 ///--------------------------------------------------------------
 void S2DrumsAmoeba::initTransitioning()
 {
+    //cout << "INIT TRANSITION" << endl;
     float delay = 0.0f;
     float duration = 0.4f;
 
     // noise frequency
-    Tweenzor::add((float*)&noiseFrequency.get(), stableNoiseFrequency, activeNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
+    Tweenzor::add((float*)&noiseFrequency.get(), inactiveNoiseFrequency, activeNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
     Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&noiseFrequency.get()), this, &S2DrumsAmoeba::onCompleteTransitioning);
 
     // white circle
-    Tweenzor::add(&volumeCircleRadius, whiteCircleRadius, activeCircleRadius, delay, duration, EASE_IN_OUT_SINE);
-    Tweenzor::add(&volumeCircleAlpha, activeCircleAlpha, 0.0f, delay, duration, EASE_IN_OUT_SINE);
+    Tweenzor::add(&transitionCircleRadius, 0, maxCircleRadius, delay, duration, EASE_IN_OUT_SINE);
+    Tweenzor::add(&transitionCircleAlpha, maxCircleAlpha, 0.0f, delay, duration, EASE_IN_OUT_SINE);
 
 }
 
 ///--------------------------------------------------------------
 void S2DrumsAmoeba::updateTransitioning()
 {
-    Tweenzor::update(int(ofGetElapsedTimeMillis()));
+    //cout << "UPDATE TRANSITION" << endl;
     updateActive(); // Delete this line if it needs a custom update
 }
 
 ///--------------------------------------------------------------
 void S2DrumsAmoeba::onCompleteTransitioning(float* arg)
 {
+
     float delay = 0.0f;
     float duration = 0.4f;
-    Tweenzor::add((float*)&noiseFrequency.get(),noiseFrequency ,stableNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
+    Tweenzor::add((float*)&noiseFrequency.get(),noiseFrequency ,inactiveNoiseFrequency, delay, duration, EASE_IN_OUT_SINE);
+    Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&noiseFrequency.get()), this, &S2DrumsAmoeba::onCompleteTransitioningToActive);
+
+    ////cout << "on COMPLETE TRANSITION ... so NEW TWWEEN TO ACTIVE COÑO!!" << endl;
+}
+
+///--------------------------------------------------------------
+void S2DrumsAmoeba::onCompleteTransitioningToActive(float* arg)
+{
+    nextState = S3ObjStateActive;
+    shouldChangeState = true;
+    changeState();
     
-    if(shouldChangeState)
-    {
-        //        cout << " CHANGE FROM TRANSITION TO NEXT ACTIVE" << endl;
-        changeState();
-    }
+    transitionCircleRadius = 0;
+    transitionCircleAlpha = 255;
 }
 
 ///--------------------------------------------------------------
 void S2DrumsAmoeba::updateActive()
 {
+    Tweenzor::update(int(ofGetElapsedTimeMillis()));
+
+    inactiveNoiseFrequency = inactiveNoiseFrequency;
+    
+    
+    
     // perlin noise time
     float time = ofGetElapsedTimef();
 
@@ -205,6 +235,7 @@ void S2DrumsAmoeba::drawActive()
         sphere.setResolution(4);
 
         ofSetColor(ofColor::white);
+        
         shader.begin();
         {
             shader.setUniformTexture("tex",noiseImage.getTextureReference(),0);
@@ -229,13 +260,21 @@ void S2DrumsAmoeba::drawActive()
         
         
         // Draw transitioning circle
-        if ((currentState == S3ObjStateTransitioning) || (currentState== S3ObjStateInactive))
+        if ((currentState == S3ObjStateTransitioning))
         {
             // Circle
             ofFill();
             ofDisableLighting();
-            ofSetColor(255, 255, 255, int(volumeCircleAlpha));
-            ofCircle(objPosition.x, objPosition.y, 0, volumeCircleRadius);
+            ofSetColor(255, 255, 255, transitionCircleAlpha);
+            ofCircle(objPosition.x, objPosition.y, 0, transitionCircleRadius);
+        }
+        else if (currentState == S3ObjStateActive)
+        {
+            // Circle
+            ofFill();
+            ofDisableLighting();
+            ofSetColor(255, 255, 255, activeCircleAlpha);
+            ofCircle(objPosition.x, objPosition.y, 0, activeCircleRadius);
         }
 
         ofDisableDepthTest();
@@ -244,6 +283,23 @@ void S2DrumsAmoeba::drawActive()
         drawPinchColor();
         drawWhiteCircle();
         drawLoop();
+        
+//        ofColor c;
+//        switch(currentState)
+//        {
+//            case S3ObjStateInactive:
+//                c = ofColor(255,0,0);
+//                break;
+//            case S3ObjStateTransitioning:
+//                c = ofColor(255,128,0);
+//                break;
+//            case S3ObjStateActive:
+//                c = ofColor(0,255,0);
+//                break;
+//        }
+//        ofSetColor(c);
+//
+//        ofCircle(0,0,200);
 
     }
     camera.end();
@@ -253,15 +309,19 @@ void S2DrumsAmoeba::drawActive()
 void S2DrumsAmoeba::volumeChanged(float &newVolume)
 {
     
-    float toRadius = ofMap(newVolume,0.0,1.0,0,activeCircleRadius);
-    float toAlpha = ofMap(newVolume,0.0,1.0,0,activeCircleAlpha);
-    float toFrequency = ofMap(newVolume,0.0,1.0,stableNoiseFrequency,18);
-    
+    float toRadius = ofMap(newVolume,0.0,1.0,0,maxCircleRadius);
+    float toAlpha = ofMap(newVolume,0.0,1.0,0,maxCircleAlpha);
+    float toFrequency = ofMap(newVolume,0.0,1.0,40,1);
+    float toOffset = ofMap(newVolume,0.0,1.0,stableOffset,maxOffset);
     // white circle
-    Tweenzor::add(&volumeCircleRadius, volumeCircleRadius, toRadius, 0, 0.1, EASE_IN_OUT_SINE);
-    Tweenzor::add(&volumeCircleAlpha, volumeCircleAlpha, toAlpha, 0, 0.1, EASE_IN_OUT_SINE);
-    Tweenzor::add((float*)&noiseFrequency.get(), noiseFrequency, toFrequency, 0, 0.1, EASE_IN_OUT_SINE);
+//    Tweenzor::add(&activeCircleRadius, activeCircleRadius, toRadius, 0, 0.1, EASE_IN_OUT_SINE);
+//    Tweenzor::add(&activeCircleAlpha, activeCircleAlpha, toAlpha, 0, 0.1, EASE_IN_OUT_SINE);
+//    Tweenzor::add((float*)&noiseFrequency.get(), noiseFrequency, toFrequency, 0, 0.1, EASE_IN_OUT_SINE);
 
+    activeCircleRadius = toRadius;
+    activeCircleAlpha = toAlpha;
+    noiseFrequency = toFrequency;
+    offset=toOffset;
 }
 
 

@@ -24,8 +24,11 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 {
     camera.disableMouseInput();
 
-    colorImage.loadImage("objects/color_circle.png");
+    colorImage.loadImage("objects/colorGradientConductr.png");
     colorImage.setAnchorPercent(0.5f, 0.5f);
+
+    circleImage.loadImage("objects/color_circle.png");
+    circleImage.setAnchorPercent(0.5f, 0.5f);
 
     colorImageAlphaMin = SettingsManager::getInstance().pinchCircleAlphaMin;
     colorImageAlphaMax = SettingsManager::getInstance().pinchCircleAlphaMax;
@@ -174,7 +177,7 @@ void S2BaseObj::drawPinchCircle()
     ofFill();
     ofDisableLighting();
     ofSetColor(255, 2255, 255, colorImageAlpha);
-    colorImage.draw(objPosition, colorImageSize, colorImageSize);
+    circleImage.draw(objPosition, colorImageSize, colorImageSize);
 }
 
 ///--------------------------------------------------------------
@@ -183,10 +186,12 @@ void S2BaseObj::drawPinchColor()
     ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
     ofFill();
     ofDisableLighting();
-    ofSetColor(255, 255, 255, colorImageAlpha);
-    colorImage.draw(objPosition, colorImageSize *2, colorImageSize *2);
+    ofSetColor(255*colorImageAlpha, 255*colorImageAlpha, 255*colorImageAlpha, colorImageAlpha);
+    colorImage.draw(objPosition,200 ,200 );
     ofDisableBlendMode();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
+    
+    cout << "coloImageAlpha " << colorImageAlpha << endl;
 }
 
 ///--------------------------------------------------------------
@@ -312,7 +317,7 @@ void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 
     float xOffset = fabs(objPosition.x);
     colorImageSize = whiteCircleRadius + xOffset;
-    colorImageAlpha = (unsigned int)ofMap(xOffset, whiteCircleRadius, whiteCircleRadius*4.0f, colorImageAlphaMin, colorImageAlphaMax, true);
+    colorImageAlpha = (unsigned int)ofMap(xOffset, 0, whiteCircleRadius*4.0f, colorImageAlphaMin, colorImageAlphaMax, true);
     objPosition.x = oldX;
 }
 

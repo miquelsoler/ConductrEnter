@@ -10,5 +10,6 @@
     <Treshold_High>40</Treshold_High>
     <offset>6</offset>
 	<mode>1</mode>
-    <activate>1</activate>
+    <activate>0</activate>
+<Settings/>
 </Settings>

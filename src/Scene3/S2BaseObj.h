@@ -115,6 +115,7 @@ protected:
 
     // Circles
     ofParameter<float>      whiteCircleRadius;
+    ofImage                 circleImage;
     ofImage                 colorImage;
     float                   colorImageSize;
     unsigned int            colorImageAlpha;

@@ -24,14 +24,14 @@
         "Client Port": 9050
     },
     "Pinch": {
-        "Circle Alpha Min": 10,
+        "Circle Alpha Min": 0,
         "Circle Alpha Max": 255
     },
     "Debug Mode": {
         "Show GUI": true,
         "Show FPS": true,
         "Show TUIO Cursors": true,
-        "Show Background Videos": true,
+        "Show Background Videos": false,
         "Enable VBO": true,
         "Enable Vertical Sync": false,
         "Enable Demo Objects": false
@@ -40,7 +40,7 @@
         "Show GUI": false,
         "Show FPS": false,
         "Show TUIO Cursors": false,
-        "Show Background Videos": true,
+        "Show Background Videos": false,
         "Enable VBO": true,
         "Enable Vertical Sync": true,
         "Enable Demo Objects": false
