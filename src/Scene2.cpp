@@ -95,7 +95,8 @@ Scene2::~Scene2()
 ///--------------------------------------------------------------
 void Scene2::setup()
 {
-    /// VIDEO
+    if (!enableBackgroundVideos) return;
+
     if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/Loop_background_Playground_v3.mov");
     videoPlayer.setLoopState(OF_LOOP_NORMAL);
 }
@@ -103,8 +104,11 @@ void Scene2::setup()
 ///--------------------------------------------------------------
 void Scene2::update()
 {
-    if (videoPlayer.isPlaying())
-        videoPlayer.update();
+    if (enableBackgroundVideos)
+    {
+        if (videoPlayer.isPlaying())
+            videoPlayer.update();
+    }
 
     abletonManager->update();
     for (unsigned int i = 0; i < num_objects; ++i)
@@ -133,7 +137,8 @@ void Scene2::updateEnter()
     // Stop all playing clips, just in case (for demo purposes)
     abletonManager->stopAll();
 
-    videoPlayer.play();
+    if (enableBackgroundVideos)
+        videoPlayer.play();
 
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->setup();
@@ -166,15 +171,10 @@ void Scene2::draw()
 {
     BaseScene::drawPre();
 
-    if (videoPlayer.isPlaying())
-    {
-#ifdef OF_DEBUG
-        if (SettingsManager::getInstance().debugShowVideos)
+    if (enableBackgroundVideos) {
+        if (videoPlayer.isPlaying()) {
             videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
-#else
-        if (SettingsManager::getInstance().releaseShowVideos)
-            videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
-#endif
+        }
     }
 
     ofEnableBlendMode(OF_BLENDMODE_ADD);

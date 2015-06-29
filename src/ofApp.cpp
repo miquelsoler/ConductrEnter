@@ -89,7 +89,7 @@ void ofApp::draw()
 
     if (showFPS)
     {
-        ofSetColor(ofColor::green);
+        ofSetColor(ofColor::gray);
         ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 20, ofGetHeight() - 15);
     }
     
