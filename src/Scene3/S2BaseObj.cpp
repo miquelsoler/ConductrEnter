@@ -191,7 +191,6 @@ void S2BaseObj::drawPinchColor()
     ofDisableBlendMode();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     
-    cout << "coloImageAlpha " << colorImageAlpha << endl;
 }
 
 ///--------------------------------------------------------------
