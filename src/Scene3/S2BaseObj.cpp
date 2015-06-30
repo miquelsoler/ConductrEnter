@@ -181,11 +181,16 @@ void S2BaseObj::drawPinchCircle()
 ///--------------------------------------------------------------
 void S2BaseObj::drawPinchColor()
 {
+    glEnable(GL_ALPHA_TEST);
+    glAlphaFunc(GL_GREATER, 0.0f);
+
     ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
     ofSetColor(255*colorImageAlpha, 255*colorImageAlpha, 255*colorImageAlpha, colorImageAlpha);
     colorImage.draw(objPosition, circleImageSize*2, circleImageSize*2);
     ofDisableBlendMode();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
+
+    glDisable(GL_ALPHA_TEST);
 }
 
 ///--------------------------------------------------------------
