@@ -251,7 +251,7 @@ void Scene2::setArtistIndex(int _artistIndex)
 *          Add TUIO cursor id to object
 *          Enable pinch
 */
-void Scene2::handlePress(int x, int y, TuioCursor *cursor)
+void Scene2::handlePress(InteractionSource interactionSource, int x, int y, TuioCursor *cursor)
 {
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
@@ -261,10 +261,12 @@ void Scene2::handlePress(int x, int y, TuioCursor *cursor)
 
     bool isPicked = object->getIsPicked();
 
-    if (cursor == NULL) // Coming from mouse
+    if (interactionSource == InteractionSourceMouse)
     {
         if (isPicked) return;
         if (!object->pick(x, y)) return;
+
+        mouseObjectIndex = pressedObjectIndex;
 
         // Play Ableton clip
         int track = pressedObjectIndex;
@@ -287,29 +289,27 @@ void Scene2::handlePress(int x, int y, TuioCursor *cursor)
 
             // Add TUIO cursor
             object->addCursor(cursor);
-//            object->enablePinch(false);
         }
         else
-        {   // Already picked: add cursor and enable pinch
+        {
             object->addCursor(cursor);
-//            object->enablePinch(true);
         }
     }
 }
 
 ///--------------------------------------------------------------
-void Scene2::handleRelease(int x, int y, int cursorId)
+void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, int cursorId)
 {
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
 
     int pressedObjectIndex;
 
-    if (cursorId == -1)
+    if (interactionSource == InteractionSourceMouse)
     {
-        pressedObjectIndex = getObjectIndexAtX(x);
+        pressedObjectIndex = mouseObjectIndex;
     }
-    else
+    else // Coming from TUIO
     {
         pressedObjectIndex = getObjectIndetWithCursor(cursorId);
         if (pressedObjectIndex == -1)
@@ -323,7 +323,6 @@ void Scene2::handleRelease(int x, int y, int cursorId)
     // Remove TUIO cursors and disable pinch
     object->removeLastCursor();
     object->disableColorImage();
-//    object->enablePinch(false);
     if (!object->getIsPicked()) return;
     object->unpick();
 
@@ -336,39 +335,43 @@ void Scene2::handleRelease(int x, int y, int cursorId)
 }
 
 ///--------------------------------------------------------------
-void Scene2::handleDrag(int x, int y, int cursorId)
+void Scene2::handleDrag(InteractionSource interactionSource, int x, int y, int cursorId)
 {
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
 
     unsigned int pressedObjectIndex = getObjectIndexAtX(x);
+
     S2BaseObj *object = objects[pressedObjectIndex];
 
     if (!object->getIsPicked()) return;
 
-//    if (!object->isPinchEnabled())
-//    {
-        // Send message to Ableton
+    // Send message to Ableton
 
-        int pressedClipIndex = getClipIndexAtY(y) + (artistIndex * artistOffset) + SettingsManager::getInstance().abletonFirstClipIndex;
-        if (pressedClipIndex != currentClipIndex)
-        {
-            int track = pressedObjectIndex;
+    int pressedClipIndex = getClipIndexAtY(y) + (artistIndex * artistOffset) + SettingsManager::getInstance().abletonFirstClipIndex;
+    if (pressedClipIndex != currentClipIndex)
+    {
+        int track = pressedObjectIndex;
 
-            abletonManager->stopClip(currentClipIndex, track);
-            currentClipIndex = (unsigned int)pressedClipIndex;
-            // Play Ableton clip
-            abletonManager->playClip(currentClipIndex, track);
-        }
+        abletonManager->stopClip(currentClipIndex, track);
+        currentClipIndex = (unsigned int)pressedClipIndex;
+        // Play Ableton clip
+        abletonManager->playClip(currentClipIndex, track);
+    }
 
     // Position object (only if mouse, or if TUIO and cursor is the first one -to avoid crazy repositioning-
     TuioCursor *firstCursor = object->getFirstCursor();
-    if ((firstCursor == NULL) || (firstCursor->getCursorID() == cursorId))
+
+    bool mouseCondition = (interactionSource == InteractionSourceMouse);
+    bool tuioCondition = (interactionSource == InteractionSourceTuio) && ((firstCursor == NULL) || (firstCursor->getCursorID() == cursorId));
+
+    if (mouseCondition || tuioCondition)
     {
         object->setPositionFromScreenCoords(x, y);
     }
 
-//        /**/
+//        // Update Ableton track
+//
 //        int device = 0;
 //        int parameter = pressedObjectIndex + 1;
 //        int value;
@@ -380,24 +383,6 @@ void Scene2::handleDrag(int x, int y, int cursorId)
 //        }
 //
 //        abletonManager->setDeviceParameter(device, parameter, value);
-
-//    }
-//    else
-//    {
-//        TuioCursor *firstCursor = object->getFirstCursor();
-//        TuioCursor *lastCursor = object->getLastCursor();
-//
-//        if (lastCursor != firstCursor) // Probably unnecessary, because if pinch is enabled, there should be already 2 or more cursors
-//        {
-//            ofVec2f tuioCoords = TUIOHandler::screenToTuioCoords(x, y);
-//
-//            if (cursorId == firstCursor->getCursorID())
-//                firstCursor->update(tuioCoords.x, tuioCoords.y);
-//            else
-//                lastCursor->update(tuioCoords.x, tuioCoords.y);
-//        }
-//        object->updatePinch();
-//    }
 }
 
 #pragma mark - Touch events
@@ -408,21 +393,21 @@ void Scene2::tuioPressed(ofTouchEventArgs &touch)
     TuioCursor *myCursor = makeCursor(touch.id, touch.x, touch.y);
 
     ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
-    handlePress((int) screenCoords.x, (int) screenCoords.y, myCursor);
+    handlePress(InteractionSourceTuio, int(screenCoords.x), int(screenCoords.y), myCursor);
 }
 
 ///--------------------------------------------------------------
 void Scene2::tuioReleased(ofTouchEventArgs &touch)
 {
     ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
-    handleRelease((int) screenCoords.x, (int) screenCoords.y, touch.id);
+    handleRelease(InteractionSourceTuio, int(screenCoords.x), int(screenCoords.y), touch.id);
 }
 
 ///--------------------------------------------------------------
 void Scene2::tuioDragged(ofTouchEventArgs &touch)
 {
     ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(touch.x, touch.y);
-    handleDrag(int(screenCoords.x), int(screenCoords.y), touch.id);
+    handleDrag(InteractionSourceTuio, int(screenCoords.x), int(screenCoords.y), touch.id);
 }
 
 ///--------------------------------------------------------------
@@ -432,21 +417,21 @@ void Scene2::tuioReceiverPressed(TUIOReceiverEvent &cursor)
                                       cursor.x, cursor.y, cursor.xSpeed, cursor.ySpeed, cursor.motionAccel);
 
     ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(cursor.x, cursor.y);
-    handlePress(int(screenCoords.x), int(screenCoords.y), myCursor);
+    handlePress(InteractionSourceTuio, int(screenCoords.x), int(screenCoords.y), myCursor);
 }
 
 ///--------------------------------------------------------------
 void Scene2::tuioReceiverReleased(TUIOReceiverEvent &cursor)
 {
     ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(cursor.x, cursor.y);
-    handleRelease(int(screenCoords.x), int(screenCoords.y), cursor.cursorId);
+    handleRelease(InteractionSourceTuio, int(screenCoords.x), int(screenCoords.y), cursor.cursorId);
 }
 
 ///--------------------------------------------------------------
 void Scene2::tuioReceiverDragged(TUIOReceiverEvent &cursor)
 {
     ofVec2f screenCoords = TUIOHandler::tuioToScreenCoords(cursor.x, cursor.y);
-    handleDrag(int(screenCoords.x), int(screenCoords.y), cursor.cursorId);
+    handleDrag(InteractionSourceTuio, int(screenCoords.x), int(screenCoords.y), cursor.cursorId);
 }
 
 #pragma mark - Mouse events
@@ -454,19 +439,19 @@ void Scene2::tuioReceiverDragged(TUIOReceiverEvent &cursor)
 ///--------------------------------------------------------------
 void Scene2::mouseDragged(int x, int y, int button)
 {
-    handleDrag(x, y);
+    handleDrag(InteractionSourceMouse, x, y);
 }
 
 ///--------------------------------------------------------------
 void Scene2::mousePressed(int x, int y, int button)
 {
-    handlePress(x, y);
+    handlePress(InteractionSourceMouse, x, y);
 }
 
 ///--------------------------------------------------------------
 void Scene2::mouseReleased(int x, int y, int button)
 {
-    handleRelease(x, y);
+    handleRelease(InteractionSourceMouse, x, y);
 }
 
 #pragma mark - Some listeners

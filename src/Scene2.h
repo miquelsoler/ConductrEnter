@@ -21,6 +21,7 @@
 #include "TuioCursor.h"
 #include "ofxSimpleTimer.h"
 
+
 class Scene2 : public BaseScene
 {
 public:
@@ -55,9 +56,15 @@ private:
     virtual void mouseReleased(int x, int y, int button);
 
     // Interaction handling
-    void handlePress(int x, int y, TuioCursor *cursor = NULL);
-    void handleRelease(int x, int y, int cursorId = -1); // CursorId is the id received during the release event
-    void handleDrag(int x, int y, int cursorId = -1); // CursorId is the id received during the drag event
+    typedef enum
+    {
+        InteractionSourceTuio,
+        InteractionSourceMouse
+    } InteractionSource;
+
+    void handlePress(InteractionSource interactionSource, int x, int y, TuioCursor *cursor = NULL);
+    void handleRelease(InteractionSource interactionSource, int x, int y, int cursorId = -1); // CursorId is the id received during the release event
+    void handleDrag(InteractionSource interactionSource, int x, int y, int cursorId = -1); // CursorId is the id received during the drag event
 
     // Listeners
     virtual void windowResized(ofResizeEventArgs &args);
@@ -71,6 +78,7 @@ private:
     TuioCursor *makeCursor(int sourceId, int sessionId, int cursorId, float x, float y, float xSpeed, float ySpeed, float motionAccel);
 
     int                     artistIndex = 0;
+    unsigned int            mouseObjectIndex;
 
     AbletonManager*         abletonManager;
     unsigned int            currentClipIndex;
