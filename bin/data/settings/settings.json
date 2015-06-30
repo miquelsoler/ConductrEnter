@@ -41,9 +41,9 @@
         "Show GUI": false,
         "Show FPS": false,
         "Show TUIO Cursors": false,
-        "Show Background Videos": false,
+        "Show Background Videos": true,
         "Enable VBO": true,
-        "Enable Vertical Sync": true,
+        "Enable Vertical Sync": false,
         "Enable Demo Objects": false
     }
 }

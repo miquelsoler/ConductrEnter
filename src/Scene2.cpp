@@ -318,10 +318,16 @@ void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, in
         }
     }
 
+    if ((pressedObjectIndex < 0) || (pressedObjectIndex >= num_objects)) return;
+
     S2BaseObj *object = objects[pressedObjectIndex];
+    if (object == NULL) return;
 
     // Remove TUIO cursors and disable pinch
-    object->removeLastCursor();
+
+    if (interactionSource == InteractionSourceTuio)
+        object->removeLastCursor();
+    
     object->disableColorImage();
     if (!object->getIsPicked()) return;
     object->unpick();
