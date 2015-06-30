@@ -148,7 +148,6 @@ void S2Synthesizer::drawActive()
     {
         // Grey circle
         ofFill();
-        ofDisableLighting();
         ofSetColor(255, 255, 255, int(greyCircleAplha));
         ofCircle(objPosition.x, objPosition.y, 0, greyCircleRadius);
 
@@ -156,7 +155,6 @@ void S2Synthesizer::drawActive()
         if (currentState == S3ObjStateTransitioning)
         {
             ofFill();
-            ofDisableLighting();
             ofSetColor(255, 255, 255, int(transitioningCircleAplha));
             ofCircle(objPosition.x, objPosition.y, 0, transitioningCircleRadius);
         }

@@ -166,7 +166,6 @@ void S2BaseObj::drawLoop()
 void S2BaseObj::drawWhiteCircle()
 {
     ofFill();
-    ofDisableLighting();
     ofSetColor(ofColor::white);
     ofCircle(objPosition.x, objPosition.y, 0, whiteCircleRadius);
 }
@@ -175,7 +174,6 @@ void S2BaseObj::drawWhiteCircle()
 void S2BaseObj::drawPinchCircle()
 {
     ofFill();
-    ofDisableLighting();
     ofSetColor(255, 2255, 255, colorImageAlpha);
     circleImage.draw(objPosition, circleImageSize, circleImageSize);
 }
@@ -184,13 +182,10 @@ void S2BaseObj::drawPinchCircle()
 void S2BaseObj::drawPinchColor()
 {
     ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
-    ofFill();
-    ofDisableLighting();
     ofSetColor(255*colorImageAlpha, 255*colorImageAlpha, 255*colorImageAlpha, colorImageAlpha);
     colorImage.draw(objPosition, circleImageSize*2, circleImageSize*2);
     ofDisableBlendMode();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
-    
 }
 
 ///--------------------------------------------------------------

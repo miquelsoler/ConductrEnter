@@ -188,17 +188,12 @@ void S2Drums::drawActive()
 
             // Circle
             ofFill();
-            ofDisableLighting();
             ofSetColor(255, 255, 255, int(transitioningCircleAlpha));
             ofCircle(objPosition.x, objPosition.y, 0, transitioningCircleRadius);
-
         }
 
-//        if (pinchEnabled)
-//        {
-            drawPinchCircle();
-            drawPinchColor();
-//        }
+        drawPinchCircle();
+        drawPinchColor();
         drawWhiteCircle();
         drawLoop();
     }

@@ -264,7 +264,6 @@ void S2DrumsAmoeba::drawActive()
         {
             // Circle
             ofFill();
-            ofDisableLighting();
             ofSetColor(255, 255, 255, transitionCircleAlpha);
             ofCircle(objPosition.x, objPosition.y, 0, transitionCircleRadius);
         }
@@ -272,7 +271,6 @@ void S2DrumsAmoeba::drawActive()
         {
             // Circle
             ofFill();
-            ofDisableLighting();
             ofSetColor(255, 255, 255, activeCircleAlpha);
             ofCircle(objPosition.x, objPosition.y, 0, activeCircleRadius);
         }
