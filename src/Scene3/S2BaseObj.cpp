@@ -24,7 +24,7 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 {
     camera.disableMouseInput();
 
-    colorImage.loadImage("objects/colorGradientConductr.png");
+    colorImage.loadImage("objects/color_circle.png");
     colorImage.setAnchorPercent(0.5f, 0.5f);
 
     circleImage.loadImage("objects/color_circle.png");
@@ -177,7 +177,7 @@ void S2BaseObj::drawPinchCircle()
     ofFill();
     ofDisableLighting();
     ofSetColor(255, 2255, 255, colorImageAlpha);
-    circleImage.draw(objPosition, colorImageSize, colorImageSize);
+    circleImage.draw(objPosition, circleImageSize, circleImageSize);
 }
 
 ///--------------------------------------------------------------
@@ -187,7 +187,7 @@ void S2BaseObj::drawPinchColor()
     ofFill();
     ofDisableLighting();
     ofSetColor(255*colorImageAlpha, 255*colorImageAlpha, 255*colorImageAlpha, colorImageAlpha);
-    colorImage.draw(objPosition,350 ,350 );
+    colorImage.draw(objPosition, circleImageSize*2, circleImageSize*2);
     ofDisableBlendMode();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     
@@ -236,7 +236,8 @@ bool S2BaseObj::getIsPicked()
 ///--------------------------------------------------------------
 void S2BaseObj::disableColorImage()
 {
-    colorImageSize = 0.0f;
+    circleImageSize = 0.0f;
+    colorImageAlpha = 0.0f;
 }
 
 /*
@@ -258,7 +259,7 @@ void S2BaseObj::enablePinch(bool enable)
 
     pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
 
-    colorImageSize = whiteCircleRadius / 2;
+    circleImageSize = whiteCircleRadius / 2;
 }
 */
 
@@ -283,7 +284,7 @@ void S2BaseObj::updatePinch()
     float diff = pinchCurrentDist - pinchInitialDist;
     if (diff > 0)
     {
-        colorImageSize = whiteCircleRadius + diff/4;
+        circleImageSize = whiteCircleRadius + diff/4;
 //        colorImageAlpha = (unsigned int)ofMap(pinchCurrentDist, pinchInitialDist, pinchInitialDist*2.0f, colorImageAlphaMin, colorImageAlphaMax, true);
     }
 }
@@ -315,7 +316,7 @@ void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
     objPosition = camera.screenToWorld(objScreenCoords, viewRectangle);
 
     float xOffset = fabs(objPosition.x);
-    colorImageSize = whiteCircleRadius + xOffset;
+    circleImageSize = whiteCircleRadius + xOffset;
     colorImageAlpha = (unsigned int)ofMap(xOffset, 0, whiteCircleRadius*4.0f, colorImageAlphaMin, colorImageAlphaMax, true);
     objPosition.x = oldX;
 }
