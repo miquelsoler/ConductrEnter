@@ -62,10 +62,11 @@ bool SettingsManager::loadSettings()
     prefix = "TUIO Server";
     tuioServerPort = json[prefix]["Client Port"].asUInt();
 
-    // Pinch
-    prefix = "Pinch";
-    pinchCircleAlphaMin = json[prefix]["Circle Alpha Min"].asUInt();
-    pinchCircleAlphaMax = json[prefix]["Circle Alpha Max"].asUInt();
+    // Color
+    prefix = "Color";
+    colorMinXOffset = json[prefix]["Minimum X Offset"].asUInt();
+    colorCircleAlphaMin = json[prefix]["Circle Alpha Min"].asUInt();
+    colorCircleAlphaMax = json[prefix]["Circle Alpha Max"].asUInt();
 
     // Debug Mode
     prefix = "Debug Mode";

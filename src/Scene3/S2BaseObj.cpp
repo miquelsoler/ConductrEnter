@@ -30,8 +30,8 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
     circleImage.loadImage("objects/color_circle.png");
     circleImage.setAnchorPercent(0.5f, 0.5f);
 
-    colorImageAlphaMin = SettingsManager::getInstance().pinchCircleAlphaMin;
-    colorImageAlphaMax = SettingsManager::getInstance().pinchCircleAlphaMax;
+    colorImageAlphaMin = SettingsManager::getInstance().colorCircleAlphaMin;
+    colorImageAlphaMax = SettingsManager::getInstance().colorCircleAlphaMax;
     colorImageAlpha = colorImageAlphaMin;
 
     settingsPath = _settingsPath;
@@ -316,8 +316,13 @@ void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
     objPosition = camera.screenToWorld(objScreenCoords, viewRectangle);
 
     float xOffset = fabs(objPosition.x);
-    circleImageSize = whiteCircleRadius + xOffset;
-    colorImageAlpha = (unsigned int)ofMap(xOffset, 0, whiteCircleRadius*4.0f, colorImageAlphaMin, colorImageAlphaMax, true);
+    float minXOffset = SettingsManager::getInstance().colorMinXOffset;
+    if (xOffset >= minXOffset)
+    {
+        circleImageSize = whiteCircleRadius + xOffset - minXOffset;
+        colorImageAlpha = (unsigned int) ofMap(xOffset - minXOffset, 0, whiteCircleRadius * 4.0f, colorImageAlphaMin, colorImageAlphaMax, true);
+    }
+
     objPosition.x = oldX;
 }
 

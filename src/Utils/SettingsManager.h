@@ -47,9 +47,10 @@ public:
     // TUIO Server
     unsigned int    tuioServerPort;
 
-    // Pinch
-    unsigned int    pinchCircleAlphaMin;
-    unsigned int    pinchCircleAlphaMax;
+    // Color
+    unsigned int    colorMinXOffset;
+    unsigned int    colorCircleAlphaMin;
+    unsigned int    colorCircleAlphaMax;
 
     // Debug Mode
     bool            debugShowGUI;

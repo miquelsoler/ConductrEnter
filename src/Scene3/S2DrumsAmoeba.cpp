@@ -260,7 +260,7 @@ void S2DrumsAmoeba::drawActive()
         
         
         // Draw transitioning circle
-        if ((currentState == S3ObjStateTransitioning))
+        if (currentState == S3ObjStateTransitioning)
         {
             // Circle
             ofFill();

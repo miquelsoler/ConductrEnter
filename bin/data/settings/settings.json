@@ -23,7 +23,8 @@
     "TUIO Server": {
         "Client Port": 9050
     },
-    "Pinch": {
+    "Color": {
+        "Minimum X Offset": 10,
         "Circle Alpha Min": 0,
         "Circle Alpha Max": 255
     },
