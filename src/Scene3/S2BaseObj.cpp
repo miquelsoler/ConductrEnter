@@ -187,7 +187,7 @@ void S2BaseObj::drawPinchColor()
     ofFill();
     ofDisableLighting();
     ofSetColor(255*colorImageAlpha, 255*colorImageAlpha, 255*colorImageAlpha, colorImageAlpha);
-    colorImage.draw(objPosition,200 ,200 );
+    colorImage.draw(objPosition,350 ,350 );
     ofDisableBlendMode();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     
