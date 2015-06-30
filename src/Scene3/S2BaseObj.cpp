@@ -315,12 +315,17 @@ void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 
     objPosition = camera.screenToWorld(objScreenCoords, viewRectangle);
 
-    float xOffset = fabs(objPosition.x);
+    xOffset = fabs(objPosition.x);
     float minXOffset = SettingsManager::getInstance().colorMinXOffset;
     if (xOffset >= minXOffset)
     {
-        circleImageSize = whiteCircleRadius + xOffset - minXOffset;
-        colorImageAlpha = (unsigned int) ofMap(xOffset - minXOffset, 0, whiteCircleRadius * 4.0f, colorImageAlphaMin, colorImageAlphaMax, true);
+        xOffset = (xOffset >= minXOffset) ? xOffset-minXOffset : 0;
+        circleImageSize = whiteCircleRadius + xOffset;
+        colorImageAlpha = (unsigned int) ofMap(xOffset, 0, whiteCircleRadius * 4.0f, colorImageAlphaMin, colorImageAlphaMax, true);
+    }
+    else
+    {
+        xOffset = 0;
     }
 
     objPosition.x = oldX;
@@ -386,6 +391,11 @@ void S2BaseObj::changeState()
 void S2BaseObj::clipPositionChanged(float &newPosition)
 {
     loopAngle = ofMap(newPosition, 0.0f, 1.0f, 0.0f, 360.0f);
+}
+
+float S2BaseObj::getXOffset()
+{
+    return xOffset;
 }
 
 #pragma mark - TUIO

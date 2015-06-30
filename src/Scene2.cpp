@@ -370,19 +370,21 @@ void Scene2::handleDrag(InteractionSource interactionSource, int x, int y, int c
         object->setPositionFromScreenCoords(x, y);
     }
 
-//        // Update Ableton track
-//
-//        int device = 0;
-//        int parameter = pressedObjectIndex + 1;
-//        int value;
-//        float halfHeight = viewHeight/2.0f;
-//        if ((y>=0) && (y<halfHeight)) {
-//            value = (int)ofMap(y, halfHeight-1, 0, 0, 127);
-//        } else {
-//            value = (int)ofMap(y, halfHeight, viewHeight, 0, 127);
-//        }
-//
-//        abletonManager->setDeviceParameter(device, parameter, value);
+    // Update Ableton track
+
+    int device = 0;
+    int parameter = pressedObjectIndex + 1;
+    int value = object->getXOffset();
+
+
+//    float halfHeight = viewHeight/2.0f;
+//    if ((y>=0) && (y<halfHeight)) {
+//        value = (int)ofMap(y, halfHeight-1, 0, 0, 127);
+//    } else {
+//        value = (int)ofMap(y, halfHeight, viewHeight, 0, 127);
+//    }
+
+    abletonManager->setDeviceParameter(device, parameter, value);
 }
 
 #pragma mark - Touch events

@@ -24,7 +24,7 @@
         "Client Port": 9050
     },
     "Color": {
-        "Minimum X Offset": 10,
+        "Minimum X Offset": 15,
         "Circle Alpha Min": 0,
         "Circle Alpha Max": 255
     },

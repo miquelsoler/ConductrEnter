@@ -105,13 +105,14 @@ void AbletonManager::stopAll()
 void AbletonManager::setDeviceParameter(int device, int parameter, int value)
 {
     ofxOscMessage m;
-    m.setAddress("/live/master/device");
+//    m.setAddress("/live/master/device");
+    m.setAddress("/live/track/device");
     m.addIntArg(device);
     m.addIntArg(parameter);
     m.addIntArg(value);
     oscSender.sendMessage(m);
 #ifdef OF_DEBUG
-//    cout << "Message: " << m.getAddress() << "-" << device << "-" << parameter << "-" << value << endl;
+    cout << "Message: " << m.getAddress() << "-" << device << "-" << parameter << "-" << value << endl;
 #endif
 }
 

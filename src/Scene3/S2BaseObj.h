@@ -62,9 +62,10 @@ public:
 
     virtual void volumeChanged(float &newVolume) = 0;
     virtual void clipPositionChanged(float &newPosition);
+
+    float getXOffset();
     
     bool            showGUI;
-
 
 protected:
 
@@ -97,8 +98,6 @@ protected:
 
     bool                    isFirstSetup;
 
-    ofParameter<bool>       activated;
-    
     // Camera & viewport
     ofEasyCam               camera;
     ofParameter<int>        camDistance;
@@ -108,6 +107,8 @@ protected:
     S3ObjState              nextState;
     bool                    shouldChangeState;
     ofEvent<void>           eventChangeState;
+    ofParameter<bool>       activated;
+    unsigned int            xOffset;
 
     // Object parameters
     float                   radius;
@@ -123,8 +124,6 @@ protected:
 
     // TUIO
     list<TuioCursor *>      cursorIds;
-//    bool                    pinchEnabled = false;
-//    float                   pinchInitialDist;
 
     // Loop arc
     ofPolyline              loopArc;
