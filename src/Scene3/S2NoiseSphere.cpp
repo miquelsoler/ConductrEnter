@@ -74,11 +74,7 @@ void S2NoiseSphere::setup()
 
     isFirstSetup = false;
     
-
-
-    
     Tweenzor::resetAllTweens();
-
 }
 
 ///--------------------------------------------------------------
@@ -196,9 +192,6 @@ void S2NoiseSphere::onCompleteToActive(float* arg)
 ///--------------------------------------------------------------
 void S2NoiseSphere::initActive()
 {
-//    cout << " INIT ACTIVE !!!! " << endl;
-    Tweenzor::resetAllTweens();
-
 }
 
 

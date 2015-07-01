@@ -127,8 +127,8 @@ void S2Drums::initTransitioning()
     float delay = 0.0f;
     float duration = 0.3f;
     Tweenzor::add(&transitioningCircleRadius, whiteCircleRadius, whiteCircleRadius*4, delay, duration, EASE_IN_OUT_SINE);
-    Tween *tween1 = Tweenzor::getTween(&transitioningCircleRadius);
-    Tweenzor::addCompleteListener(tween1, this, &S2Drums::onCompleteTransitioning);
+    Tween *tween = Tweenzor::getTween(&transitioningCircleRadius);
+    Tweenzor::addCompleteListener(tween, this, &S2Drums::onCompleteTransitioning);
 
     Tweenzor::add(&transitioningCircleAlpha, 250.0f, 0.0f, delay, duration, EASE_IN_OUT_SINE);
     Tweenzor::add(&transitioningSphereScale, 1.0f, 1.5f, delay, duration, EASE_IN_OUT_SINE);
