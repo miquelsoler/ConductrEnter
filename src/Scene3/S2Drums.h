@@ -48,7 +48,7 @@ private:
 
     void sphereResolutionChanged(int &newSphereResolution);
 
-    ofSpherePrimitive       sphere;
+    ofIcoSpherePrimitive    sphere;
     vector<ofMeshFace>      trianglesOriginal, trianglesCurrent;
     vector<float>           noises;
     float                   vertexDistance;

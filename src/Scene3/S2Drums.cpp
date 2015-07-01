@@ -26,7 +26,7 @@ void S2Drums::loadSettings()
 
     // Custom object settings go here
 
-    gui.add(sphereResolution.set("Resolution", 16, 8,128));
+    gui.add(sphereResolution.set("Resolution", 3, 8,128));
     sphereResolution.addListener(this, &S2Drums::sphereResolutionChanged);
     gui.add(spherePointSize.set("Point Size", 1, 1.0, 10.0));
     gui.add(sphereVolumeScale.set("Volume Scale", 4, 1.0, 5.0));

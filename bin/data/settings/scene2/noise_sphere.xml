@@ -1,5 +1,5 @@
 <Settings>
-    <Camera_Distance>372</Camera_Distance>
+    <Camera_Distance>732</Camera_Distance>
     <White_Circle_Radius>14.25</White_Circle_Radius>
     <Loop_Radius>99</Loop_Radius>
     <Loop_Initial_Angle>44</Loop_Initial_Angle>
@@ -8,7 +8,7 @@
     <Threshold>0</Threshold>
     <Treshold_Low>0</Treshold_Low>
     <Treshold_High>40</Treshold_High>
-    <offset>0</offset>
+    <offset>9.99998</offset>
 	<mode>1</mode>
     <activate>1</activate>
 <Settings/>

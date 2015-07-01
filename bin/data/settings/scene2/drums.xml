@@ -1,9 +1,9 @@
 <Settings>
-    <Camera_Distance>372</Camera_Distance>
+    <Camera_Distance>548</Camera_Distance>
     <White_Circle_Radius>14.25</White_Circle_Radius>
     <Loop_Radius>85</Loop_Radius>
     <Loop_Initial_Angle>0</Loop_Initial_Angle>
-    <Resolution>26</Resolution>
+    <Resolution>3</Resolution>
 	<Point_Size>1</Point_Size>
     <activate>1</activate>
     <Volume_Scale>4</Volume_Scale>
