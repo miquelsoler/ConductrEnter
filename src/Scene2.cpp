@@ -142,6 +142,10 @@ void Scene2::setup()
             videoPlayer.setLoopState(OF_LOOP_NORMAL);
             break;
         }
+        case SceneBgModeImages:
+        {
+            break;
+        }
         default:
             break;
     }
@@ -150,10 +154,21 @@ void Scene2::setup()
 ///--------------------------------------------------------------
 void Scene2::update()
 {
-    if (backgroundMode == SceneBgModeVideo)
+    switch(backgroundMode)
     {
-        if (videoPlayer.isPlaying())
-            videoPlayer.update();
+        case SceneBgModeVideo:
+        {
+            if (videoPlayer.isPlaying())
+                videoPlayer.update();
+            break;
+        }
+        case SceneBgModeImages:
+        {
+            break;
+        }
+        case SceneBgModeNone:
+        default:
+            break;
     }
 
     abletonManager->update();
@@ -183,8 +198,21 @@ void Scene2::updateEnter()
     // Stop all playing clips, just in case (for demo purposes)
     abletonManager->stopAll();
 
-    if (backgroundMode == SceneBgModeVideo)
-        videoPlayer.play();
+    switch(backgroundMode)
+    {
+        case SceneBgModeVideo:
+        {
+            videoPlayer.play();
+            break;
+        }
+        case SceneBgModeImages:
+        {
+            break;
+        }
+        case SceneBgModeNone:
+        default:
+            break;
+    }
 
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->setup();
@@ -217,10 +245,22 @@ void Scene2::draw()
 {
     BaseScene::drawPre();
 
-    if (backgroundMode == SceneBgModeVideo) {
-        if (videoPlayer.isPlaying()) {
-            videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
+    switch(backgroundMode)
+    {
+        case SceneBgModeVideo:
+        {
+            if (videoPlayer.isPlaying()) {
+                videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
+            }
+            break;
         }
+        case SceneBgModeImages:
+        {
+            break;
+        }
+        case SceneBgModeNone:
+        default:
+            break;
     }
 
     ofEnableBlendMode(OF_BLENDMODE_ADD);
