@@ -18,6 +18,13 @@
 #include "TUIOReceiverEvent.h"
 #include "ScreenSetup.h"
 
+typedef enum
+{
+    SceneBgModeNone = 0,
+    SceneBgModeVideo = 1,
+    SceneBgModeImages = 2
+} SceneBgMode;
+
 class BaseScene : public ofxFadeScene
 {
 public:
@@ -64,7 +71,7 @@ protected:
 
     ScreenSetup *screenSetup;
 
-    bool enableBackgroundVideos;
+    SceneBgMode backgroundMode;
 };
 
 #endif /* defined(__ConductrEnter__BaseScene__) */

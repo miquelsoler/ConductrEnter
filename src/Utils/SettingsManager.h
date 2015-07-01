@@ -56,7 +56,8 @@ public:
     bool            debugShowGUI;
     bool            debugShowFPS;
     bool            debugShowTUIOCursors;
-    bool            debugShowVideos;
+    unsigned int    debugS1BgMode;
+    unsigned int    debugS2BgMode;
     bool            debugEnableVBO;
     bool            debugEnableVSync;
     bool            debugEnableDemoObjects;
@@ -65,7 +66,8 @@ public:
     bool            releaseShowGUI;
     bool            releaseShowFPS;
     bool            releaseShowTUIOCursors;
-    bool            releaseShowVideos;
+    unsigned int    releaseS1BgMode;
+    unsigned int    releaseS2BgMode;
     bool            releaseEnableVBO;
     bool            releaseEnableVSync;
     bool            releaseEnableDemoObjects;

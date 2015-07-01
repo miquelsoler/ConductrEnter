@@ -17,12 +17,6 @@ BaseScene::BaseScene(const string& name, bool singleSetup, ScreenSetup *_screenS
 {
     screenSetup = _screenSetup;
 
-#ifdef OF_DEBUG
-    enableBackgroundVideos = SettingsManager::getInstance().debugShowVideos;
-#else
-    enableBackgroundVideos = SettingsManager::getInstance().releaseShowVideos;
-#endif
-
     setSingleSetup(singleSetup);  // call setup each time the scene is loaded
     setFade(SettingsManager::getInstance().sceneFadeInMilliseconds, SettingsManager::getInstance().sceneFadeOutMilliseconds);
 

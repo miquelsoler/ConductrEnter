@@ -73,7 +73,8 @@ bool SettingsManager::loadSettings()
     debugShowGUI = json[prefix]["Show GUI"].asBool();
     debugShowFPS = json[prefix]["Show FPS"].asBool();
     debugShowTUIOCursors = json[prefix]["Show TUIO Cursors"].asBool();
-    debugShowVideos = json[prefix]["Show Background Videos"].asBool();
+    debugS1BgMode = json[prefix]["Scene1 Background Mode"].asUInt();
+    debugS2BgMode = json[prefix]["Scene2 Background Mode"].asUInt();
     debugEnableVBO = json[prefix]["Enable VBO"].asBool();
     debugEnableVSync = json[prefix]["Enable Vertical Sync"].asBool();
     debugEnableDemoObjects = json[prefix]["Enable Demo Objects"].asBool();
@@ -83,7 +84,8 @@ bool SettingsManager::loadSettings()
     releaseShowGUI = json[prefix]["Show GUI"].asBool();
     releaseShowFPS = json[prefix]["Show FPS"].asBool();
     releaseShowTUIOCursors = json[prefix]["Show TUIO Cursors"].asBool();
-    releaseShowVideos = json[prefix]["Show Background Videos"].asBool();
+    releaseS1BgMode = json[prefix]["Scene1 Background Mode"].asUInt();
+    releaseS2BgMode = json[prefix]["Scene2 Background Mode"].asUInt();
     releaseEnableVBO = json[prefix]["Enable VBO"].asBool();
     releaseEnableVSync = json[prefix]["Enable Vertical Sync"].asBool();
     releaseEnableDemoObjects = json[prefix]["Enable Demo Objects"].asBool();

@@ -28,11 +28,36 @@ const unsigned int NUM_OBJECTS = 6;
 ///--------------------------------------------------------------
 Scene2::Scene2(const string &name, bool singleSetup, ScreenSetup *screenSetup) : BaseScene(name, singleSetup, screenSetup)
 {
+#ifdef OF_DEBUG
+    backgroundMode = (SceneBgMode)(SettingsManager::getInstance().debugS2BgMode);
+#else
+    backgroundMode = (SceneBgMode)(SettingsManager::getInstance().releaseS2BgMode);
+#endif
+
+    switch(backgroundMode)
+    {
+        case SceneBgModeNone:
+        case SceneBgModeVideo:
+        case SceneBgModeImages:
+            break;
+        default:
+            backgroundMode = SceneBgModeNone;
+            break;
+    }
+
     num_objects = NUM_OBJECTS;
     viewWidth = (ofGetWidth() / num_objects);
     viewHeight = ofGetHeight();
 
     clipHeight = viewHeight / SettingsManager::getInstance().abletonArtistOffset;
+
+    if (backgroundMode == SceneBgModeImages)
+    {
+        bgImage1.loadImage("video/Loop_background 1.png");
+        bgImage1.setAnchorPercent(0.5f, 0.5f);
+        bgImage2.loadImage("video/Loop_background 2.png");
+        bgImage2.setAnchorPercent(0.5f, 0.5f);
+    }
 
     // Initialitze OSC
     string host = SettingsManager::getInstance().abletonHost;
@@ -109,16 +134,23 @@ Scene2::~Scene2()
 ///--------------------------------------------------------------
 void Scene2::setup()
 {
-    if (!enableBackgroundVideos) return;
-
-    if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/Loop_background_3.mov");
-    videoPlayer.setLoopState(OF_LOOP_NORMAL);
+    switch(backgroundMode)
+    {
+        case SceneBgModeVideo:
+        {
+            if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/Loop_background_3.mov");
+            videoPlayer.setLoopState(OF_LOOP_NORMAL);
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 ///--------------------------------------------------------------
 void Scene2::update()
 {
-    if (enableBackgroundVideos)
+    if (backgroundMode == SceneBgModeVideo)
     {
         if (videoPlayer.isPlaying())
             videoPlayer.update();
@@ -151,7 +183,7 @@ void Scene2::updateEnter()
     // Stop all playing clips, just in case (for demo purposes)
     abletonManager->stopAll();
 
-    if (enableBackgroundVideos)
+    if (backgroundMode == SceneBgModeVideo)
         videoPlayer.play();
 
     for (unsigned int i=0; i<num_objects; ++i)
@@ -185,7 +217,7 @@ void Scene2::draw()
 {
     BaseScene::drawPre();
 
-    if (enableBackgroundVideos) {
+    if (backgroundMode == SceneBgModeVideo) {
         if (videoPlayer.isPlaying()) {
             videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
         }

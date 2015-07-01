@@ -32,7 +32,8 @@
         "Show GUI": true,
         "Show FPS": true,
         "Show TUIO Cursors": true,
-        "Show Background Videos": true,
+        "Scene1 Background Mode": 1, // 0=None, 1=Background video
+        "Scene2 Background Mode": 1, // 0=None, 1=Background video, 2=Background images
         "Enable VBO": true,
         "Enable Vertical Sync": false,
         "Enable Demo Objects": false
@@ -41,7 +42,8 @@
         "Show GUI": false,
         "Show FPS": false,
         "Show TUIO Cursors": false,
-        "Show Background Videos": true,
+        "Scene1 Background Mode": 1, // 0=None, 1=Background video
+        "Scene2 Background Mode": 0, // 0=None, 1=Background video, 2=Background images
         "Enable VBO": true,
         "Enable Vertical Sync": false,
         "Enable Demo Objects": false

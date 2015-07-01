@@ -91,6 +91,9 @@ private:
 
     ofVideoPlayer           videoPlayer;
 
+    ofImage                 bgImage1;
+    ofImage                 bgImage2;
+
     ofxSimpleTimer          leaveSceneTimer;
 };
 

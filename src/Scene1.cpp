@@ -11,11 +11,32 @@
 #include "SettingsManager.h"
 #include "TUIOHandler.h"
 
+///--------------------------------------------------------------
+Scene1::Scene1(const string& name, bool singleSetup, ScreenSetup *screenSetup) : BaseScene(name, singleSetup, screenSetup)
+{
+#ifdef OF_DEBUG
+    backgroundMode = (SceneBgMode)(SettingsManager::getInstance().debugS1BgMode);
+#else
+    backgroundMode = (SceneBgMode)(SettingsManager::getInstance().releaseS1BgMode);
+#endif
+
+    switch(backgroundMode)
+    {
+        case SceneBgModeNone:
+        case SceneBgModeVideo:
+            break;
+        case SceneBgModeImages:
+        default:
+            backgroundMode = SceneBgModeNone;
+            break;
+    }
+}
+
 
 ///--------------------------------------------------------------
 void Scene1::setup()
 {
-    if (enableBackgroundVideos)
+    if (backgroundMode == SceneBgModeVideo)
     {
         if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/video_LoopIntroArtistes_v1.mov");
 
@@ -56,19 +77,12 @@ void Scene1::update()
 ///--------------------------------------------------------------
 void Scene1::updateEnter()
 {
-    if (enableBackgroundVideos)
-    {
-        sceneState = SceneStateIntro;
-    }
-    else
-    {
-        sceneState = SceneStateArtists;
-    }
+    sceneState = (backgroundMode == SceneBgModeVideo) ? SceneStateIntro : SceneStateArtists;
 
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene1::tuioPressed);
     ofAddListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene1::tuioReceiverPressed);
 
-    if (enableBackgroundVideos)
+    if (backgroundMode == SceneBgModeVideo)
     {
         videoState = Loop;
         videoPlayer.play();
@@ -88,7 +102,7 @@ void Scene1::updateExit()
 ///--------------------------------------------------------------
 void Scene1::updateStateIntro()
 {
-    if (!enableBackgroundVideos) return;
+    if (backgroundMode != SceneBgModeVideo) return;
 
     videoPlayer.update();
     Tweenzor::update(int(ofGetElapsedTimeMillis()));
@@ -126,7 +140,7 @@ void Scene1::draw()
 {
     BaseScene::drawPre();
 
-    if (enableBackgroundVideos)
+    if (backgroundMode == SceneBgModeVideo)
         videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
 
 #ifdef OF_DEBUG
@@ -138,7 +152,7 @@ void Scene1::draw()
     }
 #endif
 
-    if (!enableBackgroundVideos)
+    if (backgroundMode != SceneBgModeVideo)
     {
         ofSetColor(ofColor::green);
         ofDrawBitmapString("[NOT SHOWING BACKGROUND VIDEOS]\n\n-Touch a box to start playground with a specific artist\n-Or press right key to go to 1st artist", 10, 20);
@@ -150,7 +164,7 @@ void Scene1::draw()
 ///--------------------------------------------------------------
 void Scene1::exit()
 {
-    if (!enableBackgroundVideos) return;
+    if (backgroundMode != SceneBgModeVideo) return;
 
     videoPlayer.stop();
     videoPlayer.firstFrame();
@@ -161,7 +175,7 @@ void Scene1::exit()
 ///--------------------------------------------------------------
 void Scene1::skipIntro()
 {
-    if (!enableBackgroundVideos) return;
+    if (backgroundMode != SceneBgModeVideo) return;
 
     if (videoState == Loop)
     {
@@ -176,7 +190,7 @@ void Scene1::skipIntro()
 ///--------------------------------------------------------------
 void Scene1::onVideoComplete(float* arg)
 {
-    if (!enableBackgroundVideos) return;
+    if (backgroundMode != SceneBgModeVideo) return;
 
     videoState = Exploding;
     videoPlayer.play();
