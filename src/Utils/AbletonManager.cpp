@@ -112,7 +112,7 @@ void AbletonManager::setDeviceParameter(int track, int device, int parameter, in
     m.addIntArg(value);
     oscSender.sendMessage(m);
 #ifdef OF_DEBUG
-    cout << "Message: " << m.getAddress() << "-" << device << "-" << parameter << "-" << value << endl;
+    cout << "Message: " << m.getAddress() << "- T:" << track << " - D:" << device << " - P:" << parameter << " - V:" << value << endl;
 #endif
 }
 

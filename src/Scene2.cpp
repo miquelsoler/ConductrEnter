@@ -428,7 +428,7 @@ void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, in
     int track = pressedObjectIndex;
     abletonManager->stopClip(currentClipIndex, track);
     int device = 0;
-    int parameter = pressedObjectIndex + 1;
+    int parameter = 1;
     abletonManager->setDeviceParameter(track, device, parameter, 0);
 
     // Stop animating the touched object
@@ -474,7 +474,7 @@ void Scene2::handleDrag(InteractionSource interactionSource, int x, int y, int c
     // Update Ableton track
 
     int device = 0;
-    int parameter = pressedObjectIndex + 1;
+    int parameter = 1;
     int value = object->getXOffset();
     abletonManager->setDeviceParameter(pressedObjectIndex, device, parameter, value);
 }
