@@ -208,7 +208,6 @@ void Scene2::updateEnter()
         }
         case SceneBgModeImages:
         {
-//            Tweenzor::resetAllTweens();
             float delay = 0.0f;
             float duration = 8.0f;
             float minScale = 1.0f;
