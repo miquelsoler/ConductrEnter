@@ -164,6 +164,7 @@ void Scene2::update()
         }
         case SceneBgModeImages:
         {
+            Tweenzor::update(int(ofGetElapsedTimeMillis()));
             break;
         }
         case SceneBgModeNone:
@@ -207,6 +208,21 @@ void Scene2::updateEnter()
         }
         case SceneBgModeImages:
         {
+            Tweenzor::resetAllTweens();
+            float delay = 0.0f;
+            float duration = 8.0f;
+            float minScale = 1.0f;
+            float maxScale = 1.02f;
+            Tweenzor::add(&bgImageScale, minScale, maxScale, delay, duration, EASE_IN_OUT_SINE);
+            Tween *tweenScale = Tweenzor::getTween(&bgImageScale);
+            tweenScale->setRepeat(-1, true);
+            float minAlpha = 255.0f;
+            float maxAlpha = 0.0f;
+            duration *= 0.7f;
+            Tweenzor::add(&bgImageAlpha, minAlpha, maxAlpha, delay, duration, EASE_IN_OUT_SINE);
+            Tween *tweenAlpha = Tweenzor::getTween(&bgImageAlpha);
+            tweenAlpha->setRepeat(-1, true);
+
             break;
         }
         case SceneBgModeNone:
@@ -250,12 +266,16 @@ void Scene2::draw()
         case SceneBgModeVideo:
         {
             if (videoPlayer.isPlaying()) {
-                videoPlayer.draw(0, 0, ofGetWidth(), ofGetHeight());
+                videoPlayer.draw(0, 0, ofGetViewportWidth(), ofGetViewportHeight());
             }
             break;
         }
         case SceneBgModeImages:
         {
+            ofSetColor(255, 255, 255, int(bgImageAlpha));
+            bgImage1.draw(ofGetViewportWidth()/2, ofGetViewportHeight()/2, ofGetViewportWidth() * bgImageScale, ofGetViewportHeight() * bgImageScale);
+            ofSetColor(255, 255, 255, 255-int(bgImageAlpha));
+            bgImage2.draw(ofGetViewportWidth()/2, ofGetViewportHeight()/2, ofGetViewportWidth() * bgImageScale, ofGetViewportHeight() * bgImageScale);
             break;
         }
         case SceneBgModeNone:
@@ -264,10 +284,10 @@ void Scene2::draw()
     }
 
     ofEnableBlendMode(OF_BLENDMODE_ADD);
-
-    for (unsigned int i = 0; i < num_objects; ++i)
-        objects[i]->draw();
-
+    {
+        for (unsigned int i = 0; i < num_objects; ++i)
+            objects[i]->draw();
+    }
     ofDisableBlendMode();
 
     bool showTUIOCursors;

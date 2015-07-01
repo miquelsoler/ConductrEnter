@@ -93,6 +93,8 @@ private:
 
     ofImage                 bgImage1;
     ofImage                 bgImage2;
+    float                   bgImageScale;
+    float                   bgImageAlpha;
 
     ofxSimpleTimer          leaveSceneTimer;
 };
