@@ -26,7 +26,7 @@
     "Color": {
         "Minimum X Offset": 15,
         "Circle Alpha Min": 0,
-        "Circle Alpha Max": 255
+        "Circle Alpha Max": 200
     },
     "Debug Mode": {
         "Show GUI": true,
