@@ -487,7 +487,7 @@ void Scene2::handleDrag(InteractionSource interactionSource, int x, int y, int c
 
     int device = 0;
     int parameter = 1;
-    int value = object->getXOffset();
+    int value = ofMap(object->getXOffset(), 0, object->getRadius(), 0, 127, true);
     abletonManager->setDeviceParameter(pressedObjectIndex, device, parameter, value);
 }
 

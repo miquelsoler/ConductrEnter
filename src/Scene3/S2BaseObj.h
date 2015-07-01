@@ -64,6 +64,7 @@ public:
     virtual void clipPositionChanged(float &newPosition);
 
     float getXOffset();
+    float getRadius();
     
     bool            showGUI;
 

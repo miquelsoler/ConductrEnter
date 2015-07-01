@@ -401,6 +401,11 @@ float S2BaseObj::getXOffset()
     return xOffset;
 }
 
+float S2BaseObj::getRadius()
+{
+    return radius;
+}
+
 #pragma mark - TUIO
 
 void S2BaseObj::addCursor(TuioCursor *cursor)
