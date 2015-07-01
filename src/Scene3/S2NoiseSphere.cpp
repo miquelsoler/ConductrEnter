@@ -301,7 +301,7 @@ void S2NoiseSphere::drawActive()
             // Draw Audio Sphere
             ofFill();
             ofSetColor(255, 255, 255, activeCircleAlpha);
-            //ofCircle(objPosition.x, objPosition.y, 0, activeCircleRadius);
+            //ofCircle(objPosition.x, objPosition.y, 0, volumeCircleRadius);
             sphereAudio.setRadius(activeCircleRadius);
             ofSetColor(255*activeCircleAlpha/maxCircleRadius, 255*activeCircleAlpha/maxCircleRadius, 255*activeCircleAlpha/maxCircleRadius, activeCircleAlpha);
             sphereAudio.drawVertices();

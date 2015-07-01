@@ -65,6 +65,13 @@ private:
     ofSpherePrimitive       transitioningSphere;
     float                   transitioningSphereScale;
     float                   transitioningSphereAlpha;
+
+    // Active state
+    float                   volumeCircleRadius;
+    float                   volumeCircleAlpha;
+    float                   maxVolumeCircleRadius;
+    float                   maxVolumeCircleAlpha;
+
 };
 
 #endif /* defined(__ConductrEnter__S2Drums__) */

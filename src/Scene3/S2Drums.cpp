@@ -92,6 +92,11 @@ void S2Drums::initInactive()
     tween->setRepeat(1, true);
     Tweenzor::addCompleteListener(tween, this, &S2Drums::onCompleteInactive);
 
+    volumeCircleRadius = 0;
+    volumeCircleAlpha = 0;
+    maxVolumeCircleRadius = 50;
+    maxVolumeCircleAlpha = 250;
+
     sphereGrayColor = 255.0f;
 }
 
@@ -192,6 +197,14 @@ void S2Drums::drawActive()
             ofCircle(objPosition.x, objPosition.y, 0, transitioningCircleRadius);
         }
 
+        // Draw volume circle
+        if (currentState == S3ObjStateActive)
+        {
+            ofFill();
+            ofSetColor(255, 255, 255, int(volumeCircleAlpha));
+            ofCircle(objPosition.x, objPosition.y, 0, volumeCircleRadius);
+        }
+
         drawPinchCircle();
         drawPinchColor();
         drawWhiteCircle();
@@ -205,6 +218,11 @@ void S2Drums::volumeChanged(float &newVolume)
 {
     if (currentState == S3ObjStateActive)
     {
+        float toRadius = ofMap(newVolume,0.0,1.0,0, maxVolumeCircleRadius);
+        float toAlpha = ofMap(newVolume,0.0,1.0,0, maxVolumeCircleAlpha);
+        volumeCircleRadius = toRadius;
+        volumeCircleAlpha = toAlpha;
+
         vertexDistance = (newVolume*0.7f) * exp(newVolume * sphereVolumeScale);
     }
     else

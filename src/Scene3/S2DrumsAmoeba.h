@@ -71,12 +71,12 @@ private:
     float                   transitionCircleRadius;
     float                   transitionCircleAlpha;
     
-    float                   activeCircleRadius;
-    float                   activeCircleAlpha;
+    float                   volumeCircleRadius;
+    float                   volumeCircleAlpha;
     float                   activeNoiseFrequency;
 
-    float                   maxCircleRadius;
-    float                   maxCircleAlpha;
+    float                   maxVolumeCircleRadius;
+    float                   maxVolumeCircleAlpha;
     float                   maxOffset;
 
 };
