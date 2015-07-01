@@ -111,3 +111,6 @@ introLoop.mov
 video_LoopIntroArtistes_v1.mov
 Artistas_0.mp4
 
+bin/data/video/Loop_background 1.png
+bin/data/video/Loop_background 2.png
+bin/data/video/Loop_background_3.mov
