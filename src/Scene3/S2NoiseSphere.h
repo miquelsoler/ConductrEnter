@@ -45,6 +45,7 @@ private:
     virtual void volumeChanged(float &newVolume);
 
     ofSpherePrimitive       sphere;
+    ofSpherePrimitive       sphereAudio;
     vector<ofMeshFace>      sphereFacesOriginal;
     vector<ofMeshFace>      sphereFacesCurrent;
     vector<ofVec3f>         vertexNormals;
@@ -65,6 +66,17 @@ private:
     float                   stableOffset;
     float                   activeOffset;
     float                   activeNoiseFrequency;
+    
+    float                   inactiveCircleRadius;
+    float                   inactiveCircleAlpha;
+    float                   transitionCircleRadius;
+    float                   transitionCircleAlpha;
+    float                   activeCircleRadius;
+    float                   activeCircleAlpha;
+
+    float                   maxCircleRadius;
+    float                   maxCircleAlpha;
+
 };
 
 #endif /* defined(__ConductrEnter__S2NoiseSphere__) */

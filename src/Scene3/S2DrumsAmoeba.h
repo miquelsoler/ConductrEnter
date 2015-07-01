@@ -78,7 +78,7 @@ private:
     float                   maxCircleRadius;
     float                   maxCircleAlpha;
     float                   maxOffset;
-    
+
 };
 
 #endif /* defined(__ConductrEnter__S2DrumsAmoeba__) */

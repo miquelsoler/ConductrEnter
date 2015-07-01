@@ -10,6 +10,6 @@
 	<Treshold_High>215</Treshold_High>
 	<show_normals>0</show_normals>
 	<offset>6</offset>
-    <activate>1</activate>
+    <activate>0</activate>
 <Settings/>
 </Settings>

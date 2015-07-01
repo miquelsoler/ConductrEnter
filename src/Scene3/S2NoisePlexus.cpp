@@ -36,7 +36,7 @@ void S2NoisePlexus::loadSettings()
     gui.add( thresholdLow.set( "Treshold Low", 0, 0, 40 ) );
     gui.add( thresholdHigh.set( "Treshold High", 40, 0, 40 ) );
     gui.add( plexusMinDistance.set( "plexus min distance",0,0,40) );
-    gui.add( plexusMaxDistance.set( "plexus max distance",0,0,40) );
+    gui.add( plexusMaxDistance.set( "plexus max distance",0,0,200) );
     gui.add( noiseMinDistance.set( "noise min distance",0,0.0,1.0) );
     gui.add( noiseMaxDistance.set( "noise max distance",0,0.0,1.0) );
 

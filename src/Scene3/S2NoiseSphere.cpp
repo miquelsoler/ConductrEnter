@@ -47,6 +47,10 @@ void S2NoiseSphere::setup()
     sphere.setRadius(radius);
     sphere.setPosition(objPosition);
     sphere.setResolution(32);
+    sphereAudio.setRadius(radius);
+    sphereAudio.setPosition(objPosition);
+    sphereAudio.setResolution(32);
+    
     bool enableVBO;
 #ifdef OF_DEBUG
     enableVBO = SettingsManager::getInstance().debugEnableVBO;
@@ -54,9 +58,10 @@ void S2NoiseSphere::setup()
     enableVBO = SettingsManager::getInstance().releaseEnableVBO;
 #endif
     sphere.setUseVbo(enableVBO);
+    sphereAudio.setUseVbo(enableVBO);
 
     camera.setTarget(sphere);
-
+    
     if (isFirstSetup)
     {
         sphereFacesOriginal = sphere.getMesh().getUniqueFaces();
@@ -68,7 +73,10 @@ void S2NoiseSphere::setup()
     }
 
     isFirstSetup = false;
+    
 
+
+    
     Tweenzor::resetAllTweens();
 
 }
@@ -76,11 +84,20 @@ void S2NoiseSphere::setup()
 ///--------------------------------------------------------------
 void S2NoiseSphere::initInactive()
 {
-    stableOffset = 6;
+    stableOffset = 0;
     stableNoiseFrequency = 50;
-    activeOffset = 25;
-    activeNoiseFrequency = 1000;
+    activeOffset = 1;
+    activeNoiseFrequency = 100;
  
+    inactiveCircleRadius = 0;
+    inactiveCircleAlpha = 0;
+    transitionCircleRadius = 0;
+    transitionCircleAlpha = 255;
+    maxCircleRadius = 50;
+    maxCircleAlpha = 250;
+
+    
+    
     float delay = 0.0f;
     float duration = 0.8f;
     
@@ -89,7 +106,10 @@ void S2NoiseSphere::initInactive()
     // offset reset
     Tweenzor::add((float*)&offset.get(), offset, stableOffset, delay, duration, EASE_IN_OUT_SINE);
 
-    
+    // white circle set to original position
+    Tweenzor::add(&activeCircleRadius, activeCircleRadius, inactiveCircleRadius, 0, 0.6, EASE_IN_OUT_SINE);
+    Tweenzor::add(&activeCircleAlpha , activeCircleAlpha,  inactiveCircleAlpha,  0, 0.6, EASE_IN_OUT_SINE);
+
 }
 
 ///--------------------------------------------------------------
@@ -120,6 +140,10 @@ void S2NoiseSphere::initTransitioning()
     Tweenzor::add((float*)&offset.get(), stableOffset, activeOffset, delay, duration, EASE_IN_OUT_SINE);
     Tweenzor::addCompleteListener(Tweenzor::getTween((float*)&offset.get()), this, &S2NoiseSphere::onCompleteTransitioning);
     
+    // white circle
+    Tweenzor::add(&transitionCircleRadius, 0, maxCircleRadius, delay, duration, EASE_IN_OUT_SINE);
+    Tweenzor::add(&transitionCircleAlpha, maxCircleAlpha, 0.0f, delay, duration, EASE_IN_OUT_SINE);
+
 }
 
 
@@ -164,6 +188,9 @@ void S2NoiseSphere::onCompleteToActive(float* arg)
     nextState = S3ObjStateActive;
     shouldChangeState = true;
     
+    transitionCircleRadius = 0;
+    transitionCircleAlpha = 255;
+
 }
 
 ///--------------------------------------------------------------
@@ -180,7 +207,7 @@ void S2NoiseSphere::updateActive()
 {
     Tweenzor::update(int(ofGetElapsedTimeMillis()));
     
-    sphere.rotate(0.3, 0.0, 1.0, 0.0);
+    //sphere.rotate(0.3, 0.0, 1.0, 0.0);
 
     // perlin noise
     float time = ofGetElapsedTimef();
@@ -261,6 +288,28 @@ void S2NoiseSphere::drawActive()
         sphere.drawVertices();
         sphere.setScale(1.f);
 
+        // Draw transitioning circle
+        if (currentState == S3ObjStateTransitioning)
+        {
+            // Circle
+            ofFill();
+            ofSetColor(255, 255, 255, transitionCircleAlpha);
+            ofCircle(objPosition.x, objPosition.y, 0, transitionCircleRadius);
+        }
+        else if (currentState == S3ObjStateActive)
+        {
+            // Draw Audio Sphere
+            ofFill();
+            ofSetColor(255, 255, 255, activeCircleAlpha);
+            //ofCircle(objPosition.x, objPosition.y, 0, activeCircleRadius);
+            sphereAudio.setRadius(activeCircleRadius);
+            ofSetColor(255*activeCircleAlpha/maxCircleRadius, 255*activeCircleAlpha/maxCircleRadius, 255*activeCircleAlpha/maxCircleRadius, activeCircleAlpha);
+            sphereAudio.drawVertices();
+            sphereAudio.setScale(1.0);
+        }
+
+        
+        
         drawPinchCircle();
         drawPinchColor();
         drawWhiteCircle();
@@ -275,12 +324,18 @@ void S2NoiseSphere::setPositionFromScreenCoords(int screenX, int screenY)
     S2BaseObj::setPositionFromScreenCoords(screenX, screenY);
 
     sphere.setPosition(objPosition);
+    sphereAudio.setPosition(objPosition);
 }
 
 ///--------------------------------------------------------------
 void S2NoiseSphere::volumeChanged(float &newVolume)
 {
-    float newOffset = ofMap(newVolume,0.0,1.0,stableOffset,40.0);
+    float newOffset = ofMap(newVolume,0.0,1.0,stableOffset,1.0);
+    float toRadius = ofMap(newVolume,0.0,1.0,0,maxCircleRadius);
+    float toAlpha = ofMap(newVolume,0.0,1.0,0,maxCircleAlpha);
+
+    activeCircleRadius = toRadius;
+    activeCircleAlpha = toAlpha;
     //Tweenzor::add((float*)&offset.get(),offset ,newOffset, 0, 0.1, EASE_IN_OUT_SINE);
     offset = newOffset;
 }

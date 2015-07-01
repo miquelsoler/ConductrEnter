@@ -318,8 +318,8 @@ void S2DrumsAmoeba::volumeChanged(float &newVolume)
 
     activeCircleRadius = toRadius;
     activeCircleAlpha = toAlpha;
-    noiseFrequency = toFrequency;
-    offset=toOffset;
+    //noiseFrequency = toFrequency;
+    //offset=toOffset;
 }
 
 
