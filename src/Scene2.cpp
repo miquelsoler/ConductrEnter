@@ -424,9 +424,12 @@ void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, in
     if (!object->getIsPicked()) return;
     object->unpick();
 
-    // Stop Ableton clip
+    // Update Ableton track
     int track = pressedObjectIndex;
     abletonManager->stopClip(currentClipIndex, track);
+    int device = 0;
+    int parameter = pressedObjectIndex + 1;
+    abletonManager->setDeviceParameter(track, device, parameter, 0);
 
     // Stop animating the touched object
     object->stop();
@@ -473,16 +476,7 @@ void Scene2::handleDrag(InteractionSource interactionSource, int x, int y, int c
     int device = 0;
     int parameter = pressedObjectIndex + 1;
     int value = object->getXOffset();
-
-
-//    float halfHeight = viewHeight/2.0f;
-//    if ((y>=0) && (y<halfHeight)) {
-//        value = (int)ofMap(y, halfHeight-1, 0, 0, 127);
-//    } else {
-//        value = (int)ofMap(y, halfHeight, viewHeight, 0, 127);
-//    }
-
-    abletonManager->setDeviceParameter(device, parameter, value);
+    abletonManager->setDeviceParameter(pressedObjectIndex, device, parameter, value);
 }
 
 #pragma mark - Touch events

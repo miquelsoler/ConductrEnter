@@ -27,7 +27,7 @@ public:
     void stopClip(int clipNumber, int trackNumber);
     void stopAll();
 
-    void setDeviceParameter(int device, int parameter, int value);
+    void setDeviceParameter(int track, int device, int parameter, int value);
 
     void requestTempo();
     void requestVolumeUpdates();

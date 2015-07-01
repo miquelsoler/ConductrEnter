@@ -102,11 +102,11 @@ void AbletonManager::stopAll()
  * (int device, int parameter, int value)
  * Sets parameter on device on track number track to value
  */
-void AbletonManager::setDeviceParameter(int device, int parameter, int value)
+void AbletonManager::setDeviceParameter(int track, int device, int parameter, int value)
 {
     ofxOscMessage m;
-//    m.setAddress("/live/master/device");
-    m.setAddress("/live/track/device");
+    m.setAddress("/live/device");
+    m.addIntArg(track);
     m.addIntArg(device);
     m.addIntArg(parameter);
     m.addIntArg(value);
