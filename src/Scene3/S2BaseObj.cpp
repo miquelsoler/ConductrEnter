@@ -321,6 +321,9 @@ void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
     {
         xOffset = (xOffset >= minXOffset) ? xOffset-minXOffset : 0;
         circleImageSize = whiteCircleRadius + xOffset;
+        if (circleImageSize > radius * 1.3f)
+            circleImageSize = radius * 1.3f;
+
         colorImageAlpha = (unsigned int) ofMap(xOffset, 0, whiteCircleRadius * 4.0f, colorImageAlphaMin, colorImageAlphaMax, true);
     }
     else

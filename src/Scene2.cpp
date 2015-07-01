@@ -403,7 +403,7 @@ void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, in
     }
     else // Coming from TUIO
     {
-        pressedObjectIndex = getObjectIndetWithCursor(cursorId);
+        pressedObjectIndex = getObjectIndexWithCursor(cursorId);
         if (pressedObjectIndex == -1)
         {
             return;
@@ -441,7 +441,19 @@ void Scene2::handleDrag(InteractionSource interactionSource, int x, int y, int c
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
 
-    unsigned int pressedObjectIndex = getObjectIndexAtX(x);
+    int pressedObjectIndex;
+    if (interactionSource == InteractionSourceMouse)
+    {
+        pressedObjectIndex = mouseObjectIndex;
+    }
+    else // Coming from TUIO
+    {
+        pressedObjectIndex = getObjectIndexWithCursor(cursorId);
+        if (pressedObjectIndex == -1)
+        {
+            return;
+        }
+    }
 
     S2BaseObj *object = objects[pressedObjectIndex];
 
@@ -574,7 +586,7 @@ unsigned int Scene2::getObjectIndexAtX(int x)
     return (unsigned int)(floor(x / viewWidth));
 }
 
-unsigned int Scene2::getObjectIndetWithCursor(int cursorId)
+unsigned int Scene2::getObjectIndexWithCursor(int cursorId)
 {
     bool found = false;
     int objectIndex = -1;
