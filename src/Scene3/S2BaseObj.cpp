@@ -24,7 +24,7 @@ S2BaseObj::S2BaseObj(unsigned int numObjects, unsigned int objectIndex, float _v
 {
     camera.disableMouseInput();
 
-    colorImage.loadImage("objects/color_circle.png");
+    colorImage.loadImage("objects/colorGradientConductrCircleFeather.png");
     colorImage.setAnchorPercent(0.5f, 0.5f);
 
     circleImage.loadImage("objects/color_circle.png");
@@ -186,7 +186,7 @@ void S2BaseObj::drawPinchColor()
 
     ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
     ofSetColor(255*colorImageAlpha, 255*colorImageAlpha, 255*colorImageAlpha, colorImageAlpha);
-    colorImage.draw(objPosition, circleImageSize*2, circleImageSize*2);
+    colorImage.draw(objPosition, 200, 200);
     ofDisableBlendMode();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
 

@@ -111,7 +111,7 @@ void Scene2::setup()
 {
     if (!enableBackgroundVideos) return;
 
-    if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/Loop_background_Playground_v3.mov");
+    if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/Loop_background_3.mov");
     videoPlayer.setLoopState(OF_LOOP_NORMAL);
 }
 
