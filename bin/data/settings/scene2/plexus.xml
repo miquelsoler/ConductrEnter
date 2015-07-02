@@ -1,19 +1,22 @@
 <Settings>
 	<activate>1</activate>
-	<Camera_Distance>940</Camera_Distance>
-	<Loop_Radius>94</Loop_Radius>
-	<Loop_Initial_Angle>44</Loop_Initial_Angle>
-	<White_Circle_Radius>7.5</White_Circle_Radius>
-	<tempo>4.08</tempo>
-	<Noise_Frequency>61.44</Noise_Frequency>
-	<offset>34</offset>
-	<mode>2</mode>
-	<Threshold>1</Threshold>
-	<Treshold_Low>8</Treshold_Low>
-	<Treshold_High>22</Treshold_High>
-	<plexus_min_distance>1.8</plexus_min_distance>
-	<plexus_max_distance>26</plexus_max_distance>
-	<noise_min_distance>0.415</noise_min_distance>
-	<noise_max_distance>0.705</noise_max_distance>
+	<Camera_Distance>660</Camera_Distance>
+	<Loop_Radius>82</Loop_Radius>
+	<Loop_Initial_Angle>0</Loop_Initial_Angle>
+	<White_Circle_Radius>30</White_Circle_Radius>
+	<tempo>5.24</tempo>
+	<Noise_Frequency>100</Noise_Frequency>
+	<offset>18</offset>
+	<mode>0</mode>
+	<Threshold>0</Threshold>
+	<Treshold_Low>0</Treshold_Low>
+	<Treshold_High>0</Treshold_High>
+	<plexus_min_distance>0</plexus_min_distance>
+	<plexus_max_distance>15</plexus_max_distance>
+	<noise_min_distance>0.5</noise_min_distance>
+	<noise_max_distance>0.58</noise_max_distance>
 <Settings/>
+<texCoord_Min_Distance>0.25</texCoord_Min_Distance>
+	<texCoord_Max_Distance>0</texCoord_Max_Distance>
+<show_normals>0</show_normals>
 </Settings>

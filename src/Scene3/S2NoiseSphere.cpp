@@ -257,7 +257,7 @@ void S2NoiseSphere::drawActive()
     camera.begin(viewRectangle);
     {
         ofSetCircleResolution(64);
-        glPointSize(2.0);
+        glPointSize(1.0);
 
         // sphere
         ofSetColor(ofColor::white);
