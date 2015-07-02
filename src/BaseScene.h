@@ -44,7 +44,8 @@ public:
     // cleanup
     void exit() {};
 
-    ofEvent<int> eventGoToArtist;
+    ofEvent<int>        eventGoToPlayground;
+    ofEvent<bool>       eventGoToArtists;
 
 protected:
 
@@ -69,9 +70,9 @@ protected:
     // Listener method to detect window changes
     virtual void windowResized(ofResizeEventArgs &args) {}
 
-    ScreenSetup *screenSetup;
+    ScreenSetup         *screenSetup;
 
-    SceneBgMode backgroundMode;
+    SceneBgMode         backgroundMode;
 };
 
 #endif /* defined(__ConductrEnter__BaseScene__) */

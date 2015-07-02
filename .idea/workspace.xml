@@ -6,9 +6,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utils/AbletonManager.cpp" afterPath="$PROJECT_DIR$/src/Utils/AbletonManager.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BaseScene.cpp" afterPath="$PROJECT_DIR$/src/BaseScene.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BaseScene.h" afterPath="$PROJECT_DIR$/src/BaseScene.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene1.cpp" afterPath="$PROJECT_DIR$/src/Scene1.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene1.h" afterPath="$PROJECT_DIR$/src/Scene1.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene2.cpp" afterPath="$PROJECT_DIR$/src/Scene2.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene2.h" afterPath="$PROJECT_DIR$/src/Scene2.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utils/SettingsManager.cpp" afterPath="$PROJECT_DIR$/src/Utils/SettingsManager.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utils/SettingsManager.h" afterPath="$PROJECT_DIR$/src/Utils/SettingsManager.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ofApp.cpp" afterPath="$PROJECT_DIR$/src/ofApp.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ofApp.h" afterPath="$PROJECT_DIR$/src/ofApp.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/settings.json" afterPath="$PROJECT_DIR$/bin/data/settings/settings.json" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +42,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5968768">
       <split-first>
         <leaf>
-          <file leaf-file-name="Scene2.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Scene2.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Scene2.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="6975" max-vertical-offset="9525">
-                  <caret line="465" column="24" selection-start-line="465" selection-start-column="24" selection-end-line="465" selection-end-column="24" />
+                <state vertical-scroll-proportion="0.47320262" vertical-offset="1813" max-vertical-offset="9975">
+                  <caret line="158" column="5" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
                   <folding>
                     <element signature="e#749#828#0" expanded="true" />
                   </folding>
@@ -46,41 +54,51 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="settings.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/bin/data/settings/settings.json">
+          <file leaf-file-name="BaseScene.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/BaseScene.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-21.25" vertical-offset="0" max-vertical-offset="855">
-                  <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="334" max-vertical-offset="1185">
+                  <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AbletonManager.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Utils/AbletonManager.cpp">
+          <file leaf-file-name="ofApp.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ofApp.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1740" max-vertical-offset="4050">
-                  <caret line="116" column="1" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="720">
+                  <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AbletonManager.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Utils/AbletonManager.h">
+          <file leaf-file-name="ofApp.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ofApp.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="990">
-                  <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="39" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="2072" max-vertical-offset="3615">
+                  <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Scene2.h" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Scene2.h">
+          <file leaf-file-name="Scene1.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Scene1.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5165877" vertical-offset="445" max-vertical-offset="1500">
-                  <caret line="74" column="31" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1395">
+                  <caret line="50" column="11" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Scene1.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Scene1.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="2719" max-vertical-offset="4140">
+                  <caret line="209" column="22" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -90,21 +108,21 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="S2Drums.cpp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Scene3/S2Drums.cpp">
+          <file leaf-file-name="settings.json" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/bin/data/settings/settings.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.014218009" vertical-offset="2925" max-vertical-offset="4125">
-                  <caret line="195" column="33" selection-start-line="195" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.34412956" vertical-offset="0" max-vertical-offset="855">
+                  <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Tween.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../../../addons/ofxTweenzor/src/Tween.cpp">
+          <file leaf-file-name="Scene2.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Scene2.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="3210" max-vertical-offset="3945">
-                  <caret line="214" column="12" selection-start-line="214" selection-start-column="12" selection-end-line="214" selection-end-column="12" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="753" max-vertical-offset="1605">
+                  <caret line="73" column="39" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
@@ -120,7 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bin/data/settings/scene3/example.xml" />
         <option value="$PROJECT_DIR$/bin/data/settings/scene3/noise_sphere.xml" />
         <option value="$PROJECT_DIR$/src/S3SynthesizerCircle.h" />
         <option value="$PROJECT_DIR$/src/S3SynthesizerCircle.cpp" />
@@ -144,8 +161,6 @@
         <option value="$PROJECT_DIR$/src/Scene3/S2ExampleObject.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S2NoiseSphere.h" />
         <option value="$PROJECT_DIR$/src/Utils/Defaults.h" />
-        <option value="$PROJECT_DIR$/src/ofApp.cpp" />
-        <option value="$PROJECT_DIR$/src/ofApp.h" />
         <option value="$PROJECT_DIR$/src/Utils/ScreenSetup.h" />
         <option value="$PROJECT_DIR$/src/Utils/ScreenSetup.cpp" />
         <option value="$PROJECT_DIR$/src/Scene3/demoParticle.cpp" />
@@ -161,16 +176,19 @@
         <option value="$PROJECT_DIR$/src/Scene3/S2DrumsAmoeba.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S2Drums.h" />
         <option value="$PROJECT_DIR$/src/Scene3/S2BaseObj.cpp" />
-        <option value="$PROJECT_DIR$/src/BaseScene.cpp" />
-        <option value="$PROJECT_DIR$/src/BaseScene.h" />
-        <option value="$PROJECT_DIR$/src/Scene1.cpp" />
-        <option value="$PROJECT_DIR$/src/Utils/SettingsManager.h" />
-        <option value="$PROJECT_DIR$/src/Utils/SettingsManager.cpp" />
         <option value="$PROJECT_DIR$/src/Utils/AbletonManager.h" />
         <option value="$PROJECT_DIR$/src/Utils/AbletonManager.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene2.cpp" />
-        <option value="$PROJECT_DIR$/bin/data/settings/settings.json" />
+        <option value="$PROJECT_DIR$/src/BaseScene.cpp" />
+        <option value="$PROJECT_DIR$/src/Utils/SettingsManager.h" />
+        <option value="$PROJECT_DIR$/src/Utils/SettingsManager.cpp" />
+        <option value="$PROJECT_DIR$/src/ofApp.h" />
+        <option value="$PROJECT_DIR$/src/BaseScene.h" />
+        <option value="$PROJECT_DIR$/src/Scene1.h" />
+        <option value="$PROJECT_DIR$/src/ofApp.cpp" />
+        <option value="$PROJECT_DIR$/src/Scene1.cpp" />
         <option value="$PROJECT_DIR$/src/Scene2.h" />
+        <option value="$PROJECT_DIR$/bin/data/settings/settings.json" />
+        <option value="$PROJECT_DIR$/src/Scene2.cpp" />
       </list>
     </option>
   </component>
@@ -182,9 +200,8 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="235" />
-    <option name="y" value="165" />
-    <option name="width" value="2032" />
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
     <option name="height" value="1173" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -261,6 +278,38 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="ConductrEnter" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConductrEnter" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openFrameworksLib" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConductrEnter" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openFrameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -429,38 +478,6 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConductrEnter" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworks" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConductrEnter" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworks" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openFrameworksLib" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -494,6 +511,10 @@
       </EXTENSION>
       <method />
     </configuration>
+    <configuration default="true" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS="FALSE" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="XSLT" factoryName="XSLT">
       <option name="myOutputFile" />
       <option name="myOpenOutputFile" value="false" />
@@ -508,10 +529,6 @@
       <OutputType value="CONSOLE" save-to-file="false" />
       <FileType name="XML" />
       <JdkChoice value="FROM_MODULE" />
-      <method />
-    </configuration>
-    <configuration default="true" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS="FALSE" TEST_MODE="SUITE_TEST">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="OCGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="ConductrEnter" TARGET_NAME="ConductrEnter" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
@@ -577,29 +594,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="235" y="165" width="2032" height="1173" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="1173" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32763976" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32763976" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3227848" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18593894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33462733" sideWeight="0.4992272" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3346519" sideWeight="0.5007728" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16702586" sideWeight="0.5004042" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18686402" sideWeight="0.4996535" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14703493" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14022875" sideWeight="0.4995958" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16702586" sideWeight="0.5004042" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3346519" sideWeight="0.5007728" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1484992" sideWeight="0.4995958" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26641998" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18686402" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33462733" sideWeight="0.4992272" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18778908" sideWeight="0.4996535" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39870492" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26641998" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -619,9 +636,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12715517" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21908127" sideWeight="0.4995958" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983023" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983023" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -645,25 +662,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="59" />
+      <option name="time" value="60" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2CircleParticles.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
-          <caret line="75" column="54" selection-start-line="75" selection-start-column="54" selection-end-line="75" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/demoParticle.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S2SynthesizerCircle.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5167323" vertical-offset="0" max-vertical-offset="1016">
@@ -682,13 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2274168" vertical-offset="2008" max-vertical-offset="3270">
           <caret line="153" column="6" selection-start-line="153" selection-start-column="6" selection-end-line="153" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ofApp.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6342183" vertical-offset="0" max-vertical-offset="1017">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -825,13 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene1.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1365">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S2Synthesizer.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45118484" vertical-offset="2179" max-vertical-offset="3255">
@@ -902,32 +891,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ofApp.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.185185" vertical-offset="580" max-vertical-offset="3465">
-          <caret line="64" column="68" selection-start-line="64" selection-start-column="63" selection-end-line="64" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BaseScene.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64705884" vertical-offset="0" max-vertical-offset="825">
-          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BaseScene.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21960784" vertical-offset="117" max-vertical-offset="1170">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene3/S2Drums.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4509804" vertical-offset="435" max-vertical-offset="1200">
           <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -938,82 +905,141 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene1.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene3/S2Drums.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54901963" vertical-offset="0" max-vertical-offset="3975">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/SettingsManager.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.92026144" vertical-offset="331" max-vertical-offset="1320">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/SettingsManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67058825" vertical-offset="447" max-vertical-offset="1500">
-          <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.36966825" vertical-offset="2925" max-vertical-offset="4140">
+          <caret line="221" column="33" selection-start-line="221" selection-start-column="33" selection-end-line="221" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../addons/ofxTweenzor/src/Tween.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2955" max-vertical-offset="3945">
-          <caret line="214" column="12" selection-start-line="214" selection-start-column="12" selection-end-line="214" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene3/S2Drums.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.014218009" vertical-offset="2925" max-vertical-offset="4125">
-          <caret line="195" column="33" selection-start-line="195" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/AbletonManager.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2890" max-vertical-offset="3945">
+          <caret line="228" column="15" selection-start-line="228" selection-start-column="15" selection-end-line="228" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Utils/AbletonManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1740" max-vertical-offset="4050">
-          <caret line="116" column="1" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.07109005" vertical-offset="1740" max-vertical-offset="4050">
+          <caret line="121" column="43" selection-start-line="121" selection-start-column="43" selection-end-line="121" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene2.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Utils/AbletonManager.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6975" max-vertical-offset="9525">
-          <caret line="465" column="24" selection-start-line="465" selection-start-column="24" selection-end-line="465" selection-end-column="24" />
-          <folding>
-            <element signature="e#749#828#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.41232228" vertical-offset="0" max-vertical-offset="1055">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/data/settings/settings.json">
+    <entry file="file://$PROJECT_DIR$/src/BaseScene.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.25" vertical-offset="0" max-vertical-offset="855">
-          <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ofApp.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="720">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BaseScene.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="334" max-vertical-offset="1185">
+          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/video/ofVideoPlayer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33254993" vertical-offset="5117" max-vertical-offset="6180">
+          <caret line="362" column="19" selection-start-line="362" selection-start-column="19" selection-end-line="362" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/video/ofVideoPlayer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45358402" vertical-offset="454" max-vertical-offset="1725">
+          <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utils/SettingsManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25264394" vertical-offset="265" max-vertical-offset="1320">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utils/SettingsManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68742657" vertical-offset="105" max-vertical-offset="1500">
+          <caret line="46" column="69" selection-start-line="46" selection-start-column="69" selection-end-line="46" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ofApp.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2072" max-vertical-offset="3615">
+          <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene1.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2719" max-vertical-offset="4140">
+          <caret line="209" column="22" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene1.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1395">
+          <caret line="50" column="11" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene2.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5165877" vertical-offset="445" max-vertical-offset="1500">
-          <caret line="74" column="31" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="753" max-vertical-offset="1605">
+          <caret line="73" column="39" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="39" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/data/settings/settings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34412956" vertical-offset="0" max-vertical-offset="855">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene2.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47320262" vertical-offset="1813" max-vertical-offset="9975">
+          <caret line="158" column="5" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
+          <folding>
+            <element signature="e#749#828#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -18,7 +18,7 @@ BaseScene::BaseScene(const string& name, bool singleSetup, ScreenSetup *_screenS
     screenSetup = _screenSetup;
 
     setSingleSetup(singleSetup);  // call setup each time the scene is loaded
-    setFade(SettingsManager::getInstance().sceneFadeInMilliseconds, SettingsManager::getInstance().sceneFadeOutMilliseconds);
+    setFade(0, 0);
 
     ofAddListener(ofEvents().windowResized, this, &BaseScene::windowResized);
 }

@@ -173,6 +173,17 @@ void Scene1::exit()
 #pragma mark - Video handling
 
 ///--------------------------------------------------------------
+void Scene1::moveToLastVideoFrame()
+{
+    Tweenzor::resetAllTweens();
+
+    int lastFrame = videoPlayer.getTotalNumFrames() - 1;
+    videoPlayer.setFrame(lastFrame);
+
+    sceneState = SceneStateArtists;
+}
+
+///--------------------------------------------------------------
 void Scene1::skipIntro()
 {
     if (backgroundMode != SceneBgModeVideo) return;
@@ -234,7 +245,7 @@ void Scene1::handlePress(float x, float y)
         {
             int artistIndex = getTouchedArtistIndex(x, y);
             if (artistIndex != -1)
-                ofNotifyEvent(eventGoToArtist, artistIndex, this);
+                ofNotifyEvent(eventGoToPlayground, artistIndex, this);
         }
     }
 }

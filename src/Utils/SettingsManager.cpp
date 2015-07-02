@@ -42,9 +42,9 @@ bool SettingsManager::loadSettings()
     prefix = "Scenes";
     sceneFirstScene = json[prefix]["First Scene"].asUInt();
     scene1IntroLoopFrame = json[prefix]["Scene1 Intro Loop Frame"].asUInt();
-    sceneFadeInMilliseconds = json[prefix]["FadeIn Milliseconds"].asUInt();
-    sceneFadeOutMilliseconds = json[prefix]["FadeOut Milliseconds"].asUInt();
     scene2TimerMilliseconds = json[prefix]["Scene2 Timer Milliseconds"].asUInt();
+    sceneIdleTimeToArtists = json[prefix]["Idle Time To Artists"].asUInt();
+    sceneIdleTimeToPlayground = json[prefix]["Idle Time To Playground"].asUInt();
 
     // Ableton
     prefix = "Ableton";
