@@ -101,8 +101,8 @@ private:
 
     // Idle time handling
     ofxSimpleTimer          leaveSceneTimer;
-    unsigned int            numberOfTouches;
-    bool                    idleTimerStarted;
+//    unsigned int            numberOfTouches;
+//    bool                    idleTimerStarted;
 };
 
 #endif /* defined(__ConductrEnter__Scene2__) */

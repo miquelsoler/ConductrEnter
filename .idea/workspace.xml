@@ -6,9 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene1.cpp" afterPath="$PROJECT_DIR$/src/Scene1.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/settings.json" afterPath="$PROJECT_DIR$/bin/data/settings/settings.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene2.cpp" afterPath="$PROJECT_DIR$/src/Scene2.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene2.h" afterPath="$PROJECT_DIR$/src/Scene2.h" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,111 +30,16 @@
     <favorites_list name="ConductrEnter" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.50587505">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="Scene1.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Scene1.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="753" max-vertical-offset="1605">
-                  <caret line="74" column="39" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="39" />
-                  <folding>
-                    <element signature="e#427#445#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Scene1.cpp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Scene1.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.60784316" vertical-offset="645" max-vertical-offset="5340">
-                  <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Scene1ArtistZone.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Scene1ArtistZone.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-                  <caret line="15" column="78" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Scene1ArtistZone.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Scene1ArtistZone.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-                  <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ofMath.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/math/ofMath.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="377" max-vertical-offset="4770">
-                  <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SettingsManager.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Utils/SettingsManager.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="265" max-vertical-offset="1320">
-                  <caret line="31" column="35" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="35" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SettingsManager.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Utils/SettingsManager.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1500">
-                  <caret line="43" column="65" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ofEventUtils.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/events/ofEventUtils.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="2042" max-vertical-offset="3165">
-                  <caret line="162" column="22" selection-start-line="162" selection-start-column="22" selection-end-line="162" selection-end-column="22" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ofApp.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ofApp.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="2313" max-vertical-offset="3165">
-                  <caret line="182" column="15" selection-start-line="182" selection-start-column="15" selection-end-line="182" selection-end-column="15" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="Scene2.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Scene2.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Scene2.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-10.222222" vertical-offset="1974" max-vertical-offset="10110">
-                  <caret line="163" column="37" selection-start-line="163" selection-start-column="37" selection-end-line="163" selection-end-column="37" />
+                <state vertical-scroll-proportion="0.46641317" vertical-offset="2632" max-vertical-offset="10395">
+                  <caret line="200" column="26" selection-start-line="200" selection-start-column="26" selection-end-line="200" selection-end-column="26" />
                   <folding>
+                    <element signature="e#92#111#0" expanded="true" />
                     <element signature="e#749#828#0" expanded="true" />
                   </folding>
                 </state>
@@ -145,8 +49,8 @@
           <file leaf-file-name="Scene2.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scene2.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="709" max-vertical-offset="1710">
-                  <caret line="73" column="16" selection-start-line="72" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="586" max-vertical-offset="1710">
+                  <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
                   <folding>
                     <element signature="e#173#191#0" expanded="true" />
                   </folding>
@@ -154,11 +58,27 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="settings.json" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/bin/data/settings/settings.json">
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Scene2.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Scene2.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.18218623" vertical-offset="0" max-vertical-offset="855">
-                  <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="588" max-vertical-offset="1710">
+                  <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#173#191#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SettingsManager.h" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Utils/SettingsManager.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.7867647" vertical-offset="198" max-vertical-offset="1320">
+                  <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
@@ -217,14 +137,14 @@
         <option value="$PROJECT_DIR$/src/BaseScene.h" />
         <option value="$PROJECT_DIR$/src/ofApp.cpp" />
         <option value="$PROJECT_DIR$/src/Scene1.h" />
-        <option value="$PROJECT_DIR$/src/Scene2.h" />
         <option value="$PROJECT_DIR$/src/Utils/SettingsManager.h" />
         <option value="$PROJECT_DIR$/src/Utils/SettingsManager.cpp" />
-        <option value="$PROJECT_DIR$/src/Scene2.cpp" />
         <option value="$PROJECT_DIR$/src/Scene1ArtistZone.h" />
         <option value="$PROJECT_DIR$/src/Scene1ArtistZone.cpp" />
         <option value="$PROJECT_DIR$/src/Scene1.cpp" />
         <option value="$PROJECT_DIR$/bin/data/settings/settings.json" />
+        <option value="$PROJECT_DIR$/src/Scene2.h" />
+        <option value="$PROJECT_DIR$/src/Scene2.cpp" />
       </list>
     </option>
   </component>
@@ -236,9 +156,10 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1173" />
+    <option name="x" value="71" />
+    <option name="y" value="73" />
+    <option name="width" value="2005" />
+    <option name="height" value="1242" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -294,16 +215,6 @@
       <sortByType ProjectPane="false" />
     </navigator>
     <panes>
-      <pane id="Cidr.FilesView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConductrEnter" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -516,6 +427,16 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Cidr.FilesView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConductrEnter" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -547,10 +468,6 @@
       </EXTENSION>
       <method />
     </configuration>
-    <configuration default="true" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS="FALSE" TEST_MODE="SUITE_TEST">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="XSLT" factoryName="XSLT">
       <option name="myOutputFile" />
       <option name="myOpenOutputFile" value="false" />
@@ -565,6 +482,10 @@
       <OutputType value="CONSOLE" save-to-file="false" />
       <FileType name="XML" />
       <JdkChoice value="FROM_MODULE" />
+      <method />
+    </configuration>
+    <configuration default="true" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS="FALSE" TEST_MODE="SUITE_TEST">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="OCGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="ConductrEnter" TARGET_NAME="ConductrEnter" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
@@ -630,29 +551,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1173" extended-state="0" />
+    <frame x="71" y="73" width="2005" height="1242" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32763976" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3227848" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18593894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33462733" sideWeight="0.4992272" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3346519" sideWeight="0.5007728" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16702586" sideWeight="0.5004042" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18686402" sideWeight="0.4996535" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18608695" sideWeight="0.4996535" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14703493" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1484992" sideWeight="0.4995958" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26641998" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19002016" sideWeight="0.4995958" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26608697" sideWeight="0.4996535" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18593894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39870492" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39870492" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -672,9 +593,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12715517" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21908127" sideWeight="0.4995958" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983023" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -925,7 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2890" max-vertical-offset="3945">
           <caret line="228" column="15" selection-start-line="228" selection-start-column="15" selection-end-line="228" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -957,7 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33254993" vertical-offset="5117" max-vertical-offset="6180">
           <caret line="362" column="19" selection-start-line="362" selection-start-column="19" selection-end-line="362" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -965,7 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45358402" vertical-offset="454" max-vertical-offset="1725">
           <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -973,7 +891,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5294118" vertical-offset="0" max-vertical-offset="765">
           <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -985,36 +902,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene2.h">
+    <entry file="file://$PROJECT_DIR$/bin/data/settings/settings.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="709" max-vertical-offset="1710">
-          <caret line="73" column="16" selection-start-line="72" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="e#173#191#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ofApp.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2313" max-vertical-offset="3165">
-          <caret line="182" column="15" selection-start-line="182" selection-start-column="15" selection-end-line="182" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.69545454" vertical-offset="0" max-vertical-offset="1100">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/SettingsManager.h">
+    <entry file="file://$PROJECT_DIR$/src/Scene1.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="265" max-vertical-offset="1320">
-          <caret line="31" column="35" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.49377224" vertical-offset="1260" max-vertical-offset="5340">
+          <caret line="124" column="35" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/SettingsManager.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene1ArtistZone.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1500">
-          <caret line="43" column="65" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.20017794" vertical-offset="0" max-vertical-offset="1124">
+          <caret line="15" column="78" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene1ArtistZone.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3069395" vertical-offset="0" max-vertical-offset="1124">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1027,17 +942,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utils/SettingsManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23932384" vertical-offset="376" max-vertical-offset="1500">
+          <caret line="43" column="65" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../../libs/openFrameworks/events/ofEventUtils.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2042" max-vertical-offset="3165">
+        <state vertical-scroll-proportion="0.25266904" vertical-offset="2146" max-vertical-offset="3270">
           <caret line="162" column="22" selection-start-line="162" selection-start-column="22" selection-end-line="162" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ofApp.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.519573" vertical-offset="2146" max-vertical-offset="3270">
+          <caret line="182" column="15" selection-start-line="182" selection-start-column="15" selection-end-line="182" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene1.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="753" max-vertical-offset="1605">
+        <state vertical-scroll-proportion="0.5596085" vertical-offset="481" max-vertical-offset="1605">
           <caret line="74" column="39" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="39" />
           <folding>
             <element signature="e#427#445#0" expanded="true" />
@@ -1045,45 +976,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene2.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene2.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.222222" vertical-offset="1974" max-vertical-offset="10110">
-          <caret line="163" column="37" selection-start-line="163" selection-start-column="37" selection-end-line="163" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="586" max-vertical-offset="1710">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
           <folding>
-            <element signature="e#749#828#0" expanded="true" />
+            <element signature="e#173#191#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene1ArtistZone.h">
+    <entry file="file://$PROJECT_DIR$/src/Utils/SettingsManager.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <caret line="15" column="78" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.7867647" vertical-offset="198" max-vertical-offset="1320">
+          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene1ArtistZone.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Scene2.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene1.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60784316" vertical-offset="645" max-vertical-offset="5340">
-          <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/data/settings/settings.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18218623" vertical-offset="0" max-vertical-offset="855">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
+        <state vertical-scroll-proportion="0.46641317" vertical-offset="2632" max-vertical-offset="10395">
+          <caret line="200" column="26" selection-start-line="200" selection-start-column="26" selection-end-line="200" selection-end-column="26" />
+          <folding>
+            <element signature="e#92#111#0" expanded="true" />
+            <element signature="e#749#828#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -155,6 +155,8 @@ void Scene2::setup()
 void Scene2::update()
 {
     // Idle time handling
+    leaveSceneTimer.update();
+/*
     if (!idleTimerStarted && numberOfTouches==0)
     {
         idleTimerStarted = true;
@@ -170,6 +172,7 @@ void Scene2::update()
     {
         leaveSceneTimer.update();
     }
+*/
 
     switch(backgroundMode)
     {
@@ -197,9 +200,12 @@ void Scene2::update()
 ///--------------------------------------------------------------
 void Scene2::updateEnter()
 {
-    numberOfTouches = 0;
-    idleTimerStarted = false;
+//    numberOfTouches = 0;
+//    idleTimerStarted = false;
     leaveSceneTimer.reset();
+    leaveSceneTimer.setup(SettingsManager::getInstance().sceneIdleTimeToArtists * 1000);
+    ofAddListener(leaveSceneTimer.TIMER_COMPLETE , this, &Scene2::leaveSceneTimerCompleteHandler);
+    leaveSceneTimer.start(false);
 
     currentClipIndex = (artistIndex * artistOffset) + (artistOffset/2) + SettingsManager::getInstance().abletonFirstClipIndex;
 
@@ -363,6 +369,7 @@ void Scene2::setArtistIndex(int _artistIndex)
 */
 void Scene2::handlePress(InteractionSource interactionSource, int x, int y, TuioCursor *cursor)
 {
+/*
     numberOfTouches++;
     if (idleTimerStarted)
     {
@@ -372,6 +379,7 @@ void Scene2::handlePress(InteractionSource interactionSource, int x, int y, Tuio
         cout << "Playground Timer stopped" << endl;
 #endif
     }
+*/
 
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
@@ -420,7 +428,7 @@ void Scene2::handlePress(InteractionSource interactionSource, int x, int y, Tuio
 ///--------------------------------------------------------------
 void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, int cursorId)
 {
-    if (numberOfTouches > 0) numberOfTouches--;
+//    if (numberOfTouches > 0) numberOfTouches--;
 
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
@@ -613,7 +621,7 @@ void Scene2::windowResized(ofResizeEventArgs &args)
 ///--------------------------------------------------------------
 void Scene2::leaveSceneTimerCompleteHandler(int &args)
 {
-    idleTimerStarted = false;
+//    idleTimerStarted = false;
     leaveSceneTimer.stop();
 
     bool goToLastFrame = true;
