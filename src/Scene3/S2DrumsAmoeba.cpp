@@ -95,7 +95,7 @@ void S2DrumsAmoeba::initInactive()
     colorImageAlpha = 0;
     
     //cout << "INIT INACTIVE " << endl;
-    inactiveNoiseFrequency = 100;
+    inactiveNoiseFrequency = 12;
     inactiveCircleRadius = 0;
     inactiveCircleAlpha = 0;
 

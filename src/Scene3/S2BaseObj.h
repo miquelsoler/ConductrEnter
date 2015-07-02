@@ -135,6 +135,10 @@ protected:
     // GUI
     ofxPanel                gui;
     string                  settingsPath;
+    
+    ofPoint         oldObjPosition;
+    float           deltaObjPosition;
+    ofVec3f         objScreenCoords;
 };
 
 #endif /* defined(__ConductrEnter__S2BaseObj__) */

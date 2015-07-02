@@ -85,6 +85,8 @@ void S2BaseObj::setup()
 ///--------------------------------------------------------------
 void S2BaseObj::update()
 {
+    setPositionFromScreenCoords(objScreenCoords.x,objScreenCoords.y);
+
     if(activated)
     {
         camera.setDistance(camDistance);
@@ -307,7 +309,7 @@ TuioCursor *S2BaseObj::getLastCursor()
 ///--------------------------------------------------------------
 void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 {
-    ofVec3f objScreenCoords = camera.worldToScreen(objPosition, viewRectangle);
+    objScreenCoords = camera.worldToScreen(objPosition, viewRectangle);
     objScreenCoords.x = screenX;
     objScreenCoords.y = screenY;
 
@@ -332,6 +334,11 @@ void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
     }
 
     objPosition.x = oldX;
+    
+    deltaObjPosition = 0.05;
+    objPosition = objPosition * deltaObjPosition + oldObjPosition*(1.0-deltaObjPosition);
+    oldObjPosition = objPosition;
+
 }
 
 #pragma mark - Play/stop messages + state management

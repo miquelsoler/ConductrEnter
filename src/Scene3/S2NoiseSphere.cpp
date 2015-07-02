@@ -80,10 +80,10 @@ void S2NoiseSphere::setup()
 ///--------------------------------------------------------------
 void S2NoiseSphere::initInactive()
 {
-    stableOffset = 0;
+    stableOffset = 9;
     stableNoiseFrequency = 50;
-    activeOffset = 1;
-    activeNoiseFrequency = 100;
+    activeOffset = 19;
+    activeNoiseFrequency = 800;
  
     inactiveCircleRadius = 0;
     inactiveCircleAlpha = 0;
@@ -323,7 +323,7 @@ void S2NoiseSphere::setPositionFromScreenCoords(int screenX, int screenY)
 ///--------------------------------------------------------------
 void S2NoiseSphere::volumeChanged(float &newVolume)
 {
-    float newOffset = ofMap(newVolume,0.0,1.0,stableOffset,1.0);
+    float newOffset = ofMap(newVolume,0.0,1.0,stableOffset,activeOffset);
     float toRadius = ofMap(newVolume,0.0,1.0,0,maxCircleRadius);
     float toAlpha = ofMap(newVolume,0.0,1.0,0,maxCircleAlpha);
 
