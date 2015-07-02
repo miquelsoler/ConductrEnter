@@ -8,7 +8,7 @@
         "Number Of Artists": 4,
     	"Scene1 Intro Loop Frame": 1249,
         "Idle Time To Artists": 300,
-        "Idle Time To Playground": 5
+        "Idle Time To Playground": 10
     },
     "Ableton": {
         "Ableton Host": "localhost",
