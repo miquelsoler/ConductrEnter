@@ -318,7 +318,7 @@ void Scene2::draw()
 
     if (showTUIOCursors)
     {
-        ofxTuioClient *tuioClient = TUIOHandler::ourgetInstance().tuioClient;
+        ofxTuioClient *tuioClient = TUIOHandler::getInstance().tuioClient;
         tuioClient->drawCursors(0.5, 1, 0);
     }
 
