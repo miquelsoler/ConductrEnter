@@ -41,6 +41,7 @@ bool SettingsManager::loadSettings()
     // Scene management
     prefix = "Scenes";
     sceneFirstScene = json[prefix]["First Scene"].asUInt();
+    sceneNumArtists = json[prefix]["Number Of Artists"].asUInt();
     scene1IntroLoopFrame = json[prefix]["Scene1 Intro Loop Frame"].asUInt();
     sceneIdleTimeToArtists = json[prefix]["Idle Time To Artists"].asUInt();
     sceneIdleTimeToPlayground = json[prefix]["Idle Time To Playground"].asUInt();

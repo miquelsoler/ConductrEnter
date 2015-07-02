@@ -72,13 +72,32 @@ void Scene1::update()
             updateStateIntro();
             break;
         case SceneStateArtists:
+        {
+            if (!idleTimerStarted)
+            {
+                idleTimerStarted = true;
+                leaveSceneTimer.setup(SettingsManager::getInstance().sceneIdleTimeToPlayground * 1000);
+                ofAddListener(leaveSceneTimer.TIMER_COMPLETE, this, &Scene1::leaveSceneTimerCompleteHandler);
+                leaveSceneTimer.start(false);
+#ifdef OF_DEBUG
+                cout << "Timer started" << endl;
+#endif
+            }
+            else
+            {
+                leaveSceneTimer.update();
+            }
             updateStateArtists();
+            break;
+        };
     }
 }
 
 ///--------------------------------------------------------------
 void Scene1::updateEnter()
 {
+    idleTimerStarted = false;
+
     if (skipToLastVideoFrame)
     {
         Tweenzor::resetAllTweens();
@@ -248,6 +267,15 @@ int Scene1::getTouchedArtistIndex(float percentX, float percentY)
 ///--------------------------------------------------------------
 void Scene1::handlePress(float x, float y)
 {
+    if (idleTimerStarted)
+    {
+        leaveSceneTimer.stop();
+        idleTimerStarted = false;
+#ifdef OF_DEBUG
+        cout << "Timer stopped" << endl;
+#endif
+    }
+
     switch(sceneState)
     {
         case SceneStateIntro:
@@ -284,4 +312,21 @@ void Scene1::mousePressed(int x, int y, int button)
 void Scene1::mouseMoved(int x, int y)
 {
 //    cout << "mouse moved (" << x << ", " << y << ")" << endl;
+}
+
+#pragma mark - Idle timer
+
+///--------------------------------------------------------------
+void Scene1::leaveSceneTimerCompleteHandler(int &args)
+{
+    idleTimerStarted = false;
+    leaveSceneTimer.stop();
+
+    ofSeedRandom();
+    int artistIndex = int(ofRandom(0, (SettingsManager::getInstance().sceneNumArtists)-1));
+    ofNotifyEvent(eventGoToPlayground, artistIndex, this);
+
+#ifdef OF_DEBUG
+    cout << "Timer completed" << endl;
+#endif
 }

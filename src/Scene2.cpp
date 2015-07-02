@@ -162,7 +162,9 @@ void Scene2::update()
         leaveSceneTimer.setup(SettingsManager::getInstance().sceneIdleTimeToArtists * 1000);
         ofAddListener(leaveSceneTimer.TIMER_COMPLETE , this, &Scene2::leaveSceneTimerCompleteHandler);
         leaveSceneTimer.start(false);
+#ifdef OF_DEBUG
         cout << "Timer started" << endl;
+#endif
     }
     else
     {
@@ -368,7 +370,9 @@ void Scene2::handlePress(InteractionSource interactionSource, int x, int y, Tuio
     {
         leaveSceneTimer.stop();
         idleTimerStarted = false;
+#ifdef OF_DEBUG
         cout << "Timer stopped" << endl;
+#endif
     }
 
     if ((x < 0) || (x >= ofGetWidth())) return;
@@ -614,12 +618,12 @@ void Scene2::leaveSceneTimerCompleteHandler(int &args)
     idleTimerStarted = false;
     leaveSceneTimer.stop();
 
-//    ofNotifyEvent(eventGoToPlayground, artistIndex, this);
-
     bool goToLastFrame = true;
     ofNotifyEvent(eventGoToArtists, goToLastFrame, this);
 
+#ifdef OF_DEBUG
     cout << "Timer completed" << endl;
+#endif
 }
 
 #pragma mark - Helper methods

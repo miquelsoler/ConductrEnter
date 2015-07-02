@@ -99,9 +99,8 @@ private:
     float                   bgImageScale;
     float                   bgImageAlpha;
 
-    ofxSimpleTimer          leaveSceneTimer;
-
     // Idle time handling
+    ofxSimpleTimer          leaveSceneTimer;
     unsigned int            numberOfTouches;
     bool                    idleTimerStarted;
 };

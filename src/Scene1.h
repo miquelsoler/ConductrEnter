@@ -17,8 +17,10 @@
 #define __ConductrEnter__Scene1__
 
 #include <stdio.h>
-#include "BaseScene.h"
 #include "ofxTweenzor.h"
+#include <ofxAppUtils.h>
+#include "ofxSimpleTimer.h"
+#include "BaseScene.h"
 #include "Scene1ArtistZone.h"
 
 
@@ -69,6 +71,9 @@ private:
 
     void handlePress(float x, float y);
 
+    // Idle timer
+    void leaveSceneTimerCompleteHandler(int &args);
+
     // Intro
     void skipIntro();
     void onVideoComplete(float* arg);
@@ -87,6 +92,10 @@ private:
     vector<Scene1ArtistZone>    artistsZone;
 
     bool                        skipToLastVideoFrame;
+
+    // Idle time handling
+    ofxSimpleTimer          leaveSceneTimer;
+    bool                    idleTimerStarted;
 };
 
 #endif /* defined(__ConductrEnter__Scene1__) */
