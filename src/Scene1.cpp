@@ -36,6 +36,8 @@ Scene1::Scene1(const string& name, bool singleSetup, ScreenSetup *screenSetup) :
 ///--------------------------------------------------------------
 void Scene1::setup()
 {
+    skipToLastVideoFrame = false;
+
     if (backgroundMode == SceneBgModeVideo)
     {
         if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/video_LoopIntroArtistes_v1.mov");
@@ -77,6 +79,16 @@ void Scene1::update()
 ///--------------------------------------------------------------
 void Scene1::updateEnter()
 {
+    if (skipToLastVideoFrame)
+    {
+        Tweenzor::resetAllTweens();
+
+        int lastFrame = videoPlayer.getTotalNumFrames() - 1;
+        videoPlayer.setFrame(lastFrame);
+
+        sceneState = SceneStateArtists;
+    }
+    
     sceneState = (backgroundMode == SceneBgModeVideo) ? SceneStateIntro : SceneStateArtists;
 
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene1::tuioPressed);
@@ -133,6 +145,7 @@ void Scene1::updateStateIntro()
 ///--------------------------------------------------------------
 void Scene1::updateStateArtists()
 {
+    videoPlayer.update();
 }
 
 ///--------------------------------------------------------------
@@ -175,12 +188,7 @@ void Scene1::exit()
 ///--------------------------------------------------------------
 void Scene1::moveToLastVideoFrame()
 {
-    Tweenzor::resetAllTweens();
-
-    int lastFrame = videoPlayer.getTotalNumFrames() - 1;
-    videoPlayer.setFrame(lastFrame);
-
-    sceneState = SceneStateArtists;
+    skipToLastVideoFrame = true;
 }
 
 ///--------------------------------------------------------------

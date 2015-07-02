@@ -7,6 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2b566b4a-5a17-4201-b562-eca88bbb4d67" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene2.cpp" afterPath="$PROJECT_DIR$/src/Scene2.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/data/settings/settings.json" afterPath="$PROJECT_DIR$/bin/data/settings/settings.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConductrEnter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,11 +34,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5968768">
       <split-first>
         <leaf>
-          <file leaf-file-name="Scene2.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Scene2.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scene2.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.33254993" vertical-offset="4322" max-vertical-offset="9975">
-                  <caret line="320" column="49" selection-start-line="320" selection-start-column="49" selection-end-line="320" selection-end-column="49" />
+                <state vertical-scroll-proportion="-15.740741" vertical-offset="8785" max-vertical-offset="10065">
+                  <caret line="627" column="37" selection-start-line="627" selection-start-column="37" selection-end-line="627" selection-end-column="37" />
                   <folding>
                     <element signature="e#749#828#0" expanded="true" />
                   </folding>
@@ -57,7 +59,7 @@
           <file leaf-file-name="ofApp.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/ofApp.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="720">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
                   <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
                   <folding />
                 </state>
@@ -67,8 +69,8 @@
           <file leaf-file-name="ofApp.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/ofApp.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="2072" max-vertical-offset="3615">
-                  <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="2162" max-vertical-offset="3615">
+                  <caret line="174" column="26" selection-start-line="174" selection-start-column="26" selection-end-line="174" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
@@ -84,11 +86,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Scene1.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Scene1.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Scene1.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="2719" max-vertical-offset="4140">
-                  <caret line="209" column="22" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="22" />
+                <state vertical-scroll-proportion="0.33252427" vertical-offset="2306" max-vertical-offset="4140">
+                  <caret line="175" column="13" selection-start-line="175" selection-start-column="13" selection-end-line="175" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -98,20 +100,20 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="settings.json" pinned="false" current-in-tab="true">
+          <file leaf-file-name="settings.json" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/bin/data/settings/settings.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3083434" vertical-offset="0" max-vertical-offset="855">
+                <state vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="855">
                   <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Scene2.h" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Scene2.h" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Scene2.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="753" max-vertical-offset="1605">
+                <state vertical-scroll-proportion="0.49706227" vertical-offset="552" max-vertical-offset="1605">
                   <caret line="73" column="39" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="39" />
                   <folding />
                 </state>
@@ -935,14 +937,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ofApp.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="720">
-          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BaseScene.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="334" max-vertical-offset="1185">
@@ -983,22 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ofApp.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2072" max-vertical-offset="3615">
-          <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene1.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2719" max-vertical-offset="4140">
-          <caret line="209" column="22" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene1.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1395">
@@ -1007,29 +985,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bin/data/settings/settings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="855">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene2.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="753" max-vertical-offset="1605">
+        <state vertical-scroll-proportion="0.49706227" vertical-offset="552" max-vertical-offset="1605">
           <caret line="73" column="39" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/data/settings/settings.json">
+    <entry file="file://$PROJECT_DIR$/src/ofApp.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3083434" vertical-offset="0" max-vertical-offset="855">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="720">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scene2.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33254993" vertical-offset="4322" max-vertical-offset="9975">
-          <caret line="320" column="49" selection-start-line="320" selection-start-column="49" selection-end-line="320" selection-end-column="49" />
+        <state vertical-scroll-proportion="-15.740741" vertical-offset="8785" max-vertical-offset="10065">
+          <caret line="627" column="37" selection-start-line="627" selection-start-column="37" selection-end-line="627" selection-end-column="37" />
           <folding>
             <element signature="e#749#828#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ofApp.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2162" max-vertical-offset="3615">
+          <caret line="174" column="26" selection-start-line="174" selection-start-column="26" selection-end-line="174" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scene1.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33252427" vertical-offset="2306" max-vertical-offset="4140">
+          <caret line="175" column="13" selection-start-line="175" selection-start-column="13" selection-end-line="175" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

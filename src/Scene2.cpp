@@ -155,7 +155,7 @@ void Scene2::setup()
 void Scene2::update()
 {
     // Idle time handling
-    if (!idleTimerStarted)
+    if (!idleTimerStarted && numberOfTouches==0)
     {
         idleTimerStarted = true;
 
@@ -199,6 +199,7 @@ void Scene2::updateEnter()
 {
     numberOfTouches = 0;
     idleTimerStarted = false;
+    leaveSceneTimer.reset();
 
     currentClipIndex = (artistIndex * artistOffset) + (artistOffset/2) + SettingsManager::getInstance().abletonFirstClipIndex;
 
@@ -614,6 +615,12 @@ void Scene2::leaveSceneTimerCompleteHandler(int &args)
 {
     idleTimerStarted = false;
     leaveSceneTimer.stop();
+
+//    ofNotifyEvent(eventGoToPlayground, artistIndex, this);
+
+    bool goToLastFrame = true;
+    ofNotifyEvent(eventGoToArtists, goToLastFrame, this);
+
     cout << "Timer completed" << endl;
 }
 

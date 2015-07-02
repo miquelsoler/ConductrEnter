@@ -85,6 +85,8 @@ private:
     float                       videoHeaderFrame;
 
     vector<Scene1ArtistZone>    artistsZone;
+
+    bool                        skipToLastVideoFrame;
 };
 
 #endif /* defined(__ConductrEnter__Scene1__) */
