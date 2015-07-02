@@ -53,14 +53,36 @@ void Scene1::setup()
 
     float artistZoneWidth = 0.052083333f;
     float artistZoneHeight = 0.03f;
-    artistsZone.push_back(Scene1ArtistZone(0.119791667f, 0.668518519f, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.227604167f, 0.437037037f, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.2640625f, 0.57037037f, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.3578125f, 0.675925926f, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.60625f, 0.638888889f, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.682291667f, 0.462962963f, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.7703125f, 0.564814815f, artistZoneWidth, artistZoneHeight));
-    artistsZone.push_back(Scene1ArtistZone(0.834895833f, 0.42962963f, artistZoneWidth, artistZoneHeight));
+    for (int i=0; i<SettingsManager::getInstance().sceneNumArtists; i++)
+    {
+        switch(i)
+        {
+            case 0:
+                artistsZone.push_back(Scene1ArtistZone(0.119791667f, 0.668518519f, artistZoneWidth, artistZoneHeight));
+                break;
+            case 1:
+                artistsZone.push_back(Scene1ArtistZone(0.227604167f, 0.437037037f, artistZoneWidth, artistZoneHeight));
+                break;
+            case 2:
+                artistsZone.push_back(Scene1ArtistZone(0.2640625f, 0.57037037f, artistZoneWidth, artistZoneHeight));
+                break;
+            case 3:
+                artistsZone.push_back(Scene1ArtistZone(0.3578125f, 0.675925926f, artistZoneWidth, artistZoneHeight));
+                break;
+            case 4:
+                artistsZone.push_back(Scene1ArtistZone(0.60625f, 0.638888889f, artistZoneWidth, artistZoneHeight));
+                break;
+            case 5:
+                artistsZone.push_back(Scene1ArtistZone(0.682291667f, 0.462962963f, artistZoneWidth, artistZoneHeight));
+                break;
+            case 6:
+                artistsZone.push_back(Scene1ArtistZone(0.7703125f, 0.564814815f, artistZoneWidth, artistZoneHeight));
+                break;
+            case 7:
+                artistsZone.push_back(Scene1ArtistZone(0.834895833f, 0.42962963f, artistZoneWidth, artistZoneHeight));
+                break;
+        }
+    }
 }
 
 ///--------------------------------------------------------------
@@ -80,7 +102,7 @@ void Scene1::update()
                 ofAddListener(leaveSceneTimer.TIMER_COMPLETE, this, &Scene1::leaveSceneTimerCompleteHandler);
                 leaveSceneTimer.start(false);
 #ifdef OF_DEBUG
-                cout << "Timer started" << endl;
+                cout << "Artists Timer started" << endl;
 #endif
             }
             else
@@ -272,7 +294,7 @@ void Scene1::handlePress(float x, float y)
         leaveSceneTimer.stop();
         idleTimerStarted = false;
 #ifdef OF_DEBUG
-        cout << "Timer stopped" << endl;
+        cout << "Artists Timer stopped" << endl;
 #endif
     }
 
@@ -311,7 +333,6 @@ void Scene1::mousePressed(int x, int y, int button)
 
 void Scene1::mouseMoved(int x, int y)
 {
-//    cout << "mouse moved (" << x << ", " << y << ")" << endl;
 }
 
 #pragma mark - Idle timer
@@ -327,6 +348,6 @@ void Scene1::leaveSceneTimerCompleteHandler(int &args)
     ofNotifyEvent(eventGoToPlayground, artistIndex, this);
 
 #ifdef OF_DEBUG
-    cout << "Timer completed" << endl;
+    cout << "Artists Timer completed" << endl;
 #endif
 }

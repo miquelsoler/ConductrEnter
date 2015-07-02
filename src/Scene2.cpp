@@ -163,15 +163,13 @@ void Scene2::update()
         ofAddListener(leaveSceneTimer.TIMER_COMPLETE , this, &Scene2::leaveSceneTimerCompleteHandler);
         leaveSceneTimer.start(false);
 #ifdef OF_DEBUG
-        cout << "Timer started" << endl;
+        cout << "Playground Timer started" << endl;
 #endif
     }
     else
     {
         leaveSceneTimer.update();
     }
-
-//    cout << "Number of touches: " << numberOfTouches << endl;
 
     switch(backgroundMode)
     {
@@ -371,7 +369,7 @@ void Scene2::handlePress(InteractionSource interactionSource, int x, int y, Tuio
         leaveSceneTimer.stop();
         idleTimerStarted = false;
 #ifdef OF_DEBUG
-        cout << "Timer stopped" << endl;
+        cout << "Playground Timer stopped" << endl;
 #endif
     }
 
@@ -422,7 +420,7 @@ void Scene2::handlePress(InteractionSource interactionSource, int x, int y, Tuio
 ///--------------------------------------------------------------
 void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, int cursorId)
 {
-    numberOfTouches--;
+    if (numberOfTouches > 0) numberOfTouches--;
 
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
@@ -622,7 +620,7 @@ void Scene2::leaveSceneTimerCompleteHandler(int &args)
     ofNotifyEvent(eventGoToArtists, goToLastFrame, this);
 
 #ifdef OF_DEBUG
-    cout << "Timer completed" << endl;
+    cout << "Playground Timer completed" << endl;
 #endif
 }
 
