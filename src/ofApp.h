@@ -25,8 +25,10 @@ public:
 private:
 
     void goToNextScene();
-    void goToNextScene(int &artistIndex);
     void goToPreviousScene();
+
+    void goToScene2Artist(int &artistIndex);
+    void goToScene1(bool &toLastVideoFrame);
 
     void drawScreenMode();
     void showScreenModeCompleteHandler(int &args);

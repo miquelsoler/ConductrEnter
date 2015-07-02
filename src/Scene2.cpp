@@ -154,6 +154,23 @@ void Scene2::setup()
 ///--------------------------------------------------------------
 void Scene2::update()
 {
+    // Idle time handling
+    if (!idleTimerStarted)
+    {
+        idleTimerStarted = true;
+
+        leaveSceneTimer.setup(SettingsManager::getInstance().sceneIdleTimeToArtists * 1000);
+        ofAddListener(leaveSceneTimer.TIMER_COMPLETE , this, &Scene2::leaveSceneTimerCompleteHandler);
+        leaveSceneTimer.start(false);
+        cout << "Timer started" << endl;
+    }
+    else
+    {
+        leaveSceneTimer.update();
+    }
+
+//    cout << "Number of touches: " << numberOfTouches << endl;
+
     switch(backgroundMode)
     {
         case SceneBgModeVideo:
@@ -180,6 +197,9 @@ void Scene2::update()
 ///--------------------------------------------------------------
 void Scene2::updateEnter()
 {
+    numberOfTouches = 0;
+    idleTimerStarted = false;
+
     currentClipIndex = (artistIndex * artistOffset) + (artistOffset/2) + SettingsManager::getInstance().abletonFirstClipIndex;
 
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene2::tuioPressed);
@@ -232,7 +252,7 @@ void Scene2::updateEnter()
     for (unsigned int i=0; i<num_objects; ++i)
         objects[i]->setup();
 
-    leaveSceneTimer.setup(SettingsManager::getInstance().scene2TimerMilliseconds);
+//    leaveSceneTimer.setup(SettingsManager::getInstance().scene2TimerMilliseconds);
 
     BaseScene::updateEnter();
 }
@@ -344,6 +364,14 @@ void Scene2::setArtistIndex(int _artistIndex)
 */
 void Scene2::handlePress(InteractionSource interactionSource, int x, int y, TuioCursor *cursor)
 {
+    numberOfTouches++;
+    if (idleTimerStarted)
+    {
+        leaveSceneTimer.stop();
+        idleTimerStarted = false;
+        cout << "Timer stopped" << endl;
+    }
+
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
 
@@ -391,6 +419,8 @@ void Scene2::handlePress(InteractionSource interactionSource, int x, int y, Tuio
 ///--------------------------------------------------------------
 void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, int cursorId)
 {
+    numberOfTouches--;
+
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
 
@@ -575,6 +605,16 @@ void Scene2::windowResized(ofResizeEventArgs &args)
     viewWidth = ofGetWidth() / num_objects;
     viewHeight = ofGetHeight();
     clipHeight = viewHeight / SettingsManager::getInstance().abletonArtistOffset;
+}
+
+#pragma mark - Idle timer
+
+///--------------------------------------------------------------
+void Scene2::leaveSceneTimerCompleteHandler(int &args)
+{
+    idleTimerStarted = false;
+    leaveSceneTimer.stop();
+    cout << "Timer completed" << endl;
 }
 
 #pragma mark - Helper methods

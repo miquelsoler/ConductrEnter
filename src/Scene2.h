@@ -70,6 +70,9 @@ private:
     virtual void windowResized(ofResizeEventArgs &args);
     virtual void tempoChanged(float &newTempo);
 
+    // Idle timer
+    void leaveSceneTimerCompleteHandler(int &args);
+
     // Helper methods
     unsigned int getObjectIndexAtX(int x);
     unsigned int getObjectIndexWithCursor(int cursorId);
@@ -97,6 +100,10 @@ private:
     float                   bgImageAlpha;
 
     ofxSimpleTimer          leaveSceneTimer;
+
+    // Idle time handling
+    unsigned int            numberOfTouches;
+    bool                    idleTimerStarted;
 };
 
 #endif /* defined(__ConductrEnter__Scene2__) */

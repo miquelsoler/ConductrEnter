@@ -30,9 +30,9 @@ public:
     // Scene management
     unsigned int    sceneFirstScene;
     unsigned int    scene1IntroLoopFrame;
-    unsigned int    sceneFadeInMilliseconds;
-    unsigned int    sceneFadeOutMilliseconds;
     unsigned long   scene2TimerMilliseconds;
+    unsigned int    sceneIdleTimeToArtists;
+    unsigned int    sceneIdleTimeToPlayground;
 
     // Ableton
     string          abletonHost;

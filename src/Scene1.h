@@ -50,6 +50,8 @@ public:
     void draw();
     void exit();
 
+    void moveToLastVideoFrame();
+
 private:
 
     // TUIO touch events

@@ -42,10 +42,13 @@ void ofApp::setup()
 
     // Scenes
     Scene1 *scene1 = new Scene1("Scene1", true, &screenSetup);
-    ofAddListener(scene1->eventGoToArtist, this, &ofApp::goToNextScene);
+    ofAddListener(scene1->eventGoToPlayground, this, &ofApp::goToScene2Artist);
     sceneManager.add(scene1);
 
-    sceneManager.add(new Scene2("Scene2", true, &screenSetup));
+
+    Scene2 *scene2 = new Scene2("Scene2", true, &screenSetup);
+    ofAddListener(scene2->eventGoToArtists, this, &ofApp::goToScene1);
+    sceneManager.add(scene2);
 
     sceneManager.setup(true); // call setup for all of them
     sceneManager.setOverlap(false); // overlap scenes when transitioning
@@ -83,7 +86,6 @@ void ofApp::update()
 ///--------------------------------------------------------------
 void ofApp::draw()
 {
-    
     // Draw screen mode
     if (showScreenMode) drawScreenMode();
 
@@ -92,7 +94,6 @@ void ofApp::draw()
         ofSetColor(ofColor::gray);
         ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 20, ofGetHeight() - 15);
     }
-    
 }
 
 #pragma mark - Interaction events
@@ -157,14 +158,6 @@ void ofApp::goToNextScene()
 }
 
 ///--------------------------------------------------------------
-void ofApp::goToNextScene(int &artistIndex)
-{
-    Scene2 *scene2 = (Scene2 *)sceneManager.getSceneAt(1);
-    scene2->setArtistIndex(artistIndex);
-    goToNextScene();
-}
-
-///--------------------------------------------------------------
 void ofApp::goToPreviousScene()
 {
     sceneManager.prevScene();
@@ -172,6 +165,23 @@ void ofApp::goToPreviousScene()
         currentScene = LAST_SCENE;
     else
         currentScene--;
+}
+
+///--------------------------------------------------------------
+void ofApp::goToScene1(bool &toLastVideoFrame)
+{
+    Scene1 *scene1 = (Scene1 *)sceneManager.getSceneAt(0);
+    if (toLastVideoFrame)
+        scene1->moveToLastVideoFrame();
+    goToNextScene();
+}
+
+///--------------------------------------------------------------
+void ofApp::goToScene2Artist(int &artistIndex)
+{
+    Scene2 *scene2 = (Scene2 *)sceneManager.getSceneAt(1);
+    scene2->setArtistIndex(artistIndex);
+    goToNextScene();
 }
 
 ///--------------------------------------------------------------
