@@ -30,7 +30,6 @@ public:
     // Scene management
     unsigned int    sceneFirstScene;
     unsigned int    scene1IntroLoopFrame;
-    unsigned long   scene2TimerMilliseconds;
     unsigned int    sceneIdleTimeToArtists;
     unsigned int    sceneIdleTimeToPlayground;
 

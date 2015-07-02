@@ -84,20 +84,26 @@ void Scene1::updateEnter()
         Tweenzor::resetAllTweens();
 
         int lastFrame = videoPlayer.getTotalNumFrames() - 1;
+        videoPlayer.setLoopState(OF_LOOP_NONE);
         videoPlayer.setFrame(lastFrame);
 
         sceneState = SceneStateArtists;
     }
-    
-    sceneState = (backgroundMode == SceneBgModeVideo) ? SceneStateIntro : SceneStateArtists;
+    else
+    {
+        sceneState = (backgroundMode == SceneBgModeVideo) ? SceneStateIntro : SceneStateArtists;
+    }
 
     ofAddListener(TUIOHandler::getInstance().eventTouchDown, this, &Scene1::tuioPressed);
     ofAddListener(TUIOHandler::getInstance().eventTouchDownCursor, this, &Scene1::tuioReceiverPressed);
 
-    if (backgroundMode == SceneBgModeVideo)
+    if (!skipToLastVideoFrame)
     {
-        videoState = Loop;
-        videoPlayer.play();
+        if (backgroundMode == SceneBgModeVideo)
+        {
+            videoState = Loop;
+            videoPlayer.play();
+        }
     }
 
     BaseScene::updateEnter();

@@ -185,36 +185,6 @@ void ofApp::goToScene2Artist(int &artistIndex)
 }
 
 ///--------------------------------------------------------------
-/*
-void ofApp::manageScene2Timer()
-{
-    if (currentScene == LAST_SCENE)
-    {
-        // Scene is #2, init timer for it
-        scene2Timer.setup(SettingsManager::getInstance().scene2TimerMilliseconds);
-        scene2Timer.start(true);
-    }
-    else
-    {
-        // Scene isn't #2, reset its timer
-        scene2Timer.stop();
-        scene2Timer.reset();
-    }
-}
-*/
-
-/*
-///--------------------------------------------------------------
-void ofApp::scene2TimerCompleteHandler(int &args)
-{
-    ofLog(OF_LOG_NOTICE, "Timer completed. Jump to scene 1.");
-    scene2Timer.stop();
-    currentScene = 0;
-    sceneManager.gotoScene(currentScene);
-}
-*/
-
-///--------------------------------------------------------------
 void ofApp::drawScreenMode()
 {
     float halfWindowWidth = ofGetWidth() / 2;

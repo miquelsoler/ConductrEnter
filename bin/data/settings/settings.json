@@ -6,8 +6,7 @@
     "Scenes": {
         "First Scene": 0, // 0=Intro, 1=Playground
     	"Scene1 Intro Loop Frame": 1249,
-        "Scene2 Timer Milliseconds": 600000,
-        "Idle Time To Artists": 5,
+        "Idle Time To Artists": 300,
         "Idle Time To Playground": 5
     },
     "Ableton": {
