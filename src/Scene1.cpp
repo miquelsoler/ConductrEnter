@@ -40,7 +40,7 @@ void Scene1::setup()
 
     if (backgroundMode == SceneBgModeVideo)
     {
-        if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/video_LoopIntroArtistes_v1.mov");
+        if (!videoPlayer.isLoaded()) videoPlayer.loadMovie("video/videoConductr2JUL_4Artistes_OK.mov");
 
         videoPlayer.setLoopState(OF_LOOP_NONE);
         videoState = Loop;
