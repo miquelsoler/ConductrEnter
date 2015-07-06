@@ -64,6 +64,8 @@ void S2BaseObj::initSharedSettings()
 void S2BaseObj::setup()
 {
     radius = viewHalfWidth/5;
+    objPosition.x = 0;
+    objPosition.y = 0;
     
     camera.setNearClip(0.1f);
     camera.setFarClip(1000.0f);
