@@ -48,9 +48,6 @@ void S2CircleParticles::loadSettings()
     {
         p[i].baseAge = baseAge;
     }
-    
-    cout << "setup particles done! " << endl;
-
 }
 
 #pragma mark - Basic object methods
