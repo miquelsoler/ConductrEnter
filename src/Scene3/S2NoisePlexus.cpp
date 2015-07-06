@@ -89,10 +89,11 @@ void S2NoisePlexus::setup()
     
     // PLEXUS MESH
     // printing info
-    cout << "num Vertices" << sphere.getMesh().getNumVertices() << endl;
-    cout << "num TexCoords" << sphere.getMesh().getNumTexCoords() << endl;
-    cout << "num Normals" << sphere.getMesh().getNumNormals() << endl;
-    
+//    cout << "sphere num Vertices:  " << sphere.getMesh().getNumVertices() << endl;
+//    cout << "sphere num TexCoords: " << sphere.getMesh().getNumTexCoords() << endl;
+//    cout << "sphere num Normals:   " << sphere.getMesh().getNumNormals() << endl;
+
+    plexus.clear();
     plexus.setMode(OF_PRIMITIVE_LINES);
     for(int i=0;i<sphere.getMesh().getNumVertices();i++)
     {
@@ -102,7 +103,10 @@ void S2NoisePlexus::setup()
         plexus.addNormal(sphere.getMesh().getNormal(i));
     }
 
-    
+//    cout << "plexus num Vertices:  " << plexus.getNumVertices() << endl;
+//    cout << "plexus num TexCoords: " << plexus.getNumTexCoords() << endl;
+//    cout << "plexus num Normals:   " << plexus.getNumNormals() << endl;
+
     isFirstSetup = false;
     
     // Max offset is the minimum offset applied with volume reaction

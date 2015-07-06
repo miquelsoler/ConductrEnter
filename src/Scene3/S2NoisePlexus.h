@@ -62,16 +62,16 @@ private:
     ofParameter<bool>       showNormals;
     ofParameter<float>      offset;
     
-    ofParameter<float> plexusMinDistance;
-    ofParameter<float> plexusMaxDistance;
-    ofParameter<float> noiseMinDistance;
-    ofParameter<float> noiseMaxDistance;
+    ofParameter<float>      plexusMinDistance;
+    ofParameter<float>      plexusMaxDistance;
+    ofParameter<float>      noiseMinDistance;
+    ofParameter<float>      noiseMaxDistance;
     
-    ofParameter<int> mode;
-    float               vertexOffset;
-    float               vertexNoise;
-    ofMesh              plexus;
-    bool                nothingToDraw;
+    ofParameter<int>        mode;
+    float                   vertexOffset;
+    float                   vertexNoise;
+    ofMesh                  plexus;
+    bool                    nothingToDraw;
 
     ofLight pointLight1;
     ofLight pointLight2;
