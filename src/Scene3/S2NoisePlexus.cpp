@@ -114,25 +114,7 @@ void S2NoisePlexus::setup()
     maxOffset = 18;
     stableOffset = offset;
     
-    // lights
-    pointLight1.setDiffuseColor( ofFloatColor(0, 1.0, 160.0/255.0) );
-    pointLight1.setSpecularColor( ofFloatColor(1.f, 1.f, 1.f));
-    
-    pointLight2.setDiffuseColor( ofFloatColor( 247.0/255.f, 66.f/255.f, 55.0/255.f ));
-    pointLight2.setSpecularColor(ofFloatColor(1.0f, 1.0f, 1.0f));
-    
-    pointLight3.setDiffuseColor( ofFloatColor(68.0/255.f,187.0/255.f,209.0/255.f) );
-    pointLight3.setSpecularColor( ofFloatColor(1.0,1.0,1.0) );
-    
-    // lights positions
-    pointLight1.setPosition(-200 ,200,400);
-    pointLight2.setPosition(200 ,0,400);
-    pointLight3.setPosition(-200,-200,400);
-
-    
-    
     Tweenzor::resetAllTweens();
-    
 }
 
 
