@@ -73,12 +73,6 @@ private:
     ofMesh                  plexus;
     bool                    nothingToDraw;
 
-    ofLight pointLight1;
-    ofLight pointLight2;
-    ofLight pointLight3;
-
-    
-    
     float                   stableOffset;
     
     float                   inactiveNoiseFrequency;
