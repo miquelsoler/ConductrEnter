@@ -13,27 +13,28 @@ const unsigned int MAX_TRACKS = 20;
 #pragma mark - Constructors
 
 ///--------------------------------------------------------------
-AbletonManager::AbletonManager(string _senderHost, unsigned int _senderPort, unsigned int _receiverPort, unsigned int numObjects)
+void AbletonManager::init(string _senderHost, unsigned int _senderPort, unsigned int _receiverPort)
 {
     senderHost = _senderHost;
     senderPort = _senderPort;
     receiverPort = _receiverPort;
 
-    sceneNumObjects = numObjects;
-
     oscSender.setup(senderHost, senderPort);
     oscReceiver.setup(receiverPort);
+}
+
+///--------------------------------------------------------------
+void AbletonManager::setSceneNumObjects(unsigned int numObjects)
+{
+    sceneNumObjects = numObjects;
+    eventsVolumeChanged.clear();
+    eventsClipPositionChanged.clear();
 
     for (int i=0; i<sceneNumObjects; i++)
     {
         eventsVolumeChanged.push_back(ofEvent<float>());
         eventsClipPositionChanged.push_back(ofEvent<float>());
     }
-}
-
-///--------------------------------------------------------------
-AbletonManager::~AbletonManager()
-{
 }
 
 #pragma mark - Send messages

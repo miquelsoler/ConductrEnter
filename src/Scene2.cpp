@@ -15,11 +15,9 @@
 #include "S2ExampleObject.h"
 #include "S2CircleParticles.h"
 #include "S2NoisePlexus.h"
-
-#include "Defaults.h"
-
 #include "SettingsManager.h"
 #include "TUIOHandler.h"
+#include "AbletonManager.h"
 
 const unsigned int NUM_OBJECTS = 6;
 
@@ -45,8 +43,8 @@ Scene2::Scene2(const string &name, bool singleSetup, ScreenSetup *screenSetup) :
             break;
     }
 
-    num_objects = NUM_OBJECTS;
-    viewWidth = (ofGetWidth() / num_objects);
+    numObjects = NUM_OBJECTS;
+    viewWidth = (ofGetWidth() / numObjects);
     viewHeight = ofGetHeight();
 
     clipHeight = viewHeight / SettingsManager::getInstance().abletonArtistOffset;
@@ -59,11 +57,8 @@ Scene2::Scene2(const string &name, bool singleSetup, ScreenSetup *screenSetup) :
         bgImage2.setAnchorPercent(0.5f, 0.5f);
     }
 
-    // Initialitze OSC
-    string host = SettingsManager::getInstance().abletonHost;
-    unsigned int senderPort = SettingsManager::getInstance().abletonSenderPort;
-    unsigned int receiverPort = SettingsManager::getInstance().abletonReceiverPort;
-    abletonManager = new AbletonManager(host, senderPort, receiverPort, num_objects);
+    // Setup Ableton for this scene
+    AbletonManager::getInstance().setSceneNumObjects(numObjects);
 
     artistOffset = SettingsManager::getInstance().abletonArtistOffset;
 
@@ -78,7 +73,7 @@ Scene2::Scene2(const string &name, bool singleSetup, ScreenSetup *screenSetup) :
     enableDemoObjects = SettingsManager::getInstance().releaseEnableDemoObjects;
 #endif
 
-    for (unsigned int i = 0; i < num_objects; i++)
+    for (unsigned int i = 0; i < numObjects; i++)
     {
         viewOrigin = i * viewWidth;
         S2BaseObj *object = NULL;
@@ -87,22 +82,22 @@ Scene2::Scene2(const string &name, bool singleSetup, ScreenSetup *screenSetup) :
             switch (i)
             {
                 case 0:
-                    object = new S2Drums(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums.xml");
+                    object = new S2Drums(numObjects, i, viewOrigin, viewWidth, objectsPath + "drums.xml");
                     break;
                 case 1:
-                    object = new S2NoisePlexus(num_objects, i, viewOrigin, viewWidth, objectsPath + "plexus.xml");
+                    object = new S2NoisePlexus(numObjects, i, viewOrigin, viewWidth, objectsPath + "plexus.xml");
                     break;
                 case 2:
-                    object = new S2DrumsAmoeba(num_objects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
+                    object = new S2DrumsAmoeba(numObjects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
                     break;
                 case 3:
-                    object = new S2CircleParticles(num_objects, i, viewOrigin, viewWidth, objectsPath + "circleParticle.xml");
+                    object = new S2CircleParticles(numObjects, i, viewOrigin, viewWidth, objectsPath + "circleParticle.xml");
                     break;
                 case 4:
-                    object = new S2NoiseSphere(num_objects, i, viewOrigin, viewWidth, objectsPath + "noise_sphere.xml");
+                    object = new S2NoiseSphere(numObjects, i, viewOrigin, viewWidth, objectsPath + "noise_sphere.xml");
                     break;
                 case 5:
-                    object = new S2Synthesizer(num_objects, i, viewOrigin, viewWidth, objectsPath + "synthesizer.xml");
+                    object = new S2Synthesizer(numObjects, i, viewOrigin, viewWidth, objectsPath + "synthesizer.xml");
                     break;
                 default:
                     break;
@@ -110,23 +105,22 @@ Scene2::Scene2(const string &name, bool singleSetup, ScreenSetup *screenSetup) :
         }
         else
         {
-            object = new S2ExampleObject(num_objects, i, viewOrigin, viewWidth, objectsPath + "example.xml");
+            object = new S2ExampleObject(numObjects, i, viewOrigin, viewWidth, objectsPath + "example.xml");
         }
 
         if (!object) continue;
+
         objects.push_back(object);
-        ofAddListener(abletonManager->eventsVolumeChanged[i], object, &S2BaseObj::volumeChanged);
-        ofAddListener(abletonManager->eventsClipPositionChanged[i], object, &S2BaseObj::clipPositionChanged);
+        ofAddListener(AbletonManager::getInstance().eventsVolumeChanged[i], object, &S2BaseObj::volumeChanged);
+        ofAddListener(AbletonManager::getInstance().eventsClipPositionChanged[i], object, &S2BaseObj::clipPositionChanged);
     }
 }
 
 ///--------------------------------------------------------------
 Scene2::~Scene2()
 {
-    for (int i = 0; i < num_objects; ++i)
+    for (int i = 0; i < numObjects; ++i)
         delete objects[i];
-
-    delete abletonManager;
 }
 
 #pragma mark - OF main calls
@@ -192,8 +186,8 @@ void Scene2::update()
             break;
     }
 
-    abletonManager->update();
-    for (unsigned int i = 0; i < num_objects; ++i)
+    AbletonManager::getInstance().update();
+    for (unsigned int i = 0; i < numObjects; ++i)
         objects[i]->update();
 }
 
@@ -218,13 +212,13 @@ void Scene2::updateEnter()
     ofAddListener(TUIOHandler::getInstance().eventTouchDragCursor, this, &Scene2::tuioReceiverDragged);
 
     // Request tempo in order to set it on objects
-    ofAddListener(abletonManager->eventTempoChanged, this, &Scene2::tempoChanged);
-    abletonManager->requestTempo();
-    abletonManager->requestVolumeUpdates();
-    abletonManager->requestGridUpdates();
+    ofAddListener(AbletonManager::getInstance().eventTempoChanged, this, &Scene2::tempoChanged);
+    AbletonManager::getInstance().requestTempo();
+    AbletonManager::getInstance().requestVolumeUpdates();
+    AbletonManager::getInstance().requestGridUpdates();
 
     // Stop all playing clips, just in case (for demo purposes)
-    abletonManager->stopAll();
+    AbletonManager::getInstance().stopAll();
 
     switch(backgroundMode)
     {
@@ -256,7 +250,7 @@ void Scene2::updateEnter()
             break;
     }
 
-    for (unsigned int i=0; i<num_objects; ++i)
+    for (unsigned int i=0; i< numObjects; ++i)
         objects[i]->setup();
 
     BaseScene::updateEnter();
@@ -273,11 +267,11 @@ void Scene2::updateExit()
     ofRemoveListener(TUIOHandler::getInstance().eventTouchUpCursor, this, &Scene2::tuioReceiverReleased);
     ofRemoveListener(TUIOHandler::getInstance().eventTouchDragCursor, this, &Scene2::tuioReceiverDragged);
 
-    ofRemoveListener(abletonManager->eventTempoChanged, this, &Scene2::tempoChanged);
+    ofRemoveListener(AbletonManager::getInstance().eventTempoChanged, this, &Scene2::tempoChanged);
 
-    abletonManager->stopAll();
+    AbletonManager::getInstance().stopAll();
 
-    for (int i = 0; i < num_objects; ++i)
+    for (int i = 0; i < numObjects; ++i)
     {
         objects[i]->removeAllCursors();
         objects[i]->unpick();
@@ -315,7 +309,7 @@ void Scene2::draw()
 
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     {
-        for (unsigned int i = 0; i < num_objects; ++i)
+        for (unsigned int i = 0; i < numObjects; ++i)
             objects[i]->draw();
     }
     ofDisableBlendMode();
@@ -392,7 +386,7 @@ void Scene2::handlePress(InteractionSource interactionSource, int x, int y, Tuio
 
         // Play Ableton clip
         int track = pressedObjectIndex;
-        abletonManager->playClip(currentClipIndex, track);
+        AbletonManager::getInstance().playClip(currentClipIndex, track);
         // Animate the touched object
         object->play();
     }
@@ -404,7 +398,7 @@ void Scene2::handlePress(InteractionSource interactionSource, int x, int y, Tuio
 
             // Play Ableton clip
             int track = pressedObjectIndex;
-            abletonManager->playClip(currentClipIndex, track);
+            AbletonManager::getInstance().playClip(currentClipIndex, track);
 
             // Animate the touched object
             object->play();
@@ -436,7 +430,7 @@ void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, in
         }
     }
 
-    if ((pressedObjectIndex < 0) || (pressedObjectIndex >= num_objects)) return;
+    if ((pressedObjectIndex < 0) || (pressedObjectIndex >= numObjects)) return;
 
     S2BaseObj *object = objects[pressedObjectIndex];
     if (object == NULL) return;
@@ -452,10 +446,10 @@ void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, in
 
     // Update Ableton track
     int track = pressedObjectIndex;
-    abletonManager->stopClip(currentClipIndex, track);
+    AbletonManager::getInstance().stopClip(currentClipIndex, track);
     int device = 0;
     int parameter = 1;
-    abletonManager->setDeviceParameter(track, device, parameter, 0);
+    AbletonManager::getInstance().setDeviceParameter(track, device, parameter, 0);
 
     // Stop animating the touched object
     object->stop();
@@ -492,10 +486,10 @@ void Scene2::handleDrag(InteractionSource interactionSource, int x, int y, int c
     {
         int track = pressedObjectIndex;
 
-        abletonManager->stopClip(currentClipIndex, track);
+        AbletonManager::getInstance().stopClip(currentClipIndex, track);
         currentClipIndex = (unsigned int)pressedClipIndex;
         // Play Ableton clip
-        abletonManager->playClip(currentClipIndex, track);
+        AbletonManager::getInstance().playClip(currentClipIndex, track);
     }
 
     // Position object (only if mouse, or if TUIO and cursor is the first one -to avoid crazy repositioning-
@@ -514,7 +508,7 @@ void Scene2::handleDrag(InteractionSource interactionSource, int x, int y, int c
     int device = 0;
     int parameter = 1;
     int value = ofMap(object->getXOffset(), 0, object->getRadius(), 0, 127, true);
-    abletonManager->setDeviceParameter(pressedObjectIndex, device, parameter, value);
+    AbletonManager::getInstance().setDeviceParameter(pressedObjectIndex, device, parameter, value);
 }
 
 #pragma mark - Touch events
@@ -599,7 +593,7 @@ void Scene2::tempoChanged(float &newTempo)
 ///--------------------------------------------------------------
 void Scene2::windowResized(ofResizeEventArgs &args)
 {
-    viewWidth = ofGetWidth() / num_objects;
+    viewWidth = ofGetWidth() / numObjects;
     viewHeight = ofGetHeight();
     clipHeight = viewHeight / SettingsManager::getInstance().abletonArtistOffset;
 }
@@ -628,11 +622,11 @@ unsigned int Scene2::getObjectIndexAtX(int x)
     return (unsigned int)(floor(x / viewWidth));
 }
 
-unsigned int Scene2::getObjectIndexWithCursor(int cursorId)
+int Scene2::getObjectIndexWithCursor(int cursorId)
 {
     bool found = false;
     int objectIndex = -1;
-    for (int i=0; i<num_objects && !found; i++)
+    for (int i=0; i< numObjects && !found; i++)
     {
         list<TuioCursor *> objectCursors = objects[i]->getCursors();
         list<TuioCursor *>::iterator it;

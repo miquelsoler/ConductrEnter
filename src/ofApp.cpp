@@ -1,6 +1,7 @@
 #include "ofApp.h"
 
 #include "TUIOHandler.h"
+#include "AbletonManager.h"
 #include "SettingsManager.h"
 
 #include "BaseScene.h"
@@ -36,6 +37,12 @@ void ofApp::setup()
 
     // TUIO
     TUIOHandler::getInstance().init();
+
+    // Ableton
+    string host = SettingsManager::getInstance().abletonHost;
+    unsigned int senderPort = SettingsManager::getInstance().abletonSenderPort;
+    unsigned int receiverPort = SettingsManager::getInstance().abletonReceiverPort;
+    AbletonManager::getInstance().init(host, senderPort, receiverPort);
 
     // Tweenzor (must call this before adding any tweens)
     Tweenzor::init();

@@ -19,9 +19,15 @@ class AbletonManager
 {
 public:
 
-    AbletonManager() {};
-    AbletonManager(string _senderHost, unsigned int _senderPort, unsigned int _receiverPort, unsigned int numObjects);
-    virtual ~AbletonManager();
+    static AbletonManager &getInstance()
+    {
+        static AbletonManager instance;
+        return instance;
+    }
+
+    void init(string _senderHost, unsigned int _senderPort, unsigned int _receiverPort);
+
+    void setSceneNumObjects(unsigned int numObjects);
 
     void playClip(int clipNumber, int trackNumber);
     void stopClip(int clipNumber, int trackNumber);
@@ -40,6 +46,8 @@ public:
     vector< ofEvent<float> >    eventsClipPositionChanged;
 
 private:
+
+    AbletonManager() {};
 
     void onTempoChanged(ofxOscMessage &m);
     void onTracksVolumeChanged(ofxOscMessage &m);

@@ -21,6 +21,7 @@
 class TUIOHandler
 {
 public:
+
     static TUIOHandler &getInstance()
     {
         static TUIOHandler instance;

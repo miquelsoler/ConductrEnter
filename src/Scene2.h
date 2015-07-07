@@ -16,7 +16,6 @@
 #include "ofxOsc.h"
 #include "BaseScene.h"
 #include "S2BaseObj.h"
-#include "AbletonManager.h"
 #include "ofxTuioClient.h"
 #include "TuioCursor.h"
 #include "ofxSimpleTimer.h"
@@ -75,7 +74,7 @@ private:
 
     // Helper methods
     unsigned int getObjectIndexAtX(int x);
-    unsigned int getObjectIndexWithCursor(int cursorId);
+    int getObjectIndexWithCursor(int cursorId);
     unsigned int getClipIndexAtY(int y);
     TuioCursor *makeCursor(int cursorId, float x, float y);
     TuioCursor *makeCursor(int sourceId, int sessionId, int cursorId, float x, float y, float xSpeed, float ySpeed, float motionAccel);
@@ -83,12 +82,11 @@ private:
     int                     artistIndex = 0;
     unsigned int            mouseObjectIndex;
 
-    AbletonManager*         abletonManager;
     unsigned int            currentClipIndex;
     unsigned int            artistOffset;
 
-    vector<S2BaseObj *>      objects;
-    unsigned int            num_objects;
+    vector<S2BaseObj *>     objects;
+    unsigned int            numObjects;
     float                   viewWidth, viewHeight;
     float                   clipHeight;
 
