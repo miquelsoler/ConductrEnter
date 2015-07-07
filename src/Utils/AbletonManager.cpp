@@ -95,6 +95,24 @@ void AbletonManager::stopAll()
         m.addIntArg(i);
         oscSender.sendMessage(m);
     }
+
+//    ofxOscMessage m;
+//    m.setAddress("/live/stop");
+//    oscSender.sendMessage(m);
+}
+
+///--------------------------------------------------------------
+/**
+* /live/play/scene
+* (int scene)
+* Plays scene with index sceneIndex
+*/
+void AbletonManager::playScene(int sceneIndex)
+{
+    ofxOscMessage m;
+    m.setAddress("/live/play/scene");
+    m.addIntArg(sceneIndex);
+    oscSender.sendMessage(m);
 }
 
 ///--------------------------------------------------------------

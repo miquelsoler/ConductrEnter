@@ -17,7 +17,6 @@
 #include "S2NoisePlexus.h"
 #include "SettingsManager.h"
 #include "TUIOHandler.h"
-#include "AbletonManager.h"
 
 const unsigned int NUM_OBJECTS = 6;
 
@@ -194,8 +193,6 @@ void Scene2::update()
 ///--------------------------------------------------------------
 void Scene2::updateEnter()
 {
-//    numberOfTouches = 0;
-//    idleTimerStarted = false;
     leaveSceneTimer.reset();
     leaveSceneTimer.setup(SettingsManager::getInstance().sceneIdleTimeToArtists * 1000);
     ofAddListener(leaveSceneTimer.TIMER_COMPLETE , this, &Scene2::leaveSceneTimerCompleteHandler);
@@ -216,9 +213,6 @@ void Scene2::updateEnter()
     AbletonManager::getInstance().requestTempo();
     AbletonManager::getInstance().requestVolumeUpdates();
     AbletonManager::getInstance().requestGridUpdates();
-
-    // Stop all playing clips, just in case (for demo purposes)
-    AbletonManager::getInstance().stopAll();
 
     switch(backgroundMode)
     {
@@ -253,6 +247,8 @@ void Scene2::updateEnter()
     for (unsigned int i=0; i< numObjects; ++i)
         objects[i]->setup();
 
+    AbletonManager::getInstance().playScene(artistIndex);
+
     BaseScene::updateEnter();
 }
 
@@ -268,8 +264,6 @@ void Scene2::updateExit()
     ofRemoveListener(TUIOHandler::getInstance().eventTouchDragCursor, this, &Scene2::tuioReceiverDragged);
 
     ofRemoveListener(AbletonManager::getInstance().eventTempoChanged, this, &Scene2::tempoChanged);
-
-    AbletonManager::getInstance().stopAll();
 
     for (int i = 0; i < numObjects; ++i)
     {

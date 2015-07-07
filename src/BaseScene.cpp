@@ -8,8 +8,6 @@
 
 #include "BaseScene.h"
 
-#include "SettingsManager.h"
-
 #pragma mark - Initialization
 
 ///--------------------------------------------------------------
@@ -28,12 +26,16 @@ BaseScene::BaseScene(const string& name, bool singleSetup, ScreenSetup *_screenS
 ///--------------------------------------------------------------
 void BaseScene::updateEnter()
 {
+    AbletonManager::getInstance().stopAll();
+
     ofxFadeScene::updateEnter();
 }
 
 ///--------------------------------------------------------------
 void BaseScene::updateExit()
 {
+    AbletonManager::getInstance().stopAll();
+
     ofxFadeScene::updateExit();
 }
 

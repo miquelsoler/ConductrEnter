@@ -147,6 +147,8 @@ void Scene1::updateEnter()
         }
     }
 
+    AbletonManager::getInstance().playScene(0);
+
     BaseScene::updateEnter();
 }
 

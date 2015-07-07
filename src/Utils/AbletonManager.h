@@ -32,6 +32,7 @@ public:
     void playClip(int clipNumber, int trackNumber);
     void stopClip(int clipNumber, int trackNumber);
     void stopAll();
+    void playScene(int sceneIndex);
 
     void setDeviceParameter(int track, int device, int parameter, int value);
 

@@ -17,6 +17,7 @@
 #include "ofMain.h"
 #include "TUIOReceiverEvent.h"
 #include "ScreenSetup.h"
+#include "AbletonManager.h"
 
 typedef enum
 {
