@@ -241,70 +241,6 @@ void S2BaseObj::disableColorImage()
     colorImageAlpha = 0.0f;
 }
 
-/*
-///--------------------------------------------------------------
-void S2BaseObj::enablePinch(bool enable)
-{
-    pinchEnabled = enable;
-
-    if (!pinchEnabled) return;
-
-    if (cursorIds.size() <= 1)
-    {
-        pinchEnabled = false;
-        return;
-    }
-
-    TuioCursor *cursor1 = cursorIds.front();
-    TuioCursor *cursor2 = cursorIds.back();
-
-    pinchInitialDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
-
-    circleImageSize = whiteCircleRadius / 2;
-}
-*/
-
-/*
-///--------------------------------------------------------------
-bool S2BaseObj::isPinchEnabled()
-{
-    return pinchEnabled;
-}
-*/
-
-/*
-///--------------------------------------------------------------
-void S2BaseObj::updatePinch()
-{
-    if (!pinchEnabled) return;
-
-    TuioCursor *cursor1 = cursorIds.front();
-    TuioCursor *cursor2 = cursorIds.back();
-    float pinchCurrentDist = TUIOHandler::getInstance().getDistBetweenCursors(cursor1, cursor2);
-
-    float diff = pinchCurrentDist - pinchInitialDist;
-    if (diff > 0)
-    {
-        circleImageSize = whiteCircleRadius + diff/4;
-//        colorImageAlpha = (unsigned int)ofMap(pinchCurrentDist, pinchInitialDist, pinchInitialDist*2.0f, colorImageAlphaMin, colorImageAlphaMax, true);
-    }
-}
-*/
-
-///--------------------------------------------------------------
-TuioCursor *S2BaseObj::getFirstCursor()
-{
-    if (cursorIds.empty()) return NULL;
-    return cursorIds.front();
-}
-
-///--------------------------------------------------------------
-TuioCursor *S2BaseObj::getLastCursor()
-{
-    if (cursorIds.empty()) return NULL;
-    return cursorIds.back();
-}
-
 ///--------------------------------------------------------------
 void S2BaseObj::setPositionFromScreenCoords(int screenX, int screenY)
 {
@@ -411,18 +347,25 @@ float S2BaseObj::getRadius()
 
 void S2BaseObj::addCursor(TuioCursor *cursor)
 {
-    cursorIds.push_back(cursor);
+    cursors.push_back(cursor);
 }
 
-void S2BaseObj::removeLastCursor()
+void S2BaseObj::removeAllCursors()
 {
-    if (cursorIds.empty()) return;
-    TuioCursor *cursor = cursorIds.back();
-    cursorIds.pop_back();
-    delete cursor;
+    while (!cursors.empty())
+    {
+        delete cursors.front();
+        cursors.pop_front();
+    }
+}
+
+TuioCursor *S2BaseObj::getFirstCursor()
+{
+    if (cursors.empty()) return NULL;
+    return cursors.front();
 }
 
 list<TuioCursor *> S2BaseObj::getCursors()
 {
-    return cursorIds;
+    return cursors;
 }

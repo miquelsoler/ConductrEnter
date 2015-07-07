@@ -43,16 +43,10 @@ public:
     void unpick();
     bool getIsPicked();
     void disableColorImage();
-//    void enablePinch(bool enable);
-//    bool isPinchEnabled();
-//    virtual void updatePinch();
 
     TuioCursor *getFirstCursor();
-    TuioCursor *getLastCursor();
-
     void addCursor(TuioCursor *cursor);
-    void removeLastCursor();
-
+    void removeAllCursors();
     list<TuioCursor *> getCursors();
 
     virtual void setPositionFromScreenCoords(int screenX, int screenY);
@@ -124,7 +118,7 @@ protected:
     unsigned int            colorImageAlphaMin, colorImageAlphaMax;
 
     // TUIO
-    list<TuioCursor *>      cursorIds;
+    list<TuioCursor *>      cursors;
 
     // Loop arc
     ofPolyline              loopArc;

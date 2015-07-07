@@ -277,6 +277,12 @@ void Scene2::updateExit()
 
     abletonManager->stopAll();
 
+    for (int i = 0; i < num_objects; ++i)
+    {
+        objects[i]->removeAllCursors();
+        objects[i]->unpick();
+    }
+
     BaseScene::updateExit();
 }
 
@@ -369,18 +375,6 @@ void Scene2::setArtistIndex(int _artistIndex)
 */
 void Scene2::handlePress(InteractionSource interactionSource, int x, int y, TuioCursor *cursor)
 {
-/*
-    numberOfTouches++;
-    if (idleTimerStarted)
-    {
-        leaveSceneTimer.stop();
-        idleTimerStarted = false;
-#ifdef OF_DEBUG
-        cout << "Playground Timer stopped" << endl;
-#endif
-    }
-*/
-
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
 
@@ -418,18 +412,12 @@ void Scene2::handlePress(InteractionSource interactionSource, int x, int y, Tuio
             // Add TUIO cursor
             object->addCursor(cursor);
         }
-        else
-        {
-            object->addCursor(cursor);
-        }
     }
 }
 
 ///--------------------------------------------------------------
 void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, int cursorId)
 {
-//    if (numberOfTouches > 0) numberOfTouches--;
-
     if ((x < 0) || (x >= ofGetWidth())) return;
     if ((y < 0) || (y >= viewHeight)) return;
 
@@ -456,7 +444,7 @@ void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, in
     // Remove TUIO cursors and disable pinch
 
     if (interactionSource == InteractionSourceTuio)
-        object->removeLastCursor();
+        object->removeAllCursors();
     
     object->disableColorImage();
     if (!object->getIsPicked()) return;
