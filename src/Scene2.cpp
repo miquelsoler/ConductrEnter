@@ -15,6 +15,7 @@
 #include "S2ExampleObject.h"
 #include "S2CircleParticles.h"
 #include "S2NoisePlexus.h"
+#include "S2DrumsAmoebaCPU.h"
 #include "SettingsManager.h"
 #include "TUIOHandler.h"
 
@@ -87,7 +88,7 @@ Scene2::Scene2(const string &name, bool singleSetup, ScreenSetup *screenSetup) :
                     object = new S2NoisePlexus(numObjects, i, viewOrigin, viewWidth, objectsPath + "plexus.xml");
                     break;
                 case 2:
-                    object = new S2DrumsAmoeba(numObjects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
+                    object = new S2DrumsAmoebaCPU(numObjects, i, viewOrigin, viewWidth, objectsPath + "drums_amoeba.xml");
                     break;
                 case 3:
                     object = new S2CircleParticles(numObjects, i, viewOrigin, viewWidth, objectsPath + "circleParticle.xml");

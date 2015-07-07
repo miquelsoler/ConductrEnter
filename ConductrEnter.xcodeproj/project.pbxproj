@@ -85,6 +85,7 @@
 		AF2A79DF8D23EAE35974E6D9 /* TuioContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DF005DEB939F5AD91B59E8 /* TuioContainer.cpp */; };
 		B02D9CF01B3CB9F0001EB061 /* S2NoisePlexus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B02D9CEE1B3CB9F0001EB061 /* S2NoisePlexus.cpp */; };
 		B0422BA71B3B186D001D1A89 /* S2CircleParticles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0422BA61B3B186D001D1A89 /* S2CircleParticles.cpp */; };
+		B0B68D571B4C56BD004DCE15 /* S2DrumsAmoebaCPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0B68D551B4C56BD004DCE15 /* S2DrumsAmoebaCPU.cpp */; };
 		B0BC45CF1B3B18E70021B9A0 /* demoParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0BC45CE1B3B18E70021B9A0 /* demoParticle.cpp */; };
 		B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */; };
 		B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */; };
@@ -346,6 +347,8 @@
 		B0422BA11B3B14CE001D1A89 /* S2CircleParticles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S2CircleParticles.h; path = Scene3/S2CircleParticles.h; sourceTree = "<group>"; };
 		B0422BA61B3B186D001D1A89 /* S2CircleParticles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = S2CircleParticles.cpp; path = Scene3/S2CircleParticles.cpp; sourceTree = "<group>"; };
 		B0891620C23D47639D8AEE84 /* TuioDispatcher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = TuioDispatcher.cpp; path = src/TUIO/TuioDispatcher.cpp; sourceTree = SOURCE_ROOT; };
+		B0B68D551B4C56BD004DCE15 /* S2DrumsAmoebaCPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = S2DrumsAmoebaCPU.cpp; path = Scene3/S2DrumsAmoebaCPU.cpp; sourceTree = "<group>"; };
+		B0B68D561B4C56BD004DCE15 /* S2DrumsAmoebaCPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S2DrumsAmoebaCPU.h; path = Scene3/S2DrumsAmoebaCPU.h; sourceTree = "<group>"; };
 		B0BC45CE1B3B18E70021B9A0 /* demoParticle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = demoParticle.cpp; path = Scene3/demoParticle.cpp; sourceTree = "<group>"; };
 		B21E7E5F548EEA92F368040B /* tinyxml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tinyxml.h; path = ../../../addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
 		B31C608870ECEB2490A93736 /* ofxOscParameterSync.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscParameterSync.h; path = ../../../addons/ofxOsc/src/ofxOscParameterSync.h; sourceTree = SOURCE_ROOT; };
@@ -559,6 +562,7 @@
 		21476A1881E85D4F0494CFA9 /* Scene2 */ = {
 			isa = PBXGroup;
 			children = (
+				B0B68D541B4C569C004DCE15 /* S2DrumsAmoebaCPU */,
 				214763632FDABE1B67589BA2 /* S2BaseObj.cpp */,
 				21476DF53421C2225C92AD09 /* S2BaseObj.h */,
 				21476DCEC1AC27577535BF04 /* S2Drums */,
@@ -976,6 +980,15 @@
 			name = src;
 			sourceTree = "<group>";
 		};
+		B0B68D541B4C569C004DCE15 /* S2DrumsAmoebaCPU */ = {
+			isa = PBXGroup;
+			children = (
+				B0B68D551B4C56BD004DCE15 /* S2DrumsAmoebaCPU.cpp */,
+				B0B68D561B4C56BD004DCE15 /* S2DrumsAmoebaCPU.h */,
+			);
+			name = S2DrumsAmoebaCPU;
+			sourceTree = "<group>";
+		};
 		B769C2D0E2BA7E3EF116D9DA /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -1388,6 +1401,7 @@
 				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,
 				2A0B4EA01B2C7C600033F462 /* TUIOHandler.cpp in Sources */,
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
+				B0B68D571B4C56BD004DCE15 /* S2DrumsAmoebaCPU.cpp in Sources */,
 				B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */,
 				483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */,
 				F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */,

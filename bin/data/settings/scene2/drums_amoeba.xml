@@ -1,15 +1,15 @@
 <Settings>
-    <Camera_Distance>656</Camera_Distance>
+    <Camera_Distance>740</Camera_Distance>
     <White_Circle_Radius>19.2</White_Circle_Radius>
     <Loop_Radius>78</Loop_Radius>
     <Loop_Initial_Angle>0</Loop_Initial_Angle>
     <tempo>1.56</tempo>
-	<Noise_Frequency>12</Noise_Frequency>
+	<Noise_Frequency>18</Noise_Frequency>
 	<Threshold>0</Threshold>
 	<Treshold_Low>58</Treshold_Low>
 	<Treshold_High>215</Treshold_High>
 	<show_normals>0</show_normals>
-	<offset>8</offset>
+	<offset>12</offset>
     <activate>1</activate>
 <Settings/>
 </Settings>
