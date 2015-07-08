@@ -216,19 +216,19 @@ void S2Drums::drawActive()
 ///--------------------------------------------------------------
 void S2Drums::volumeChanged(float &newVolume)
 {
-    if (currentState == S3ObjStateActive)
-    {
+//    if (currentState == S3ObjStateActive)
+//    {
         float toRadius = ofMap(newVolume,0.0,1.0,0, maxVolumeCircleRadius);
         float toAlpha = ofMap(newVolume,0.0,1.0,0, maxVolumeCircleAlpha);
         volumeCircleRadius = toRadius;
         volumeCircleAlpha = toAlpha;
 
         vertexDistance = (newVolume*0.7f) * exp(newVolume * sphereVolumeScale);
-    }
-    else
-    {
-        vertexDistance = 1;
-    }
+//    }
+//    else
+//    {
+//        vertexDistance = 1;
+//    }
 }
 
 //--------------------------------------------------------------

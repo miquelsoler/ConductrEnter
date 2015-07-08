@@ -59,7 +59,7 @@ void S2Synthesizer::initInactive()
     float alphaFrom = 25.0f;
     float alphaTo = 50.0f;
     float delay = 0.0f;
-    float duration = 1.0f;
+    float duration = 0.5f;
 
     Tweenzor::add(&greyCircleAplha, alphaFrom, alphaTo, delay, duration, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&greyCircleAplha);
