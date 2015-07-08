@@ -47,6 +47,7 @@ public:
     int                     particlesState;
     void                    changeParticleState(int s);
     float                   volumeParticleScale;
+    void                    changeParticleSize(int i);
     
     
 private:
@@ -70,6 +71,11 @@ private:
     ofSpherePrimitive   sphere;
     float               sphereScale;
     ofColor             sphereColor;
+    
+    float                   transitioningCircleRadius;
+    float                   transitioningCircleAlpha;
+    float                   transitioningSphereScale;
+
     
 };
 

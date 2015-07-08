@@ -71,24 +71,26 @@ void S2CircleParticles::setup()
 ///--------------------------------------------------------------
 void S2CircleParticles::initInactive()
 {
-    volumeParticleScale = 1.5;
-    
-    for(unsigned int i = 0; i < p.size(); i++)
-    {
-        p[i].scale = 1.0;
-    }
+    volumeParticleScale = 1.25;
 
-    
+    changeParticleSize(0.5);
     
 //    cout << "circlePart :: init inactive" << endl;
-    Tweenzor::add(&scaleCircle, 1.0f, 0.9f, 0.0f, 0.7f, EASE_IN_OUT_SINE);
-    Tween *tween = Tweenzor::getTween(&scaleCircle);
-    tween->setRepeat(1, true);
+    
+    float kk;
+    Tweenzor::add(&kk, 1.0f, 0.9f, 0.0f, 0.0f, EASE_IN_OUT_SINE);
+    Tween *tween = Tweenzor::getTween(&kk);
     Tweenzor::addCompleteListener(tween, this, &S2CircleParticles::onCompleteInactive);
+
+    
+    Tweenzor::add(&scaleCircle, 1.0f, 0.9f, 0.0f, 0.7f, EASE_IN_OUT_SINE);
+    Tween *tween2 = Tweenzor::getTween(&scaleCircle);
+    tween2->setRepeat(-1, true);
 
     sphereScale = 0;
     
     changeParticleState(0);
+    
     
     resetParticles();
 
@@ -143,7 +145,7 @@ void S2CircleParticles::drawInactive()
 ///--------------------------------------------------------------
 void S2CircleParticles::initTransitioning()
 {
-    Tweenzor::add(&sphereScale, 1.0f, 0.0f, 0.0f, 0.8f, EASE_IN_OUT_SINE);
+    Tweenzor::add(&sphereScale, 1.0f, 0.0f, 0.0f, 0.0f, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&sphereScale);
     tween->setRepeat(1, true);
     Tweenzor::addCompleteListener(tween, this, &S2CircleParticles::onCompleteTransitioning);
@@ -163,6 +165,17 @@ void S2CircleParticles::initTransitioning()
 
     }
 
+    // draw cirlce flash
+    float duration = 0.3;
+    
+    Tweenzor::add(&transitioningCircleRadius, whiteCircleRadius, whiteCircleRadius*2, 0.0, duration, EASE_IN_OUT_SINE);
+    Tween *tween2 = Tweenzor::getTween(&transitioningCircleRadius);
+    Tweenzor::addCompleteListener(tween2, this, &S2CircleParticles::onCompleteTransitioning);
+    
+    Tweenzor::add(&transitioningCircleAlpha, 250.0f, 0.0f, 0.0, duration, EASE_IN_OUT_SINE);
+
+    
+    
     changeParticleState(1);
 }
 
@@ -266,6 +279,18 @@ void S2CircleParticles::drawActive()
         }
         ofPopMatrix();
         
+        // Draw transitioning circle and sphere exlosion
+        //if (currentState == S3ObjStateTransitioning)
+        if(true)
+        {
+            // Circle
+            cout << "transitioning.... " << endl;
+            ofFill();
+            ofSetColor(255, 255, 255, int(transitioningCircleAlpha));
+            ofCircle(objPosition.x, objPosition.y, 0, transitioningCircleRadius);
+        }
+
+        
 //        if (pinchEnabled)
 //        {
             drawPinchCircle();
@@ -349,15 +374,20 @@ void S2CircleParticles::changeParticleState(int s)
     
 }
 
+
+///--------------------------------------------------------------
+void S2CircleParticles::changeParticleSize(int i)
+{
+	for(unsigned int i = 0; i < p.size(); i++){
+		p[i].scale = i;
+	}
+    
+}
+
+
 ///--------------------------------------------------------------
 void S2CircleParticles::volumeChanged(float &newVolume)
 {
-    
     float newScale = ofMap(newVolume,0.0,1.0,0.25,volumeParticleScale);
-    
-    for(unsigned int i = 0; i < p.size(); i++)
-    {
-        p[i].scale = newScale;
-    }
-    
+    changeParticleSize(newScale);
 }

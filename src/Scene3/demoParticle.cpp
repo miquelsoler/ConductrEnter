@@ -35,7 +35,7 @@ void demoParticle::reset()
 	
 	frc   = ofPoint(ofRandomf()*0.001,ofRandomf()*0.001,0);
 	
-	scale = 1.5;
+	scale = 0.5;
 
     drag  = ofRandom(0.998, 0.998);
 }
