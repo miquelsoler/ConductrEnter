@@ -231,7 +231,7 @@ void Scene2::updateEnter()
     for (unsigned int i=0; i< numObjects; ++i)
         objects[i]->setup();
 
-    AbletonManager::getInstance().playScene(artistIndex);
+    AbletonManager::getInstance().playScene(currentClipIndex);
 
     BaseScene::updateEnter();
 }
