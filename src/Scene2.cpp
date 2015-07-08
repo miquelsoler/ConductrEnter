@@ -347,8 +347,8 @@ void Scene2::setArtistIndex(int _artistIndex)
 */
 void Scene2::handlePress(InteractionSource interactionSource, int x, int y, TuioCursor *cursor)
 {
-    if ((x < 0) || (x >= ofGetWidth())) return;
-    if ((y < 0) || (y >= viewHeight)) return;
+    if ((x < 0) || (x > ofGetWidth())) return;
+    if ((y < 0) || (y > viewHeight)) return;
 
     int pressedObjectIndex = getObjectIndexAtX(x);
     S2BaseObj *object = objects[pressedObjectIndex];
@@ -436,8 +436,8 @@ void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, in
 ///--------------------------------------------------------------
 void Scene2::handleDrag(InteractionSource interactionSource, int x, int y, int cursorId)
 {
-    if ((x < 0) || (x >= ofGetWidth())) return;
-    if ((y < 0) || (y >= viewHeight)) return;
+    if ((x < 0) || (x > ofGetWidth())) return;
+    if ((y < 0) || (y > viewHeight)) return;
 
     int pressedObjectIndex;
     if (interactionSource == InteractionSourceMouse)
