@@ -150,23 +150,6 @@ void Scene2::update()
 {
     // Idle time handling
     leaveSceneTimer.update();
-/*
-    if (!idleTimerStarted && numberOfTouches==0)
-    {
-        idleTimerStarted = true;
-
-        leaveSceneTimer.setup(SettingsManager::getInstance().sceneIdleTimeToArtists * 1000);
-        ofAddListener(leaveSceneTimer.TIMER_COMPLETE , this, &Scene2::leaveSceneTimerCompleteHandler);
-        leaveSceneTimer.start(false);
-#ifdef OF_DEBUG
-        cout << "Playground Timer started" << endl;
-#endif
-    }
-    else
-    {
-        leaveSceneTimer.update();
-    }
-*/
 
     switch(backgroundMode)
     {
@@ -407,8 +390,8 @@ void Scene2::handlePress(InteractionSource interactionSource, int x, int y, Tuio
 ///--------------------------------------------------------------
 void Scene2::handleRelease(InteractionSource interactionSource, int x, int y, int cursorId)
 {
-    if ((x < 0) || (x >= ofGetWidth())) return;
-    if ((y < 0) || (y >= viewHeight)) return;
+    if ((x < 0) || (x > ofGetWidth())) return;
+    if ((y < 0) || (y > viewHeight)) return;
 
     int pressedObjectIndex;
 
