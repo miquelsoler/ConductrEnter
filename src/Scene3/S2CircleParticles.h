@@ -68,6 +68,8 @@ private:
 
     virtual void volumeChanged(float &newVolume);
 
+    float kk;
+
     ofSpherePrimitive   sphere;
     float               sphereScale;
     ofColor             sphereColor;

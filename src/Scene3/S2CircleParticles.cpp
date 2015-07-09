@@ -77,7 +77,6 @@ void S2CircleParticles::initInactive()
     
 //    cout << "circlePart :: init inactive" << endl;
     
-    float kk;
     Tweenzor::add(&kk, 1.0f, 0.9f, 0.0f, 0.0f, EASE_IN_OUT_SINE);
     Tween *tween = Tweenzor::getTween(&kk);
     Tweenzor::addCompleteListener(tween, this, &S2CircleParticles::onCompleteInactive);
