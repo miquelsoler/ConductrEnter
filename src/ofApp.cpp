@@ -20,7 +20,7 @@ void ofApp::setup()
 #endif
 
     showScreenMode = false;
-    screenSetup.setScreenMode(SCREENMODE_DISPLAX);
+    screenSetup.setScreenMode(SCREENMODE_WINDOW);
     
     // App settings
 
