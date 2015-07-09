@@ -31,6 +31,7 @@
 		2A0B4EA01B2C7C600033F462 /* TUIOHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A0B4E9E1B2C7C600033F462 /* TUIOHandler.cpp */; };
 		2A48C62A1B3ACE8E00937E39 /* ScreenSetup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A48C6281B3ACE8E00937E39 /* ScreenSetup.cpp */; };
 		2A61F4E41B39A8F4007DBBA8 /* TUIOReceiverEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A61F4E21B39A8F4007DBBA8 /* TUIOReceiverEvent.cpp */; };
+		2A8B61A91B4E7BB200AB36FF /* AppRestarter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A8B61A71B4E7BB200AB36FF /* AppRestarter.cpp */; };
 		2AA485E01B3C147200EBFD5F /* Scene1ArtistZone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AA485DF1B3C147200EBFD5F /* Scene1ArtistZone.cpp */; };
 		2C94348B3606F2B01C9F2E69 /* Simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF750ABAF3178C5BC6A8C233 /* Simulator.cpp */; };
 		38BA747C7CB7F8F8913375B6 /* ofxSimpleTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F1B28BB2551E443EFD686DD /* ofxSimpleTimer.cpp */; };
@@ -233,6 +234,8 @@
 		2A5B1FAD3F30C8065C396ACB /* NetworkingUtilsWin.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = NetworkingUtilsWin.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/win32/NetworkingUtilsWin.cpp; sourceTree = SOURCE_ROOT; };
 		2A61F4E21B39A8F4007DBBA8 /* TUIOReceiverEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TUIOReceiverEvent.cpp; sourceTree = "<group>"; };
 		2A61F4E31B39A8F4007DBBA8 /* TUIOReceiverEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUIOReceiverEvent.h; sourceTree = "<group>"; };
+		2A8B61A71B4E7BB200AB36FF /* AppRestarter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppRestarter.cpp; path = Utils/AppRestarter.cpp; sourceTree = "<group>"; };
+		2A8B61A81B4E7BB200AB36FF /* AppRestarter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppRestarter.h; path = Utils/AppRestarter.h; sourceTree = "<group>"; };
 		2A9DFB8F1B289B58005BFCB9 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = bin/data; sourceTree = "<group>"; };
 		2AA485DE1B3C0FD300EBFD5F /* Scene1ArtistZone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene1ArtistZone.h; sourceTree = "<group>"; };
 		2AA485DF1B3C147200EBFD5F /* Scene1ArtistZone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene1ArtistZone.cpp; sourceTree = "<group>"; };
@@ -846,6 +849,8 @@
 				2A61F4E31B39A8F4007DBBA8 /* TUIOReceiverEvent.h */,
 				2A48C6281B3ACE8E00937E39 /* ScreenSetup.cpp */,
 				2A48C6291B3ACE8E00937E39 /* ScreenSetup.h */,
+				2A8B61A71B4E7BB200AB36FF /* AppRestarter.cpp */,
+				2A8B61A81B4E7BB200AB36FF /* AppRestarter.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1433,6 +1438,7 @@
 				7F587E2192AA95C424BF91AB /* ofxScene.cpp in Sources */,
 				EAC9F547A30B052D9752D4CC /* ofxSceneManager.cpp in Sources */,
 				5F9A42BB0D0E7BE2A7F62FDB /* ofxTransformer.cpp in Sources */,
+				2A8B61A91B4E7BB200AB36FF /* AppRestarter.cpp in Sources */,
 				235F650AC06759134BAA7849 /* ofxTransformPanel.cpp in Sources */,
 				1CFE669F69FE0A1162755BF6 /* Graphic.cpp in Sources */,
 				87978A351C12B1676C9FDE60 /* GraphicDispatcher.cpp in Sources */,

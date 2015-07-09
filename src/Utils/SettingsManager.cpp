@@ -33,6 +33,11 @@ bool SettingsManager::loadSettings()
 
     string prefix;
 
+    // App Restart
+    prefix = "App Restart";
+    restartDelay = json[prefix]["Delay"].asUInt();
+    restartShowMessage = json[prefix]["Show Message"].asBool();
+
     // Displax
     prefix = "Displax";
     displaxWidth = json[prefix]["Screen Width"].asUInt();

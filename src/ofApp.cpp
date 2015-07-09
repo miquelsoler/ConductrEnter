@@ -20,7 +20,7 @@ void ofApp::setup()
 #endif
 
     showScreenMode = false;
-    screenSetup.setScreenMode(SCREENMODE_WINDOW);
+    screenSetup.setScreenMode(SCREENMODE_DISPLAX);
     
     // App settings
 
@@ -115,17 +115,22 @@ void ofApp::keyReleased(int key)
 {
     switch(key)
     {
-        case OF_KEY_LEFT: {
+        case OF_KEY_LEFT:
+        {
+            // Go to previous scene
             goToPreviousScene();
             break;
         }
-        case OF_KEY_RIGHT: {
+        case OF_KEY_RIGHT:
+        {
+            // Go to next scene
             goToNextScene();
             break;
         }
         case 'f':
         case 'F':
         {
+            // Change window mode
             screenSetup.changeToNextMode();
 
             showScreenModeTimer.stop();
@@ -139,6 +144,7 @@ void ofApp::keyReleased(int key)
         case 'g':
         case 'G':
         {
+            // Show GUI
             Scene2 *scene2 = (Scene2 *)sceneManager.getSceneAt(1);
             scene2->switchShowGUI();
             break;
@@ -146,10 +152,16 @@ void ofApp::keyReleased(int key)
         case 'p':
         case 'P':
         {
+            // Show FPS
             showFPS=!showFPS;
             break;
         }
-    
+        case 'R':
+        {
+            // Restart app
+            appRestarter.restart(SettingsManager::getInstance().restartDelay, SettingsManager::getInstance().restartShowMessage);
+            break;
+        }
         default:
             break;
     }

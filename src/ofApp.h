@@ -4,11 +4,13 @@
 #include "ofxAppUtils.h"
 #include "ScreenSetup.h"
 #include "ofxSimpleTimer.h"
+#include "AppRestarter.h"
 
 const unsigned int NUM_SCENES = 2;
 const unsigned int LAST_SCENE = NUM_SCENES - 1;
 
-class ofApp : public ofxApp {
+class ofApp : public ofxApp
+{
 
 public:
 
@@ -42,4 +44,6 @@ private:
     ofxSimpleTimer      showScreenModeTimer;
     
     bool                showFPS;
+
+    AppRestarter        appRestarter;
 };

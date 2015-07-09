@@ -23,6 +23,10 @@ public:
         return instance;
     }
 
+    // App Restart
+    unsigned int    restartDelay;
+    bool            restartShowMessage;
+
     // Displax
     unsigned int    displaxWidth;
     unsigned int    displaxHeight;

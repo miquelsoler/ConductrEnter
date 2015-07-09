@@ -1,4 +1,8 @@
 {
+    "App Restart": {
+        "Delay": 3,
+        "Show Message": true
+    },
     "Displax": {
         "Screen Width": 1920,
         "Screen Height": 1080
