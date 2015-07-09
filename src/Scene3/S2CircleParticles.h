@@ -47,7 +47,7 @@ public:
     int                     particlesState;
     void                    changeParticleState(int s);
     float                   volumeParticleScale;
-    void                    changeParticleSize(int i);
+    void                    changeParticleSize(float i);
     
     
 private:
@@ -75,6 +75,9 @@ private:
     float                   transitioningCircleRadius;
     float                   transitioningCircleAlpha;
     float                   transitioningSphereScale;
+    float                   stupidTween;
+    float                   sinusValue;
+
 
     
 };

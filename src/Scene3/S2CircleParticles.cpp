@@ -75,18 +75,10 @@ void S2CircleParticles::initInactive()
 
     changeParticleSize(0.5);
     
-//    cout << "circlePart :: init inactive" << endl;
-    
-    float kk;
-    Tweenzor::add(&kk, 1.0f, 0.9f, 0.0f, 0.0f, EASE_IN_OUT_SINE);
-    Tween *tween = Tweenzor::getTween(&kk);
+    Tweenzor::add(&stupidTween, 1.0f, 0.9f, 0.0f, 0.0f, EASE_IN_OUT_SINE);
+    Tween *tween = Tweenzor::getTween(&stupidTween);
     Tweenzor::addCompleteListener(tween, this, &S2CircleParticles::onCompleteInactive);
-
     
-    Tweenzor::add(&scaleCircle, 1.0f, 0.9f, 0.0f, 0.7f, EASE_IN_OUT_SINE);
-    Tween *tween2 = Tweenzor::getTween(&scaleCircle);
-    tween2->setRepeat(-1, true);
-
     sphereScale = 0;
     
     changeParticleState(0);
@@ -231,6 +223,9 @@ void S2CircleParticles::initActive()
 ///--------------------------------------------------------------
 void S2CircleParticles::updateActive()
 {
+    
+
+    
     // PARTICLES
     if(particlesState !=0)
     {
@@ -248,6 +243,10 @@ void S2CircleParticles::drawActive()
 {
 //    cout << "currentState : " << currentState << endl;
 
+    // SINUS OF THE CIRCLE VERTEX
+    float sinusValue = sin(ofGetElapsedTimef()*2.5);
+    scaleCircle = ofMap(sinusValue,-1.0,1.0,1.0,0.9f);
+    
     camera.begin(viewRectangle);
     {
         // PARTICLES
@@ -281,10 +280,11 @@ void S2CircleParticles::drawActive()
         
         // Draw transitioning circle and sphere exlosion
         //if (currentState == S3ObjStateTransitioning)
+
+        
         if(true)
         {
             // Circle
-            cout << "transitioning.... " << endl;
             ofFill();
             ofSetColor(255, 255, 255, int(transitioningCircleAlpha));
             ofCircle(objPosition.x, objPosition.y, 0, transitioningCircleRadius);
@@ -370,16 +370,15 @@ void S2CircleParticles::changeParticleState(int s)
 		p[i].state = s;
 	}
     
-    //cout << "changed PARTICLE state to : " << particlesState << endl;
     
 }
 
 
 ///--------------------------------------------------------------
-void S2CircleParticles::changeParticleSize(int i)
+void S2CircleParticles::changeParticleSize(float f)
 {
 	for(unsigned int i = 0; i < p.size(); i++){
-		p[i].scale = i;
+		p[i].scale = f;
 	}
     
 }
@@ -388,6 +387,6 @@ void S2CircleParticles::changeParticleSize(int i)
 ///--------------------------------------------------------------
 void S2CircleParticles::volumeChanged(float &newVolume)
 {
-    float newScale = ofMap(newVolume,0.0,1.0,0.25,volumeParticleScale);
+    float newScale = ofMap(newVolume,0.0,1.0,0.25,1.5);
     changeParticleSize(newScale);
 }

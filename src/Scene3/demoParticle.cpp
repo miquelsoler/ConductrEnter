@@ -78,10 +78,10 @@ void demoParticle::update(){
         
         pos += vel;
         
-        // UPDATE SCALE WITH A BIT OF SMOOTHING
-        float alpha = 0.25;
-        scale = scale * (1.0-alpha) + oldScale * alpha;
-        oldScale = scale;
+//        // UPDATE SCALE WITH A BIT OF SMOOTHING
+//        float alpha = 0.25;
+//        scale = scale * (1.0-alpha) + oldScale * alpha;
+//        oldScale = scale;
     }
 }
 
