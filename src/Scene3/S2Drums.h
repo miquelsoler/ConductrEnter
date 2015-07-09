@@ -44,7 +44,6 @@ private:
     virtual void drawActive();
 
     virtual void volumeChanged(float &newVolume);
-    virtual void windowResized(ofResizeEventArgs &args);
 
     void sphereResolutionChanged(int &newSphereResolution);
 

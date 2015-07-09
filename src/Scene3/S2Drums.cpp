@@ -240,18 +240,6 @@ void S2Drums::setPositionFromScreenCoords(int screenX, int screenY)
 }
 
 ///--------------------------------------------------------------
-void S2Drums::windowResized(ofResizeEventArgs &args)
-{
-    S2BaseObj::windowResized(args);
-
-    sphere.setPosition(objPosition);
-    transitioningSphere.setPosition(objPosition);
-
-    camera.setPosition(objPosition);
-    camera.setTarget(sphere);
-}
-
-///--------------------------------------------------------------
 void S2Drums::sphereResolutionChanged(int &newSphereResolution)
 {
     sphere.setResolution(newSphereResolution);

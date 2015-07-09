@@ -351,7 +351,10 @@ void Scene2::handlePress(InteractionSource interactionSource, int x, int y, Tuio
     if ((y < 0) || (y > viewHeight)) return;
 
     int pressedObjectIndex = getObjectIndexAtX(x);
+    if (pressedObjectIndex >= numObjects) return;
+
     S2BaseObj *object = objects[pressedObjectIndex];
+    if (object == NULL) return;
 
     bool isPicked = object->getIsPicked();
 
