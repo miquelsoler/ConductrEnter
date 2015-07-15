@@ -117,14 +117,40 @@ void ofApp::keyReleased(int key)
     {
         case OF_KEY_LEFT:
         {
-            // Go to previous scene
-            goToPreviousScene();
+            switch(currentScene)
+            {
+                case SceneIntro:
+                {
+                    int artistIndex = 0;
+                    goToScene2Artist(artistIndex);
+                    break;
+                }
+                case SceneArtist:
+                {
+                    bool forceLastVideoFrame = true;
+                    goToScene1(forceLastVideoFrame);
+                }
+                default: break;
+            }
             break;
         }
         case OF_KEY_RIGHT:
         {
-            // Go to next scene
-            goToNextScene();
+            switch(currentScene)
+            {
+                case SceneIntro:
+                {
+                    int artistIndex = 0;
+                    goToScene2Artist(artistIndex);
+                    break;
+                }
+                case SceneArtist:
+                {
+                    bool forceLastVideoFrame = true;
+                    goToScene1(forceLastVideoFrame);
+                }
+                default: break;
+            }
             break;
         }
         case 'f':
@@ -173,17 +199,24 @@ void ofApp::keyReleased(int key)
 void ofApp::goToNextScene()
 {
     sceneManager.nextScene();
-    currentScene = (currentScene + 1) % NUM_SCENES;
+    switch(currentScene)
+    {
+        case SceneIntro:    currentScene = SceneArtist; break;
+        case SceneArtist:   currentScene = SceneIntro; break;
+        default:            break;
+    }
 }
 
 ///--------------------------------------------------------------
 void ofApp::goToPreviousScene()
 {
     sceneManager.prevScene();
-    if (currentScene == 0)
-        currentScene = LAST_SCENE;
-    else
-        currentScene--;
+    switch(currentScene)
+    {
+        case SceneIntro:    currentScene = SceneArtist; break;
+        case SceneArtist:   currentScene = SceneIntro; break;
+        default:            break;
+    }
 }
 
 ///--------------------------------------------------------------

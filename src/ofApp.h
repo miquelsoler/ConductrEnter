@@ -9,6 +9,13 @@
 const unsigned int NUM_SCENES = 2;
 const unsigned int LAST_SCENE = NUM_SCENES - 1;
 
+typedef enum
+{
+    SceneIntro = 0,
+    SceneArtist,
+    SceneNumScenes
+} SceneIndex;
+
 class ofApp : public ofxApp
 {
 
@@ -36,7 +43,7 @@ private:
     void showScreenModeCompleteHandler(int &args);
 
     ofxSceneManager     sceneManager;
-    unsigned int        currentScene;
+    SceneIndex          currentScene;
 //    ofxSimpleTimer      scene2Timer;
 
     ScreenSetup         screenSetup;
