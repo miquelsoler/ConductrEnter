@@ -305,6 +305,11 @@ void Scene2::draw()
         tuioClient->drawCursors(0.5, 1, 0);
     }
 
+#ifdef OF_DEBUG
+    ofSetColor(ofColor::white);
+    ofDrawBitmapString("Artist: " + ofToString(artistIndex), 0, ofGetHeight()/2);
+#endif
+
     BaseScene::drawPost();
 }
 

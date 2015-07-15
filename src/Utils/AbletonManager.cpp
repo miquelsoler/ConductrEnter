@@ -200,6 +200,10 @@ void AbletonManager::update()
             onMasterVolumeChanged(m);
         else if (m.getAddress() == "/clip/playing_position")
             onClipPlayingPositionChanged(m);
+
+#ifdef OF_DEBUG
+        cout << "[AbletonManager] Received " << m.getAddress() << endl;
+#endif
     }
 }
 
