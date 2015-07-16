@@ -177,7 +177,7 @@ void AbletonManager::requestGridUpdates()
     m.addIntArg(0); // X (from track)
     m.addIntArg(0); // Y (from clip)
     m.addIntArg(8); // Width (track width, i.e. number of tracks)
-    m.addIntArg(12); // Height (clip height, i.e. number of clips)
+    m.addIntArg(100); // Height (clip height, i.e. number of clips)
 
     oscSender.sendMessage(m);
 }
